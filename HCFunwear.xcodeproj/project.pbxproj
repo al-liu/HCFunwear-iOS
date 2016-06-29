@@ -17,6 +17,24 @@
 		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
 		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
+		E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB11D236DAF0066FE80 /* HCCirculateScrollViewCell.m */; };
+		E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */; };
+		E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB71D23B8610066FE80 /* HomePageViewModel.m */; };
+		E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BC01D23BC540066FE80 /* SinglePageAdvertViewCell.m */; };
+		E34B7BC61D23C58A0066FE80 /* ProductShowPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BC41D23C58A0066FE80 /* ProductShowPriceCell.m */; };
+		E34B7BC71D23C58A0066FE80 /* ProductShowPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BC51D23C58A0066FE80 /* ProductShowPriceCell.xib */; };
+		E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BCE1D23CCFD0066FE80 /* SingleImageCell.m */; };
+		E34B7BD11D23CCFD0066FE80 /* SingleImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BCF1D23CCFD0066FE80 /* SingleImageCell.xib */; };
+		E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BD31D23CEC90066FE80 /* ProductShowNameCell.m */; };
+		E34B7BD61D23CEC90066FE80 /* ProductShowNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BD41D23CEC90066FE80 /* ProductShowNameCell.xib */; };
+		E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BD81D23D6ED0066FE80 /* LimitTimeBuyCell.m */; };
+		E34B7BDB1D23D6ED0066FE80 /* LimitTimeBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BD91D23D6ED0066FE80 /* LimitTimeBuyCell.xib */; };
+		E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BDD1D23DC780066FE80 /* ProductShowStyleCell.m */; };
+		E34B7BE01D23DC780066FE80 /* ProductShowStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BDE1D23DC780066FE80 /* ProductShowStyleCell.xib */; };
+		E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BE21D23E1C10066FE80 /* BrandBorderCell.m */; };
+		E34B7BE51D23E1C10066FE80 /* BrandBorderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BE31D23E1C10066FE80 /* BrandBorderCell.xib */; };
+		E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BE71D23E5A90066FE80 /* ProductShowBrandPriceCell.m */; };
+		E34B7BEA1D23E5A90066FE80 /* ProductShowBrandPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34B7BE81D23E5A90066FE80 /* ProductShowBrandPriceCell.xib */; };
 		E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */; };
 		E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */; };
 		E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */; };
@@ -68,6 +86,35 @@
 		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
 		E34B7BAC1D227BC60066FE80 /* HCGridMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridMenuView.h; sourceTree = "<group>"; };
 		E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridMenuView.m; sourceTree = "<group>"; };
+		E34B7BB01D236DAF0066FE80 /* HCCirculateScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollViewCell.h; sourceTree = "<group>"; };
+		E34B7BB11D236DAF0066FE80 /* HCCirculateScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCirculateScrollViewCell.m; sourceTree = "<group>"; };
+		E34B7BB31D23AB560066FE80 /* HCGridMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridMenuViewCell.h; sourceTree = "<group>"; };
+		E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridMenuViewCell.m; sourceTree = "<group>"; };
+		E34B7BB61D23B8610066FE80 /* HomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewModel.h; sourceTree = "<group>"; };
+		E34B7BB71D23B8610066FE80 /* HomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewModel.m; sourceTree = "<group>"; };
+		E34B7BBF1D23BC540066FE80 /* SinglePageAdvertViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePageAdvertViewCell.h; sourceTree = "<group>"; };
+		E34B7BC01D23BC540066FE80 /* SinglePageAdvertViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePageAdvertViewCell.m; sourceTree = "<group>"; };
+		E34B7BC31D23C58A0066FE80 /* ProductShowPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowPriceCell.h; sourceTree = "<group>"; };
+		E34B7BC41D23C58A0066FE80 /* ProductShowPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowPriceCell.m; sourceTree = "<group>"; };
+		E34B7BC51D23C58A0066FE80 /* ProductShowPriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShowPriceCell.xib; sourceTree = "<group>"; };
+		E34B7BCD1D23CCFD0066FE80 /* SingleImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleImageCell.h; sourceTree = "<group>"; };
+		E34B7BCE1D23CCFD0066FE80 /* SingleImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleImageCell.m; sourceTree = "<group>"; };
+		E34B7BCF1D23CCFD0066FE80 /* SingleImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleImageCell.xib; sourceTree = "<group>"; };
+		E34B7BD21D23CEC90066FE80 /* ProductShowNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowNameCell.h; sourceTree = "<group>"; };
+		E34B7BD31D23CEC90066FE80 /* ProductShowNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowNameCell.m; sourceTree = "<group>"; };
+		E34B7BD41D23CEC90066FE80 /* ProductShowNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShowNameCell.xib; sourceTree = "<group>"; };
+		E34B7BD71D23D6ED0066FE80 /* LimitTimeBuyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitTimeBuyCell.h; sourceTree = "<group>"; };
+		E34B7BD81D23D6ED0066FE80 /* LimitTimeBuyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitTimeBuyCell.m; sourceTree = "<group>"; };
+		E34B7BD91D23D6ED0066FE80 /* LimitTimeBuyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LimitTimeBuyCell.xib; sourceTree = "<group>"; };
+		E34B7BDC1D23DC780066FE80 /* ProductShowStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowStyleCell.h; sourceTree = "<group>"; };
+		E34B7BDD1D23DC780066FE80 /* ProductShowStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowStyleCell.m; sourceTree = "<group>"; };
+		E34B7BDE1D23DC780066FE80 /* ProductShowStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShowStyleCell.xib; sourceTree = "<group>"; };
+		E34B7BE11D23E1C10066FE80 /* BrandBorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandBorderCell.h; sourceTree = "<group>"; };
+		E34B7BE21D23E1C10066FE80 /* BrandBorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandBorderCell.m; sourceTree = "<group>"; };
+		E34B7BE31D23E1C10066FE80 /* BrandBorderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandBorderCell.xib; sourceTree = "<group>"; };
+		E34B7BE61D23E5A90066FE80 /* ProductShowBrandPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowBrandPriceCell.h; sourceTree = "<group>"; };
+		E34B7BE71D23E5A90066FE80 /* ProductShowBrandPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowBrandPriceCell.m; sourceTree = "<group>"; };
+		E34B7BE81D23E5A90066FE80 /* ProductShowBrandPriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductShowBrandPriceCell.xib; sourceTree = "<group>"; };
 		E36EC39A1CF6F4EF00A4F6D7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		E36EC39D1CF6FDD800A4F6D7 /* GlobalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalContext.h; sourceTree = "<group>"; };
@@ -184,6 +231,7 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E34B7BC21D23C4050066FE80 /* CommonCells */,
 				E34B7BAB1D227BB40066FE80 /* HCGridMenuView */,
 				E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */,
 				E30C5A2F1CED95EA00BB943C /* CustomTabBarController */,
@@ -241,6 +289,8 @@
 				E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */,
 				E36EC39A1CF6F4EF00A4F6D7 /* HomePageViewController.h */,
 				E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */,
+				E34B7BB61D23B8610066FE80 /* HomePageViewModel.h */,
+				E34B7BB71D23B8610066FE80 /* HomePageViewModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -252,6 +302,47 @@
 				E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */,
 			);
 			path = HCGridMenuView;
+			sourceTree = "<group>";
+		};
+		E34B7BAF1D236CDC0066FE80 /* HomePageCells */ = {
+			isa = PBXGroup;
+			children = (
+				E34B7BB01D236DAF0066FE80 /* HCCirculateScrollViewCell.h */,
+				E34B7BB11D236DAF0066FE80 /* HCCirculateScrollViewCell.m */,
+				E34B7BB31D23AB560066FE80 /* HCGridMenuViewCell.h */,
+				E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */,
+				E34B7BBF1D23BC540066FE80 /* SinglePageAdvertViewCell.h */,
+				E34B7BC01D23BC540066FE80 /* SinglePageAdvertViewCell.m */,
+			);
+			path = HomePageCells;
+			sourceTree = "<group>";
+		};
+		E34B7BC21D23C4050066FE80 /* CommonCells */ = {
+			isa = PBXGroup;
+			children = (
+				E34B7BC31D23C58A0066FE80 /* ProductShowPriceCell.h */,
+				E34B7BC41D23C58A0066FE80 /* ProductShowPriceCell.m */,
+				E34B7BC51D23C58A0066FE80 /* ProductShowPriceCell.xib */,
+				E34B7BCD1D23CCFD0066FE80 /* SingleImageCell.h */,
+				E34B7BCE1D23CCFD0066FE80 /* SingleImageCell.m */,
+				E34B7BCF1D23CCFD0066FE80 /* SingleImageCell.xib */,
+				E34B7BD21D23CEC90066FE80 /* ProductShowNameCell.h */,
+				E34B7BD31D23CEC90066FE80 /* ProductShowNameCell.m */,
+				E34B7BD41D23CEC90066FE80 /* ProductShowNameCell.xib */,
+				E34B7BD71D23D6ED0066FE80 /* LimitTimeBuyCell.h */,
+				E34B7BD81D23D6ED0066FE80 /* LimitTimeBuyCell.m */,
+				E34B7BD91D23D6ED0066FE80 /* LimitTimeBuyCell.xib */,
+				E34B7BDC1D23DC780066FE80 /* ProductShowStyleCell.h */,
+				E34B7BDD1D23DC780066FE80 /* ProductShowStyleCell.m */,
+				E34B7BDE1D23DC780066FE80 /* ProductShowStyleCell.xib */,
+				E34B7BE11D23E1C10066FE80 /* BrandBorderCell.h */,
+				E34B7BE21D23E1C10066FE80 /* BrandBorderCell.m */,
+				E34B7BE31D23E1C10066FE80 /* BrandBorderCell.xib */,
+				E34B7BE61D23E5A90066FE80 /* ProductShowBrandPriceCell.h */,
+				E34B7BE71D23E5A90066FE80 /* ProductShowBrandPriceCell.m */,
+				E34B7BE81D23E5A90066FE80 /* ProductShowBrandPriceCell.xib */,
+			);
+			path = CommonCells;
 			sourceTree = "<group>";
 		};
 		E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */ = {
@@ -266,6 +357,7 @@
 		E3A81E8B1CF59C15008FCC51 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E34B7BAF1D236CDC0066FE80 /* HomePageCells */,
 				E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */,
 				E3A81E901CF5A08E008FCC51 /* MainStyleView.m */,
 				E36EC3A01CF706C900A4F6D7 /* TopStyleButton.h */,
@@ -448,10 +540,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34B7BEA1D23E5A90066FE80 /* ProductShowBrandPriceCell.xib in Resources */,
+				E34B7BE01D23DC780066FE80 /* ProductShowStyleCell.xib in Resources */,
 				E3B048571CE9B85E00C182EA /* LaunchScreen.storyboard in Resources */,
+				E34B7BD61D23CEC90066FE80 /* ProductShowNameCell.xib in Resources */,
+				E34B7BD11D23CCFD0066FE80 /* SingleImageCell.xib in Resources */,
+				E34B7BDB1D23D6ED0066FE80 /* LimitTimeBuyCell.xib in Resources */,
 				E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */,
 				E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */,
+				E34B7BE51D23E1C10066FE80 /* BrandBorderCell.xib in Resources */,
 				E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */,
+				E34B7BC71D23C58A0066FE80 /* ProductShowPriceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,18 +623,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
+				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
+				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */,
+				E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */,
 				E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */,
 				E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */,
 				E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
+				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
+				E34B7BC61D23C58A0066FE80 /* ProductShowPriceCell.m in Sources */,
 				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
+				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
 				E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */,
+				E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */,
 				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,
+				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
+				E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */,
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,
 			);

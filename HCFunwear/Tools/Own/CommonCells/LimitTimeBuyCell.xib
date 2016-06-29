@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LimitTimeBuyCell">
+            <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-43-tu1">
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="韩系girl范" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhS-Tw-APo">
+                        <rect key="frame" x="10" y="126" width="135" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="CeV-Fg-KxQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="rwX-43-tu1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5jW-g2-s2m"/>
+                <constraint firstItem="rwX-43-tu1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MR6-Oe-2TI"/>
+                <constraint firstAttribute="trailing" secondItem="xhS-Tw-APo" secondAttribute="trailing" constant="10" id="VJ1-LZ-Rah"/>
+                <constraint firstAttribute="bottom" secondItem="rwX-43-tu1" secondAttribute="bottom" id="W7u-kJ-sKp"/>
+                <constraint firstAttribute="bottom" secondItem="xhS-Tw-APo" secondAttribute="bottom" constant="8" id="kDl-Yp-TdU"/>
+                <constraint firstItem="xhS-Tw-APo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="soK-17-WsG"/>
+                <constraint firstAttribute="trailing" secondItem="rwX-43-tu1" secondAttribute="trailing" id="u3J-WN-63c"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+</document>

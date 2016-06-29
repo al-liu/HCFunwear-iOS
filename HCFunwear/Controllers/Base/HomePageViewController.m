@@ -9,9 +9,11 @@
 #import "HomePageViewController.h"
 #import "GlobalContext.h"
 
-#import "HCCirculateScrollView.h"
 #import "UIImageView+YYWebImage.h"
 #import "Masonry.h"
+#import "HCCirculateScrollViewCell.h"
+#import "HCGridMenuViewCell.h"
+#import "SinglePageAdvertViewCell.h"
 
 @interface HomePageViewController ()
 <
@@ -25,49 +27,23 @@
 
 @end
 
+#pragma mark - cell indentifier
+static NSString *kCirculateScrollCellIdentifier = @"kCirculateScrollCellIdentifier";
+static NSString *kGridMenuCellIdentifier = @"kGridMenuCellIdentifier";
+static NSString *kSinglePageAdvertCellIdentifier = @"kSinglePageAdvertCellIdentifier";
+
 @implementation HomePageViewController
 
 #pragma mark - life_cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //WithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 200)
-    HCCirculateScrollView *scrollView = [[HCCirculateScrollView alloc]initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 200)];
-    scrollView.delegate = self;
-    scrollView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:scrollView];
-    
-//    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@60);
-//        make.left.right.equalTo(self.view);
-//        make.height.equalTo(@200);
-//    }];
-    
-    NSArray *urlStringList = @[@"http://i2.chinanews.com/simg/2016/160624//56925620.jpg",
-                               @"http://i3.hexunimg.cn/2016-06-26/184596032.jpg",
-                               @"http://n.sinaimg.cn/mil/transform/20160625/OJrJ-fxtniax7896757.jpg"];
-    
-    [scrollView loadView:urlStringList];
-    scrollView.isAutomatic = YES;
-}
-- (void)circulateScrollView:(HCCirculateScrollView *)circulateSctollView
-               loadImageUrl:(NSURL *)url
-              withImageView:(UIImageView *)imageView {
-    [imageView setImageURL:url];
-    NSLog(@"loadImageUrl");
-}
-- (void)circulateScrollViewDidSelectedAtIndex:(NSInteger)index {
-    NSLog(@"DidSelectedAtIndex:%ld",index);
-}
-- (void)circulateScrollViewPageControlAtIndex:(NSInteger)index {
-    NSLog(@"PageControlAtInde:%ld",index);
+     [self initCollectionView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self configNavigationBar];
-//    [self initCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +64,15 @@
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-49);
     }];
+    
+    //注册 cell
+    //广告轮播
+    [_homePageCollectionView registerClass:[HCCirculateScrollViewCell class] forCellWithReuseIdentifier:kCirculateScrollCellIdentifier];
+    //八宫格菜单
+    [_homePageCollectionView registerClass:[HCGridMenuViewCell class] forCellWithReuseIdentifier:kGridMenuCellIdentifier];
+    //单页广告
+    [_homePageCollectionView registerClass:[SinglePageAdvertViewCell class] forCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier];
+
     
 }
 
@@ -110,14 +95,26 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
-    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {//79"160
+            return CGSizeMake(screenWidth, screenWidth/160.0*79);
+        }
+        else if (indexPath.row == 1) {//189"320
+            return CGSizeMake(screenWidth, screenWidth/320.0*189);
+        }
+        else if (indexPath.row == 2) {//99:320
+            return CGSizeMake(screenWidth, screenWidth/320.0*99);
+        }
+    }
     return CGSizeZero;
 }
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
 /*
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {    return 0;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
@@ -131,16 +128,49 @@
  */
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 2;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 2;
+    }
     return 1;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            HCCirculateScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCirculateScrollCellIdentifier forIndexPath:indexPath];
+            return cell;
+        }
+        else if (indexPath.row == 1) {
+            HCGridMenuViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGridMenuCellIdentifier forIndexPath:indexPath];
+            return cell;
+        }
+    }
+    else if (indexPath.section == 1) {
+        SinglePageAdvertViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     return nil;
 }
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - HCCirculateScrollViewProtocol # 广告轮播 #
+- (void)circulateScrollView:(HCCirculateScrollView *)circulateSctollView
+               loadImageUrl:(NSURL *)url
+              withImageView:(UIImageView *)imageView {
+    [imageView setImageWithURL:url placeholder:[UIImage imageNamed:@"fan_default_01"]];
+}
+
+- (void)circulateScrollViewDidSelectedAtIndex:(NSInteger)index {
+    
+}
+
+- (void)circulateScrollViewPageControlAtIndex:(NSInteger)index {
     
 }
 

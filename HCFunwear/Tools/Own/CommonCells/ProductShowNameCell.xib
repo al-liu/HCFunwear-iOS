@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductShowNameCell">
+            <rect key="frame" x="0.0" y="0.0" width="95" height="129"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="95" height="129"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan_default_02" translatesAutoresizingMaskIntoConstraints="NO" id="8LR-sO-6bE">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8LR-sO-6bE" secondAttribute="height" multiplier="1:1" id="Q9K-h1-gBF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="休闲中短裤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD4-fg-7Jp">
+                        <rect key="frame" x="5" y="100" width="85" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="8LR-sO-6bE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="90t-dT-QaI"/>
+                <constraint firstAttribute="trailing" secondItem="8LR-sO-6bE" secondAttribute="trailing" id="AM9-oh-zHR"/>
+                <constraint firstAttribute="bottom" secondItem="nD4-fg-7Jp" secondAttribute="bottom" constant="5" id="Cfb-jw-aN8"/>
+                <constraint firstAttribute="trailing" secondItem="nD4-fg-7Jp" secondAttribute="trailing" constant="5" id="O3F-ST-fg8"/>
+                <constraint firstItem="8LR-sO-6bE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R2o-Gg-3WA"/>
+                <constraint firstItem="nD4-fg-7Jp" firstAttribute="top" secondItem="8LR-sO-6bE" secondAttribute="bottom" constant="5" id="h81-XG-efp"/>
+                <constraint firstItem="nD4-fg-7Jp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="wV1-CK-ukh"/>
+            </constraints>
+            <size key="customSize" width="98" height="130"/>
+            <point key="canvasLocation" x="337.5" y="348.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="fan_default_02" width="40" height="49"/>
+    </resources>
+</document>

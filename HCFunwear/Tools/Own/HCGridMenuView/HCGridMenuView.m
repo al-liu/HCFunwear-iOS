@@ -145,7 +145,7 @@ static NSInteger const kNumberOfOnepage = 8;
     });
     //    _iconView.backgroundColor = kImageViewBGColor;
     //默认图片
-    _iconView.image = [UIImage imageNamed:@"mfw_logo_white120"];
+    _iconView.image = [UIImage imageNamed:@"fan_default_03"];
     
     _titleView = ({
         UILabel *label = [UILabel new];
@@ -160,7 +160,7 @@ static NSInteger const kNumberOfOnepage = 8;
         label;
     });
     //默认蚊子
-    _titleView.text = @"生活馆";
+    _titleView.text = @"有范儿";
 }
 
 @end
