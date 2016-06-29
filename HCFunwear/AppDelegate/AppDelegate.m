@@ -13,6 +13,10 @@
 #import "HCTabButton.h"
 #import "HCTabBarController.h"
 
+#import "MainStyleViewController.h"
+#import "HomePageViewController.h"
+#import "GlobalContext.h"
+
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
 @end
@@ -22,10 +26,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    MainStyleViewController *styleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HCTabBarController *tabBarController = [self configTabBarController];
-    self.window.rootViewController = tabBarController;
+    tabBarController.automaticallyAdjustsScrollViewInsets = NO;
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    //纪录到全局环境中
+    [GlobalContext ShareInstance].mainTabBarController = tabBarController;
+        
     return YES;
 }
 
@@ -87,8 +100,7 @@
     HCTabButton *mineTabButton = [[HCTabButton alloc]initWithItem:mineTabItem];
     HCTabBar *tabBar = [[HCTabBar alloc]initWithTabViews:@[homePageTabButton,searchTabButton,inspirationTabButton,purchaseTabButton,mineTabButton]];
     
-    UIViewController *homePageViewController = [[UIViewController alloc]init];
-    homePageViewController.view.backgroundColor = [UIColor redColor];
+    HomePageViewController *homePageViewController = [[HomePageViewController alloc]init];
     UIViewController *destinationViewController = [[UIViewController alloc]init];
     destinationViewController.view.backgroundColor = [UIColor greenColor];
     UIViewController *mineViewController = [[UIViewController alloc]init];

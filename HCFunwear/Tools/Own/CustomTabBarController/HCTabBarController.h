@@ -17,6 +17,9 @@
 @optional
 - (void)tabBarController:(HCTabBarController *)tabBarController indexOfRepeatSelectedViewController:(NSInteger)index;
 
+//- (void)tabBarControllerWillLayoutViewControllers:(HCTabBarController *)tabBarController;
+//- (void)tabBarControllerDidLayoutViewControllers:(HCTabBarController *)tabBarController;
+
 @end
 @interface HCTabBarController : UIViewController <tabBarDelegate>
 

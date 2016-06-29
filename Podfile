@@ -6,6 +6,7 @@ pod 'Masonry'
 # pod 'Realm'
 pod 'YYKit'
 pod 'MJRefresh'
+pod 'CocoaLumberjack'
 # pod 'SDCycleScrollView','~> 1.61'
 
 target :HCFunwearTests, :exclusive => true do

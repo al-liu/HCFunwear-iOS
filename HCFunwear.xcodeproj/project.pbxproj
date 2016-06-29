@@ -14,6 +14,14 @@
 		E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A331CED95EA00BB943C /* HCTabBarController.m */; };
 		E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A351CED95EA00BB943C /* HCTabButton.m */; };
 		E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A371CED95EA00BB943C /* HCTabItem.m */; };
+		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
+		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
+		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
+		E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */; };
+		E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */; };
+		E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */; };
+		E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */; };
+		E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A81E901CF5A08E008FCC51 /* MainStyleView.m */; };
 		E3B048491CE9B85E00C182EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B048481CE9B85E00C182EA /* main.m */; };
 		E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B048501CE9B85E00C182EA /* Main.storyboard */; };
 		E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B048531CE9B85E00C182EA /* Assets.xcassets */; };
@@ -55,6 +63,21 @@
 		E30C5A351CED95EA00BB943C /* HCTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabButton.m; sourceTree = "<group>"; };
 		E30C5A361CED95EA00BB943C /* HCTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTabItem.h; sourceTree = "<group>"; };
 		E30C5A371CED95EA00BB943C /* HCTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabItem.m; sourceTree = "<group>"; };
+		E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleViewController.h; sourceTree = "<group>"; };
+		E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleViewController.m; sourceTree = "<group>"; };
+		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
+		E34B7BAC1D227BC60066FE80 /* HCGridMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridMenuView.h; sourceTree = "<group>"; };
+		E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridMenuView.m; sourceTree = "<group>"; };
+		E36EC39A1CF6F4EF00A4F6D7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		E36EC39D1CF6FDD800A4F6D7 /* GlobalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalContext.h; sourceTree = "<group>"; };
+		E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalContext.m; sourceTree = "<group>"; };
+		E36EC3A01CF706C900A4F6D7 /* TopStyleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleButton.h; sourceTree = "<group>"; };
+		E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleButton.m; sourceTree = "<group>"; };
+		E3715DCB1D1BC31E00DC3B9E /* HCCirculateScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollView.h; sourceTree = "<group>"; };
+		E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCirculateScrollView.m; sourceTree = "<group>"; };
+		E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleView.h; sourceTree = "<group>"; };
+		E3A81E901CF5A08E008FCC51 /* MainStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleView.m; sourceTree = "<group>"; };
 		E3B048441CE9B85E00C182EA /* HCFunwear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCFunwear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B048481CE9B85E00C182EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3B048511CE9B85E00C182EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +138,7 @@
 		E30C5A1F1CED8E4C00BB943C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E3240DED1CEF1280004C48C0 /* Base */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,6 +153,7 @@
 		E30C5A211CED8E4C00BB943C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E3A81E8B1CF59C15008FCC51 /* Base */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +184,8 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E34B7BAB1D227BB40066FE80 /* HCGridMenuView */,
+				E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */,
 				E30C5A2F1CED95EA00BB943C /* CustomTabBarController */,
 			);
 			path = Own;
@@ -176,6 +203,8 @@
 			children = (
 				E30C5A281CED8E9700BB943C /* GlobalColors.h */,
 				E30C5A291CED8E9700BB943C /* GlobalColors.m */,
+				E36EC39D1CF6FDD800A4F6D7 /* GlobalContext.h */,
+				E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -202,6 +231,47 @@
 				E30C5A371CED95EA00BB943C /* HCTabItem.m */,
 			);
 			path = CustomTabBarController;
+			sourceTree = "<group>";
+		};
+		E3240DED1CEF1280004C48C0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */,
+				E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */,
+				E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */,
+				E36EC39A1CF6F4EF00A4F6D7 /* HomePageViewController.h */,
+				E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E34B7BAB1D227BB40066FE80 /* HCGridMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				E34B7BAC1D227BC60066FE80 /* HCGridMenuView.h */,
+				E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */,
+			);
+			path = HCGridMenuView;
+			sourceTree = "<group>";
+		};
+		E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				E3715DCB1D1BC31E00DC3B9E /* HCCirculateScrollView.h */,
+				E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */,
+			);
+			path = HCCirculateScrollView;
+			sourceTree = "<group>";
+		};
+		E3A81E8B1CF59C15008FCC51 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */,
+				E3A81E901CF5A08E008FCC51 /* MainStyleView.m */,
+				E36EC3A01CF706C900A4F6D7 /* TopStyleButton.h */,
+				E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E3B0483B1CE9B85E00C182EA = {
@@ -379,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B048571CE9B85E00C182EA /* LaunchScreen.storyboard in Resources */,
+				E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */,
 				E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */,
 				E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */,
 			);
@@ -454,11 +525,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */,
+				E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */,
+				E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */,
+				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
+				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
+				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
 				E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */,
+				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
+				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

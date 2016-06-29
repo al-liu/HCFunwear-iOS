@@ -25,7 +25,14 @@
     if (!self) return nil;
     
     _viewControllers = controllers;
+    
+//    if (_delegate && [_delegate respondsToSelector:@selector(tabBarControllerWillLayoutViewControllers:)]) {
+//        [_delegate tabBarControllerWillLayoutViewControllers:self];
+//    }
     [self layoutViewControllers];
+//    if (_delegate && [_delegate respondsToSelector:@selector(tabBarControllerDidLayoutViewControllers:)]) {
+//        [_delegate tabBarControllerDidLayoutViewControllers:self];
+//    }
     
     return self;
 }

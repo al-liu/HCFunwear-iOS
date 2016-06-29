@@ -16,5 +16,7 @@
 #define kCellLineColor [UIColor colorWithWhite:0.859 alpha:1.000]
 #define kImageViewBGColor [UIColor colorWithRed:1.000 green:0.941 blue:0.843 alpha:1.000]
 
+#define kMainStyleColor [UIColor colorWithWhite:0.149 alpha:1.000]
+
 @interface GlobalColors : NSObject
 @end
