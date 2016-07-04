@@ -29,6 +29,8 @@ static NSInteger const kDescriptionTime = 2;
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
+        self.backgroundColor = [UIColor whiteColor];
+        self.contentMode = UIViewContentModeCenter;
         _isAutomatic = NO;
         viewWidth = CGRectGetWidth(frame);
         viewHeight = CGRectGetHeight(frame);
@@ -88,7 +90,7 @@ static NSInteger const kDescriptionTime = 2;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.bounces = NO;
     _scrollView.delegate = self;
-    _scrollView.backgroundColor = [UIColor greenColor];
+//    _scrollView.backgroundColor = [UIColor greenColor];
     _scrollView.contentSize = CGSizeMake(viewWidth * imageUrlList.count, viewHeight);
 
     [_scrollView setContentOffset:CGPointMake(viewWidth, 0)];

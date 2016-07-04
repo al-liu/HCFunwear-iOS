@@ -14,8 +14,24 @@
 		E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A331CED95EA00BB943C /* HCTabBarController.m */; };
 		E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A351CED95EA00BB943C /* HCTabButton.m */; };
 		E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A371CED95EA00BB943C /* HCTabItem.m */; };
+		E30E9FE41D29EF1100B38B37 /* GlobalConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FE31D29EF1100B38B37 /* GlobalConstant.m */; };
+		E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FE61D29F38200B38B37 /* NewUserFeastViewCell.m */; };
+		E30E9FEA1D2A004C00B38B37 /* HotCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FE91D2A004C00B38B37 /* HotCategoryView.m */; };
+		E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FEC1D2A0A6C00B38B37 /* HotCategoryViewCell.m */; };
+		E30E9FF01D2A3BBC00B38B37 /* PopularBrandsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FEF1D2A3BBC00B38B37 /* PopularBrandsView.m */; };
+		E30E9FF31D2A429500B38B37 /* PopularBrandsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FF21D2A429500B38B37 /* PopularBrandsViewCell.m */; };
+		E30E9FF61D2A4A8F00B38B37 /* FushionTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FF51D2A4A8F00B38B37 /* FushionTrendView.m */; };
+		E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FF81D2A4E3F00B38B37 /* FushionTrendViewCell.m */; };
+		E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FFB1D2A544E00B38B37 /* ShopTheLookView.m */; };
+		E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E9FFE1D2A568000B38B37 /* ShopTheLookViewCell.m */; };
+		E30EA0021D2A5C4200B38B37 /* MagazineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0011D2A5C4200B38B37 /* MagazineInfoView.m */; };
+		E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0041D2A617100B38B37 /* MagazineInfoViewCell.m */; };
+		E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0071D2A64C600B38B37 /* WearTemplateView.m */; };
+		E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */; };
 		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
+		E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F6891D264FD4006306C2 /* NewUserFeastView.m */; };
+		E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */; };
 		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
 		E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB11D236DAF0066FE80 /* HCCirculateScrollViewCell.m */; };
 		E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */; };
@@ -81,9 +97,41 @@
 		E30C5A351CED95EA00BB943C /* HCTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabButton.m; sourceTree = "<group>"; };
 		E30C5A361CED95EA00BB943C /* HCTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTabItem.h; sourceTree = "<group>"; };
 		E30C5A371CED95EA00BB943C /* HCTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabItem.m; sourceTree = "<group>"; };
+		E30E9FE21D29EF1100B38B37 /* GlobalConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstant.h; sourceTree = "<group>"; };
+		E30E9FE31D29EF1100B38B37 /* GlobalConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConstant.m; sourceTree = "<group>"; };
+		E30E9FE51D29F38200B38B37 /* NewUserFeastViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserFeastViewCell.h; sourceTree = "<group>"; };
+		E30E9FE61D29F38200B38B37 /* NewUserFeastViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastViewCell.m; sourceTree = "<group>"; };
+		E30E9FE81D2A004C00B38B37 /* HotCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryView.h; sourceTree = "<group>"; };
+		E30E9FE91D2A004C00B38B37 /* HotCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCategoryView.m; sourceTree = "<group>"; };
+		E30E9FEB1D2A0A6C00B38B37 /* HotCategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryViewCell.h; sourceTree = "<group>"; };
+		E30E9FEC1D2A0A6C00B38B37 /* HotCategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCategoryViewCell.m; sourceTree = "<group>"; };
+		E30E9FEE1D2A3BBC00B38B37 /* PopularBrandsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularBrandsView.h; sourceTree = "<group>"; };
+		E30E9FEF1D2A3BBC00B38B37 /* PopularBrandsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularBrandsView.m; sourceTree = "<group>"; };
+		E30E9FF11D2A429500B38B37 /* PopularBrandsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularBrandsViewCell.h; sourceTree = "<group>"; };
+		E30E9FF21D2A429500B38B37 /* PopularBrandsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularBrandsViewCell.m; sourceTree = "<group>"; };
+		E30E9FF41D2A4A8F00B38B37 /* FushionTrendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FushionTrendView.h; sourceTree = "<group>"; };
+		E30E9FF51D2A4A8F00B38B37 /* FushionTrendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FushionTrendView.m; sourceTree = "<group>"; };
+		E30E9FF71D2A4E3F00B38B37 /* FushionTrendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FushionTrendViewCell.h; sourceTree = "<group>"; };
+		E30E9FF81D2A4E3F00B38B37 /* FushionTrendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FushionTrendViewCell.m; sourceTree = "<group>"; };
+		E30E9FFA1D2A544E00B38B37 /* ShopTheLookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTheLookView.h; sourceTree = "<group>"; };
+		E30E9FFB1D2A544E00B38B37 /* ShopTheLookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTheLookView.m; sourceTree = "<group>"; };
+		E30E9FFD1D2A568000B38B37 /* ShopTheLookViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTheLookViewCell.h; sourceTree = "<group>"; };
+		E30E9FFE1D2A568000B38B37 /* ShopTheLookViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTheLookViewCell.m; sourceTree = "<group>"; };
+		E30EA0001D2A5C4200B38B37 /* MagazineInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagazineInfoView.h; sourceTree = "<group>"; };
+		E30EA0011D2A5C4200B38B37 /* MagazineInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagazineInfoView.m; sourceTree = "<group>"; };
+		E30EA0031D2A617100B38B37 /* MagazineInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagazineInfoViewCell.h; sourceTree = "<group>"; };
+		E30EA0041D2A617100B38B37 /* MagazineInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagazineInfoViewCell.m; sourceTree = "<group>"; };
+		E30EA0061D2A64C600B38B37 /* WearTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WearTemplateView.h; sourceTree = "<group>"; };
+		E30EA0071D2A64C600B38B37 /* WearTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WearTemplateView.m; sourceTree = "<group>"; };
+		E30EA0091D2A67FB00B38B37 /* WearTemplateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WearTemplateViewCell.h; sourceTree = "<group>"; };
+		E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WearTemplateViewCell.m; sourceTree = "<group>"; };
 		E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleViewController.h; sourceTree = "<group>"; };
 		E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleViewController.m; sourceTree = "<group>"; };
 		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
+		E348F6881D264FD4006306C2 /* NewUserFeastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserFeastView.h; sourceTree = "<group>"; };
+		E348F6891D264FD4006306C2 /* NewUserFeastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastView.m; sourceTree = "<group>"; };
+		E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadTitleView.h; sourceTree = "<group>"; };
+		E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageHeadTitleView.m; sourceTree = "<group>"; };
 		E34B7BAC1D227BC60066FE80 /* HCGridMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridMenuView.h; sourceTree = "<group>"; };
 		E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridMenuView.m; sourceTree = "<group>"; };
 		E34B7BB01D236DAF0066FE80 /* HCCirculateScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollViewCell.h; sourceTree = "<group>"; };
@@ -251,6 +299,8 @@
 			children = (
 				E30C5A281CED8E9700BB943C /* GlobalColors.h */,
 				E30C5A291CED8E9700BB943C /* GlobalColors.m */,
+				E30E9FE21D29EF1100B38B37 /* GlobalConstant.h */,
+				E30E9FE31D29EF1100B38B37 /* GlobalConstant.m */,
 				E36EC39D1CF6FDD800A4F6D7 /* GlobalContext.h */,
 				E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */,
 			);
@@ -313,6 +363,20 @@
 				E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */,
 				E34B7BBF1D23BC540066FE80 /* SinglePageAdvertViewCell.h */,
 				E34B7BC01D23BC540066FE80 /* SinglePageAdvertViewCell.m */,
+				E30E9FE51D29F38200B38B37 /* NewUserFeastViewCell.h */,
+				E30E9FE61D29F38200B38B37 /* NewUserFeastViewCell.m */,
+				E30E9FEB1D2A0A6C00B38B37 /* HotCategoryViewCell.h */,
+				E30E9FEC1D2A0A6C00B38B37 /* HotCategoryViewCell.m */,
+				E30E9FF11D2A429500B38B37 /* PopularBrandsViewCell.h */,
+				E30E9FF21D2A429500B38B37 /* PopularBrandsViewCell.m */,
+				E30E9FF71D2A4E3F00B38B37 /* FushionTrendViewCell.h */,
+				E30E9FF81D2A4E3F00B38B37 /* FushionTrendViewCell.m */,
+				E30E9FFD1D2A568000B38B37 /* ShopTheLookViewCell.h */,
+				E30E9FFE1D2A568000B38B37 /* ShopTheLookViewCell.m */,
+				E30EA0031D2A617100B38B37 /* MagazineInfoViewCell.h */,
+				E30EA0041D2A617100B38B37 /* MagazineInfoViewCell.m */,
+				E30EA0091D2A67FB00B38B37 /* WearTemplateViewCell.h */,
+				E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */,
 			);
 			path = HomePageCells;
 			sourceTree = "<group>";
@@ -345,6 +409,29 @@
 			path = CommonCells;
 			sourceTree = "<group>";
 		};
+		E34B7BEB1D24FE830066FE80 /* HomePageViews */ = {
+			isa = PBXGroup;
+			children = (
+				E348F6881D264FD4006306C2 /* NewUserFeastView.h */,
+				E348F6891D264FD4006306C2 /* NewUserFeastView.m */,
+				E30E9FE81D2A004C00B38B37 /* HotCategoryView.h */,
+				E30E9FE91D2A004C00B38B37 /* HotCategoryView.m */,
+				E30E9FEE1D2A3BBC00B38B37 /* PopularBrandsView.h */,
+				E30E9FEF1D2A3BBC00B38B37 /* PopularBrandsView.m */,
+				E30E9FF41D2A4A8F00B38B37 /* FushionTrendView.h */,
+				E30E9FF51D2A4A8F00B38B37 /* FushionTrendView.m */,
+				E30E9FFA1D2A544E00B38B37 /* ShopTheLookView.h */,
+				E30E9FFB1D2A544E00B38B37 /* ShopTheLookView.m */,
+				E30EA0001D2A5C4200B38B37 /* MagazineInfoView.h */,
+				E30EA0011D2A5C4200B38B37 /* MagazineInfoView.m */,
+				E30EA0061D2A64C600B38B37 /* WearTemplateView.h */,
+				E30EA0071D2A64C600B38B37 /* WearTemplateView.m */,
+				E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */,
+				E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */,
+			);
+			path = HomePageViews;
+			sourceTree = "<group>";
+		};
 		E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +444,7 @@
 		E3A81E8B1CF59C15008FCC51 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E34B7BEB1D24FE830066FE80 /* HomePageViews */,
 				E34B7BAF1D236CDC0066FE80 /* HomePageCells */,
 				E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */,
 				E3A81E901CF5A08E008FCC51 /* MainStyleView.m */,
@@ -623,30 +711,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
 				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
 				E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */,
 				E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */,
+				E30E9FF01D2A3BBC00B38B37 /* PopularBrandsView.m in Sources */,
 				E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */,
 				E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */,
+				E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */,
 				E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */,
+				E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */,
+				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
 				E34B7BC61D23C58A0066FE80 /* ProductShowPriceCell.m in Sources */,
+				E30E9FF31D2A429500B38B37 /* PopularBrandsViewCell.m in Sources */,
 				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
 				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
+				E30EA0021D2A5C4200B38B37 /* MagazineInfoView.m in Sources */,
+				E30E9FEA1D2A004C00B38B37 /* HotCategoryView.m in Sources */,
+				E30E9FF61D2A4A8F00B38B37 /* FushionTrendView.m in Sources */,
 				E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */,
 				E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */,
 				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,
+				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
+				E30E9FE41D29EF1100B38B37 /* GlobalConstant.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
 				E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */,
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
+				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
+				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
+				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,
+				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

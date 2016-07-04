@@ -17,8 +17,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         _advertView = [UIImageView new];
-        _advertView.backgroundColor = kImageViewBGColor;
+        _advertView.backgroundColor = [UIColor whiteColor];
         _advertView.contentMode = UIViewContentModeCenter;
+        _advertView.image = [UIImage imageNamed:@"fan_default_02"];
         [self.contentView addSubview:_advertView];
         
         [_advertView mas_makeConstraints:^(MASConstraintMaker *make) {

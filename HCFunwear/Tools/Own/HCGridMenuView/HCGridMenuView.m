@@ -8,6 +8,7 @@
 
 #import "HCGridMenuView.h"
 #import "Masonry.h"
+#import "GlobalColors.h"
 
 static NSString *const kCellIdentifier = @"HCGridMenuCellIndentifier";
 static NSInteger const kNumberOfOnepage = 8;
@@ -80,7 +81,10 @@ static NSInteger const kNumberOfOnepage = 8;
     return _section;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == section -1) {
+    if (section == _section -1) {
+        if (_numberOfLastPage == 0) {
+            return kNumberOfOnepage;
+        }
         return _numberOfLastPage;
     }
     return kNumberOfOnepage;
@@ -100,11 +104,14 @@ static NSInteger const kNumberOfOnepage = 8;
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = CGRectGetWidth(collectionView.frame);
-    return CGSizeMake((width-10*3-8*2)/4, 95);
+    CGFloat height = width/320.0*192 - 30;//默认有10的间距 item 之间
+    return CGSizeMake((width-30)/4.0, height/2);
+    //83  192"320
+    //192-20=172/2=86
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(12, 8, 12, 8);
+    return UIEdgeInsetsMake(10, 0, 10, 0);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,6 +133,7 @@ static NSInteger const kNumberOfOnepage = 8;
     self = [super initWithFrame:frame];
     if (self) {
         [self initUI];
+//        self.backgroundColor = [UIColor grayColor];
     }
     return self;
 }
@@ -150,7 +158,8 @@ static NSInteger const kNumberOfOnepage = 8;
     _titleView = ({
         UILabel *label = [UILabel new];
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:16];
+        label.font = [UIFont systemFontOfSize:11];
+        label.textColor = kTabNormalColor;
         [self.contentView addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -8,29 +8,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductShowPriceCell">
-            <rect key="frame" x="0.0" y="0.0" width="95" height="155"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kProductShowPriceCellIdentifier" id="gTV-IL-0wX" customClass="ProductShowPriceCell">
+            <rect key="frame" x="0.0" y="0.0" width="95" height="153"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="95" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="95" height="153"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan_default_02" translatesAutoresizingMaskIntoConstraints="NO" id="eUI-ql-5GE">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="fan_default_02" translatesAutoresizingMaskIntoConstraints="NO" id="eUI-ql-5GE">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="eUI-ql-5GE" secondAttribute="height" multiplier="1:1" id="Bex-iD-Zf1"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女款经典LOGO印花" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czb-VV-afh">
-                        <rect key="frame" x="5" y="108" width="85" height="15"/>
+                        <rect key="frame" x="5" y="105" width="85" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 259" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mq-vI-Lrx">
-                        <rect key="frame" x="5" y="131" width="85" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="3p1-L9-EJv"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="¥ 259" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mq-vI-Lrx">
+                        <rect key="frame" x="5" y="129" width="85" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -39,17 +36,19 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="czb-VV-afh" firstAttribute="top" secondItem="eUI-ql-5GE" secondAttribute="bottom" constant="13" id="22N-Nd-xix"/>
+                <constraint firstItem="czb-VV-afh" firstAttribute="top" secondItem="eUI-ql-5GE" secondAttribute="bottom" constant="10" id="22N-Nd-xix"/>
                 <constraint firstAttribute="trailing" secondItem="8Mq-vI-Lrx" secondAttribute="trailing" constant="5" id="89N-UL-AGP"/>
                 <constraint firstItem="czb-VV-afh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Dc8-la-aaf"/>
                 <constraint firstAttribute="trailing" secondItem="eUI-ql-5GE" secondAttribute="trailing" id="Hn9-jY-O98"/>
                 <constraint firstItem="eUI-ql-5GE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Lmj-7a-wa3"/>
                 <constraint firstItem="8Mq-vI-Lrx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="WDe-iZ-igf"/>
-                <constraint firstItem="8Mq-vI-Lrx" firstAttribute="top" secondItem="czb-VV-afh" secondAttribute="bottom" constant="8" id="pp8-5Q-oJN"/>
+                <constraint firstAttribute="bottom" secondItem="8Mq-vI-Lrx" secondAttribute="bottom" id="YaO-Wk-ckn"/>
+                <constraint firstItem="8Mq-vI-Lrx" firstAttribute="top" secondItem="czb-VV-afh" secondAttribute="bottom" constant="10" id="pp8-5Q-oJN"/>
                 <constraint firstAttribute="trailing" secondItem="czb-VV-afh" secondAttribute="trailing" constant="5" id="pyf-HH-GuY"/>
                 <constraint firstItem="eUI-ql-5GE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yXJ-L0-rde"/>
             </constraints>
-            <point key="canvasLocation" x="313.5" y="308.5"/>
+            <size key="customSize" width="95" height="153"/>
+            <point key="canvasLocation" x="313.5" y="307.5"/>
         </collectionViewCell>
     </objects>
     <resources>

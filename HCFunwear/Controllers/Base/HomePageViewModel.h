@@ -10,4 +10,8 @@
 
 @interface HomePageViewModel : NSObject
 
+@property (nonatomic, strong) NSArray *gridMenuArray;
+
+@property (nonatomic, strong) NSArray *headTitleArray;
+
 @end
