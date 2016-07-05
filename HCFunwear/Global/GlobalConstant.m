@@ -14,6 +14,8 @@ NSString *const kProductShowNameCellIdentifier = @"ProductShowNameCellIdentifier
 NSString *const kSingleImageCellIdentifier = @"SingleImageCellIdentifier";
 NSString *const kLimitTimeBuyCellIdentifier = @"LimitTimeBuyCellIdentifier";
 NSString *const kProductShowStyleCellIdentifier = @"ProductShowStyleCellIdentifier";
+NSString *const kBrandBorderCellIdentifier = @"BrandBorderCellIdentifier";
+NSString *const kProductShowBrandPriceCellIdentifier = @"ProductShowBrandPriceCellIdentifier";
 
 @implementation GlobalConstant
 

@@ -8,13 +8,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductShowBrandPriceCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductShowBrandPriceCellIdentifier" id="gTV-IL-0wX" customClass="ProductShowBrandPriceCell">
             <rect key="frame" x="0.0" y="0.0" width="141" height="262"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="141" height="262"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="45f-Mh-a6E">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan_default_01" translatesAutoresizingMaskIntoConstraints="NO" id="45f-Mh-a6E">
                         <rect key="frame" x="0.0" y="0.0" width="141" height="190"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="45f-Mh-a6E" secondAttribute="height" multiplier="141:190" id="dqh-Ca-t59"/>
@@ -63,6 +63,10 @@
                 <constraint firstItem="45f-Mh-a6E" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h56-AL-aJO"/>
                 <constraint firstAttribute="trailing" secondItem="45f-Mh-a6E" secondAttribute="trailing" id="xwS-5h-FHR"/>
             </constraints>
+            <point key="canvasLocation" x="314.5" y="214"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="fan_default_01" width="50" height="61"/>
+    </resources>
 </document>

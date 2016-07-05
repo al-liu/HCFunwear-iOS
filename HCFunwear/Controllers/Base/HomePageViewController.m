@@ -23,6 +23,12 @@
 #import "ShopTheLookViewCell.h"
 #import "MagazineInfoViewCell.h"
 #import "WearTemplateViewCell.h"
+#import "DoubleBannerViewCell.h"
+#import "NewJoinBrandViewCell.h"
+#import "RecommendedViewCell.h"
+#import "ProductShowBrandPriceCell.h"
+#import "GlobalConstant.h"
+#import "HomePageHeadReusableView.h"
 
 @interface HomePageViewController ()
 <
@@ -48,6 +54,10 @@ static NSString *kFushionTrendViewCellIdentifier = @"kFushionTrendViewCellIdenti
 static NSString *kShopTheLookViewCellIdentifier = @"kShopTheLookViewCellIdentifier";
 static NSString *kMagazineInfoViewCellIdentifier = @"kMagazineInfoViewCellIdentifier";
 static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdentifier";
+static NSString *kDoubleBannerViewCellIdentifier = @"kDoubleBannerViewCellIdentifier";
+static NSString *kNewJoinBrandViewCellIdentifier = @"kNewJoinBrandViewCellIdentifier";
+static NSString *kRecommendedViewCellIdentifier = @"kRecommendedViewCellIdentifier";
+static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableViewIdentifier";
 
 @implementation HomePageViewController
 
@@ -63,6 +73,7 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self configNavigationBar];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +88,7 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
     _homePageCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:homePageCollectionLayout];
     _homePageCollectionView.dataSource = self;
     _homePageCollectionView.delegate = self;
-    _homePageCollectionView.backgroundColor = kCommonColor;
+    _homePageCollectionView.backgroundColor = [UIColor whiteColor];//kCommonColor
     [self.view addSubview:_homePageCollectionView];
     
     [_homePageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,6 +118,16 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
     [_homePageCollectionView registerClass:[MagazineInfoViewCell class] forCellWithReuseIdentifier:kMagazineInfoViewCellIdentifier];
     //穿戴:上装，下装，鞋履，包袋，配饰，男士护理，户外运动
     [_homePageCollectionView registerClass:[WearTemplateViewCell class] forCellWithReuseIdentifier:kWearTemplateViewCellIdentifier];
+    //两个广告栏
+    [_homePageCollectionView registerClass:[DoubleBannerViewCell class] forCellWithReuseIdentifier:kDoubleBannerViewCellIdentifier];
+    //新入住品牌
+    [_homePageCollectionView registerClass:[NewJoinBrandViewCell class] forCellWithReuseIdentifier:kNewJoinBrandViewCellIdentifier];
+    //猜你喜欢头标题
+    [_homePageCollectionView registerClass:[RecommendedViewCell class] forCellWithReuseIdentifier:kRecommendedViewCellIdentifier];
+    //猜你喜欢产品
+    [_homePageCollectionView registerNib:[UINib nibWithNibName:@"ProductShowBrandPriceCell" bundle:nil] forCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier];
+    //首页常用组头Head
+    [_homePageCollectionView registerClass:[HomePageHeadReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHomePageHeadReusableViewIdentifier];
 }
 
 #pragma mark - configration
@@ -162,29 +183,44 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
     else if (indexPath.section == 8 || indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14) {
         return CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/32.0*17);
     }
+    else if (indexPath.section == 15) {
+        CGFloat itemWidth = (screenWidth-30)/2.0;
+        CGFloat itemHeight = itemWidth/145.0*85;
+        return CGSizeMake(screenWidth, itemHeight);
+    }
+    else if (indexPath.section == 16) {
+        return CGSizeMake(screenWidth, screenWidth/8.0*5 + screenWidth/32.0*23);
+    }
+    else if (indexPath.section == 17) {
+        return CGSizeMake(screenWidth, 43);
+    }
+    else if (indexPath.section == 18) {
+        CGFloat itemWidth = (screenWidth-30)/2.0;
+        CGFloat itemHeight = itemWidth / 141.0 * 262;
+        return CGSizeMake(itemWidth, itemHeight);
+    }
     return CGSizeZero;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 0 || section == 18/*猜你喜欢*/) {
         return CGSizeZero;
     }
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
     return CGSizeMake(screenWidth, 10);
 }
-
-/*
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (section == 18) {
+        return UIEdgeInsetsMake(10, 10, 10, 10);
+    }
     return UIEdgeInsetsZero;
 }
+/*
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeZero;
@@ -192,11 +228,14 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
  */
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 16;
+    return 19;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section == 0) {
         return 2;
+    }
+    else if (section == 18) {
+        return 10;
     }
     return 1;
 }
@@ -246,7 +285,31 @@ static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdenti
         cell.wearTemplateView.headTitleView.headModel = _homePageViewModel.headTitleArray[indexPath.section-8];
         return cell;
     }
+    else if (indexPath.section == 15) {
+        DoubleBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kDoubleBannerViewCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if (indexPath.section == 16) {
+        NewJoinBrandViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNewJoinBrandViewCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if (indexPath.section == 17) {
+        RecommendedViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kRecommendedViewCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if (indexPath.section == 18) {
+        ProductShowBrandPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     return nil;
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHomePageHeadReusableViewIdentifier forIndexPath:indexPath];
+        reusableview.backgroundColor = kCommonColor;
+    }
+    return reusableview;
 }
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

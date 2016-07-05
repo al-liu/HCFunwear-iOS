@@ -14,6 +14,8 @@ extern NSString *const kProductShowNameCellIdentifier;
 extern NSString *const kSingleImageCellIdentifier;
 extern NSString *const kLimitTimeBuyCellIdentifier;
 extern NSString *const kProductShowStyleCellIdentifier;
+extern NSString *const kBrandBorderCellIdentifier;
+extern NSString *const kProductShowBrandPriceCellIdentifier;
 
 @interface GlobalConstant : NSObject
 

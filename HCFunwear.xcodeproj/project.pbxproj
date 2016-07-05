@@ -28,6 +28,12 @@
 		E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0041D2A617100B38B37 /* MagazineInfoViewCell.m */; };
 		E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0071D2A64C600B38B37 /* WearTemplateView.m */; };
 		E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */; };
+		E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA00D1D2A8BF600B38B37 /* DoubleBannerView.m */; };
+		E30EA0111D2A8E4E00B38B37 /* DoubleBannerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0101D2A8E4E00B38B37 /* DoubleBannerViewCell.m */; };
+		E30EA0141D2A920900B38B37 /* NewJoinBrandView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0131D2A920900B38B37 /* NewJoinBrandView.m */; };
+		E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0161D2B3D6600B38B37 /* NewJoinBrandViewCell.m */; };
+		E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA0191D2B4B0D00B38B37 /* RecommendedViewCell.m */; };
+		E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA01F1D2B5B1F00B38B37 /* HomePageHeadReusableView.m */; };
 		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
 		E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F6891D264FD4006306C2 /* NewUserFeastView.m */; };
@@ -125,6 +131,18 @@
 		E30EA0071D2A64C600B38B37 /* WearTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WearTemplateView.m; sourceTree = "<group>"; };
 		E30EA0091D2A67FB00B38B37 /* WearTemplateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WearTemplateViewCell.h; sourceTree = "<group>"; };
 		E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WearTemplateViewCell.m; sourceTree = "<group>"; };
+		E30EA00C1D2A8BF600B38B37 /* DoubleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleBannerView.h; sourceTree = "<group>"; };
+		E30EA00D1D2A8BF600B38B37 /* DoubleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleBannerView.m; sourceTree = "<group>"; };
+		E30EA00F1D2A8E4E00B38B37 /* DoubleBannerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleBannerViewCell.h; sourceTree = "<group>"; };
+		E30EA0101D2A8E4E00B38B37 /* DoubleBannerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleBannerViewCell.m; sourceTree = "<group>"; };
+		E30EA0121D2A920900B38B37 /* NewJoinBrandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJoinBrandView.h; sourceTree = "<group>"; };
+		E30EA0131D2A920900B38B37 /* NewJoinBrandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJoinBrandView.m; sourceTree = "<group>"; };
+		E30EA0151D2B3D6600B38B37 /* NewJoinBrandViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJoinBrandViewCell.h; sourceTree = "<group>"; };
+		E30EA0161D2B3D6600B38B37 /* NewJoinBrandViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJoinBrandViewCell.m; sourceTree = "<group>"; };
+		E30EA0181D2B4B0D00B38B37 /* RecommendedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedViewCell.h; sourceTree = "<group>"; };
+		E30EA0191D2B4B0D00B38B37 /* RecommendedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedViewCell.m; sourceTree = "<group>"; };
+		E30EA01E1D2B5B1F00B38B37 /* HomePageHeadReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadReusableView.h; sourceTree = "<group>"; };
+		E30EA01F1D2B5B1F00B38B37 /* HomePageHeadReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageHeadReusableView.m; sourceTree = "<group>"; };
 		E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleViewController.h; sourceTree = "<group>"; };
 		E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleViewController.m; sourceTree = "<group>"; };
 		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
@@ -377,6 +395,14 @@
 				E30EA0041D2A617100B38B37 /* MagazineInfoViewCell.m */,
 				E30EA0091D2A67FB00B38B37 /* WearTemplateViewCell.h */,
 				E30EA00A1D2A67FB00B38B37 /* WearTemplateViewCell.m */,
+				E30EA00F1D2A8E4E00B38B37 /* DoubleBannerViewCell.h */,
+				E30EA0101D2A8E4E00B38B37 /* DoubleBannerViewCell.m */,
+				E30EA0151D2B3D6600B38B37 /* NewJoinBrandViewCell.h */,
+				E30EA0161D2B3D6600B38B37 /* NewJoinBrandViewCell.m */,
+				E30EA0181D2B4B0D00B38B37 /* RecommendedViewCell.h */,
+				E30EA0191D2B4B0D00B38B37 /* RecommendedViewCell.m */,
+				E30EA01E1D2B5B1F00B38B37 /* HomePageHeadReusableView.h */,
+				E30EA01F1D2B5B1F00B38B37 /* HomePageHeadReusableView.m */,
 			);
 			path = HomePageCells;
 			sourceTree = "<group>";
@@ -426,6 +452,10 @@
 				E30EA0011D2A5C4200B38B37 /* MagazineInfoView.m */,
 				E30EA0061D2A64C600B38B37 /* WearTemplateView.h */,
 				E30EA0071D2A64C600B38B37 /* WearTemplateView.m */,
+				E30EA00C1D2A8BF600B38B37 /* DoubleBannerView.h */,
+				E30EA00D1D2A8BF600B38B37 /* DoubleBannerView.m */,
+				E30EA0121D2A920900B38B37 /* NewJoinBrandView.h */,
+				E30EA0131D2A920900B38B37 /* NewJoinBrandView.m */,
 				E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */,
 				E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */,
 			);
@@ -711,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */,
 				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
 				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
@@ -718,7 +749,9 @@
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
 				E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */,
 				E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */,
+				E30EA0111D2A8E4E00B38B37 /* DoubleBannerViewCell.m in Sources */,
 				E30E9FF01D2A3BBC00B38B37 /* PopularBrandsView.m in Sources */,
+				E30EA0141D2A920900B38B37 /* NewJoinBrandView.m in Sources */,
 				E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */,
 				E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */,
 				E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */,
@@ -726,11 +759,13 @@
 				E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */,
 				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
+				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
 				E34B7BC61D23C58A0066FE80 /* ProductShowPriceCell.m in Sources */,
 				E30E9FF31D2A429500B38B37 /* PopularBrandsViewCell.m in Sources */,
 				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
+				E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
 				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
 				E30EA0021D2A5C4200B38B37 /* MagazineInfoView.m in Sources */,
@@ -742,6 +777,7 @@
 				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
+				E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
 				E30E9FE41D29EF1100B38B37 /* GlobalConstant.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
