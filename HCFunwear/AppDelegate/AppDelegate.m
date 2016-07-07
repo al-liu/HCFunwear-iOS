@@ -16,6 +16,7 @@
 #import "MainStyleViewController.h"
 #import "HomePageViewController.h"
 #import "GlobalContext.h"
+#import "CategoryPageViewController.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -38,6 +39,7 @@
     
     //纪录到全局环境中
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
+    [GlobalContext ShareInstance].applicationWindow = self.window;
         
     return YES;
 }
@@ -101,8 +103,7 @@
     HCTabBar *tabBar = [[HCTabBar alloc]initWithTabViews:@[homePageTabButton,searchTabButton,inspirationTabButton,purchaseTabButton,mineTabButton]];
     
     HomePageViewController *homePageViewController = [[HomePageViewController alloc]init];
-    UIViewController *destinationViewController = [[UIViewController alloc]init];
-    destinationViewController.view.backgroundColor = [UIColor greenColor];
+    CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]init];
     UIViewController *mineViewController = [[UIViewController alloc]init];
     mineViewController.view.backgroundColor = [UIColor blueColor];
     UIViewController *controller4 = [[UIViewController alloc]init];
@@ -110,7 +111,7 @@
     UIViewController *controller5 = [[UIViewController alloc]init];
     controller5.view.backgroundColor = [UIColor grayColor];
     
-    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,destinationViewController,mineViewController,controller4,controller5]];
+    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,mineViewController,controller4,controller5]];
     tabBarController.delegate = self;
     tabBarController.tabBar = tabBar;
     return tabBarController;

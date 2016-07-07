@@ -37,6 +37,8 @@
         HeadTitleModel *head06 = [[HeadTitleModel alloc]initWithTitle:@"男士护理" englishTitle:@"Grooming" isShowMore:YES];
         HeadTitleModel *head07 = [[HeadTitleModel alloc]initWithTitle:@"户外运动" englishTitle:@"outdoor sports" isShowMore:YES];
         _headTitleArray = @[head01,head02,head03,head04,head05,head06,head07];
+        
+        _topStyleTitleArray = @[@"男生",@"女生",@"生活"];
     }
     return self;
 }

@@ -68,6 +68,9 @@
 		E3B048571CE9B85E00C182EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B048551CE9B85E00C182EA /* LaunchScreen.storyboard */; };
 		E3B048621CE9B85E00C182EA /* HCFunwearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B048611CE9B85E00C182EA /* HCFunwearTests.m */; };
 		E3B0486D1CE9B85E00C182EA /* HCFunwearUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B0486C1CE9B85E00C182EA /* HCFunwearUITests.m */; };
+		E3B1D8391D2E3EC000A8BA3E /* TopCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1D8381D2E3EC000A8BA3E /* TopCategoryView.m */; };
+		E3B1D83C1D2E437B00A8BA3E /* CategoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1D83B1D2E437B00A8BA3E /* CategoryPageViewController.m */; };
+		E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1D83E1D2E439200A8BA3E /* CategoryPageViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,12 @@
 		E3B048681CE9B85E00C182EA /* HCFunwearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCFunwearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B0486C1CE9B85E00C182EA /* HCFunwearUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCFunwearUITests.m; sourceTree = "<group>"; };
 		E3B0486E1CE9B85E00C182EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3B1D8371D2E3EC000A8BA3E /* TopCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCategoryView.h; sourceTree = "<group>"; };
+		E3B1D8381D2E3EC000A8BA3E /* TopCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCategoryView.m; sourceTree = "<group>"; };
+		E3B1D83A1D2E437B00A8BA3E /* CategoryPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryPageViewController.h; sourceTree = "<group>"; };
+		E3B1D83B1D2E437B00A8BA3E /* CategoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryPageViewController.m; sourceTree = "<group>"; };
+		E3B1D83D1D2E439200A8BA3E /* CategoryPageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryPageViewModel.h; sourceTree = "<group>"; };
+		E3B1D83E1D2E439200A8BA3E /* CategoryPageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryPageViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +368,10 @@
 				E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */,
 				E34B7BB61D23B8610066FE80 /* HomePageViewModel.h */,
 				E34B7BB71D23B8610066FE80 /* HomePageViewModel.m */,
+				E3B1D83A1D2E437B00A8BA3E /* CategoryPageViewController.h */,
+				E3B1D83B1D2E437B00A8BA3E /* CategoryPageViewController.m */,
+				E3B1D83D1D2E439200A8BA3E /* CategoryPageViewModel.h */,
+				E3B1D83E1D2E439200A8BA3E /* CategoryPageViewModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -480,6 +493,8 @@
 				E3A81E901CF5A08E008FCC51 /* MainStyleView.m */,
 				E36EC3A01CF706C900A4F6D7 /* TopStyleButton.h */,
 				E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */,
+				E3B1D8371D2E3EC000A8BA3E /* TopCategoryView.h */,
+				E3B1D8381D2E3EC000A8BA3E /* TopCategoryView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -757,6 +772,7 @@
 				E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */,
 				E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */,
 				E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */,
+				E3B1D83C1D2E437B00A8BA3E /* CategoryPageViewController.m in Sources */,
 				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
@@ -781,11 +797,13 @@
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
 				E30E9FE41D29EF1100B38B37 /* GlobalConstant.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
+				E3B1D8391D2E3EC000A8BA3E /* TopCategoryView.m in Sources */,
 				E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */,
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
 				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
 				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,
+				E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */,
 				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,
 			);

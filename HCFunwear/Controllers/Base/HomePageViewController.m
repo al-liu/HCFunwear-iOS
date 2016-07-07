@@ -29,12 +29,14 @@
 #import "ProductShowBrandPriceCell.h"
 #import "GlobalConstant.h"
 #import "HomePageHeadReusableView.h"
+#import "TopStyleButton.h"
 
 @interface HomePageViewController ()
 <
     UICollectionViewDataSource,
     UICollectionViewDelegate,
-    HCCirculateScrollViewProtocol
+    HCCirculateScrollViewProtocol,
+    TopStyleDelegate
 >
 {
     UICollectionView *_homePageCollectionView;
@@ -44,19 +46,19 @@
 @end
 
 #pragma mark - cell indentifier
-static NSString *kCirculateScrollCellIdentifier = @"kCirculateScrollCellIdentifier";
-static NSString *kGridMenuCellIdentifier = @"kGridMenuCellIdentifier";
-static NSString *kSinglePageAdvertCellIdentifier = @"kSinglePageAdvertCellIdentifier";
-static NSString *kNewUserFeastCellIdentifier = @"kNewUserFeastCellIdentifier";
-static NSString *kHotCategoryViewCellIdentifier = @"kHotCategoryViewCellIdentifier";
-static NSString *kPopularBrandsViewCellIdentifier = @"kPopularBrandsViewCellIdentifier";
-static NSString *kFushionTrendViewCellIdentifier = @"kFushionTrendViewCellIdentifier";
-static NSString *kShopTheLookViewCellIdentifier = @"kShopTheLookViewCellIdentifier";
-static NSString *kMagazineInfoViewCellIdentifier = @"kMagazineInfoViewCellIdentifier";
-static NSString *kWearTemplateViewCellIdentifier = @"kWearTemplateViewCellIdentifier";
-static NSString *kDoubleBannerViewCellIdentifier = @"kDoubleBannerViewCellIdentifier";
-static NSString *kNewJoinBrandViewCellIdentifier = @"kNewJoinBrandViewCellIdentifier";
-static NSString *kRecommendedViewCellIdentifier = @"kRecommendedViewCellIdentifier";
+static NSString *kCirculateScrollCellIdentifier      = @"kCirculateScrollCellIdentifier";
+static NSString *kGridMenuCellIdentifier             = @"kGridMenuCellIdentifier";
+static NSString *kSinglePageAdvertCellIdentifier     = @"kSinglePageAdvertCellIdentifier";
+static NSString *kNewUserFeastCellIdentifier         = @"kNewUserFeastCellIdentifier";
+static NSString *kHotCategoryViewCellIdentifier      = @"kHotCategoryViewCellIdentifier";
+static NSString *kPopularBrandsViewCellIdentifier    = @"kPopularBrandsViewCellIdentifier";
+static NSString *kFushionTrendViewCellIdentifier     = @"kFushionTrendViewCellIdentifier";
+static NSString *kShopTheLookViewCellIdentifier      = @"kShopTheLookViewCellIdentifier";
+static NSString *kMagazineInfoViewCellIdentifier     = @"kMagazineInfoViewCellIdentifier";
+static NSString *kWearTemplateViewCellIdentifier     = @"kWearTemplateViewCellIdentifier";
+static NSString *kDoubleBannerViewCellIdentifier     = @"kDoubleBannerViewCellIdentifier";
+static NSString *kNewJoinBrandViewCellIdentifier     = @"kNewJoinBrandViewCellIdentifier";
+static NSString *kRecommendedViewCellIdentifier      = @"kRecommendedViewCellIdentifier";
 static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableViewIdentifier";
 
 @implementation HomePageViewController
@@ -73,6 +75,11 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self configNavigationBar];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     
 }
 
@@ -144,6 +151,12 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
     [rightButton setImage:[UIImage imageNamed:@"top_search"] forState:UIControlStateNormal];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = rightItem;
+    
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGFloat screenWidth = screenSize.width;
+    TopStyleButton *topStyleButton = [[TopStyleButton alloc]initWithFrame:CGRectMake(0, 0, screenWidth-180, 44)];
+    topStyleButton.delegate = self;
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topStyleButton;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -330,6 +343,16 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
 - (void)circulateScrollViewPageControlAtIndex:(NSInteger)index {
     
 }
+
+#pragma mark - TopStyleDelegate
+- (NSString *)topStyleButton:(TopStyleButton *)button cellForTitleAtIndexPath:(NSIndexPath *)indexPath {
+    return _homePageViewModel.topStyleTitleArray[indexPath.row];
+}
+
+- (void)topStyleButton:(TopStyleButton *)button didSelectStyle:(FunwearStyle )style {
+    
+}
+
 
 /*
 #pragma mark - Navigation

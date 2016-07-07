@@ -9,7 +9,9 @@
 #import "HCTabBarController.h"
 #import "HCTabBar.h"
 
-@implementation HCTabBarController
+@implementation HCTabBarController {
+    NSInteger currentIndex;
+}
 
 #pragma mark - Life cycle
 - (instancetype)init {
@@ -25,28 +27,9 @@
     if (!self) return nil;
     
     _viewControllers = controllers;
-    
-//    if (_delegate && [_delegate respondsToSelector:@selector(tabBarControllerWillLayoutViewControllers:)]) {
-//        [_delegate tabBarControllerWillLayoutViewControllers:self];
-//    }
-    [self layoutViewControllers];
-//    if (_delegate && [_delegate respondsToSelector:@selector(tabBarControllerDidLayoutViewControllers:)]) {
-//        [_delegate tabBarControllerDidLayoutViewControllers:self];
-//    }
+    [self selectedViewControllerAtIndex:currentIndex = 0];
     
     return self;
-}
-
-- (void)layoutViewControllers {
-    
-    for (int i = 0; i < _viewControllers.count; i++) {
-        UIViewController *viewController = _viewControllers[i];
-        [self addChildViewController:viewController];
-        viewController.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-        [self.view addSubview:viewController.view];
-        [self didMoveToParentViewController:viewController];
-    }
-    [self selectedViewControllerAtIndex:0];
 }
 
 - (void)setTabBar:(HCTabBar *)tabBar {
@@ -55,17 +38,32 @@
     [self.view addSubview:_tabBar];
 }
 
-- (void)selectedViewControllerAtIndex:(NSInteger)index {
-    for (int i = 0; i < _viewControllers.count; i++) {
-        UIViewController *viewController = _viewControllers[i];
-        if (index == i) {
-            viewController.view.hidden = NO;
-        }
-        else {
-            viewController.view.hidden = YES;
-        }
+- (void)displayViewControllerWithIndex:(NSInteger)index {
+    UIViewController *viewController = _viewControllers[index];
+    [self addChildViewController:viewController];
+    viewController.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    if (self.tabBar) {
+        [self.view insertSubview:viewController.view belowSubview:self.tabBar];
+    }
+    else {
+        [self.view addSubview:viewController.view];
+    }
+    [self didMoveToParentViewController:viewController];
+}
+
+- (void)hideViewControllerWithIndex:(NSInteger)index {
+    UIViewController *viewController = _viewControllers[index];
+    if (viewController.parentViewController) {
+        [viewController willMoveToParentViewController:nil];
+        [viewController.view removeFromSuperview];
+        [viewController removeFromParentViewController];
     }
 }
+
+- (void)selectedViewControllerAtIndex:(NSInteger)index {
+    [self hideViewControllerWithIndex:currentIndex];
+    [self displayViewControllerWithIndex:index];
+    currentIndex = index;}
 
 #pragma mark - tabBarDelegate
 - (void)indexOfSelectedTab:(NSInteger)tabIndex {

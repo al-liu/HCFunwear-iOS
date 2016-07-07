@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSArray *headTitleArray;
 
+@property (nonatomic, strong) NSArray *topStyleTitleArray;
+
 @end

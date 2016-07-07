@@ -11,6 +11,7 @@
 
 @interface GlobalContext : NSObject
 
+@property (nonatomic, strong) UIWindow *applicationWindow;
 @property (nonatomic, strong) HCTabBarController *mainTabBarController;
 
 + (instancetype)ShareInstance;
