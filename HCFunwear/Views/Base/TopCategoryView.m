@@ -35,7 +35,7 @@
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:17];
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = kTabNormalColor;
+        label.textColor = [UIColor blackColor];
         [self addSubview:label];
         
         label.userInteractionEnabled = YES;
@@ -149,6 +149,10 @@
     _currentIndex = tapView.tag;
 
     [self actionWithIndex:_currentIndex];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(topCategoryView:clickAtIndex:)]) {
+        [_delegate topCategoryView:self clickAtIndex:_currentIndex];
+    }
 }
 
 - (void)actionWithIndex:(NSInteger)index {
@@ -169,9 +173,6 @@
         [self layoutIfNeeded];
     }];
     
-    if (_delegate && [_delegate respondsToSelector:@selector(topCategoryView:clickAtIndex:)]) {
-        [_delegate topCategoryView:self clickAtIndex:index];
-    }
 }
 
 @end

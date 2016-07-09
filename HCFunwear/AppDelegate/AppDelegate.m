@@ -17,6 +17,7 @@
 #import "HomePageViewController.h"
 #import "GlobalContext.h"
 #import "CategoryPageViewController.h"
+#import "InspirationPageViewController.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -104,8 +105,7 @@
     
     HomePageViewController *homePageViewController = [[HomePageViewController alloc]init];
     CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]init];
-    UIViewController *mineViewController = [[UIViewController alloc]init];
-    mineViewController.view.backgroundColor = [UIColor blueColor];
+    InspirationPageViewController *mineViewController = [[InspirationPageViewController alloc]init];
     UIViewController *controller4 = [[UIViewController alloc]init];
     controller4.view.backgroundColor = [UIColor orangeColor];
     UIViewController *controller5 = [[UIViewController alloc]init];

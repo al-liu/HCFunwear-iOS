@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TopCategoryView.h"
 
-@interface CategoryPageViewController : UIViewController <TopCategoryViewDelegate>
+@interface CategoryPageViewController : UIViewController <TopCategoryViewDelegate,UIScrollViewDelegate>
 
 @end
