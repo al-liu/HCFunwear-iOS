@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InspirationAttentionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="26"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqX-nx-aMA">
+                    <rect key="frame" x="280" y="0.0" width="40" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="i1N-PG-qXk"/>
+                    </constraints>
+                    <state key="normal" image="brand_arrow_top"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为您推荐的达人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPM-oT-wHi">
+                    <rect key="frame" x="10" y="0.0" width="260" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dPM-oT-wHi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="BHB-rx-Dak"/>
+                <constraint firstItem="dPM-oT-wHi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DWf-IY-n1p"/>
+                <constraint firstItem="sqX-nx-aMA" firstAttribute="leading" secondItem="dPM-oT-wHi" secondAttribute="trailing" constant="10" id="IFZ-VI-ZLp"/>
+                <constraint firstItem="sqX-nx-aMA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QGf-Zg-6qq"/>
+                <constraint firstAttribute="bottom" secondItem="dPM-oT-wHi" secondAttribute="bottom" id="YTh-aV-lwY"/>
+                <constraint firstAttribute="trailing" secondItem="sqX-nx-aMA" secondAttribute="trailing" id="yyb-cD-7yh"/>
+                <constraint firstAttribute="bottom" secondItem="sqX-nx-aMA" secondAttribute="bottom" id="zdA-JO-Xd5"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="219" y="32"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="brand_arrow_top" width="15" height="15"/>
+    </resources>
+</document>

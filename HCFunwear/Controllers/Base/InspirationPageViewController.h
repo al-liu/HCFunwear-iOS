@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InspirationPageViewController : UIViewController
+@interface InspirationPageViewController : UIViewController <UIScrollViewDelegate>
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InspirationPageFunerView : UIView
+@interface InspirationPageFunerView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end

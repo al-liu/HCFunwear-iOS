@@ -16,6 +16,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _isShowMore = YES;
+        [self initUI];
+    }
+    return self;
+}
+
+- (instancetype)initWithShowMore:(BOOL)flag {
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        _isShowMore = flag;
         [self initUI];
     }
     return self;
@@ -64,7 +74,12 @@
         
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self);
-            make.width.equalTo(@60);
+            if (_isShowMore == NO) {
+                make.width.equalTo(@0);
+            }
+            else {
+                make.width.equalTo(@60);
+            }
         }];
         
         button;
@@ -82,7 +97,12 @@
         
         view;
     });
-    allowImageView.image = [UIImage imageNamed:@"btn_more"];
+    if (_isShowMore == NO) {
+        allowImageView.image = nil;
+    }
+    else {
+        allowImageView.image = [UIImage imageNamed:@"btn_more"];
+    }
 
     UILabel *moreTitle = ({
         UILabel *label = [UILabel new];
@@ -97,7 +117,12 @@
         
         label;
     });
-    moreTitle.text = @"更多";
+    if (_isShowMore == NO) {
+        moreTitle.text = nil;
+    }
+    else {
+        moreTitle.text = @"更多";
+    }
     
     
     _titleEnLabel = ({
@@ -136,7 +161,7 @@
         view;
     });
     horizontalLine.backgroundColor = kCellLineColor;
-
+    
 }
 
 @end

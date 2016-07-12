@@ -35,7 +35,7 @@
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:17];
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor blackColor];
+        label.textColor = kTabNormalColor;
         [self addSubview:label];
         
         label.userInteractionEnabled = YES;
@@ -54,7 +54,7 @@
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:17];
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = kTabNormalColor;
+        label.textColor = [UIColor blackColor];
         [self addSubview:label];
         
         label.userInteractionEnabled = YES;

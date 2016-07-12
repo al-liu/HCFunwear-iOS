@@ -20,11 +20,15 @@ extern NSString *const kHotBrandViewCellIdentifier;
 extern NSString *const kHotCategoryPageViewCellIdentifier;
 extern NSString *const kCategoryTableViewCellIdentifier;
 extern NSString *const kInspirationInfoCellIdentifier;
+extern NSString *const kInspirationAttentionCellIdentifier;
 
-#pragma mark - defines
+#pragma mark - Screen Size defines
 #define SCREEN_SIZE [[UIScreen mainScreen] bounds].size
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+#define kNavigationBarHeight 64
+#define kTabBaHeight 49
 
 @interface GlobalConstant : NSObject
 

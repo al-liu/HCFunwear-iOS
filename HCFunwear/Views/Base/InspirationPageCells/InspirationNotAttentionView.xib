@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有关注其他人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8p-dQ-Y6l">
+                    <rect key="frame" x="10" y="214" width="300" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_nofocus" translatesAutoresizingMaskIntoConstraints="NO" id="0zr-c8-sEI">
+                    <rect key="frame" x="110" y="94" width="100" height="100"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="u8p-dQ-Y6l" firstAttribute="top" secondItem="0zr-c8-sEI" secondAttribute="bottom" constant="20" id="Eyz-tj-STU"/>
+                <constraint firstItem="u8p-dQ-Y6l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="LL3-2N-yoq"/>
+                <constraint firstAttribute="trailing" secondItem="u8p-dQ-Y6l" secondAttribute="trailing" constant="10" id="MAF-Wc-rXh"/>
+                <constraint firstItem="0zr-c8-sEI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-40" id="m63-qo-9sP"/>
+                <constraint firstItem="0zr-c8-sEI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vJ0-A1-hdH"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_nofocus" width="100" height="100"/>
+    </resources>
+</document>

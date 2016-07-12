@@ -13,7 +13,11 @@
     UILabel *_titleEnLabel;
 }
 
+- (instancetype)initWithShowMore:(BOOL)flag;
+
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *titleEnLabel;
+
+@property (nonatomic, assign) BOOL isShowMore;
 
 @end

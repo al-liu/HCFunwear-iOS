@@ -12,10 +12,13 @@
 #import "GlobalConstant.h"
 #import "InspirationPageInfoView.h"
 #import "Masonry.h"
+#import "InspirationPageFunerView.h"
+#import "InspirationPageAttentionView.h"
 
 @interface InspirationPageViewController () <TopCategoryViewDelegate>
 {
     TopCategoryView *topView;
+    UIScrollView *_scrollView;
 }
 @end
 
@@ -51,16 +54,59 @@
     topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-180, 44)];
     topView.delegate = self;
 
-    InspirationPageInfoView *pageInfoView = ({
-        InspirationPageInfoView *view = [InspirationPageInfoView new];
+    _scrollView = ({
+        UIScrollView *view = [UIScrollView new];
+        view.pagingEnabled = YES;
+        view.delegate = self;
         [self.view addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(64, 0, 0, 0));
+            make.edges.equalTo(self.view);
         }];
         
         view;
     });
+    
+    NSNumber *pageWidth = [NSNumber numberWithFloat:CGRectGetWidth(self.view.frame)];
+    
+    InspirationPageInfoView *pageInfoView = ({
+        InspirationPageInfoView *view = [InspirationPageInfoView new];
+        [_scrollView addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(self.view).offset(64);
+            make.left.equalTo(_scrollView);
+            make.width.equalTo(pageWidth);
+        }];
+        
+        view;
+    });
+    
+    InspirationPageFunerView *funnerView = ({
+        InspirationPageFunerView *view = [InspirationPageFunerView new];
+        [_scrollView addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(pageInfoView.mas_right);
+            make.top.bottom.width.equalTo(pageInfoView);
+        }];
+        
+        view;
+    });
+    
+    InspirationPageAttentionView *attentionView = ({
+        InspirationPageAttentionView *view = [InspirationPageAttentionView new];
+        [_scrollView addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(funnerView.mas_right);
+            make.top.bottom.width.equalTo(funnerView);
+            make.right.equalTo(_scrollView);
+        }];
+        
+        view;
+    });
+    
 }
 
 #pragma mark - configration
@@ -82,7 +128,12 @@
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {
-//    [_scrollView setContentOffset:CGPointMake(index * CGRectGetWidth(_scrollView.frame), 0) animated:YES];
+    [_scrollView setContentOffset:CGPointMake(index * CGRectGetWidth(_scrollView.frame), 0) animated:YES];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    topView.currentIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
 }
 
 @end

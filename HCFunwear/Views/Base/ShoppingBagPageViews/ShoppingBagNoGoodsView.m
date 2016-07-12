@@ -1,18 +1,23 @@
 //
-//  InspirationPageFunerView.m
+//  ShoppingBagNoGoodsView.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/7/8.
+//  Created by 刘海川 on 16/7/11.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "InspirationPageFunerView.h"
+#import "ShoppingBagNoGoodsView.h"
+#import "ShoppingBagDefaultVIew.h"
 #import "Masonry.h"
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
-#import "GlobalColors.h"
+#import "ShoppingBagReusableView.h"
+#import "CategoryPageHeadTitleView.h"
 
-@implementation InspirationPageFunerView
+static NSString *kShoppingBagHeaderIdentifier = @"kShoppingBagHeaderIdentifier";
+@implementation ShoppingBagNoGoodsView {
+    ShoppingBagDefaultVIew *defaultView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -24,8 +29,9 @@
 }
 
 - (void)initUI {
-    
+    //404+36=440
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -33,16 +39,45 @@
     collectionView.backgroundColor = [UIColor whiteColor];
     
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
+        make.left.right.equalTo(self);
+        make.bottom.equalTo(self).offset(-49);
+        make.height.equalTo(@202);
     }];
     
     [collectionView registerNib:[UINib nibWithNibName:@"SingleImageCell" bundle:nil] forCellWithReuseIdentifier:kSingleImageCellIdentifier];
     
+    CategoryPageHeadTitleView *headView = ({
+        CategoryPageHeadTitleView *view = [[CategoryPageHeadTitleView alloc]initWithShowMore:NO];
+        view.backgroundColor = [UIColor whiteColor];
+        [self addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@36);
+            make.left.right.equalTo(self);
+            make.bottom.equalTo(collectionView.mas_top);
+        }];
+        
+        view;
+    });
+    headView.titleLabel.text = @"优选新品";
+    headView.titleEnLabel.text = @"New Arrivals";
+    
+    defaultView = ({
+        ShoppingBagDefaultVIew *view = [[NSBundle mainBundle] loadNibNamed:@"ShoppingBagDefaultVIew" owner:self options:nil].lastObject;
+        [self addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.equalTo(self);
+            make.bottom.equalTo(headView.mas_top);
+        }];
+        
+        view;
+    });
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 8;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,17 +89,10 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat itemWidth = (SCREEN_WIDTH - 4)/2.0; // 79:104
-    return CGSizeMake(itemWidth, itemWidth / 79.0 * 104);
+    return CGSizeMake(145, 182);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 4;
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 4;
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 @end

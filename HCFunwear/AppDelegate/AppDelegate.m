@@ -18,6 +18,8 @@
 #import "GlobalContext.h"
 #import "CategoryPageViewController.h"
 #import "InspirationPageViewController.h"
+#import "ShoppingBagPageViewController.h"
+#import "MinePageViewController.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -105,13 +107,11 @@
     
     HomePageViewController *homePageViewController = [[HomePageViewController alloc]init];
     CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]init];
-    InspirationPageViewController *mineViewController = [[InspirationPageViewController alloc]init];
-    UIViewController *controller4 = [[UIViewController alloc]init];
-    controller4.view.backgroundColor = [UIColor orangeColor];
-    UIViewController *controller5 = [[UIViewController alloc]init];
-    controller5.view.backgroundColor = [UIColor grayColor];
+    InspirationPageViewController *inspirationController = [[InspirationPageViewController alloc]init];
+    ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];
+    MinePageViewController *mineViewController = [[MinePageViewController alloc]init];
     
-    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,mineViewController,controller4,controller5]];
+    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,mineViewController,inspirationController,shoppingBagController]];
     tabBarController.delegate = self;
     tabBarController.tabBar = tabBar;
     return tabBarController;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InspirationPageAttentionView : UIView
+@interface InspirationPageAttentionView : UIView <UITableViewDataSource,UITableViewDelegate>
 
 @end
