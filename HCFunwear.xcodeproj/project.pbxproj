@@ -107,7 +107,19 @@
 		E3FBB15E1D3384DE00573343 /* ShoppingBagPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB15D1D3384DE00573343 /* ShoppingBagPageViewModel.m */; };
 		E3FBB1611D338E8100573343 /* MinePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1601D338E8100573343 /* MinePageViewController.m */; };
 		E3FBB1641D338E9200573343 /* MinePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1631D338E9200573343 /* MinePageViewModel.m */; };
-		E3FBB1681D33A94200573343 /* MinePageCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1671D33A94200573343 /* MinePageCollectionViewLayout.m */; };
+		E3FBB16C1D34CDC100573343 /* MinePageUserHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB16A1D34CDC100573343 /* MinePageUserHeadCell.m */; };
+		E3FBB16D1D34CDC100573343 /* MinePageUserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FBB16B1D34CDC100573343 /* MinePageUserHeadCell.xib */; };
+		E3FBB1711D34D4BD00573343 /* MineMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB16F1D34D4BD00573343 /* MineMenuCell.m */; };
+		E3FBB1721D34D4BD00573343 /* MineMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FBB1701D34D4BD00573343 /* MineMenuCell.xib */; };
+		E3FBB1761D34D97A00573343 /* MineOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1741D34D97A00573343 /* MineOrderCell.m */; };
+		E3FBB1771D34D97A00573343 /* MineOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FBB1751D34D97A00573343 /* MineOrderCell.xib */; };
+		E3FBB17B1D34DB1C00573343 /* MineTableMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1791D34DB1C00573343 /* MineTableMenuCell.m */; };
+		E3FBB17C1D34DB1C00573343 /* MineTableMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FBB17A1D34DB1C00573343 /* MineTableMenuCell.xib */; };
+		E3FBB1801D34DF8100573343 /* MinePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB17F1D34DF8100573343 /* MinePageView.m */; };
+		E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1831D34E91A00573343 /* MineMenuModel.m */; };
+		E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1861D351A6B00573343 /* MineTableMenuModel.m */; };
+		E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1891D35254500573343 /* NewArrivalsHeadCell.m */; };
+		E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB18C1D35256500573343 /* NewArrivalsViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,8 +324,28 @@
 		E3FBB1601D338E8100573343 /* MinePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePageViewController.m; sourceTree = "<group>"; };
 		E3FBB1621D338E9200573343 /* MinePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePageViewModel.h; sourceTree = "<group>"; };
 		E3FBB1631D338E9200573343 /* MinePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePageViewModel.m; sourceTree = "<group>"; };
-		E3FBB1661D33A94200573343 /* MinePageCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePageCollectionViewLayout.h; sourceTree = "<group>"; };
-		E3FBB1671D33A94200573343 /* MinePageCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePageCollectionViewLayout.m; sourceTree = "<group>"; };
+		E3FBB1691D34CDC100573343 /* MinePageUserHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePageUserHeadCell.h; sourceTree = "<group>"; };
+		E3FBB16A1D34CDC100573343 /* MinePageUserHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePageUserHeadCell.m; sourceTree = "<group>"; };
+		E3FBB16B1D34CDC100573343 /* MinePageUserHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinePageUserHeadCell.xib; sourceTree = "<group>"; };
+		E3FBB16E1D34D4BD00573343 /* MineMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMenuCell.h; sourceTree = "<group>"; };
+		E3FBB16F1D34D4BD00573343 /* MineMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMenuCell.m; sourceTree = "<group>"; };
+		E3FBB1701D34D4BD00573343 /* MineMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineMenuCell.xib; sourceTree = "<group>"; };
+		E3FBB1731D34D97A00573343 /* MineOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineOrderCell.h; sourceTree = "<group>"; };
+		E3FBB1741D34D97A00573343 /* MineOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineOrderCell.m; sourceTree = "<group>"; };
+		E3FBB1751D34D97A00573343 /* MineOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineOrderCell.xib; sourceTree = "<group>"; };
+		E3FBB1781D34DB1C00573343 /* MineTableMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableMenuCell.h; sourceTree = "<group>"; };
+		E3FBB1791D34DB1C00573343 /* MineTableMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableMenuCell.m; sourceTree = "<group>"; };
+		E3FBB17A1D34DB1C00573343 /* MineTableMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineTableMenuCell.xib; sourceTree = "<group>"; };
+		E3FBB17E1D34DF8100573343 /* MinePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePageView.h; sourceTree = "<group>"; };
+		E3FBB17F1D34DF8100573343 /* MinePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePageView.m; sourceTree = "<group>"; };
+		E3FBB1821D34E91A00573343 /* MineMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMenuModel.h; sourceTree = "<group>"; };
+		E3FBB1831D34E91A00573343 /* MineMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMenuModel.m; sourceTree = "<group>"; };
+		E3FBB1851D351A6B00573343 /* MineTableMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableMenuModel.h; sourceTree = "<group>"; };
+		E3FBB1861D351A6B00573343 /* MineTableMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableMenuModel.m; sourceTree = "<group>"; };
+		E3FBB1881D35254500573343 /* NewArrivalsHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalsHeadCell.h; sourceTree = "<group>"; };
+		E3FBB1891D35254500573343 /* NewArrivalsHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsHeadCell.m; sourceTree = "<group>"; };
+		E3FBB18B1D35256500573343 /* NewArrivalsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalsViewCell.h; sourceTree = "<group>"; };
+		E3FBB18C1D35256500573343 /* NewArrivalsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +402,7 @@
 		E30C5A201CED8E4C00BB943C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3FBB1811D34E90200573343 /* MinePageModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -637,6 +670,7 @@
 		E3A81E8B1CF59C15008FCC51 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E3FBB17D1D34DF6700573343 /* MinePageViews */,
 				E3FBB1651D33A66100573343 /* MinePageCells */,
 				E3FBB1471D335EDA00573343 /* ShoppingBagPageCells */,
 				E3FBB1481D335EDA00573343 /* ShoppingBagPageViews */,
@@ -784,10 +818,44 @@
 		E3FBB1651D33A66100573343 /* MinePageCells */ = {
 			isa = PBXGroup;
 			children = (
-				E3FBB1661D33A94200573343 /* MinePageCollectionViewLayout.h */,
-				E3FBB1671D33A94200573343 /* MinePageCollectionViewLayout.m */,
+				E3FBB1691D34CDC100573343 /* MinePageUserHeadCell.h */,
+				E3FBB16A1D34CDC100573343 /* MinePageUserHeadCell.m */,
+				E3FBB16B1D34CDC100573343 /* MinePageUserHeadCell.xib */,
+				E3FBB16E1D34D4BD00573343 /* MineMenuCell.h */,
+				E3FBB16F1D34D4BD00573343 /* MineMenuCell.m */,
+				E3FBB1701D34D4BD00573343 /* MineMenuCell.xib */,
+				E3FBB1731D34D97A00573343 /* MineOrderCell.h */,
+				E3FBB1741D34D97A00573343 /* MineOrderCell.m */,
+				E3FBB1751D34D97A00573343 /* MineOrderCell.xib */,
+				E3FBB1781D34DB1C00573343 /* MineTableMenuCell.h */,
+				E3FBB1791D34DB1C00573343 /* MineTableMenuCell.m */,
+				E3FBB17A1D34DB1C00573343 /* MineTableMenuCell.xib */,
+				E3FBB1881D35254500573343 /* NewArrivalsHeadCell.h */,
+				E3FBB1891D35254500573343 /* NewArrivalsHeadCell.m */,
+				E3FBB18B1D35256500573343 /* NewArrivalsViewCell.h */,
+				E3FBB18C1D35256500573343 /* NewArrivalsViewCell.m */,
 			);
 			path = MinePageCells;
+			sourceTree = "<group>";
+		};
+		E3FBB17D1D34DF6700573343 /* MinePageViews */ = {
+			isa = PBXGroup;
+			children = (
+				E3FBB17E1D34DF8100573343 /* MinePageView.h */,
+				E3FBB17F1D34DF8100573343 /* MinePageView.m */,
+			);
+			path = MinePageViews;
+			sourceTree = "<group>";
+		};
+		E3FBB1811D34E90200573343 /* MinePageModels */ = {
+			isa = PBXGroup;
+			children = (
+				E3FBB1821D34E91A00573343 /* MineMenuModel.h */,
+				E3FBB1831D34E91A00573343 /* MineMenuModel.m */,
+				E3FBB1851D351A6B00573343 /* MineTableMenuModel.h */,
+				E3FBB1861D351A6B00573343 /* MineTableMenuModel.m */,
+			);
+			path = MinePageModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,6 +968,7 @@
 				E3B1D8621D2F57CB00A8BA3E /* CategoryTableViewCell.xib in Resources */,
 				E34B7BE01D23DC780066FE80 /* ProductShowStyleCell.xib in Resources */,
 				E368C7B01D30DF6500E8783F /* InspirationAttentionCell.xib in Resources */,
+				E3FBB17C1D34DB1C00573343 /* MineTableMenuCell.xib in Resources */,
 				E3B1D8671D2F6D1800A8BA3E /* HotCategoryPageViewCell.xib in Resources */,
 				E3B1D8581D2F428400A8BA3E /* HotBrandViewCell.xib in Resources */,
 				E3B048571CE9B85E00C182EA /* LaunchScreen.storyboard in Resources */,
@@ -909,12 +978,15 @@
 				E3FBB1461D3339A400573343 /* InspirationNotAttentionView.xib in Resources */,
 				E34B7BDB1D23D6ED0066FE80 /* LimitTimeBuyCell.xib in Resources */,
 				E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */,
+				E3FBB1721D34D4BD00573343 /* MineMenuCell.xib in Resources */,
 				E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */,
 				E34B7BE51D23E1C10066FE80 /* BrandBorderCell.xib in Resources */,
 				E3FBB1411D33359900573343 /* InspirationAttentionHeaderView.xib in Resources */,
 				E3FBB14D1D335F3500573343 /* ShoppingBagToolBar.xib in Resources */,
+				E3FBB16D1D34CDC100573343 /* MinePageUserHeadCell.xib in Resources */,
 				E3FBB1551D336FEC00573343 /* ShoppingBagDefaultVIew.xib in Resources */,
 				E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */,
+				E3FBB1771D34D97A00573343 /* MineOrderCell.xib in Resources */,
 				E34B7BC71D23C58A0066FE80 /* ProductShowPriceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -993,10 +1065,12 @@
 				E3B1D8611D2F57CB00A8BA3E /* CategoryTableViewCell.m in Sources */,
 				E3B1D8461D2F30DD00A8BA3E /* TopCategoryPageView.m in Sources */,
 				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
+				E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */,
 				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
 				E3B1D8531D2F393900A8BA3E /* CategoryPageHeadTitleView.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
 				E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */,
 				E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */,
@@ -1016,16 +1090,18 @@
 				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
 				E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
-				E3FBB1681D33A94200573343 /* MinePageCollectionViewLayout.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
 				E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */,
 				E3B1D86A1D2F8A6600A8BA3E /* InspirationPageViewController.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
+				E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */,
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
+				E3FBB16C1D34CDC100573343 /* MinePageUserHeadCell.m in Sources */,
 				E368C7A01D2FA9C100E8783F /* InspirationPageAttentionView.m in Sources */,
+				E3FBB1711D34D4BD00573343 /* MineMenuCell.m in Sources */,
 				E34B7BC61D23C58A0066FE80 /* ProductShowPriceCell.m in Sources */,
 				E30E9FF31D2A429500B38B37 /* PopularBrandsViewCell.m in Sources */,
 				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
@@ -1034,10 +1110,12 @@
 				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
 				E3B1D86D1D2F8A8A00A8BA3E /* InspirationPageViewModel.m in Sources */,
 				E30EA0021D2A5C4200B38B37 /* MagazineInfoView.m in Sources */,
+				E3FBB1801D34DF8100573343 /* MinePageView.m in Sources */,
 				E30E9FEA1D2A004C00B38B37 /* HotCategoryView.m in Sources */,
 				E3FBB1441D33395500573343 /* InspirationNotAttentionView.m in Sources */,
 				E3FBB1531D336FDF00573343 /* ShoppingBagDefaultVIew.m in Sources */,
 				E30E9FF61D2A4A8F00B38B37 /* FushionTrendView.m in Sources */,
+				E3FBB17B1D34DB1C00573343 /* MineTableMenuCell.m in Sources */,
 				E30C5A3A1CED95EA00BB943C /* HCTabButton.m in Sources */,
 				E3FBB1641D338E9200573343 /* MinePageViewModel.m in Sources */,
 				E3FBB1501D336FA400573343 /* ShoppingBagNoGoodsView.m in Sources */,
@@ -1046,6 +1124,7 @@
 				E3FBB15B1D337D6200573343 /* ShoppingBagPageViewController.m in Sources */,
 				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,
 				E3B1D8501D2F34F400A8BA3E /* TopHotReusableView.m in Sources */,
+				E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */,
 				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
@@ -1059,6 +1138,7 @@
 				E368C79D1D2FA99800E8783F /* InspirationPageFunerView.m in Sources */,
 				E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */,
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
+				E3FBB1761D34D97A00573343 /* MineOrderCell.m in Sources */,
 				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
 				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,

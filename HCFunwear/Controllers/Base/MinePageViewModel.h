@@ -10,4 +10,7 @@
 
 @interface MinePageViewModel : NSObject
 
+@property (nonatomic, strong) NSArray *mineMenuModels;
+@property (nonatomic, strong) NSArray *mineOrderMenuModels;
+
 @end

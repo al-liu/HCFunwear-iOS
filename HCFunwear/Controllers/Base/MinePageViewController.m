@@ -8,9 +8,14 @@
 
 #import "MinePageViewController.h"
 #import "GlobalContext.h"
+#import "MinePageView.h"
+#import "Masonry.h"
+#import "MinePageViewModel.h"
 
 @interface MinePageViewController ()
-
+{
+    MinePageViewModel *_minePageViewModel;
+}
 @end
 
 @implementation MinePageViewController
@@ -19,7 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    _minePageViewModel = [MinePageViewModel new];
+    [self initUI];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,6 +64,23 @@
     
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = nil;
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.title = @"我的";
+}
+
+- (void)initUI {
+    MinePageView *pageView = ({
+        MinePageView *view = [MinePageView new];
+        [self.view addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        }];
+        
+        view;
+    });
+    pageView.minePageMenus = _minePageViewModel.mineMenuModels;
+    pageView.minePageOrderMenus = _minePageViewModel.mineOrderMenuModels;
+    
+    [pageView reloadData];
 }
 
 @end

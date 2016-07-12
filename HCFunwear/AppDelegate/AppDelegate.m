@@ -111,7 +111,7 @@
     ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];
     MinePageViewController *mineViewController = [[MinePageViewController alloc]init];
     
-    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,mineViewController,inspirationController,shoppingBagController]];
+    HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,inspirationController,shoppingBagController,mineViewController]];
     tabBarController.delegate = self;
     tabBarController.tabBar = tabBar;
     return tabBarController;
