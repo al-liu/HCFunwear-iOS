@@ -70,6 +70,7 @@
 		E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */; };
 		E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */; };
 		E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */; };
+		E37947851D3A7FD0001CE89C /* HomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E37947841D3A7FD0001CE89C /* HomePageView.m */; };
 		E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A81E901CF5A08E008FCC51 /* MainStyleView.m */; };
 		E3B048491CE9B85E00C182EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B048481CE9B85E00C182EA /* main.m */; };
 		E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B048501CE9B85E00C182EA /* Main.storyboard */; };
@@ -257,6 +258,8 @@
 		E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleButton.m; sourceTree = "<group>"; };
 		E3715DCB1D1BC31E00DC3B9E /* HCCirculateScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollView.h; sourceTree = "<group>"; };
 		E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCirculateScrollView.m; sourceTree = "<group>"; };
+		E37947831D3A7FD0001CE89C /* HomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageView.h; sourceTree = "<group>"; };
+		E37947841D3A7FD0001CE89C /* HomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageView.m; sourceTree = "<group>"; };
 		E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleView.h; sourceTree = "<group>"; };
 		E3A81E901CF5A08E008FCC51 /* MainStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleView.m; sourceTree = "<group>"; };
 		E3B048441CE9B85E00C182EA /* HCFunwear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCFunwear.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -598,6 +601,8 @@
 		E34B7BEB1D24FE830066FE80 /* HomePageViews */ = {
 			isa = PBXGroup;
 			children = (
+				E37947831D3A7FD0001CE89C /* HomePageView.h */,
+				E37947841D3A7FD0001CE89C /* HomePageView.m */,
 				E348F6881D264FD4006306C2 /* NewUserFeastView.h */,
 				E348F6891D264FD4006306C2 /* NewUserFeastView.m */,
 				E30E9FE81D2A004C00B38B37 /* HotCategoryView.h */,
@@ -1066,6 +1071,7 @@
 				E3B1D8461D2F30DD00A8BA3E /* TopCategoryPageView.m in Sources */,
 				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
 				E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */,
+				E37947851D3A7FD0001CE89C /* HomePageView.m in Sources */,
 				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
 				E3B1D8531D2F393900A8BA3E /* CategoryPageHeadTitleView.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
