@@ -242,64 +242,11 @@ HCCirculateScrollViewProtocol
     HCModule *module = _homePageDataList[indexPath.section];
     HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
     return info.sizeItem;
-    /*
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat screenWidth = screenSize.width;
-    if (indexPath.section == 0) {//79"160
-        return CGSizeMake(screenWidth, screenWidth/160.0*79);
-    }
-    else if (indexPath.section == 1) {//192"320
-        return CGSizeMake(screenWidth, screenWidth/320.0*192+1);//差一丢丢
-    }
-    else if (indexPath.section == 2) {
-        //99:320
-        return CGSizeMake(screenWidth, screenWidth/320.0*99);
-    }
-    else if (indexPath.section == 3) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/320.0*174);
-    }
-    else if (indexPath.section == 4) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/320.0*374);
-    }
-    else if (indexPath.section == 5) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/16.0*9);
-    }
-    else if (indexPath.section == 6) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/2.0);
-    }
-    else if (indexPath.section == 7) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/32.0*17);
-    }
-    else if (indexPath.section == 8) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/40.0*23 + 61);
-    }
-    else if (indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14 || indexPath.section == 15) {
-        return CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/32.0*17);
-    }
-    else if (indexPath.section == 16) {
-        CGFloat itemWidth = (screenWidth-30)/2.0;
-        CGFloat itemHeight = itemWidth/145.0*85;
-        return CGSizeMake(screenWidth, itemHeight);
-    }
-    else if (indexPath.section == 17) {
-        return CGSizeMake(screenWidth, screenWidth/8.0*5 + screenWidth/32.0*23);
-    }
-    else if (indexPath.section == 18) {
-        return CGSizeMake(screenWidth, 43);
-    }
-    else if (indexPath.section == 19) {
-        CGFloat itemWidth = (screenWidth-30)/2.0;
-        CGFloat itemHeight = itemWidth / 141.0 * 262;
-        return CGSizeMake(itemWidth, itemHeight);
-    }
-    return CGSizeZero;
-     */
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     HCModule *module = _homePageDataList[section];
     HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
     return info.minimumLineSpacing;
-//    return 0;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     HCModule *module = _homePageDataList[section];
