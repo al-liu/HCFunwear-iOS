@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotCategoryView.h"
 
 @interface HotCategoryViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) HotCategoryView *hotGategoryView;
 
 @end

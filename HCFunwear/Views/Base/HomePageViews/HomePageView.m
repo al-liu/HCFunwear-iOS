@@ -26,6 +26,10 @@
 #import "Masonry.h"
 #import "GlobalConstant.h"
 #import "GlobalColors.h"
+#import "HCModule.h"
+#import "HCModuleData.h"
+#import "HCCollectionCellInfo.h"
+#import "RACEXTScope.h"
 
 #pragma mark - cell indentifier
 static NSString *kCirculateScrollCellIdentifier      = @"kCirculateScrollCellIdentifier";
@@ -53,6 +57,7 @@ HCCirculateScrollViewProtocol
 @end
 @implementation HomePageView {
     UICollectionView *_homePageCollectionView;
+    NSDictionary *_moudelDictionary;
 }
 
 - (instancetype)initWithViewModel:(HomePageViewModel *)mdoel {
@@ -73,7 +78,6 @@ HCCirculateScrollViewProtocol
     }
     return self;
 }
-
 - (void)reloadData {
     [_homePageCollectionView reloadData];
 }
@@ -92,187 +96,378 @@ HCCirculateScrollViewProtocol
     }];
     
     //注册 cell
+    [self registerCollectionCells];
+    [self registerCollectionCellsInfo];
+    
+}
+
+- (void)registerCollectionCells {
     //广告轮播
-    [_homePageCollectionView registerClass:[HCCirculateScrollViewCell class] forCellWithReuseIdentifier:kCirculateScrollCellIdentifier];
+    [_homePageCollectionView registerClass:[HCCirculateScrollViewCell class]
+                forCellWithReuseIdentifier:kCirculateScrollCellIdentifier];
     //八宫格菜单
-    [_homePageCollectionView registerClass:[HCGridMenuViewCell class] forCellWithReuseIdentifier:kGridMenuCellIdentifier];
+    [_homePageCollectionView registerClass:[HCGridMenuViewCell class]
+                forCellWithReuseIdentifier:kGridMenuCellIdentifier];
     //单页广告
-    [_homePageCollectionView registerClass:[SinglePageAdvertViewCell class] forCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier];
+    [_homePageCollectionView registerClass:[SinglePageAdvertViewCell class]
+                forCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier];
     //新手专享
-    [_homePageCollectionView registerClass:[NewUserFeastViewCell class]  forCellWithReuseIdentifier:kNewUserFeastCellIdentifier];
+    [_homePageCollectionView registerClass:[NewUserFeastViewCell class]
+                forCellWithReuseIdentifier:kNewUserFeastCellIdentifier];
     //热门品类
-    [_homePageCollectionView registerClass:[HotCategoryViewCell class] forCellWithReuseIdentifier:kHotCategoryViewCellIdentifier];
+    [_homePageCollectionView registerClass:[HotCategoryViewCell class]
+                forCellWithReuseIdentifier:kHotCategoryViewCellIdentifier];
     //热门品牌
-    [_homePageCollectionView registerClass:[PopularBrandsViewCell class] forCellWithReuseIdentifier:kPopularBrandsViewCellIdentifier];
+    [_homePageCollectionView registerClass:[PopularBrandsViewCell class]
+                forCellWithReuseIdentifier:kPopularBrandsViewCellIdentifier];
     //搭配趋势
-    [_homePageCollectionView registerClass:[FushionTrendViewCell class] forCellWithReuseIdentifier:kFushionTrendViewCellIdentifier];
+    [_homePageCollectionView registerClass:[FushionTrendViewCell class]
+                forCellWithReuseIdentifier:kFushionTrendViewCellIdentifier];
     //限时搭配购
-    [_homePageCollectionView registerClass:[ShopTheLookViewCell class] forCellWithReuseIdentifier:kShopTheLookViewCellIdentifier];
+    [_homePageCollectionView registerClass:[ShopTheLookViewCell class]
+                forCellWithReuseIdentifier:kShopTheLookViewCellIdentifier];
     //流行资讯
-    [_homePageCollectionView registerClass:[MagazineInfoViewCell class] forCellWithReuseIdentifier:kMagazineInfoViewCellIdentifier];
+    [_homePageCollectionView registerClass:[MagazineInfoViewCell class]
+                forCellWithReuseIdentifier:kMagazineInfoViewCellIdentifier];
     //穿戴:上装，下装，鞋履，包袋，配饰，男士护理，户外运动
-    [_homePageCollectionView registerClass:[WearTemplateViewCell class] forCellWithReuseIdentifier:kWearTemplateViewCellIdentifier];
+    [_homePageCollectionView registerClass:[WearTemplateViewCell class]
+                forCellWithReuseIdentifier:kWearTemplateViewCellIdentifier];
     //两个广告栏
-    [_homePageCollectionView registerClass:[DoubleBannerViewCell class] forCellWithReuseIdentifier:kDoubleBannerViewCellIdentifier];
+    [_homePageCollectionView registerClass:[DoubleBannerViewCell class]
+                forCellWithReuseIdentifier:kDoubleBannerViewCellIdentifier];
     //新入住品牌
-    [_homePageCollectionView registerClass:[NewJoinBrandViewCell class] forCellWithReuseIdentifier:kNewJoinBrandViewCellIdentifier];
+    [_homePageCollectionView registerClass:[NewJoinBrandViewCell class]
+                forCellWithReuseIdentifier:kNewJoinBrandViewCellIdentifier];
     //猜你喜欢头标题
-    [_homePageCollectionView registerClass:[RecommendedViewCell class] forCellWithReuseIdentifier:kRecommendedViewCellIdentifier];
+    [_homePageCollectionView registerClass:[RecommendedViewCell class]
+                forCellWithReuseIdentifier:kRecommendedViewCellIdentifier];
     //猜你喜欢产品
-    [_homePageCollectionView registerNib:[UINib nibWithNibName:@"ProductShowBrandPriceCell" bundle:nil] forCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier];
+    [_homePageCollectionView registerNib:[UINib nibWithNibName:@"ProductShowBrandPriceCell" bundle:nil]
+              forCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier];
     //首页常用组头Head
-    [_homePageCollectionView registerClass:[HomePageHeadReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHomePageHeadReusableViewIdentifier];
+    [_homePageCollectionView registerClass:[HomePageHeadReusableView class]
+                forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                       withReuseIdentifier:kHomePageHeadReusableViewIdentifier];
+}
+
+- (void)registerCollectionCellsInfo {
+    NSMutableDictionary *cellInfoDictionary = [[NSMutableDictionary alloc]initWithCapacity:14];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGFloat screenWidth = screenSize.width;
+    HCCollectionCellInfo *circulateScrollViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kCirculateScrollCellIdentifier
+                                                                                               sizeItem:CGSizeMake(screenWidth, screenWidth/160.0*79)
+                                                                                     minimumLineSpacing:0
+                                                                                 referenceSizeForHeader:CGSizeZero
+                                                                                        insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:circulateScrollViewCellInfo forKey:@"topImgModule"];
+    HCCollectionCellInfo *gridMenuViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kGridMenuCellIdentifier
+                                                                                        sizeItem:CGSizeMake(screenWidth, screenWidth/320.0*192+1)
+                                                                              minimumLineSpacing:0
+                                                                          referenceSizeForHeader:CGSizeZero
+                                                                                 insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:gridMenuViewCellInfo forKey:@"iconModule"];
+    HCCollectionCellInfo *singlePageAdvertViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kSinglePageAdvertCellIdentifier
+                                                                                                sizeItem:CGSizeMake(screenWidth, screenWidth/320.0*99)
+                                                                                      minimumLineSpacing:0
+                                                                                  referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                         insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:singlePageAdvertViewCellInfo forKey:@"bannerModule"];
+    HCCollectionCellInfo *newUserFeastViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kNewUserFeastCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/320.0*174)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:newUserFeastViewCellInfo forKey:@"newModule"];
+    HCCollectionCellInfo *hotCategoryViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kHotCategoryViewCellIdentifier
+                                                                                           sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/320.0*374)
+                                                                                 minimumLineSpacing:0
+                                                                             referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                    insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:hotCategoryViewCellInfo forKey:@"hotCateModule"];
+    HCCollectionCellInfo *popularBrandsViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kPopularBrandsViewCellIdentifier
+                                                                                             sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/16.0*9)
+                                                                                   minimumLineSpacing:0
+                                                                               referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                      insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:popularBrandsViewCellInfo forKey:@"hotBrandModule"];
+    HCCollectionCellInfo *fushionTrendViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kFushionTrendViewCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/2.0)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:fushionTrendViewCellInfo forKey:@"colloSpecialModule"];
+    HCCollectionCellInfo *shopTheLookViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kShopTheLookViewCellIdentifier
+                                                                                           sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/32.0*17)
+                                                                                 minimumLineSpacing:0
+                                                                             referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                    insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:shopTheLookViewCellInfo forKey:@"暂时获取不到Module"];
+    HCCollectionCellInfo *magazineInfoViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kMagazineInfoViewCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/40.0*23 + 61)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:magazineInfoViewCellInfo forKey:@"imgModule"];
+    HCCollectionCellInfo *wearTemplateViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kWearTemplateViewCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/32.0*17)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:wearTemplateViewCellInfo forKey:@"imgListV1Module"];
+    CGFloat itemWidth = (screenWidth-30)/2.0;
+    CGFloat itemHeight = itemWidth/145.0*85;
+    HCCollectionCellInfo *doubleBannerViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kDoubleBannerViewCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, itemHeight)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:doubleBannerViewCellInfo forKey:@"imgListV3Module"];
+    HCCollectionCellInfo *newJoinBrandViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kNewJoinBrandViewCellIdentifier
+                                                                                            sizeItem:CGSizeMake(screenWidth, screenWidth/8.0*5 + screenWidth/32.0*23)
+                                                                                  minimumLineSpacing:0
+                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                     insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:newJoinBrandViewCellInfo forKey:@"imgListV4Module"];
+    HCCollectionCellInfo *recommendedViewCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kRecommendedViewCellIdentifier
+                                                                                           sizeItem:CGSizeMake(screenWidth, 43)
+                                                                                 minimumLineSpacing:0
+                                                                             referenceSizeForHeader:CGSizeMake(screenWidth, 10)
+                                                                                    insetForSection:UIEdgeInsetsZero];
+    [cellInfoDictionary setObject:recommendedViewCellInfo forKey:@"likeModule"];
+    _moudelDictionary = [cellInfoDictionary copy];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HCModule *module = _homePageDataList[indexPath.section];
+    HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    return info.sizeItem;
+    /*
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {//79"160
-            return CGSizeMake(screenWidth, screenWidth/160.0*79);
-        }
-        else if (indexPath.row == 1) {//192"320
-            return CGSizeMake(screenWidth, screenWidth/320.0*192);
-        }
+    if (indexPath.section == 0) {//79"160
+        return CGSizeMake(screenWidth, screenWidth/160.0*79);
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 1) {//192"320
+        return CGSizeMake(screenWidth, screenWidth/320.0*192+1);//差一丢丢
+    }
+    else if (indexPath.section == 2) {
         //99:320
         return CGSizeMake(screenWidth, screenWidth/320.0*99);
     }
-    else if (indexPath.section == 2) {
+    else if (indexPath.section == 3) {
         return CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/320.0*174);
     }
-    else if (indexPath.section == 3) {
+    else if (indexPath.section == 4) {
         return CGSizeMake(screenWidth, 43 + screenWidth/320.0*374);
     }
-    else if (indexPath.section == 4) {
+    else if (indexPath.section == 5) {
         return CGSizeMake(screenWidth, 43 + screenWidth/16.0*9);
     }
-    else if (indexPath.section == 5) {
+    else if (indexPath.section == 6) {
         return CGSizeMake(screenWidth, 43 + screenWidth/2.0);
     }
-    else if (indexPath.section == 6) {
+    else if (indexPath.section == 7) {
         return CGSizeMake(screenWidth, 43 + screenWidth/32.0*17);
     }
-    else if (indexPath.section == 7) {
+    else if (indexPath.section == 8) {
         return CGSizeMake(screenWidth, 43 + screenWidth/40.0*23 + 61);
     }
-    else if (indexPath.section == 8 || indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14) {
+    else if (indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14 || indexPath.section == 15) {
         return CGSizeMake(screenWidth, 43 + screenWidth/8.0*5 + screenWidth/32.0*17);
     }
-    else if (indexPath.section == 15) {
+    else if (indexPath.section == 16) {
         CGFloat itemWidth = (screenWidth-30)/2.0;
         CGFloat itemHeight = itemWidth/145.0*85;
         return CGSizeMake(screenWidth, itemHeight);
     }
-    else if (indexPath.section == 16) {
+    else if (indexPath.section == 17) {
         return CGSizeMake(screenWidth, screenWidth/8.0*5 + screenWidth/32.0*23);
     }
-    else if (indexPath.section == 17) {
+    else if (indexPath.section == 18) {
         return CGSizeMake(screenWidth, 43);
     }
-    else if (indexPath.section == 18) {
+    else if (indexPath.section == 19) {
         CGFloat itemWidth = (screenWidth-30)/2.0;
         CGFloat itemHeight = itemWidth / 141.0 * 262;
         return CGSizeMake(itemWidth, itemHeight);
     }
     return CGSizeZero;
+     */
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    HCModule *module = _homePageDataList[section];
+    HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    return info.minimumLineSpacing;
+//    return 0;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 18/*猜你喜欢*/) {
-        return CGSizeZero;
-    }
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat screenWidth = screenSize.width;
-    return CGSizeMake(screenWidth, 10);
+    HCModule *module = _homePageDataList[section];
+    HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    return info.referenceSizeForHeader;
+//    if (section == 0 || section == 1 || section == 18/*猜你喜欢*/) {
+//        return CGSizeZero;
+//    }
+//    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+//    CGFloat screenWidth = screenSize.width;
+//    return CGSizeMake(screenWidth, 10);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (section == 18) {
+    if (section == _homePageDataList.count) {//猜你喜欢产品的组
         return UIEdgeInsetsMake(10, 10, 10, 10);
     }
-    return UIEdgeInsetsZero;
+    HCModule *module = _homePageDataList[section];
+    HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    return info.insetForSection;
+//    return UIEdgeInsetsZero;
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 19;
+    return _homePageDataList.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 2;
-    }
-    else if (section == 18) {
+    if (section == _homePageDataList.count) {//猜你喜欢产品的组
         return 10;
     }
     return 1;
 }
-
+#warning home page limit time without moudle key 在现有的接口返回的数据里看不到 限时搭配购的 moudle key
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HCModule *module = _homePageDataList[indexPath.section];
+    HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:info.identifier forIndexPath:indexPath];
+    if ([module.module_key isEqualToString:@"topImgModule"]) {
+        HCCirculateScrollViewCell *circulateCell = (HCCirculateScrollViewCell *)cell;
+        NSArray *urlStrings = [[module.data.rac_sequence map:^id(HCModuleData *value) {
+            return value.img;
+        }] array];
+        [circulateCell.circulateScrollView loadView:urlStrings];
+    }
+    else if ([module.module_key isEqualToString:@"iconModule"]) {
+        HCGridMenuViewCell *gridMenuCell = (HCGridMenuViewCell *)cell;
+        [gridMenuCell.gridMenuView reloadDataWithTypes:module.data];
+    }
+    else if ([module.module_key isEqualToString:@"bannerModule"]) {
+        SinglePageAdvertViewCell *singleAdvertCell = (SinglePageAdvertViewCell *)cell;
+        HCModuleData *moudleData = module.data.firstObject;
+        @weakify(singleAdvertCell);
+        [singleAdvertCell.advertView setImageWithURL:moudleData.img placeholder:nil options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            @strongify(singleAdvertCell)
+            singleAdvertCell.advertView.image = image;
+            singleAdvertCell.advertView.contentMode = UIViewContentModeScaleAspectFit;
+        }];
+    }
+    else if ([module.module_key isEqualToString:@"newModule"]) {
+        NewUserFeastViewCell *userFeastCell = (NewUserFeastViewCell *)cell;
+        userFeastCell.feastView.userFeastModule = module;
+        [userFeastCell.feastView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"hotCateModule"]) {
+        HotCategoryViewCell *hotCategoryCell = (HotCategoryViewCell *)cell;
+        hotCategoryCell.hotGategoryView.hotCategoryModule = module;
+        [hotCategoryCell.hotGategoryView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"hotBrandModule"]) {
+        PopularBrandsViewCell *popularBrandsCell = (PopularBrandsViewCell *)cell;
+        popularBrandsCell.brandsView.popularModule = module;
+        [popularBrandsCell.brandsView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"colloSpecialModule"]) {
+        FushionTrendViewCell *funshionCell = (FushionTrendViewCell *)cell;
+        funshionCell.fushionTrendView.module = module;
+        [funshionCell.fushionTrendView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"imgModule"]) {
+        MagazineInfoViewCell *newCell = (MagazineInfoViewCell *)cell;
+        newCell.magazineInfoView.module = module;
+        [newCell.magazineInfoView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"imgListV1Module"]) {
+        WearTemplateViewCell *newCell = (WearTemplateViewCell *)cell;
+        newCell.wearTemplateView.module = module;
+        [newCell.wearTemplateView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"imgListV3Module"]) {
+        DoubleBannerViewCell *newCell = (DoubleBannerViewCell *)cell;
+        newCell.doubleBannerView.module = module;
+        [newCell.doubleBannerView reloadData];
+    }
+    else if ([module.module_key isEqualToString:@"imgListV4Module"]) {
+        NewJoinBrandViewCell *newCell = (NewJoinBrandViewCell *)cell;
+        newCell.joinBrandView.module = module;
+        [newCell.joinBrandView reloadData];
+    }
+    
+    return cell;
+    /*
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            HCCirculateScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCirculateScrollCellIdentifier forIndexPath:indexPath];
-            return cell;
-        }
-        else if (indexPath.row == 1) {
-            HCGridMenuViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGridMenuCellIdentifier forIndexPath:indexPath];
-            [cell.gridMenuView reloadDataWithTypes:_homePageViewModel.gridMenuArray];
-            return cell;
-        }
+        HCCirculateScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCirculateScrollCellIdentifier forIndexPath:indexPath];
+        HCModule *topImgModule = _homePageDataList[0];
+        NSArray *urlStrings = [[topImgModule.data.rac_sequence map:^id(HCModuleData *value) {
+            return value.img;
+        }] array];
+        [cell.circulateScrollView loadView:urlStrings];
+        return cell;
     }
     else if (indexPath.section == 1) {
-        SinglePageAdvertViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier forIndexPath:indexPath];
+        HCGridMenuViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGridMenuCellIdentifier forIndexPath:indexPath];
+        HCModule *iconModule = _homePageDataList[1];
+        [cell.gridMenuView reloadDataWithTypes:iconModule.data];
+        //            [cell.gridMenuView reloadDataWithTypes:_homePageViewModel.gridMenuArray];
         return cell;
     }
     else if (indexPath.section == 2) {
-        NewUserFeastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNewUserFeastCellIdentifier forIndexPath:indexPath];
+        SinglePageAdvertViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSinglePageAdvertCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 3) {
-        HotCategoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHotCategoryViewCellIdentifier forIndexPath:indexPath];
+        NewUserFeastViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNewUserFeastCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 4) {
-        PopularBrandsViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPopularBrandsViewCellIdentifier forIndexPath:indexPath];
+        HotCategoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHotCategoryViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 5) {
-        FushionTrendViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFushionTrendViewCellIdentifier forIndexPath:indexPath];
+        PopularBrandsViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPopularBrandsViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     else if (indexPath.section == 6) {
+        FushionTrendViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFushionTrendViewCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if (indexPath.section == 7) {//暂时没有在接口中看到
         ShopTheLookViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kShopTheLookViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    else if (indexPath.section == 7) {
+    else if (indexPath.section == 8) {
         MagazineInfoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMagazineInfoViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    else if (indexPath.section == 8 || indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14) {
+    else if (indexPath.section == 9 || indexPath.section == 10 || indexPath.section == 11 || indexPath.section == 12 || indexPath.section == 13 || indexPath.section == 14 || indexPath.section == 15) {
         WearTemplateViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kWearTemplateViewCellIdentifier forIndexPath:indexPath];
         cell.wearTemplateView.headTitleView.headModel = _homePageViewModel.headTitleArray[indexPath.section-8];
         return cell;
     }
-    else if (indexPath.section == 15) {
+    else if (indexPath.section == 16) {
         DoubleBannerViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kDoubleBannerViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    else if (indexPath.section == 16) {
+    else if (indexPath.section == 17) {
         NewJoinBrandViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNewJoinBrandViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    else if (indexPath.section == 17) {
+    else if (indexPath.section == 18) {
         RecommendedViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kRecommendedViewCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    else if (indexPath.section == 18) {
+    else if (indexPath.section == 19) {
         ProductShowBrandPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     return nil;
+     */
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableview = nil;

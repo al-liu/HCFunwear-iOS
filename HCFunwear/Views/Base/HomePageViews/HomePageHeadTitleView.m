@@ -105,11 +105,12 @@
     
 }
 
-- (void)setHeadModel:(HeadTitleModel *)headModel {
-    _headModel = headModel;
-    _titleLabel.text = _headModel.title;
-    _titleEnLabel.text = _headModel.titleEn;
-    _isShowMore = _headModel.isShowMore;
+- (void)setHeadModule:(HCModule *)headModule {
+    _headModule = headModule;
+    _titleLabel.text = _headModule.c_title;
+    _titleEnLabel.text = _headModule.e_title;
+    _isShowMore = _headModule.is_more;
+    _moreButton.hidden = !_isShowMore;
 }
 
 /*
@@ -119,22 +120,6 @@
     // Drawing code
 }
 */
-
-@end
-
-@implementation HeadTitleModel
-
-- (instancetype)initWithTitle:(NSString *)title
-                 englishTitle:(NSString *)titleEn
-                   isShowMore:(BOOL)flag {
-    self = [super init];
-    if (self) {
-        _title = title;
-        _titleEn = titleEn;
-        _isShowMore = flag;
-    }
-    return self;
-}
 
 @end
 

@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 @implementation HotCategoryViewCell {
-    HotCategoryView *_hotGategoryView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

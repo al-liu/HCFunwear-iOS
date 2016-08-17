@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModuleData.h"
 
 @class HCGridMenuView,HCGridInfo;
 @protocol HCGridMenuViewProtocol <NSObject>
 
-- (void)HCGridMenuView:(HCGridMenuView *)menuView selectedAtGridInfo:(HCGridInfo *)gridInfo;
+- (void)HCGridMenuView:(HCGridMenuView *)menuView selectedAtGridInfo:(HCModuleData *)gridInfo;
 
 @end
 
@@ -48,18 +49,5 @@
 
 @property (nonatomic, strong) UIImageView *iconView;
 @property (nonatomic, strong) UILabel *titleView;
-
-@end
-
-/**
- *  菜单对应的模型
- */
-@interface HCGridInfo : NSObject
-
-@property (nonatomic, strong) UIImage *icon;
-@property (nonatomic, copy) NSString *title;
-
-- (instancetype)initWithIcon:(UIImage *)icon
-                       title:(NSString *)title;
 
 @end

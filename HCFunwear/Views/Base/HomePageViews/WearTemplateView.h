@@ -14,6 +14,10 @@
     HomePageHeadTitleView *_headTitleView;
 }
 
+@property (nonatomic, strong) UIImageView *modelImageView;
 @property (nonatomic, strong) HomePageHeadTitleView *headTitleView;
+@property (nonatomic, strong) HCModule *module;
+
+- (void)reloadData;
 
 @end

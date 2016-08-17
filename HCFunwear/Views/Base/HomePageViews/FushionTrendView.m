@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
+#import "UIImageView+YYWebImage.h"
 
 @implementation FushionTrendView {
     HomePageHeadTitleView *_headTitleView;
@@ -65,6 +66,13 @@
     });
 }
 
+- (void)reloadData {
+    if (_module.data.count > 0) {
+        _headTitleView.headModule = _module;
+        [_productGridView reloadData];
+    }
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat viewWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -87,6 +95,12 @@
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor grayColor];
+    HCModuleData *moduleData = _module.data[indexPath.row];
+    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        cell.imageView.image = image;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }];
+
     return cell;
 }
 

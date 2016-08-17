@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModule.h"
 
 @interface DoubleBannerView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) HCModule *module;
+
+- (void)reloadData;
 
 @end

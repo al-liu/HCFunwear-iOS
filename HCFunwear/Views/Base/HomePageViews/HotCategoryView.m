@@ -11,6 +11,8 @@
 #import "Masonry.h"
 #import "ProductShowNameCell.h"
 #import "GlobalConstant.h"
+#import "UIImageView+YYWebImage.h"
+#import "SingleImageCell.h"
 
 @implementation HotCategoryView {
     HomePageHeadTitleView *_headTitleView;
@@ -59,10 +61,17 @@
             make.height.equalTo(self.mas_width).multipliedBy(374.0/320.0);
         }];
         
-        [collectionView registerNib:[UINib nibWithNibName:@"ProductShowNameCell" bundle:nil] forCellWithReuseIdentifier:kProductShowNameCellIdentifier];
+        [collectionView registerNib:[UINib nibWithNibName:@"SingleImageCell" bundle:nil] forCellWithReuseIdentifier:kSingleImageCellIdentifier];
         
         collectionView;
     });
+}
+
+- (void)reloadData {
+    if (_hotCategoryModule.data.count == 9) {
+        _headTitleView.headModule = _hotCategoryModule;
+        [_productGridView reloadData];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -70,7 +79,7 @@
     CGFloat viewWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat collectionViewHeight = viewWidth*(374.0/320.0);
     
-    return CGSizeMake((viewWidth-40)/3.0, (collectionViewHeight-40)/3.0);
+    return CGSizeMake((viewWidth-40)/3.0-1, (collectionViewHeight-40)/3.0);
     
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -85,7 +94,13 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ProductShowNameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowNameCellIdentifier forIndexPath:indexPath];
+    SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    HCModuleData *moduleData = _hotCategoryModule.data[indexPath.row];
+    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        cell.imageView.image = image;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }];
+    
     return cell;
 }
 

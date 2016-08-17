@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewJoinBrandView.h"
 
 @interface NewJoinBrandViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) NewJoinBrandView *joinBrandView;
 
 @end

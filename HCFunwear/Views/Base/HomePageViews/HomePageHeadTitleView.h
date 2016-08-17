@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModule.h"
 
-@class HeadTitleModel;
 @interface HomePageHeadTitleView : UIView {
     UILabel *_titleLabel;
     UILabel *_titleEnLabel;
@@ -19,18 +19,6 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *titleEnLabel;
 
-@property (nonatomic, strong) HeadTitleModel *headModel;
-
-@end
-
-@interface HeadTitleModel : NSObject
-
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *titleEn;
-@property (nonatomic, assign) BOOL isShowMore;
-
-- (instancetype)initWithTitle:(NSString *)title
-                 englishTitle:(NSString *)titleEn
-                   isShowMore:(BOOL)flag;
+@property (nonatomic, strong) HCModule *headModule;
 
 @end

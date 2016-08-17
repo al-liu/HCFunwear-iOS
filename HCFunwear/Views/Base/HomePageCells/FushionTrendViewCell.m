@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 @implementation FushionTrendViewCell {
-    FushionTrendView *_fushionTrendView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

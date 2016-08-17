@@ -18,10 +18,10 @@
  *  @param url                 加载的 URL
  *  @param imageView           加载的 ImageView
  */
+@optional
 - (void)circulateScrollView:(HCCirculateScrollView *)circulateSctollView
                loadImageUrl:(NSURL *)url
               withImageView:(UIImageView *)imageView;
-@optional
 - (void)circulateScrollViewDidSelectedAtIndex:(NSInteger)index;
 - (void)circulateScrollViewPageControlAtIndex:(NSInteger)index;
 @end

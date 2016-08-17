@@ -12,7 +12,7 @@
 
 @implementation MagazineInfoViewCell
 {
-    MagazineInfoView *_magazineInfoView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

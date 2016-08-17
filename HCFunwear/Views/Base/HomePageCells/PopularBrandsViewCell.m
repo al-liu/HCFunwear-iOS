@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 @implementation PopularBrandsViewCell {
-    PopularBrandsView *_brandsView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

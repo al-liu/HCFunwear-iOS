@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FushionTrendView.h"
 
 @interface FushionTrendViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) FushionTrendView *fushionTrendView;
 
 @end

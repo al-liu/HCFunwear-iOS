@@ -18,6 +18,7 @@
 >
 {
     HomePageViewModel *_homePageViewModel;
+    HomePageView *_homePageView;
 }
 
 @end
@@ -33,14 +34,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _homePageViewModel = [HomePageViewModel new];
     
-    HomePageView *homePageView = [[HomePageView alloc]initWithViewModel:_homePageViewModel];
-    [self.view addSubview:homePageView];
-    
-    [homePageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-49);
-        make.top.equalTo(self.view).offset(64);
-        make.left.right.equalTo(self.view);
+    RACSignal *requestSignal = [_homePageViewModel.layoutRequestCommand execute:nil];
+    [requestSignal subscribeNext:^(NSArray *modules) {
+        NSLog(@"modules:%@",modules);
+        _homePageView.homePageDataList = modules;
+        [_homePageView reloadData];
     }];
+    
+    [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,7 +61,16 @@
 }
 
 #pragma mark - initUI
-
+- (void)initUI {
+    _homePageView = [[HomePageView alloc]initWithViewModel:_homePageViewModel];
+    [self.view addSubview:_homePageView];
+    
+    [_homePageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-49);
+        make.top.equalTo(self.view).offset(64);
+        make.left.right.equalTo(self.view);
+    }];
+}
 
 #pragma mark - configration
 - (void)configNavigationBar {

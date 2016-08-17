@@ -11,6 +11,11 @@
 #import "Masonry.h"
 #import "GlobalConstant.h"
 #import "HCCirculateScrollView.h"
+#import "ReactiveCocoa.h"
+@interface MagazineInfoView () <HCCirculateScrollViewProtocol> {
+    
+}
+@end
 
 @implementation MagazineInfoView{
     HomePageHeadTitleView *_headTitleView;
@@ -48,6 +53,7 @@
     _circulateScrollView = ({
         HCCirculateScrollView *view = [HCCirculateScrollView new];
         view.image = [UIImage imageNamed:@"fan_default_01"];
+        view.delegate = self;
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,6 +82,25 @@
     
     //下面需要加 PageControl 自定义
     //h: 61
+}
+
+- (void)reloadData {
+    if (_module.data.count > 0) {
+        _headTitleView.headModule = _module;
+        NSArray *urls = [[_module.data.rac_sequence map:^id(HCModuleData *value) {
+            return value.img;
+        }] array];
+        [_circulateScrollView loadView:urls];
+    }
+}
+
+#pragma mark - HCCirculateScrollViewProtocol
+- (void)circulateScrollViewDidSelectedAtIndex:(NSInteger)index {
+    
+}
+- (void)circulateScrollViewPageControlAtIndex:(NSInteger)index {
+    HCModuleData *data = _module.data[index];
+    _infoLabel.text = data.title;
 }
 
 

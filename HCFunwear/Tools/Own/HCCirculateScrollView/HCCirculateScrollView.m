@@ -7,6 +7,7 @@
 //
 
 #import "HCCirculateScrollView.h"
+#import "UIImageView+YYWebImage.h"
 
 static NSInteger const kDescriptionTime = 2;
 
@@ -60,7 +61,13 @@ static NSInteger const kDescriptionTime = 2;
         return;
     }
     else if (imageUrlStrings.count == 1) {
-        NSURL * url = [[NSURL alloc]initWithString:imageUrlStrings.firstObject];
+        NSURL * url = nil;
+        if ([imageUrlStrings.firstObject isKindOfClass:[NSString class]]) {
+            url = [[NSURL alloc]initWithString:imageUrlStrings.firstObject];
+        }
+        else if ([imageUrlStrings.firstObject isKindOfClass:[NSURL class]]) {
+            url = imageUrlStrings.firstObject;
+        }
         [self loadImageOfProtocolWithURL:url imageView:self];
         
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selecedAdvert:)];
@@ -77,6 +84,9 @@ static NSInteger const kDescriptionTime = 2;
         if ([obj isKindOfClass:[NSString class]]) {
             NSURL * url = [[NSURL alloc]initWithString:obj];
             [imageUrlList addObject:url];
+        }
+        else if ([obj isKindOfClass:[NSURL class]]) {
+            [imageUrlList addObject:obj];
         }
     }];
     
@@ -168,6 +178,12 @@ static NSInteger const kDescriptionTime = 2;
         if ([_delegate conformsToProtocol:@protocol(HCCirculateScrollViewProtocol)] && [_delegate respondsToSelector:@selector(circulateScrollView:loadImageUrl:withImageView:)]) {
             [_delegate circulateScrollView:self loadImageUrl:url withImageView:view];
         }
+        else {
+            [view setImageURL:url];
+        }
+    }
+    else {
+        [view setImageURL:url];
     }
 }
 - (void)didSelectedViewOfProtocolWithIndex:(NSInteger)index {

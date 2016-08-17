@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewUserFeastView.h"
 
 @interface NewUserFeastViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) NewUserFeastView *feastView;
 
 @end

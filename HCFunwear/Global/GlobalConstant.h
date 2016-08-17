@@ -7,20 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #pragma mark - cells`Identifier constant
-extern NSString *const kProductShowPriceCellIdentifier;
-extern NSString *const kProductShowNameCellIdentifier;
-extern NSString *const kSingleImageCellIdentifier;
-extern NSString *const kLimitTimeBuyCellIdentifier;
-extern NSString *const kProductShowStyleCellIdentifier;
-extern NSString *const kBrandBorderCellIdentifier;
-extern NSString *const kProductShowBrandPriceCellIdentifier;
-extern NSString *const kHotBrandViewCellIdentifier;
-extern NSString *const kHotCategoryPageViewCellIdentifier;
-extern NSString *const kCategoryTableViewCellIdentifier;
-extern NSString *const kInspirationInfoCellIdentifier;
-extern NSString *const kInspirationAttentionCellIdentifier;
+UIKIT_EXTERN NSString *const kProductShowPriceCellIdentifier;
+UIKIT_EXTERN NSString *const kProductShowNameCellIdentifier;
+UIKIT_EXTERN NSString *const kSingleImageCellIdentifier;
+UIKIT_EXTERN NSString *const kLimitTimeBuyCellIdentifier;
+UIKIT_EXTERN NSString *const kProductShowStyleCellIdentifier;
+UIKIT_EXTERN NSString *const kBrandBorderCellIdentifier;
+UIKIT_EXTERN NSString *const kProductShowBrandPriceCellIdentifier;
+UIKIT_EXTERN NSString *const kHotBrandViewCellIdentifier;
+UIKIT_EXTERN NSString *const kHotCategoryPageViewCellIdentifier;
+UIKIT_EXTERN NSString *const kCategoryTableViewCellIdentifier;
+UIKIT_EXTERN NSString *const kInspirationInfoCellIdentifier;
+UIKIT_EXTERN NSString *const kInspirationAttentionCellIdentifier;
+
+#define defaultImage01 [UIImage imageNamed:@"fan_default_01"]
+#define defaultImage02 [UIImage imageNamed:@"fan_default_02"]
+#define defaultImage03 [UIImage imageNamed:@"fan_default_03"]
+#define defaultImage04 [UIImage imageNamed:@"fan_default_04"]
 
 #pragma mark - Screen Size defines
 #define SCREEN_SIZE [[UIScreen mainScreen] bounds].size

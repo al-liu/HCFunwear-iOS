@@ -12,9 +12,11 @@
 #import "HomePageHeadTitleView.h"
 #import "ProductShowPriceCell.h"
 #import "GlobalConstant.h"
+#import "HCModuleData.h"
+#import "UIImageView+YYWebImage.h"
+#import "RACEXTScope.h"
 
 @implementation NewUserFeastView {
-    UIImageView *_feastImageView;
     HomePageHeadTitleView *_headTitleView;
     UICollectionView *_productGridView;
 }
@@ -87,12 +89,29 @@
 //    _height = 43 + viewWidth/8.0*5 + viewWidth/320.0*174;
 }
 
+- (void)reloadData {
+    if (_userFeastModule.data.count == 4) {
+        _headTitleView.headModule = _userFeastModule;
+        HCModuleData *data = _userFeastModule.data.firstObject;
+        [_feastImageView setImageURL:data.img];
+        
+        @weakify(self);
+        [_feastImageView setImageWithURL:data.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            @strongify(self)
+            self.feastImageView.image = image;
+            self.feastImageView.contentMode = UIViewContentModeScaleAspectFit;
+        }];
+        
+        [_productGridView reloadData];
+    }
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat viewWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat collectionViewHeight = viewWidth*(174.0/320.0);
     
-    return CGSizeMake((viewWidth-40)/3.0, (collectionViewHeight-20));
+    return CGSizeMake((viewWidth-40)/3.0-1, (collectionViewHeight-20));
     
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -113,6 +132,13 @@
     
     ProductShowPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowPriceCellIdentifier forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor grayColor];
+    HCModuleData *moduleData = _userFeastModule.data[indexPath.row+1];
+    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        cell.imageView.image = image;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }];
+    cell.nameLabel.text = moduleData.title;
+    cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [moduleData.product_price doubleValue]];
     return cell;
 }
 

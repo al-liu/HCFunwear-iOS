@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DoubleBannerView.h"
 
 @interface DoubleBannerViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) DoubleBannerView *doubleBannerView;
 
 @end

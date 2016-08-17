@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -53,6 +53,11 @@
                 <constraint firstItem="i0A-TX-KuW" firstAttribute="top" secondItem="6mQ-Ra-yz4" secondAttribute="bottom" constant="5" id="xqC-U6-13P"/>
             </constraints>
             <size key="customSize" width="119" height="280"/>
+            <connections>
+                <outlet property="imageView" destination="Bce-b1-aH4" id="CrY-fe-F4U"/>
+                <outlet property="nameLabel" destination="6mQ-Ra-yz4" id="Yfg-QM-Cfs"/>
+                <outlet property="styleLabel" destination="i0A-TX-KuW" id="YdK-wL-oma"/>
+            </connections>
             <point key="canvasLocation" x="279.5" y="311"/>
         </collectionViewCell>
     </objects>

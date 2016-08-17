@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModule.h"
 
 @interface HotCategoryView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) HCModule *hotCategoryModule;
+
+- (void)reloadData;
 
 @end

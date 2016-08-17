@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MagazineInfoView.h"
 
 @interface MagazineInfoViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) MagazineInfoView *magazineInfoView;
 
 @end

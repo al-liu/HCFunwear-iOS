@@ -9,6 +9,9 @@
 #import "HCGridMenuView.h"
 #import "Masonry.h"
 #import "GlobalColors.h"
+#import "HCModuleData.h"
+#import "UIImageView+YYWebImage.h"
+#import "GlobalConstant.h"
 
 static NSString *const kCellIdentifier = @"HCGridMenuCellIndentifier";
 static NSInteger const kNumberOfOnepage = 8;
@@ -39,7 +42,7 @@ static NSInteger const kNumberOfOnepage = 8;
 - (void)initUI {
     _collectionView = ({
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;//水平或垂直方向影响 item 的顺序
         
         UICollectionView *view = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         view.dataSource = self;
@@ -78,9 +81,11 @@ static NSInteger const kNumberOfOnepage = 8;
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _section;
+    return 1;/*_section; 原来横向的 但是有顺序问题*/
+#warning fix issue: UIScrollView & UICollectionView
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
     if (section == _section -1) {
         if (_numberOfLastPage == 0) {
             return kNumberOfOnepage;
@@ -92,8 +97,9 @@ static NSInteger const kNumberOfOnepage = 8;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HCGridMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     NSInteger index = indexPath.section * kNumberOfOnepage + indexPath.row;
-    HCGridInfo *model = _gridInfoModels[index];
-    cell.iconView.image = model.icon;
+    HCModuleData *model = _gridInfoModels[index];
+    [cell.iconView setImageURL:model.img];
+//    cell.iconView.contentMode = UIViewContentModeScaleAspectFit;
     cell.titleView.text = model.title;
     return cell;
 }
@@ -170,21 +176,6 @@ static NSInteger const kNumberOfOnepage = 8;
     });
     //默认蚊子
     _titleView.text = @"有范儿";
-}
-
-@end
-
-@implementation HCGridInfo
-
-- (instancetype)initWithIcon:(UIImage *)icon
-                       title:(NSString *)title {
-    self = [super init];
-    if (!self) return nil;
-    
-    _icon = icon;
-    _title = title;
-    
-    return self;
 }
 
 @end

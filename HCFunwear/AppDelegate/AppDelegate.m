@@ -20,6 +20,7 @@
 #import "InspirationPageViewController.h"
 #import "ShoppingBagPageViewController.h"
 #import "MinePageViewController.h"
+#import "GlobalConfig.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -32,6 +33,10 @@
     // Override point for customization after application launch.
     
 //    MainStyleViewController *styleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+    
+    //配置网络服务
+    GlobalConfig *config = [GlobalConfig new];
+    [config configNetwork];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HCTabBarController *tabBarController = [self configTabBarController];

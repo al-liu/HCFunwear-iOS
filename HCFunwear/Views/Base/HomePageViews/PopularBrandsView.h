@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModule.h"
 
 @interface PopularBrandsView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) HCModule *popularModule;
+
+- (void)reloadData;
 
 @end

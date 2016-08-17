@@ -13,7 +13,7 @@
 
 @implementation DoubleBannerViewCell
 {
-    DoubleBannerView *_doubleBannerView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

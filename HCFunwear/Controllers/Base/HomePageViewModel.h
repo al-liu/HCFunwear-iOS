@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ReactiveCocoa.h"
 
 @interface HomePageViewModel : NSObject
 
-@property (nonatomic, strong) NSArray *gridMenuArray;
-
-@property (nonatomic, strong) NSArray *headTitleArray;
+@property (nonatomic, strong) RACCommand *layoutRequestCommand;
 
 @property (nonatomic, strong) NSArray *topStyleTitleArray;
 

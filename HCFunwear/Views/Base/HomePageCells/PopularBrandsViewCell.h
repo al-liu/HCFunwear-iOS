@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopularBrandsView.h"
 
 @interface PopularBrandsViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) PopularBrandsView *brandsView;
 
 @end

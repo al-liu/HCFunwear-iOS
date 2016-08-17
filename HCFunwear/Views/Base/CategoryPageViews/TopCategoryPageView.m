@@ -27,7 +27,7 @@
         UITableView *view = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         view.dataSource = self;
         view.delegate = self;
-        tableView.separatorColor = [UIColor whiteColor];
+        view.separatorColor = [UIColor whiteColor];
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {

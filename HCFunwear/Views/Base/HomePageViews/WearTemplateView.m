@@ -11,9 +11,11 @@
 #import "GlobalColors.h"
 #import "GlobalConstant.h"
 #import "ProductShowStyleCell.h"
+#import "UIImageView+YYWebImage.h"
+#import "SingleImageCell.h"
+#import "RACEXTScope.h"
 
 @implementation WearTemplateView {
-    UIImageView *_modelImageView;
     UICollectionView *_productGridView;
 }
 
@@ -74,11 +76,27 @@
             make.height.equalTo(self.mas_width).multipliedBy(17/32.0);
         }];
         
-        [collectionView registerNib:[UINib nibWithNibName:@"ProductShowStyleCell" bundle:nil] forCellWithReuseIdentifier:kProductShowStyleCellIdentifier];
+        [collectionView registerNib:[UINib nibWithNibName:@"SingleImageCell" bundle:nil] forCellWithReuseIdentifier:kSingleImageCellIdentifier];
         
         collectionView;
     });
 //    _productGridView.backgroundColor = [UIColor redColor];
+}
+
+- (void)reloadData {
+    if (_module.data.count == 4) {
+        _headTitleView.headModule = _module;
+        HCModuleData *data = _module.data.firstObject;
+        
+        @weakify(self);
+        [_modelImageView setImageWithURL:data.img placeholder:defaultImage03 options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            @strongify(self)
+            self.modelImageView.image = image;
+            self.modelImageView.contentMode = UIViewContentModeScaleAspectFit;
+        }];
+
+        [_productGridView reloadData];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -86,7 +104,7 @@
     CGFloat viewWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat collectionViewHeight = viewWidth*(17/32.0);
     
-    return CGSizeMake((viewWidth-40)/3.0, (collectionViewHeight-20));
+    return CGSizeMake((viewWidth-40)/3.0-1, (collectionViewHeight-20));
     
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -101,8 +119,13 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ProductShowStyleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowStyleCellIdentifier forIndexPath:indexPath];
-//    cell.backgroundColor = [UIColor grayColor];
+    SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    HCModuleData *moduleData = _module.data[indexPath.row+1];
+    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage03 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        cell.imageView.image = image;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }];
+    
     return cell;
 }
 

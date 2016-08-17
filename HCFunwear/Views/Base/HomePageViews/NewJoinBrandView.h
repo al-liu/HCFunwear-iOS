@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCModule.h"
 
 @interface NewJoinBrandView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) UIImageView *modelImageView;;
+@property (nonatomic, strong) HCModule *module;
+- (void)reloadData;
 
 @end

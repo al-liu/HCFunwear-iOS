@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
+#import "UIImageView+YYWebImage.h"
 
 @implementation PopularBrandsView {
     HomePageHeadTitleView *_headTitleView;
@@ -64,12 +65,19 @@
     });
 }
 
+- (void)reloadData {
+    if (_popularModule.data.count == 6) {
+        _headTitleView.headModule = _popularModule;
+        [_productGridView reloadData];
+    }
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat viewWidth = [[UIScreen mainScreen] bounds].size.width;
     CGFloat collectionViewHeight = viewWidth*(9.0/16.0);
     
-    return CGSizeMake((viewWidth-40)/3.0, (collectionViewHeight-30)/2.0);
+    return CGSizeMake((viewWidth-40)/3.0-1, (collectionViewHeight-30)/2.0);
     
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -85,6 +93,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    HCModuleData *moduleData = _popularModule.data[indexPath.row];
+    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        cell.imageView.image = image;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }];
     return cell;
 }
 

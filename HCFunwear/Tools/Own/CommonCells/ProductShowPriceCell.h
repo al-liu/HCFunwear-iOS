@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductShowPriceCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end

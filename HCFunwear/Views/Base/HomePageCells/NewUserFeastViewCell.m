@@ -10,9 +10,7 @@
 #import "NewUserFeastView.h"
 #import "Masonry.h"
 
-@implementation NewUserFeastViewCell {
-    NewUserFeastView *_feastView;
-}
+@implementation NewUserFeastViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

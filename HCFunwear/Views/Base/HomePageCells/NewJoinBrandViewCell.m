@@ -12,14 +12,14 @@
 
 @implementation NewJoinBrandViewCell
 {
-    NewJoinBrandView *_newJoinBrandView;
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _newJoinBrandView = ({
+        _joinBrandView = ({
             NewJoinBrandView *view = [NewJoinBrandView new];
             [self.contentView addSubview:view];
             
