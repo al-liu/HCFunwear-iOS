@@ -12,6 +12,8 @@
 @interface HomePageViewModel : NSObject
 
 @property (nonatomic, strong) RACCommand *layoutRequestCommand;
+@property (nonatomic, strong) RACCommand *productsRequestCommand;
+@property (nonatomic, assign) NSInteger productsPage;
 
 @property (nonatomic, strong) NSArray *topStyleTitleArray;
 

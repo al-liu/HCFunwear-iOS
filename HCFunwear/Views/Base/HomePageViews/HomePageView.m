@@ -60,12 +60,14 @@ HCCirculateScrollViewProtocol
 @implementation HomePageView {
     UICollectionView *_homePageCollectionView;
     NSDictionary *_moudelDictionary;
+    NSMutableArray *_guessLikeProducts;
 }
 
 - (instancetype)initWithViewModel:(HomePageViewModel *)mdoel {
     self = [super initWithFrame:CGRectZero];
     if (self) {
         _homePageViewModel = mdoel;
+        _guessLikeProducts = [NSMutableArray array];
         [self initCollectionView];
     }
     return self;
@@ -77,11 +79,30 @@ HCCirculateScrollViewProtocol
     self = [super initWithFrame:frame];
     if (self) {
         [self initCollectionView];
+        _guessLikeProducts = [NSMutableArray array];
     }
     return self;
 }
 - (void)reloadData {
     [_homePageCollectionView reloadData];
+}
+
+- (void)setHomePageDataList:(NSArray *)homePageDataList {
+    HCModule *lastModule = homePageDataList.lastObject;
+    if ([lastModule.module_key isEqualToString:@"likeProductModule"]) {
+        _homePageDataList = homePageDataList;
+    }
+    else {
+        HCModule *likeModule = [[HCModule alloc]init];
+        likeModule.module_id = @"-1";
+        likeModule.c_title = @"猜你喜欢";
+        likeModule.e_title = @"";
+        likeModule.module_key = @"likeProductModule";
+        
+        NSMutableArray *mutableArray = [homePageDataList mutableCopy];
+        [mutableArray addObject:likeModule];
+        _homePageDataList = [mutableArray copy];
+    }
 }
 
 - (void)initCollectionView {
@@ -109,10 +130,16 @@ HCCirculateScrollViewProtocol
     }];
     
     _homePageCollectionView.mj_footer = [HCFunwearRefreshFooter footerWithRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            // 结束刷新
-            [_homePageCollectionView.mj_footer endRefreshing];
-        });
+        RACSignal *productsRequestSignal = [_homePageViewModel.productsRequestCommand execute:nil];
+        [productsRequestSignal subscribeNext:^(NSArray *productList) {
+            NSLog(@"product:%@",productList);
+            [_guessLikeProducts addObjectsFromArray:productList];
+            //看下能不能只刷新一组数据
+//            [_homePageCollectionView reload]
+            _homePageViewModel.productsPage += 1;
+            [_homePageCollectionView reloadData];
+             [_homePageCollectionView.mj_footer endRefreshing];
+        }];
     }];
 }
 
@@ -249,6 +276,14 @@ HCCirculateScrollViewProtocol
                                                                              referenceSizeForHeader:CGSizeMake(screenWidth, 10)
                                                                                     insetForSection:UIEdgeInsetsZero];
     [cellInfoDictionary setObject:recommendedViewCellInfo forKey:@"likeModule"];
+    CGFloat itemWidth01 = (screenWidth-30)/2.0;
+    CGFloat itemHeight01 = itemWidth01 / 141.0 * 262;
+    HCCollectionCellInfo *productShowBrandPriceCellInfo = [[HCCollectionCellInfo alloc]initWithIdentifier:kProductShowBrandPriceCellIdentifier
+                                                                                           sizeItem:CGSizeMake(itemWidth01, itemHeight01)
+                                                                                 minimumLineSpacing:0
+                                                                             referenceSizeForHeader:CGSizeZero
+                                                                                    insetForSection:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [cellInfoDictionary setObject:productShowBrandPriceCellInfo forKey:@"likeProductModule"];
     _moudelDictionary = [cellInfoDictionary copy];
 }
 
@@ -275,7 +310,7 @@ HCCirculateScrollViewProtocol
 //    return CGSizeMake(screenWidth, 10);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (section == _homePageDataList.count) {//猜你喜欢产品的组
+    if (section == _homePageDataList.count-1) {//猜你喜欢产品的组
         return UIEdgeInsetsMake(10, 10, 10, 10);
     }
     HCModule *module = _homePageDataList[section];
@@ -286,11 +321,11 @@ HCCirculateScrollViewProtocol
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _homePageDataList.count;
+    return _homePageDataList.count;//猜你喜欢
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == _homePageDataList.count) {//猜你喜欢产品的组
-        return 10;
+    if (section == _homePageDataList.count-1) {//猜你喜欢产品的组
+        return _guessLikeProducts.count;
     }
     return 1;
 }
@@ -360,6 +395,16 @@ HCCirculateScrollViewProtocol
         newCell.joinBrandView.module = module;
         [newCell.joinBrandView reloadData];
     }
+    else if ([module.module_key isEqualToString:@"likeModule"]) {
+        RecommendedViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kRecommendedViewCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if ([module.module_key isEqualToString:@"likeProductModule"]) {
+        ProductShowBrandPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier forIndexPath:indexPath];
+        cell.product = _guessLikeProducts[indexPath.row];
+        return cell;
+    }
+    
     
     return cell;
     /*

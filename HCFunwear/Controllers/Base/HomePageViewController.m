@@ -41,6 +41,12 @@
         [_homePageView reloadData];
     }];
     
+//    RACSignal *productsRequestSignal = [_homePageViewModel.productsRequestCommand execute:nil];
+//    [productsRequestSignal subscribeNext:^(NSArray *productList) {
+//        NSLog(@"home controller product:%@",productList);
+//
+//    }];
+    
     [self initUI];
 }
 

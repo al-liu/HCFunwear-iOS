@@ -74,6 +74,9 @@
 		E37F50221D62F074008B465A /* HCCollectionCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50211D62F074008B465A /* HCCollectionCellInfo.m */; };
 		E37F50281D64475B008B465A /* HCFunwearRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50271D64475B008B465A /* HCFunwearRefreshHeader.m */; };
 		E37F506A1D65B4E6008B465A /* HCFunwearRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50691D65B4E6008B465A /* HCFunwearRefreshFooter.m */; };
+		E37F506D1D65F86F008B465A /* HCProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F506C1D65F86F008B465A /* HCProduct.m */; };
+		E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F506F1D65FA5F008B465A /* HCProductTag.m */; };
+		E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50721D65FC57008B465A /* GetRecommedProductListApi.m */; };
 		E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */; };
 		E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31C1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m */; };
 		E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */; };
@@ -275,6 +278,12 @@
 		E37F50271D64475B008B465A /* HCFunwearRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFunwearRefreshHeader.m; sourceTree = "<group>"; };
 		E37F50681D65B4E6008B465A /* HCFunwearRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFunwearRefreshFooter.h; sourceTree = "<group>"; };
 		E37F50691D65B4E6008B465A /* HCFunwearRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFunwearRefreshFooter.m; sourceTree = "<group>"; };
+		E37F506B1D65F86F008B465A /* HCProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProduct.h; sourceTree = "<group>"; };
+		E37F506C1D65F86F008B465A /* HCProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProduct.m; sourceTree = "<group>"; };
+		E37F506E1D65FA5F008B465A /* HCProductTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductTag.h; sourceTree = "<group>"; };
+		E37F506F1D65FA5F008B465A /* HCProductTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProductTag.m; sourceTree = "<group>"; };
+		E37F50711D65FC57008B465A /* GetRecommedProductListApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRecommedProductListApi.h; sourceTree = "<group>"; };
+		E37F50721D65FC57008B465A /* GetRecommedProductListApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRecommedProductListApi.m; sourceTree = "<group>"; };
 		E3A6D3171D5DAE0F0012E1B8 /* GlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 		E3A6D31B1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
@@ -721,6 +730,8 @@
 			children = (
 				E3A6D31E1D5DB42B0012E1B8 /* HomeLayoutApi.h */,
 				E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */,
+				E37F50711D65FC57008B465A /* GetRecommedProductListApi.h */,
+				E37F50721D65FC57008B465A /* GetRecommedProductListApi.m */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -745,6 +756,10 @@
 				E3A6D32F1D60BF270012E1B8 /* HCModule.m */,
 				E37F50201D62F074008B465A /* HCCollectionCellInfo.h */,
 				E37F50211D62F074008B465A /* HCCollectionCellInfo.m */,
+				E37F506B1D65F86F008B465A /* HCProduct.h */,
+				E37F506C1D65F86F008B465A /* HCProduct.m */,
+				E37F506E1D65FA5F008B465A /* HCProductTag.h */,
+				E37F506F1D65FA5F008B465A /* HCProductTag.m */,
 			);
 			path = HomePageModels;
 			sourceTree = "<group>";
@@ -1156,6 +1171,7 @@
 				E3B1D8531D2F393900A8BA3E /* CategoryPageHeadTitleView.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
 				E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */,
@@ -1217,6 +1233,7 @@
 				E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */,
 				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
+				E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E3B1D8571D2F428400A8BA3E /* HotBrandViewCell.m in Sources */,
@@ -1234,6 +1251,7 @@
 				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
 				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,
+				E37F506D1D65F86F008B465A /* HCProduct.m in Sources */,
 				E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */,
 				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E3FBB15E1D3384DE00573343 /* ShoppingBagPageViewModel.m in Sources */,

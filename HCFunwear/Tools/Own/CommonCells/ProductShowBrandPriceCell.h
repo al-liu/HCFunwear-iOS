@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCProduct.h"
 
 @interface ProductShowBrandPriceCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *brandLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+@property (nonatomic, strong) HCProduct *product;
 
 @end
