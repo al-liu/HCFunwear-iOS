@@ -30,6 +30,7 @@
 #import "HCModuleData.h"
 #import "HCCollectionCellInfo.h"
 #import "RACEXTScope.h"
+#import "HCFunwearRefreshHeader.h"
 
 #pragma mark - cell indentifier
 static NSString *kCirculateScrollCellIdentifier      = @"kCirculateScrollCellIdentifier";
@@ -98,6 +99,13 @@ HCCirculateScrollViewProtocol
     //注册 cell
     [self registerCollectionCells];
     [self registerCollectionCellsInfo];
+    
+    _homePageCollectionView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 结束刷新
+            [_homePageCollectionView.mj_header endRefreshing];
+        });
+    }];
     
 }
 
