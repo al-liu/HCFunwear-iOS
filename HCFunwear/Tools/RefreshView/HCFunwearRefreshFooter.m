@@ -1,20 +1,17 @@
 //
-//  HCFunwearRefreshHeader.m
+//  HCFunwearRefreshFooter.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/8/17.
+//  Created by 刘海川 on 16/8/18.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCFunwearRefreshHeader.h"
+#import "HCFunwearRefreshFooter.h"
 #import <CoreText/CoreText.h>
 
 static CGFloat layer_width = 20;
 static NSString *refreshing_animation_key = @"refreshingAnimation";
-@implementation HCFunwearRefreshHeader {
-    CALayer *_backgroundLayer;
-    CAShapeLayer *_pathLayer;
-    
+@implementation HCFunwearRefreshFooter {
     CALayer *_refreshingBgLayer;
     CAShapeLayer *_pathMaskLayer;
     CAShapeLayer *_refreshingShapeLayer;
@@ -22,8 +19,6 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
 
 - (void)prepare {
     [super prepare];
-    _backgroundLayer = [CALayer layer];
-    [self.layer addSublayer:_backgroundLayer];
     
     _refreshingBgLayer = [CALayer layer];
     _refreshingBgLayer.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1].CGColor;
@@ -32,30 +27,11 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
 
 - (void)placeSubviews {
     [super placeSubviews];
-    _backgroundLayer.frame = self.bounds;
     _refreshingBgLayer.frame = self.bounds;
     [self setupTextLayer];
-    [self startAnimation];
-    
     [self setupRefreshingLayer];
-//    [self refreshingAnimation];
     
-    _refreshingBgLayer.mask = _pathMaskLayer;
-}
-
-- (void)setPullingPercent:(CGFloat)pullingPercent {
-    [super setPullingPercent:pullingPercent];
-//    NSLog(@"pullingPercent:%f",pullingPercent);
-    if (pullingPercent == 0) {
-        _pathLayer.timeOffset = 0;
-    }
-    else if ( pullingPercent > 0.5) {
-        CGFloat fixPullingPercent =  (pullingPercent - 0.5)*20;
-        CGFloat processValue =+ fixPullingPercent;
-        _pathLayer.timeOffset = processValue;
-//        NSLog(@"processValue:%f",processValue);
-    }
-    
+     _refreshingBgLayer.mask = _pathMaskLayer;
 }
 
 - (void)setState:(MJRefreshState)state
@@ -65,24 +41,13 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
     switch (state) {
         case MJRefreshStateIdle:
             /** 普通闲置状态 */
-//            _pathLayer.timeOffset = 0;
             _refreshingBgLayer.hidden = YES;
             [_refreshingShapeLayer removeAllAnimations];
             break;
-        case MJRefreshStatePulling:
-            /** 松开就可以进行刷新的状态 */
-//            _backgroundLayer.timeOffset = 10;
-            break;
         case MJRefreshStateRefreshing:
             /** 正在刷新中的状态 */
-            _backgroundLayer.timeOffset = 10;
             _refreshingBgLayer.hidden = NO;
             [self refreshingAnimation];
-            //辉光 FUNWEAR
-            break;
-        case MJRefreshStateWillRefresh:
-            /** 即将刷新的状态 */
-//            _backgroundLayer.timeOffset = 10;
             break;
         case MJRefreshStateNoMoreData:
             /** 所有数据加载完毕，没有更多的数据了 */
@@ -94,10 +59,6 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
 #pragma mark - 获取文字路径/创建动画
 - (void)setupTextLayer
 {
-    if (_pathLayer != nil ) {
-        [_pathLayer removeFromSuperlayer];
-        _pathLayer = nil;
-    }
     if (_pathMaskLayer != nil) {
         [_pathMaskLayer removeFromSuperlayer];
         _pathMaskLayer = nil;
@@ -154,32 +115,13 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
     CGPathRelease(letters);
     CFRelease(font);
     
-    UIColor *grayColor = [UIColor colorWithRed:198.0/255 green:198.0/255 blue:198.0/255 alpha:1];
-    _pathLayer = [self shapeLayerWithPath:path strokeColor:grayColor];
-    [_backgroundLayer addSublayer:_pathLayer];
-    
-    _pathLayer.speed = 0;
-    _pathLayer.timeOffset = 0;
-    
     UIColor *lessGrayColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1];
     _pathMaskLayer = [self shapeLayerWithPath:path strokeColor:lessGrayColor];
-}
-- (void)startAnimation
-{
-    [_pathLayer removeAllAnimations];
-    
-    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnimation.duration = 10.0;
-    pathAnimation.removedOnCompletion = NO;
-    pathAnimation.fillMode = kCAFillModeBoth;
-    pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
-    [_pathLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
 }
 
 - (CAShapeLayer *)shapeLayerWithPath:(UIBezierPath *)path strokeColor:(UIColor *)color {
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
-    pathLayer.frame = _backgroundLayer.frame;
+    pathLayer.frame = _refreshingBgLayer.frame;
     pathLayer.bounds = CGPathGetBoundingBox(path.CGPath);
     pathLayer.geometryFlipped = YES;
     pathLayer.path = path.CGPath;
@@ -225,5 +167,13 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
     refreshingAnimation.repeatCount = HUGE;
     [_refreshingShapeLayer addAnimation:refreshingAnimation forKey:refreshing_animation_key];
 }
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 @end

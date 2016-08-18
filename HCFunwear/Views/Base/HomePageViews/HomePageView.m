@@ -31,6 +31,7 @@
 #import "HCCollectionCellInfo.h"
 #import "RACEXTScope.h"
 #import "HCFunwearRefreshHeader.h"
+#import "HCFunwearRefreshFooter.h"
 
 #pragma mark - cell indentifier
 static NSString *kCirculateScrollCellIdentifier      = @"kCirculateScrollCellIdentifier";
@@ -107,6 +108,12 @@ HCCirculateScrollViewProtocol
         });
     }];
     
+    _homePageCollectionView.mj_footer = [HCFunwearRefreshFooter footerWithRefreshingBlock:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 结束刷新
+            [_homePageCollectionView.mj_footer endRefreshing];
+        });
+    }];
 }
 
 - (void)registerCollectionCells {
