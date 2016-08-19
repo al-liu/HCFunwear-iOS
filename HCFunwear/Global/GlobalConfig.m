@@ -9,7 +9,10 @@
 #import "GlobalConfig.h"
 #import "YTKNetworkConfig.h"
 #import "YTKUrlArgumentsFilter.h"
+#import "YYFPSLabel.h"
+#import "AppDelegate.h"
 
+static NSInteger fps_label_tag = 59;
 @implementation GlobalConfig
 - (void)configNetwork {
     YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
@@ -29,4 +32,5 @@
     YTKUrlArgumentsFilter *urlFilter = [YTKUrlArgumentsFilter filterWithArguments:arguments];
     [config addUrlFilter:urlFilter];
 }
+
 @end

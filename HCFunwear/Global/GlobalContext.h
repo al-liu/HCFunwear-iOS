@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "HCTabBarController.h"
+#import "HCWindow.h"
 
 @interface GlobalContext : NSObject
 
-@property (nonatomic, strong) UIWindow *applicationWindow;
+@property (nonatomic, strong) HCWindow *applicationWindow;
 @property (nonatomic, strong) HCTabBarController *mainTabBarController;
 
 + (instancetype)ShareInstance;

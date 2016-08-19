@@ -38,13 +38,16 @@
     GlobalConfig *config = [GlobalConfig new];
     [config configNetwork];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
+    //只是检测 CPU 的
+    [self.window fpsLabelWithSwitch:YES];
     //纪录到全局环境中
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;

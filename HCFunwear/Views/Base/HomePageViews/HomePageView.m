@@ -55,13 +55,16 @@ UICollectionViewDataSource,
 UICollectionViewDelegate,
 HCCirculateScrollViewProtocol
 >
-
-@end
-@implementation HomePageView {
+{
     UICollectionView *_homePageCollectionView;
     NSDictionary *_moudelDictionary;
     NSMutableArray *_guessLikeProducts;
 }
+@property (nonatomic, strong) UICollectionView *homePageCollectionView;
+@property (nonatomic, strong) NSDictionary *moudelDictionary;
+@property (nonatomic, strong) NSMutableArray *guessLikeProducts;
+@end
+@implementation HomePageView
 
 - (instancetype)initWithViewModel:(HomePageViewModel *)mdoel {
     self = [super initWithFrame:CGRectZero];
@@ -122,20 +125,24 @@ HCCirculateScrollViewProtocol
     [self registerCollectionCells];
     [self registerCollectionCellsInfo];
     
+    @weakify(self);
     _homePageCollectionView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            // 结束刷新
+        RACSignal *requestSignal = [_homePageViewModel.layoutRequestCommand execute:nil];
+        [requestSignal subscribeNext:^(NSArray *modules) {
+            NSLog(@"modules:%@",modules);
+            @strongify(self);
+            self.homePageDataList = modules;
+            [self reloadData];
             [_homePageCollectionView.mj_header endRefreshing];
-        });
+        }];
     }];
     
     _homePageCollectionView.mj_footer = [HCFunwearRefreshFooter footerWithRefreshingBlock:^{
         RACSignal *productsRequestSignal = [_homePageViewModel.productsRequestCommand execute:nil];
         [productsRequestSignal subscribeNext:^(NSArray *productList) {
             NSLog(@"product:%@",productList);
-            [_guessLikeProducts addObjectsFromArray:productList];
-            //看下能不能只刷新一组数据
-//            [_homePageCollectionView reload]
+            @strongify(self);
+            [self.guessLikeProducts addObjectsFromArray:productList];
             _homePageViewModel.productsPage += 1;
             [_homePageCollectionView reloadData];
              [_homePageCollectionView.mj_footer endRefreshing];
