@@ -13,16 +13,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-//    UIView *leftLine = [UIView new];
-//    leftLine.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
-//    [self.contentView addSubview:leftLine];
-//    
-//    [leftLine mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(@.5);
-//        make.left.top.bottom.equalTo(self.contentView);
-//    }];
-    
+    // Initialization code    
     UIView *bottomLine = [UIView new];
     bottomLine.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
     [self.contentView addSubview:bottomLine];
