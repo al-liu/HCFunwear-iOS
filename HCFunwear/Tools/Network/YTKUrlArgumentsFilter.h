@@ -14,4 +14,6 @@
 
 - (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request;
 
+- (void)alterAugumentsWithDict:(NSDictionary *)dict;
+
 @end

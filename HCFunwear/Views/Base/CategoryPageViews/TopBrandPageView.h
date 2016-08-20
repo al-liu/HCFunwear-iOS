@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoryPageViewModel.h"
 
 @interface TopBrandPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) CategoryPageViewModel *cateViewModel;
+
+@property (nonatomic, strong) NSMutableArray *brandsList;
+
+- (void)reload;
+- (void)beginRefresh;
 
 @end

@@ -11,6 +11,7 @@
 #pragma mark - cells`Identifier constant
 NSString *const kProductShowPriceCellIdentifier = @"kProductShowPriceCellIdentifier";
 NSString *const kProductShowNameCellIdentifier = @"ProductShowNameCellIdentifier";
+NSString *const kBrandsViewCellIdentifier = @"BrandsViewCellIdentifier";
 NSString *const kSingleImageCellIdentifier = @"SingleImageCellIdentifier";
 NSString *const kLimitTimeBuyCellIdentifier = @"LimitTimeBuyCellIdentifier";
 NSString *const kProductShowStyleCellIdentifier = @"ProductShowStyleCellIdentifier";

@@ -1,15 +1,14 @@
 //
-//  HotBrandViewCell.h
+//  BrandsViewCell.h
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/7/8.
+//  Created by 刘海川 on 16/8/20.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface HotBrandViewCell : UICollectionViewCell
+@interface BrandsViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end

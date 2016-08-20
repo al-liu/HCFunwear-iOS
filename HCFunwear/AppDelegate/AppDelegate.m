@@ -36,7 +36,7 @@
     
     //配置网络服务
     GlobalConfig *config = [GlobalConfig new];
-    [config configNetwork];
+    [config configDefaultNetworkParameters];
     
     
     self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

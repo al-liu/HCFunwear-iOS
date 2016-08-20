@@ -10,8 +10,13 @@
 #import "Masonry.h"
 #import "GlobalConstant.h"
 #import "CategoryTableViewCell.h"
+#import "UIImageView+Image.h"
+#import "HCFunwearRefreshHeader.h"
+#import "RACEXTScope.h"
 
-@implementation TopCategoryPageView
+@implementation TopCategoryPageView {
+    UITableView *_tableView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -23,7 +28,7 @@
 }
 
 - (void)initUI {
-    UITableView *tableView = ({
+    _tableView = ({
         UITableView *view = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         view.dataSource = self;
         view.delegate = self;
@@ -36,17 +41,36 @@
         
         view;
     });
-    [tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryTableViewCellIdentifier];
+    [_tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryTableViewCellIdentifier];
+    
+    @weakify(self);
+    _tableView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
+        [[self.cateViewModel.categorysRequestCommand execute:nil] subscribeNext:^(NSArray *categorys) {
+            @strongify(self);
+            self.categoryArray = categorys;
+            [self reload];
+            [_tableView.mj_header endRefreshing];
+        }];
+    }];
+}
+
+- (void)reload {
+    [_tableView reloadData];
+}
+- (void)beginRefresh {
+    [_tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _categoryArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryTableViewCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    HCCategory *data = _categoryArray[indexPath.row];
+    [cell.cateImageView toloadImageWithURL:data.img placeholder:defaultImage03];
     return cell;
 }
 

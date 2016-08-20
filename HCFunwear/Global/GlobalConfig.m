@@ -12,9 +12,8 @@
 #import "YYFPSLabel.h"
 #import "AppDelegate.h"
 
-static NSInteger fps_label_tag = 59;
 @implementation GlobalConfig
-- (void)configNetwork {
+- (void)configDefaultNetworkParameters {
     YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
     config.baseUrl = @"http://api.funwear.com/mbfun_server/index.php";
     
@@ -31,6 +30,20 @@ static NSInteger fps_label_tag = 59;
                                 @"osVersion":osVersion};
     YTKUrlArgumentsFilter *urlFilter = [YTKUrlArgumentsFilter filterWithArguments:arguments];
     [config addUrlFilter:urlFilter];
+}
+
+- (void)alterNetworkPublicParameters:(NSDictionary *)parameters {
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
+    NSArray *filters = config.urlFilters;
+    __block BOOL isAlter = NO;
+    [filters enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:YTKUrlArgumentsFilter.class]) {
+            YTKUrlArgumentsFilter *urlFilter = obj;
+            [urlFilter alterAugumentsWithDict:parameters];
+            isAlter = YES;
+        }
+    }];
+    NSAssert(isAlter, @"YTKNetworkConfig's urlFilters has't YTKUrlArgumentsFilter");
 }
 
 @end

@@ -80,6 +80,17 @@
 		E37F50781D66BC77008B465A /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50771D66BC77008B465A /* YYFPSLabel.m */; };
 		E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F507A1D66EAA4008B465A /* HCWindow.m */; };
 		E37F507E1D66F8F6008B465A /* YYFPSLabel+draw.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F507D1D66F8F6008B465A /* YYFPSLabel+draw.m */; };
+		E37F50841D6824A5008B465A /* CategroyLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50831D6824A5008B465A /* CategroyLayoutApi.m */; };
+		E37F50871D68250B008B465A /* GetCategoryListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50861D68250B008B465A /* GetCategoryListApi.m */; };
+		E37F508A1D682587008B465A /* GetAppBrandListApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50891D682587008B465A /* GetAppBrandListApi.m */; };
+		E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F508D1D683B0A008B465A /* HCCategoryLayout.m */; };
+		E37F50911D683BD5008B465A /* HCHotModuleData.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50901D683BD5008B465A /* HCHotModuleData.m */; };
+		E37F50941D683DFF008B465A /* HCHotModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50931D683DFF008B465A /* HCHotModule.m */; };
+		E37F50971D6843BF008B465A /* HCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50961D6843BF008B465A /* HCCategory.m */; };
+		E37F509A1D68452C008B465A /* HCBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50991D68452C008B465A /* HCBrand.m */; };
+		E37F509E1D688F14008B465A /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F509D1D688F14008B465A /* UIImageView+Image.m */; };
+		E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50A01D68AAEA008B465A /* BrandsViewCell.m */; };
+		E37F50A31D68AAEA008B465A /* BrandsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37F50A11D68AAEA008B465A /* BrandsViewCell.xib */; };
 		E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */; };
 		E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31C1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m */; };
 		E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */; };
@@ -293,6 +304,27 @@
 		E37F507A1D66EAA4008B465A /* HCWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWindow.m; sourceTree = "<group>"; };
 		E37F507C1D66F8F6008B465A /* YYFPSLabel+draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YYFPSLabel+draw.h"; sourceTree = "<group>"; };
 		E37F507D1D66F8F6008B465A /* YYFPSLabel+draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YYFPSLabel+draw.m"; sourceTree = "<group>"; };
+		E37F50821D6824A5008B465A /* CategroyLayoutApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategroyLayoutApi.h; sourceTree = "<group>"; };
+		E37F50831D6824A5008B465A /* CategroyLayoutApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategroyLayoutApi.m; sourceTree = "<group>"; };
+		E37F50851D68250B008B465A /* GetCategoryListApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCategoryListApi.h; sourceTree = "<group>"; };
+		E37F50861D68250B008B465A /* GetCategoryListApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCategoryListApi.m; sourceTree = "<group>"; };
+		E37F50881D682587008B465A /* GetAppBrandListApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAppBrandListApi.h; sourceTree = "<group>"; };
+		E37F50891D682587008B465A /* GetAppBrandListApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAppBrandListApi.m; sourceTree = "<group>"; };
+		E37F508C1D683B0A008B465A /* HCCategoryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryLayout.h; sourceTree = "<group>"; };
+		E37F508D1D683B0A008B465A /* HCCategoryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCategoryLayout.m; sourceTree = "<group>"; };
+		E37F508F1D683BD5008B465A /* HCHotModuleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHotModuleData.h; sourceTree = "<group>"; };
+		E37F50901D683BD5008B465A /* HCHotModuleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHotModuleData.m; sourceTree = "<group>"; };
+		E37F50921D683DFF008B465A /* HCHotModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHotModule.h; sourceTree = "<group>"; };
+		E37F50931D683DFF008B465A /* HCHotModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHotModule.m; sourceTree = "<group>"; };
+		E37F50951D6843BF008B465A /* HCCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategory.h; sourceTree = "<group>"; };
+		E37F50961D6843BF008B465A /* HCCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCategory.m; sourceTree = "<group>"; };
+		E37F50981D68452C008B465A /* HCBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBrand.h; sourceTree = "<group>"; };
+		E37F50991D68452C008B465A /* HCBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBrand.m; sourceTree = "<group>"; };
+		E37F509C1D688F14008B465A /* UIImageView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Image.h"; sourceTree = "<group>"; };
+		E37F509D1D688F14008B465A /* UIImageView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Image.m"; sourceTree = "<group>"; };
+		E37F509F1D68AAEA008B465A /* BrandsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsViewCell.h; sourceTree = "<group>"; };
+		E37F50A01D68AAEA008B465A /* BrandsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsViewCell.m; sourceTree = "<group>"; };
+		E37F50A11D68AAEA008B465A /* BrandsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsViewCell.xib; sourceTree = "<group>"; };
 		E3A6D3171D5DAE0F0012E1B8 /* GlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 		E3A6D31B1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
@@ -450,6 +482,7 @@
 		E30C5A201CED8E4C00BB943C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E37F508B1D683AD7008B465A /* CategoryPageModels */,
 				E3A6D3211D60AF360012E1B8 /* HomePageModels */,
 				E3A6D3161D5D7D7D0012E1B8 /* Apis */,
 				E3FBB1811D34E90200573343 /* MinePageModels */,
@@ -494,6 +527,7 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E37F509B1D688EDD008B465A /* Other */,
 				E34B7BC21D23C4050066FE80 /* CommonCells */,
 				E34B7BAB1D227BB40066FE80 /* HCGridMenuView */,
 				E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */,
@@ -756,6 +790,32 @@
 			path = YYFPSLabel;
 			sourceTree = "<group>";
 		};
+		E37F508B1D683AD7008B465A /* CategoryPageModels */ = {
+			isa = PBXGroup;
+			children = (
+				E37F508C1D683B0A008B465A /* HCCategoryLayout.h */,
+				E37F508D1D683B0A008B465A /* HCCategoryLayout.m */,
+				E37F50921D683DFF008B465A /* HCHotModule.h */,
+				E37F50931D683DFF008B465A /* HCHotModule.m */,
+				E37F508F1D683BD5008B465A /* HCHotModuleData.h */,
+				E37F50901D683BD5008B465A /* HCHotModuleData.m */,
+				E37F50951D6843BF008B465A /* HCCategory.h */,
+				E37F50961D6843BF008B465A /* HCCategory.m */,
+				E37F50981D68452C008B465A /* HCBrand.h */,
+				E37F50991D68452C008B465A /* HCBrand.m */,
+			);
+			path = CategoryPageModels;
+			sourceTree = "<group>";
+		};
+		E37F509B1D688EDD008B465A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E37F509C1D688F14008B465A /* UIImageView+Image.h */,
+				E37F509D1D688F14008B465A /* UIImageView+Image.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		E3A6D3161D5D7D7D0012E1B8 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +823,12 @@
 				E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */,
 				E37F50711D65FC57008B465A /* GetRecommedProductListApi.h */,
 				E37F50721D65FC57008B465A /* GetRecommedProductListApi.m */,
+				E37F50821D6824A5008B465A /* CategroyLayoutApi.h */,
+				E37F50831D6824A5008B465A /* CategroyLayoutApi.m */,
+				E37F50851D68250B008B465A /* GetCategoryListApi.h */,
+				E37F50861D68250B008B465A /* GetCategoryListApi.m */,
+				E37F50881D682587008B465A /* GetAppBrandListApi.h */,
+				E37F50891D682587008B465A /* GetAppBrandListApi.m */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -915,6 +981,9 @@
 				E3B1D85E1D2F57CB00A8BA3E /* CategoryTableViewCell.h */,
 				E3B1D85F1D2F57CB00A8BA3E /* CategoryTableViewCell.m */,
 				E3B1D8601D2F57CB00A8BA3E /* CategoryTableViewCell.xib */,
+				E37F509F1D68AAEA008B465A /* BrandsViewCell.h */,
+				E37F50A01D68AAEA008B465A /* BrandsViewCell.m */,
+				E37F50A11D68AAEA008B465A /* BrandsViewCell.xib */,
 			);
 			path = CategoryPageCells;
 			sourceTree = "<group>";
@@ -1103,6 +1172,7 @@
 				E34B7BD61D23CEC90066FE80 /* ProductShowNameCell.xib in Resources */,
 				E368C7A51D2FB4F900E8783F /* InspirationInfoCell.xib in Resources */,
 				E34B7BD11D23CCFD0066FE80 /* SingleImageCell.xib in Resources */,
+				E37F50A31D68AAEA008B465A /* BrandsViewCell.xib in Resources */,
 				E3FBB1461D3339A400573343 /* InspirationNotAttentionView.xib in Resources */,
 				E34B7BDB1D23D6ED0066FE80 /* LimitTimeBuyCell.xib in Resources */,
 				E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */,
@@ -1204,10 +1274,13 @@
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
 				E37F507E1D66F8F6008B465A /* YYFPSLabel+draw.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */,
 				E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */,
 				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
+				E37F508A1D682587008B465A /* GetAppBrandListApi.m in Sources */,
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
+				E37F509E1D688F14008B465A /* UIImageView+Image.m in Sources */,
 				E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */,
 				E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */,
 				E34B7BC11D23BC540066FE80 /* SinglePageAdvertViewCell.m in Sources */,
@@ -1237,6 +1310,8 @@
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
+				E37F509A1D68452C008B465A /* HCBrand.m in Sources */,
+				E37F50841D6824A5008B465A /* CategroyLayoutApi.m in Sources */,
 				E3FBB16C1D34CDC100573343 /* MinePageUserHeadCell.m in Sources */,
 				E368C7A01D2FA9C100E8783F /* InspirationPageAttentionView.m in Sources */,
 				E3FBB1711D34D4BD00573343 /* MineMenuCell.m in Sources */,
@@ -1269,7 +1344,9 @@
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
 				E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
+				E37F50911D683BD5008B465A /* HCHotModuleData.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
+				E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */,
 				E3B1D8571D2F428400A8BA3E /* HotBrandViewCell.m in Sources */,
 				E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
@@ -1286,7 +1363,10 @@
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
 				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,
 				E37F506D1D65F86F008B465A /* HCProduct.m in Sources */,
+				E37F50971D6843BF008B465A /* HCCategory.m in Sources */,
+				E37F50871D68250B008B465A /* GetCategoryListApi.m in Sources */,
 				E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */,
+				E37F50941D683DFF008B465A /* HCHotModule.m in Sources */,
 				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E3FBB15E1D3384DE00573343 /* ShoppingBagPageViewModel.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,

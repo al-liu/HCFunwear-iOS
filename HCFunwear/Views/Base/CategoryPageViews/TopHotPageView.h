@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCCategoryLayout.h"
+#import "CategoryPageViewModel.h"
 
 @interface TopHotPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong) CategoryPageViewModel *cateViewModel;
+@property (nonatomic, strong) HCCategoryLayout *cateMoudule;
+
+- (void)reload;
+- (void)beginRefresh;
 
 @end

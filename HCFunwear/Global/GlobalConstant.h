@@ -13,6 +13,7 @@
 UIKIT_EXTERN NSString *const kProductShowPriceCellIdentifier;
 UIKIT_EXTERN NSString *const kProductShowNameCellIdentifier;
 UIKIT_EXTERN NSString *const kSingleImageCellIdentifier;
+UIKIT_EXTERN NSString *const kBrandsViewCellIdentifier;
 UIKIT_EXTERN NSString *const kLimitTimeBuyCellIdentifier;
 UIKIT_EXTERN NSString *const kProductShowStyleCellIdentifier;
 UIKIT_EXTERN NSString *const kBrandBorderCellIdentifier;

@@ -26,4 +26,10 @@
     return [YTKNetworkPrivate urlStringWithOriginUrlString:originUrl appendParameters:_arguments];
 }
 
+- (void)alterAugumentsWithDict:(NSDictionary *)dict {
+    NSMutableDictionary *mutableDict = [_arguments mutableCopy];
+    [mutableDict addEntriesFromDictionary:dict];
+    _arguments = [mutableDict copy];
+}
+
 @end

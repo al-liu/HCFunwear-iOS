@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface GlobalConfig : NSObject
-- (void)configNetwork;
+- (void)configDefaultNetworkParameters;
+- (void)alterNetworkPublicParameters:(NSDictionary *)parameters;
 @end

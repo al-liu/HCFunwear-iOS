@@ -7,16 +7,21 @@
 //
 
 #import "TopHotReusableView.h"
-#import "HCCirculateScrollView.h"
 #import "Masonry.h"
 #import "CategoryPageHeadTitleView.h"
 #import "HotBrandViewCell.h"
 #import "GlobalConstant.h"
+#import "HCHotModuleData.h"
+#import "UIImageView+Image.h"
 
 @implementation TopHotReusableView {
-    HCCirculateScrollView *_circulateScrollView;
+    
     CategoryPageHeadTitleView *_headBrandTitleView;
     CategoryPageHeadTitleView *_headCategoryTitleView;
+    
+    UICollectionView *_collectionView;
+    
+    NSArray *_hotBrandList;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -29,7 +34,7 @@
 }
 
 - (void)initUI {
-    //32:21
+    //53:160
     _circulateScrollView = ({
         HCCirculateScrollView *view = [HCCirculateScrollView new];
         view.image = [UIImage imageNamed:@"fan_default_01"];
@@ -37,7 +42,7 @@
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.right.equalTo(self);
-            make.height.equalTo(self.mas_width).multipliedBy(21/32.0);
+            make.height.equalTo(self.mas_width).multipliedBy(53/160.0);
         }];
         
         view;
@@ -61,26 +66,26 @@
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    [self addSubview:collectionView];
-    collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    [self addSubview:_collectionView];
+    _collectionView.backgroundColor = [UIColor whiteColor];
     
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_headBrandTitleView.mas_bottom);
         make.left.right.equalTo(self);
         make.height.equalTo(@111);
     }];
     
-    [collectionView registerNib:[UINib nibWithNibName:@"HotBrandViewCell" bundle:nil] forCellWithReuseIdentifier:kHotBrandViewCellIdentifier];
+    [_collectionView registerNib:[UINib nibWithNibName:@"HotBrandViewCell" bundle:nil] forCellWithReuseIdentifier:kHotBrandViewCellIdentifier];
     
     _headCategoryTitleView = ({
         CategoryPageHeadTitleView *view = [CategoryPageHeadTitleView new];
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(collectionView.mas_bottom).offset(22);
+            make.top.equalTo(_collectionView.mas_bottom).offset(22);
             make.left.right.equalTo(self);
             make.height.equalTo(@34);
         }];
@@ -94,13 +99,21 @@
     _headCategoryTitleView.titleEnLabel.text = @"Hot Gategory";
 }
 
+- (void)reloadHotBrandsWithDatas:(NSArray *)datas {
+    _hotBrandList = datas;
+    [_collectionView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    return _hotBrandList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HotBrandViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHotBrandViewCellIdentifier forIndexPath:indexPath];
+    HCHotModuleData *data = _hotBrandList[indexPath.row];
+    [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage02];
+    cell.nameLabel.text = data.name;
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

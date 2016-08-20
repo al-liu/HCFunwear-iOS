@@ -25,4 +25,9 @@
 @property (nonatomic, copy) NSString *jump_type;
 @property (nonatomic, strong) HCJumpExtension *ext;
 
+//分类-热门
+@property (nonatomic, copy) NSString *is_h5;
+@property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *share;
+
 @end

@@ -117,6 +117,7 @@
     [rightButton setImage:[UIImage imageNamed:@"top_search"] forState:UIControlStateNormal];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = rightItem;
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = nil;
     
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topView;
 }

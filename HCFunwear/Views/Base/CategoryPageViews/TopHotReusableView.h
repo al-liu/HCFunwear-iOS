@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCCirculateScrollView.h"
 
 @interface TopHotReusableView : UICollectionReusableView <UICollectionViewDataSource,UICollectionViewDelegate>
 
+@property (nonatomic, strong) HCCirculateScrollView *circulateScrollView;
+
+- (void)reloadHotBrandsWithDatas:(NSArray *)datas;
 
 @end

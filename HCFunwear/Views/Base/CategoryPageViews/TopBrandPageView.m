@@ -10,8 +10,15 @@
 #import "Masonry.h"
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
+#import "HCFunwearRefreshHeader.h"
+#import "HCFunwearRefreshFooter.h"
+#import "HCBrand.h"
+#import "UIImageView+Image.h"
+#import "BrandsViewCell.h"
 
-@implementation TopBrandPageView
+@implementation TopBrandPageView {
+    UICollectionView *_collectionView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -25,28 +32,60 @@
 - (void)initUI {
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    [self addSubview:collectionView];
-    collectionView.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    [self addSubview:_collectionView];
+    _collectionView.backgroundColor = [UIColor whiteColor];
     
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     
-    [collectionView registerNib:[UINib nibWithNibName:@"SingleImageCell" bundle:nil] forCellWithReuseIdentifier:kSingleImageCellIdentifier];
+    [_collectionView registerNib:[UINib nibWithNibName:@"BrandsViewCell" bundle:nil] forCellWithReuseIdentifier:kBrandsViewCellIdentifier];
     
+    @weakify(self);
+    _collectionView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
+        _cateViewModel.brandApi.pageIndex = 0;
+        [[_cateViewModel.brandsRequestCommand execute:nil] subscribeNext:^(NSArray *brands) {
+            @strongify(self);
+            self.brandsList = [brands mutableCopy];
+            [self reload];
+            [_collectionView.mj_header endRefreshing];
+        }];
+    }];
+    
+    _collectionView.mj_footer = [HCFunwearRefreshFooter footerWithRefreshingBlock:^{
+        _cateViewModel.brandApi.pageIndex += 1;
+        [[_cateViewModel.brandsRequestCommand execute:nil] subscribeNext:^(NSArray *brands) {
+            @strongify(self);
+            [self.brandsList addObjectsFromArray:brands];
+            [self reload];
+            [_collectionView.mj_footer endRefreshing];
+        }];
+    }];
+}
+
+- (void)beginRefresh {
+    [_collectionView.mj_header beginRefreshing];
+}
+
+- (void)reload {
+    [_collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    return _brandsList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    BrandsViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBrandsViewCellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
+    
+    HCBrand *brand = _brandsList[indexPath.row];
+    [cell.imageView toloadImageWithURL:brand.logo_img placeholder:defaultImage04];
+    
     return cell;
 }
 

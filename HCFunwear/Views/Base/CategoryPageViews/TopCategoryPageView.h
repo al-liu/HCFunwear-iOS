@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCCategory.h"
+#import "CategoryPageViewModel.h"
 
 @interface TopCategoryPageView : UIView <UITableViewDataSource,UITableViewDelegate>
+#warning 这里还有 子标题。。
+
+@property (nonatomic, strong) CategoryPageViewModel *cateViewModel;
+@property (nonatomic, strong) NSArray *categoryArray;
+
+- (void)reload;
+- (void)beginRefresh;
 
 @end
+

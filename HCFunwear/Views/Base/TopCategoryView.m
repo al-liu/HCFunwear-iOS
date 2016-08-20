@@ -29,7 +29,7 @@
 }
 
 - (void)initUI {
-    
+    self.userInteractionEnabled = YES;
     //60 - 10
     _midLabel = ({
         UILabel *label = [UILabel new];
