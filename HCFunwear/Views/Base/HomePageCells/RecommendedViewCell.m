@@ -10,6 +10,8 @@
 #import "HomePageHeadTitleView.h"
 #import "Masonry.h"
 #import "GlobalColors.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation RecommendedViewCell {
     HomePageHeadTitleView *_headTitleView;
@@ -49,6 +51,14 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

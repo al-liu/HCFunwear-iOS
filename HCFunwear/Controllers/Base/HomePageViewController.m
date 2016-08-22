@@ -7,47 +7,41 @@
 //
 
 #import "HomePageViewController.h"
-#import "HomePageViewModel.h"
 #import "TopStyleButton.h"
 #import "GlobalContext.h"
 #import "HomePageView.h"
+#import "RACEXTScope.h"
+#import "HCHomeCollectionViewBindingHelper.h"
+#import "ReactiveCocoa.h"
 
 @interface HomePageViewController ()
 <
     TopStyleDelegate
 >
-{
-    HomePageViewModel *_homePageViewModel;
-    HomePageView *_homePageView;
-}
+
+@property (weak, nonatomic) HomePageViewModel *homePageViewModel;
+@property (strong, nonatomic) HomePageView *homePageView;
 
 @end
-
-
 
 @implementation HomePageViewController
 
 #pragma mark - life_cycle
+
+- (instancetype)initWithViewModel:(HomePageViewModel *)viewModel {
+    self = [super init];
+    if (self ) {
+        self.homePageViewModel = viewModel;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    _homePageViewModel = [HomePageViewModel new];
-    
-    RACSignal *requestSignal = [_homePageViewModel.layoutRequestCommand execute:nil];
-    [requestSignal subscribeNext:^(NSArray *modules) {
-        NSLog(@"modules:%@",modules);
-        _homePageView.homePageDataList = modules;
-        [_homePageView reloadData];
-    }];
-    
-//    RACSignal *productsRequestSignal = [_homePageViewModel.productsRequestCommand execute:nil];
-//    [productsRequestSignal subscribeNext:^(NSArray *productList) {
-//        NSLog(@"home controller product:%@",productList);
-//
-//    }];
     
     [self initUI];
+    [self bindViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,6 +62,8 @@
 
 #pragma mark - initUI
 - (void)initUI {
+    self.view.backgroundColor = [UIColor whiteColor];
+
     _homePageView = [[HomePageView alloc]initWithViewModel:_homePageViewModel];
     [self.view addSubview:_homePageView];
     
@@ -76,6 +72,16 @@
         make.top.equalTo(self.view).offset(64);
         make.left.right.equalTo(self.view);
     }];
+}
+
+- (void)bindViewModel {
+    //先请求布局数据
+    [self.homePageViewModel.layoutRequestCommand execute:nil];
+    
+    [HCHomeCollectionViewBindingHelper initWithCollectionView:_homePageView.homePageCollectionView
+                                                 sourceSignal:RACObserve(self.homePageViewModel, layoutDataArray)
+                                               productsSignal:RACObserve(self.homePageViewModel, productsDataArray)
+                                                  pushCommand:self.homePageViewModel.pushCommand];
 }
 
 #pragma mark - configration

@@ -9,6 +9,7 @@
 #import "HotCategoryViewCell.h"
 #import "HotCategoryView.h"
 #import "Masonry.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation HotCategoryViewCell {
     
@@ -30,6 +31,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _hotGategoryView.hotCategoryModule = module;
+    [_hotGategoryView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

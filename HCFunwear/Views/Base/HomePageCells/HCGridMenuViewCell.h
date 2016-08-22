@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HCGridMenuView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface HCGridMenuViewCell : UICollectionViewCell
+@interface HCGridMenuViewCell : UICollectionViewCell <HCHomeModuleCellProtocol,HCGridMenuViewProtocol>
 
 @property (nonatomic, strong) HCGridMenuView *gridMenuView;
 

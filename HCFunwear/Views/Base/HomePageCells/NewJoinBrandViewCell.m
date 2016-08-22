@@ -9,6 +9,8 @@
 #import "NewJoinBrandViewCell.h"
 #import "Masonry.h"
 #import "NewJoinBrandView.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation NewJoinBrandViewCell
 {
@@ -31,6 +33,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _joinBrandView.module = module;
+    [_joinBrandView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

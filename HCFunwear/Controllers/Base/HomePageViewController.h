@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "HomePageViewModel.h"
 
 @interface HomePageViewController : UIViewController
+
+- (instancetype)initWithViewModel:(HomePageViewModel *)viewModel;
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HotCategoryView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface HotCategoryViewCell : UICollectionViewCell
+@interface HotCategoryViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) HotCategoryView *hotGategoryView;
 

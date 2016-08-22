@@ -21,6 +21,8 @@
 #import "ShoppingBagPageViewController.h"
 #import "MinePageViewController.h"
 #import "GlobalConfig.h"
+#import "HCHomeViewModelServiceImpl.h"
+#import "HomePageViewModel.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -51,6 +53,7 @@
     //纪录到全局环境中
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
+    [GlobalContext ShareInstance].rootController = navigationController;
         
     return YES;
 }
@@ -112,8 +115,13 @@
     HCTabButton *purchaseTabButton = [[HCTabButton alloc]initWithItem:purchaseTabItem];
     HCTabButton *mineTabButton = [[HCTabButton alloc]initWithItem:mineTabItem];
     HCTabBar *tabBar = [[HCTabBar alloc]initWithTabViews:@[homePageTabButton,searchTabButton,inspirationTabButton,purchaseTabButton,mineTabButton]];
+    /**
+     *  首页 对应的 ViewModel 及 相关服务 Service
+     */
+    HCHomeViewModelServiceImpl *homeViewModelServiceImpl = [HCHomeViewModelServiceImpl new];
+    HomePageViewModel *homeViewModel = [[HomePageViewModel alloc]initWithServices:homeViewModelServiceImpl];
+    HomePageViewController *homePageViewController = [[HomePageViewController alloc]initWithViewModel:homeViewModel];
     
-    HomePageViewController *homePageViewController = [[HomePageViewController alloc]init];
     CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]init];
     InspirationPageViewController *inspirationController = [[InspirationPageViewController alloc]init];
     ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];

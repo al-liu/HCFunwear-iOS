@@ -10,6 +10,8 @@
 #import "Masonry.h"
 #import "DoubleBannerView.h"
 #import "GlobalColors.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation DoubleBannerViewCell
 {
@@ -33,6 +35,16 @@
         self.backgroundColor = kCommonColor;
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _doubleBannerView.module = module;
+    [_doubleBannerView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

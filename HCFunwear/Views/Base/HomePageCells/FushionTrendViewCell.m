@@ -9,6 +9,7 @@
 #import "FushionTrendViewCell.h"
 #import "FushionTrendView.h"
 #import "Masonry.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation FushionTrendViewCell {
     
@@ -30,6 +31,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _fushionTrendView.module = module;
+    [_fushionTrendView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

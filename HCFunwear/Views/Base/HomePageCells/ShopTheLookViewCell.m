@@ -9,6 +9,8 @@
 #import "ShopTheLookViewCell.h"
 #import "Masonry.h"
 #import "ShopTheLookView.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation ShopTheLookViewCell {
     ShopTheLookView *_shopTheLookView;
@@ -30,6 +32,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+//    HCModule *module = data;
+//    _shopTheLookView.module = module;
+//    [_shopTheLookView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

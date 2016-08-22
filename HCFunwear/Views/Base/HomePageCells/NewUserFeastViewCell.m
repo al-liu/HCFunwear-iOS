@@ -9,6 +9,7 @@
 #import "NewUserFeastViewCell.h"
 #import "NewUserFeastView.h"
 #import "Masonry.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation NewUserFeastViewCell
 
@@ -28,6 +29,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _feastView.userFeastModule = module;
+    [_feastView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WearTemplateView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface WearTemplateViewCell : UICollectionViewCell {
+@interface WearTemplateViewCell : UICollectionViewCell <HCHomeModuleCellProtocol> {
     WearTemplateView *_wearTemplateView;
 }
 

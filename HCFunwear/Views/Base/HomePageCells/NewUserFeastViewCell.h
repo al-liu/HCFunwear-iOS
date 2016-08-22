@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NewUserFeastView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface NewUserFeastViewCell : UICollectionViewCell
+@interface NewUserFeastViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) NewUserFeastView *feastView;
 

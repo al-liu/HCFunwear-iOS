@@ -16,11 +16,13 @@
 @property (nonatomic ,assign) CGSize referenceSizeForHeader;
 @property (nonatomic ,assign) UIEdgeInsets insetForSection;
 @property (nonatomic ,copy) NSString *identifier;
+@property (nonatomic ,copy) NSString *cellClass;
 
 - (instancetype)initWithIdentifier:(NSString *)cellId
                           sizeItem:(CGSize)cellSize
                 minimumLineSpacing:(CGFloat)spacingSize
             referenceSizeForHeader:(CGSize)headerSize
-                   insetForSection:(UIEdgeInsets)inset;
+                   insetForSection:(UIEdgeInsets)inset
+                         cellClass:(NSString *)cellClass;
 
 @end

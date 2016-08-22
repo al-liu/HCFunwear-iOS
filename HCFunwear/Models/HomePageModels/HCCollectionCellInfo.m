@@ -14,7 +14,8 @@
                           sizeItem:(CGSize)cellSize
                 minimumLineSpacing:(CGFloat)spacingSize
             referenceSizeForHeader:(CGSize)headerSize
-                   insetForSection:(UIEdgeInsets)inset {
+                   insetForSection:(UIEdgeInsets)inset
+                         cellClass:(NSString *)cellClass;{
     self = [super init];
     if (self) {
         _identifier = cellId;
@@ -22,6 +23,7 @@
         _minimumLineSpacing = spacingSize;
         _referenceSizeForHeader = headerSize;
         _insetForSection = inset;
+        _cellClass = cellClass;
     }
     return self;
 }

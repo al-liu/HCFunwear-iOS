@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DoubleBannerView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface DoubleBannerViewCell : UICollectionViewCell
+@interface DoubleBannerViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) DoubleBannerView *doubleBannerView;
 

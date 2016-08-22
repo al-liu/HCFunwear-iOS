@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MagazineInfoView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface MagazineInfoViewCell : UICollectionViewCell
+@interface MagazineInfoViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) MagazineInfoView *magazineInfoView;
 

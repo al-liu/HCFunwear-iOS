@@ -11,11 +11,9 @@
 
 @interface HomePageView : UIView
 
-@property (nonatomic, strong) NSArray *homePageDataList;
+@property (nonatomic, strong) UICollectionView *homePageCollectionView;
 @property (nonatomic, strong) HomePageViewModel *homePageViewModel;
 
 - (instancetype)initWithViewModel:(HomePageViewModel *)mdoel;
-
-- (void)reloadData;
 
 @end

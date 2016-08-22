@@ -89,7 +89,8 @@
         HCModuleData *data = _module.data.firstObject;
         
         @weakify(self);
-        [_modelImageView setImageWithURL:data.img placeholder:defaultImage03 options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        self.modelImageView.contentMode = UIViewContentModeCenter;
+        [_modelImageView setImageWithURL:data.img placeholder:defaultImage03 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             @strongify(self)
             self.modelImageView.image = image;
             self.modelImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -121,6 +122,8 @@
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
     HCModuleData *moduleData = _module.data[indexPath.row+1];
+    
+    cell.imageView.contentMode = UIViewContentModeCenter;
     [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage03 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         cell.imageView.image = image;
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;

@@ -9,6 +9,8 @@
 #import "MagazineInfoViewCell.h"
 #import "Masonry.h"
 #import "MagazineInfoView.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation MagazineInfoViewCell
 {
@@ -31,6 +33,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _magazineInfoView.module = module;
+    [_magazineInfoView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "HCCirculateScrollView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface HCCirculateScrollViewCell : UICollectionViewCell
+@interface HCCirculateScrollViewCell : UICollectionViewCell <HCHomeModuleCellProtocol,HCCirculateScrollViewProtocol>
 
 @property (nonatomic, strong) HCCirculateScrollView *circulateScrollView;
-@property (nonatomic, weak) id cellDelegate;
 
 @end

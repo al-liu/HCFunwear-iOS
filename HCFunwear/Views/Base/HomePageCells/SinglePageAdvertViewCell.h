@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCHomeModuleCellProtocol.h"
 
-@interface SinglePageAdvertViewCell : UICollectionViewCell
+@interface SinglePageAdvertViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) UIImageView *advertView;
 

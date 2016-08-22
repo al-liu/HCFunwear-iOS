@@ -91,6 +91,14 @@
 		E37F509E1D688F14008B465A /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F509D1D688F14008B465A /* UIImageView+Image.m */; };
 		E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50A01D68AAEA008B465A /* BrandsViewCell.m */; };
 		E37F50A31D68AAEA008B465A /* BrandsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37F50A11D68AAEA008B465A /* BrandsViewCell.xib */; };
+		E37F50A81D6AEE61008B465A /* HCHomeLayoutServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50A71D6AEE61008B465A /* HCHomeLayoutServiceImpl.m */; };
+		E37F50AB1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50AA1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m */; };
+		E37F50AE1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */; };
+		E37F50B21D6B4823008B465A /* HCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50B11D6B4823008B465A /* HCWebViewController.m */; };
+		E37F50B51D6B483C008B465A /* HCWebViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50B41D6B483C008B465A /* HCWebViewModel.m */; };
+		E37F50B81D6B4859008B465A /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50B71D6B4859008B465A /* ProductDetailViewController.m */; };
+		E37F50BB1D6B486F008B465A /* ProductDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */; };
+		E37F50BE1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */; };
 		E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */; };
 		E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31C1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m */; };
 		E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */; };
@@ -325,6 +333,25 @@
 		E37F509F1D68AAEA008B465A /* BrandsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandsViewCell.h; sourceTree = "<group>"; };
 		E37F50A01D68AAEA008B465A /* BrandsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandsViewCell.m; sourceTree = "<group>"; };
 		E37F50A11D68AAEA008B465A /* BrandsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsViewCell.xib; sourceTree = "<group>"; };
+		E37F50A41D6AED0C008B465A /* HCHomeLayoutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeLayoutService.h; sourceTree = "<group>"; };
+		E37F50A51D6AEDCD008B465A /* HCHomeViewModelServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeViewModelServices.h; sourceTree = "<group>"; };
+		E37F50A61D6AEE61008B465A /* HCHomeLayoutServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeLayoutServiceImpl.h; sourceTree = "<group>"; };
+		E37F50A71D6AEE61008B465A /* HCHomeLayoutServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHomeLayoutServiceImpl.m; sourceTree = "<group>"; };
+		E37F50A91D6AFD92008B465A /* HCHomeViewModelServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeViewModelServiceImpl.h; sourceTree = "<group>"; };
+		E37F50AA1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHomeViewModelServiceImpl.m; sourceTree = "<group>"; };
+		E37F50AC1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeCollectionViewBindingHelper.h; sourceTree = "<group>"; };
+		E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHomeCollectionViewBindingHelper.m; sourceTree = "<group>"; };
+		E37F50AF1D6B3D79008B465A /* HCHomeModuleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHomeModuleCellProtocol.h; sourceTree = "<group>"; };
+		E37F50B01D6B4823008B465A /* HCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWebViewController.h; sourceTree = "<group>"; };
+		E37F50B11D6B4823008B465A /* HCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWebViewController.m; sourceTree = "<group>"; };
+		E37F50B31D6B483C008B465A /* HCWebViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWebViewModel.h; sourceTree = "<group>"; };
+		E37F50B41D6B483C008B465A /* HCWebViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWebViewModel.m; sourceTree = "<group>"; };
+		E37F50B61D6B4859008B465A /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		E37F50B71D6B4859008B465A /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		E37F50B91D6B486F008B465A /* ProductDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewModel.h; sourceTree = "<group>"; };
+		E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewModel.m; sourceTree = "<group>"; };
+		E37F50BC1D6B50BF008B465A /* UICollectionViewCell+RACCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+RACCommand.h"; sourceTree = "<group>"; };
+		E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+RACCommand.m"; sourceTree = "<group>"; };
 		E3A6D3171D5DAE0F0012E1B8 /* GlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 		E3A6D31B1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
@@ -608,6 +635,14 @@
 				E3FBB1601D338E8100573343 /* MinePageViewController.m */,
 				E3FBB1621D338E9200573343 /* MinePageViewModel.h */,
 				E3FBB1631D338E9200573343 /* MinePageViewModel.m */,
+				E37F50B01D6B4823008B465A /* HCWebViewController.h */,
+				E37F50B11D6B4823008B465A /* HCWebViewController.m */,
+				E37F50B31D6B483C008B465A /* HCWebViewModel.h */,
+				E37F50B41D6B483C008B465A /* HCWebViewModel.m */,
+				E37F50B61D6B4859008B465A /* ProductDetailViewController.h */,
+				E37F50B71D6B4859008B465A /* ProductDetailViewController.m */,
+				E37F50B91D6B486F008B465A /* ProductDetailViewModel.h */,
+				E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -659,6 +694,8 @@
 		E34B7BC21D23C4050066FE80 /* CommonCells */ = {
 			isa = PBXGroup;
 			children = (
+				E37F50BC1D6B50BF008B465A /* UICollectionViewCell+RACCommand.h */,
+				E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */,
 				E34B7BC31D23C58A0066FE80 /* ProductShowPriceCell.h */,
 				E34B7BC41D23C58A0066FE80 /* ProductShowPriceCell.m */,
 				E34B7BC51D23C58A0066FE80 /* ProductShowPriceCell.xib */,
@@ -857,6 +894,15 @@
 				E37F506C1D65F86F008B465A /* HCProduct.m */,
 				E37F506E1D65FA5F008B465A /* HCProductTag.h */,
 				E37F506F1D65FA5F008B465A /* HCProductTag.m */,
+				E37F50A41D6AED0C008B465A /* HCHomeLayoutService.h */,
+				E37F50A51D6AEDCD008B465A /* HCHomeViewModelServices.h */,
+				E37F50AF1D6B3D79008B465A /* HCHomeModuleCellProtocol.h */,
+				E37F50A61D6AEE61008B465A /* HCHomeLayoutServiceImpl.h */,
+				E37F50A71D6AEE61008B465A /* HCHomeLayoutServiceImpl.m */,
+				E37F50A91D6AFD92008B465A /* HCHomeViewModelServiceImpl.h */,
+				E37F50AA1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m */,
+				E37F50AC1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.h */,
+				E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */,
 			);
 			path = HomePageModels;
 			sourceTree = "<group>";
@@ -1262,9 +1308,11 @@
 				E37F50281D64475B008B465A /* HCFunwearRefreshHeader.m in Sources */,
 				E3FBB1611D338E8100573343 /* MinePageViewController.m in Sources */,
 				E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */,
+				E37F50B51D6B483C008B465A /* HCWebViewModel.m in Sources */,
 				E3B1D8611D2F57CB00A8BA3E /* CategoryTableViewCell.m in Sources */,
 				E3B1D8461D2F30DD00A8BA3E /* TopCategoryPageView.m in Sources */,
 				E37F50781D66BC77008B465A /* YYFPSLabel.m in Sources */,
+				E37F50BB1D6B486F008B465A /* ProductDetailViewModel.m in Sources */,
 				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
 				E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */,
 				E37947851D3A7FD0001CE89C /* HomePageView.m in Sources */,
@@ -1274,10 +1322,12 @@
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
 				E37F507E1D66F8F6008B465A /* YYFPSLabel+draw.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
+				E37F50B81D6B4859008B465A /* ProductDetailViewController.m in Sources */,
 				E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */,
 				E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */,
 				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
+				E37F50B21D6B4823008B465A /* HCWebViewController.m in Sources */,
 				E37F508A1D682587008B465A /* GetAppBrandListApi.m in Sources */,
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,
 				E37F509E1D688F14008B465A /* UIImageView+Image.m in Sources */,
@@ -1298,6 +1348,7 @@
 				E30EA00B1D2A67FB00B38B37 /* WearTemplateViewCell.m in Sources */,
 				E3B1D83C1D2E437B00A8BA3E /* CategoryPageViewController.m in Sources */,
 				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
+				E37F50AE1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m in Sources */,
 				E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
 				E3A6D3331D60BF510012E1B8 /* HCModuleData.m in Sources */,
@@ -1362,11 +1413,14 @@
 				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,
 				E30E9FE71D29F38200B38B37 /* NewUserFeastViewCell.m in Sources */,
+				E37F50A81D6AEE61008B465A /* HCHomeLayoutServiceImpl.m in Sources */,
 				E37F506D1D65F86F008B465A /* HCProduct.m in Sources */,
 				E37F50971D6843BF008B465A /* HCCategory.m in Sources */,
 				E37F50871D68250B008B465A /* GetCategoryListApi.m in Sources */,
 				E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */,
 				E37F50941D683DFF008B465A /* HCHotModule.m in Sources */,
+				E37F50BE1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m in Sources */,
+				E37F50AB1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m in Sources */,
 				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E3FBB15E1D3384DE00573343 /* ShoppingBagPageViewModel.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FushionTrendView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface FushionTrendViewCell : UICollectionViewCell
+@interface FushionTrendViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) FushionTrendView *fushionTrendView;
 

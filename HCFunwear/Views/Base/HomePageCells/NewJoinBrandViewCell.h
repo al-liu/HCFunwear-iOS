@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NewJoinBrandView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface NewJoinBrandViewCell : UICollectionViewCell
+@interface NewJoinBrandViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) NewJoinBrandView *joinBrandView;
 

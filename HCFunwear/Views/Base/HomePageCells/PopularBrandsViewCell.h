@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PopularBrandsView.h"
+#import "HCHomeModuleCellProtocol.h"
 
-@interface PopularBrandsViewCell : UICollectionViewCell
+@interface PopularBrandsViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @property (nonatomic, strong) PopularBrandsView *brandsView;
 

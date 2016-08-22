@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCHomeModuleCellProtocol.h"
 
-@interface RecommendedViewCell : UICollectionViewCell
+@interface RecommendedViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
 
 @end

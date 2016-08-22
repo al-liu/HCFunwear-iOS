@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) HCWindow *applicationWindow;
 @property (nonatomic, strong) HCTabBarController *mainTabBarController;
+@property (nonatomic, strong) UINavigationController *rootController;
 
 + (instancetype)ShareInstance;
 

@@ -8,6 +8,8 @@
 
 #import "WearTemplateViewCell.h"
 #import "Masonry.h"
+#import "HCModule.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation WearTemplateViewCell
 {
@@ -30,6 +32,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _wearTemplateView.module = module;
+    [_wearTemplateView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end

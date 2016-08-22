@@ -9,6 +9,7 @@
 #import "PopularBrandsViewCell.h"
 #import "PopularBrandsView.h"
 #import "Masonry.h"
+#import "UICollectionViewCell+RACCommand.h"
 
 @implementation PopularBrandsViewCell {
     
@@ -29,6 +30,16 @@
         });
     }
     return self;
+}
+
+- (void)bindData:(id)data {
+    HCModule *module = data;
+    _brandsView.popularModule = module;
+    [_brandsView reloadData];
+}
+
+- (void)bindPush:(RACCommand *)push {
+    self.push = push;
 }
 
 @end
