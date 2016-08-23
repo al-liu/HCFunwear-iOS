@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TopCategoryView.h"
+#import "CategoryPageViewModel.h"
 
 @interface CategoryPageViewController : UIViewController <TopCategoryViewDelegate,UIScrollViewDelegate>
+
+- (instancetype)initWithViewModel:(CategoryPageViewModel *)viewModel;
 
 @end

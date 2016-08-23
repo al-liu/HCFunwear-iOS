@@ -8,85 +8,79 @@
 
 #import "CategoryPageViewModel.h"
 #import "CategroyLayoutApi.h"
-#import "HCCategoryLayout.h"
 #import "NSObject+YYModel.h"
 #import "GetCategoryListApi.h"
 #import "HCCategory.h"
 #import "HCBrand.h"
+#import "HCCategoryApiServices.h"
+
+@interface CategoryPageViewModel ()
+
+@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+
+@end
 
 @implementation CategoryPageViewModel
 
-- (instancetype)init
-{
+- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services {
     self = [super init];
     if (self) {
-        self.brandApi = [[GetAppBrandListApi alloc]initWithPageIndex:0];
-        [self initBind];
+        _services = services;
+        _cateList = [NSArray array];
+        _brandList = [NSMutableArray array];
+        _topTitlesList = @[@"热门",@"品类",@"品牌"];
+        _brandsPageIndex = 0;
+        [self initialize];
     }
     return self;
 }
 
-- (void)initBind {
-    _layoutRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        RACSignal *requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            CategroyLayoutApi *api = [[CategroyLayoutApi alloc]init];
-            id cacheResponseObject = [api cacheJson];
-            if (cacheResponseObject) {
-                [subscriber sendNext:cacheResponseObject];
-                [subscriber sendCompleted];
-            }
-            else {
-                [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
-                    [subscriber sendNext:request.responseJSONObject];
-                    [subscriber sendCompleted];
-                } failure:^(__kindof YTKBaseRequest *request) {
-                    [subscriber sendError:request.requestOperationError];
-                }];
-            }
-            return nil;
-        }];
-        
-        return [requestSignal map:^id(NSDictionary *value) {
-            HCCategoryLayout *layout = [HCCategoryLayout modelWithJSON:value[@"data"]];
-            return layout;
-        }];
+- (void)initialize {
+    self.layoutRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeHotSignal];
     }];
-    
-    _categorysRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        RACSignal *requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            GetCategoryListApi *api = [[GetCategoryListApi alloc]init];
-            [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
-                [subscriber sendNext:request.responseJSONObject];
-                [subscriber sendCompleted];
-            } failure:^(__kindof YTKBaseRequest *request) {
-                [subscriber sendError:request.requestOperationError];
-            }];
-            return nil;
-        }];
-        
-        return [requestSignal map:^id(NSDictionary *value) {
-            NSArray *categoryList = [NSArray modelArrayWithClass:HCCategory.class json:value[@"data"]];
-            return categoryList;
-        }];
+    self.categorysRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeCateSignal];
     }];
-    
+    self.brandsRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeBrandSignal:(NSInteger)input];
+    }];
+    self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executePushSignal:input];
+    }];
+}
+
+- (RACSignal *)executeHotSignal {
     @weakify(self);
-    _brandsRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        RACSignal *requestSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            @strongify(self);
-            [self.brandApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
-                [subscriber sendNext:request.responseJSONObject];
-                [subscriber sendCompleted];
-            } failure:^(__kindof YTKBaseRequest *request) {
-                [subscriber sendError:request.requestOperationError];
-            }];
-            return nil;
-        }];
-        
-        return [requestSignal map:^id(NSDictionary *value) {
-            NSArray *brandList = [NSArray modelArrayWithClass:HCBrand.class json:value[@"data"]];
-            return brandList;
-        }];
+    return [[[self.services getCategoryApiService] getHotTapData] map:^id(id value) {
+        @strongify(self);
+        self.hotLayout = [HCCategoryLayout modelWithJSON:value[@"data"]];
+        return self.hotLayout;
+    }];
+}
+
+- (RACSignal *)executeCateSignal {
+    return [[[self.services getCategoryApiService] getCateTapData] map:^id(id value) {
+        self.cateList = [NSArray modelArrayWithClass:HCCategory.class json:value[@"data"]];
+        return self.cateList;
+    }];
+}
+
+- (RACSignal *)executeBrandSignal:(NSInteger)pageIndex {
+    return [[[self.services getCategoryApiService] getBrandDataWithIndexPage:_brandsPageIndex] map:^id(id value) {
+        NSArray *data = [NSArray modelArrayWithClass:HCBrand.class json:value[@"data"]];
+        NSMutableArray *mutableData = [NSMutableArray arrayWithArray:_brandList];
+        [mutableData addObjectsFromArray:data];//为了KVO的监听
+        self.brandList = mutableData;
+        return self.brandList;
+    }];
+}
+
+- (RACSignal *)executePushSignal:(id)viewModel {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self.services pushViewModel:viewModel];
+        [subscriber sendCompleted];
+        return nil;
     }];
 }
 

@@ -7,11 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "HCHomeLayoutService.h"
+#import "HCCategoryApiServices.h"
 
 @protocol HCHomeViewModelServices <NSObject>
 
 - (void)pushViewModel:(id)viewModel;
 
 - (id<HCHomeLayoutService>)getHomeLayoutService;
+
+- (id<HCCategoryApiServices>)getCategoryApiService;
 
 @end

@@ -21,22 +21,29 @@
     UIScrollView *_scrollView;
     TopHotPageView *_topHotPageView;
     TopCategoryPageView *_topCategoryPageView;
-    CategoryPageViewModel *_categoryViewModel;
     TopBrandPageView *_topBrandPageView;
-    
 }
+
+@property (nonatomic, weak)CategoryPageViewModel *categoryViewModel;
+
 
 @end
 
 @implementation CategoryPageViewController
 
 #pragma mark - life_cycle
+
+- (instancetype)initWithViewModel:(CategoryPageViewModel *)viewModel {
+    self = [super init];
+    if (self) {
+        _categoryViewModel = viewModel;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    _categoryViewModel = [[CategoryPageViewModel alloc]init];
     
     [self initUI];
     
@@ -60,30 +67,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma requests
-- (void)requestHot {
-    [[_categoryViewModel.layoutRequestCommand execute:nil] subscribeNext:^(HCCategoryLayout *layout) {
-        _topHotPageView.cateMoudule = layout;
-        [_topHotPageView reload];
-    }];
-}
-
-- (void)requestCate {
-    [[_categoryViewModel.categorysRequestCommand execute:nil] subscribeNext:^(NSArray *categorys) {
-        _topCategoryPageView.categoryArray = categorys;
-        [_topCategoryPageView reload];
-    }];
-}
-
-- (void)requestBrand {
-    [[_categoryViewModel.brandsRequestCommand execute:nil] subscribeNext:^(NSArray *brands) {
-        _topBrandPageView.brandsList = [brands mutableCopy];
-        [_topBrandPageView reload];
-    }];
-}
-
 #pragma mark - initUI 
 - (void)initUI {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
     topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, screenWidth-80, 44)];
@@ -107,7 +94,7 @@
     
     _topHotPageView = ({
         TopHotPageView *view = [TopHotPageView new];
-        view.cateViewModel = _categoryViewModel;
+        [view bindViewModel:_categoryViewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -121,7 +108,7 @@
     
     _topCategoryPageView = ({
         TopCategoryPageView *view = [TopCategoryPageView new];
-        view.cateViewModel = _categoryViewModel;
+        [view bindViewModel:_categoryViewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,7 +121,7 @@
     
     _topBrandPageView = ({
         TopBrandPageView *view = [TopBrandPageView new];
-        view.cateViewModel = _categoryViewModel;
+        [view bindViewModel:_categoryViewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -152,27 +139,27 @@
     switch (index) {
         case 0:
         {
-            if (!_topHotPageView.cateMoudule) {
+            if (!self.categoryViewModel.hotLayout) {
                 [_topHotPageView beginRefresh];
             }
         }
             break;
         case 1:
         {
-            if (!_topCategoryPageView.categoryArray) {
+            if (self.categoryViewModel.cateList.count == 0) {
                 [_topCategoryPageView beginRefresh];
             }
         }
             break;
         case 2:
         {
-            if (!_topBrandPageView.brandsList) {
+            if (self.categoryViewModel.brandList.count == 0) {
                 [_topBrandPageView beginRefresh];
             }
         }
             break;
-            
         default:
+            NSAssert1(false, @"beginRequestWithIndex:index:%ld 值不为0/1/2。", index);
             break;
     }
 }
@@ -198,12 +185,10 @@
 
 #pragma mark - TopCategoryViewDelegate
 - (NSString *)topCategoryView:(TopCategoryView *)topCategoryView labelForTitleAtIndex:(NSInteger)index {
-    NSArray *titleArray = @[@"热门",@"品类",@"品牌"];
-    return titleArray[index];
+    return self.categoryViewModel.topTitlesList[index];
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {
-    
     [self beginRequestWithIndex:index];
     [_scrollView setContentOffset:CGPointMake(index * CGRectGetWidth(_scrollView.frame), 0) animated:YES];
 }

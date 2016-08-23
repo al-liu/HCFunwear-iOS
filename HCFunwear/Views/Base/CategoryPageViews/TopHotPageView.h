@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "HCCategoryLayout.h"
 #import "CategoryPageViewModel.h"
+#import "HCViewModelBindProtocol.h"
 
-@interface TopHotPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface TopHotPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate,HCViewModelBindProtocol>
 
 @property (nonatomic, strong) CategoryPageViewModel *cateViewModel;
 @property (nonatomic, strong) HCCategoryLayout *cateMoudule;
 
-- (void)reload;
 - (void)beginRefresh;
 
 @end

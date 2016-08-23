@@ -47,18 +47,26 @@
     _tableView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
         [[self.cateViewModel.categorysRequestCommand execute:nil] subscribeNext:^(NSArray *categorys) {
             @strongify(self);
-            self.categoryArray = categorys;
-            [self reload];
-            [_tableView.mj_header endRefreshing];
+            [self->_tableView.mj_header endRefreshing];
         }];
     }];
 }
 
-- (void)reload {
-    [_tableView reloadData];
-}
 - (void)beginRefresh {
     [_tableView.mj_header beginRefreshing];
+}
+
+- (void)bindViewModel:(id)viewModel {
+    _cateViewModel = viewModel;
+    
+    @weakify(self);
+    [[RACObserve(_cateViewModel, cateList) skip:1] subscribeNext:^(NSArray *cateList) {
+        @strongify(self);
+        self.categoryArray = cateList;
+        [_tableView reloadData];
+    }];
+    
+    //还有跳转的 push
 }
 
 #pragma mark - UITableViewDataSource

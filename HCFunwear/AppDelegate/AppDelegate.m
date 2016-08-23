@@ -23,6 +23,7 @@
 #import "GlobalConfig.h"
 #import "HCHomeViewModelServiceImpl.h"
 #import "HomePageViewModel.h"
+#import "CategoryPageViewModel.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -116,13 +117,15 @@
     HCTabButton *mineTabButton = [[HCTabButton alloc]initWithItem:mineTabItem];
     HCTabBar *tabBar = [[HCTabBar alloc]initWithTabViews:@[homePageTabButton,searchTabButton,inspirationTabButton,purchaseTabButton,mineTabButton]];
     /**
-     *  首页 对应的 ViewModel 及 相关服务 Service
+     *  ViewController 对应的 ViewModel 及 相关服务 Service
      */
     HCHomeViewModelServiceImpl *homeViewModelServiceImpl = [HCHomeViewModelServiceImpl new];
     HomePageViewModel *homeViewModel = [[HomePageViewModel alloc]initWithServices:homeViewModelServiceImpl];
     HomePageViewController *homePageViewController = [[HomePageViewController alloc]initWithViewModel:homeViewModel];
     
-    CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]init];
+    CategoryPageViewModel *cateViewModel = [[CategoryPageViewModel alloc] initWithServices:homeViewModelServiceImpl];
+    CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]initWithViewModel:cateViewModel];
+    
     InspirationPageViewController *inspirationController = [[InspirationPageViewController alloc]init];
     ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];
     MinePageViewController *mineViewController = [[MinePageViewController alloc]init];

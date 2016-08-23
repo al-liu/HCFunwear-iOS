@@ -1,21 +1,22 @@
 //
-//  HCHomeLayoutServiceImpl.m
+//  HCCategoryApiServicesImpl.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/8/22.
+//  Created by 刘海川 on 16/8/23.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCHomeLayoutServiceImpl.h"
-#import "HomeLayoutApi.h"
-#import "NSObject+YYModel.h"
-#import "GetRecommedProductListApi.h"
+#import "HCCategoryApiServicesImpl.h"
+#import "ReactiveCocoa.h"
+#import "CategroyLayoutApi.h"
+#import "GetCategoryListApi.h"
+#import "GetAppBrandListApi.h"
 
-@implementation HCHomeLayoutServiceImpl
+@implementation HCCategoryApiServicesImpl
 
-- (RACSignal *)getLayoutModule {
+- (RACSignal *)getHotTapData {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        HomeLayoutApi *api = [[HomeLayoutApi alloc]init];
+        CategroyLayoutApi *api = [[CategroyLayoutApi alloc]init];
         id cacheResponseObject = [api cacheJson];
         if (cacheResponseObject) {
             [subscriber sendNext:cacheResponseObject];
@@ -30,9 +31,22 @@
     }];
 }
 
-- (RACSignal *)getProductsWithIndexPage:(NSInteger)indexPage {
+- (RACSignal *)getCateTapData {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        GetRecommedProductListApi *api = [[GetRecommedProductListApi alloc]initWithPage:indexPage];
+        GetCategoryListApi *api = [[GetCategoryListApi alloc]init];
+        [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+            [subscriber sendNext:request.responseJSONObject];
+            [subscriber sendCompleted];
+        } failure:^(__kindof YTKBaseRequest *request) {
+            [subscriber sendError:request.requestOperationError];
+        }];
+        return nil;
+    }];
+}
+
+- (RACSignal *)getBrandDataWithIndexPage:(NSInteger)indexPage {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        GetAppBrandListApi *api = [[GetAppBrandListApi alloc]initWithPageIndex:indexPage];
         [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
             [subscriber sendNext:request.responseJSONObject];
             [subscriber sendCompleted];

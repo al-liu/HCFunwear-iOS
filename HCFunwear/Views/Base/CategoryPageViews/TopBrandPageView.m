@@ -46,22 +46,18 @@
     
     @weakify(self);
     _collectionView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
-        _cateViewModel.brandApi.pageIndex = 0;
+        _cateViewModel.brandsPageIndex = 0;
         [[_cateViewModel.brandsRequestCommand execute:nil] subscribeNext:^(NSArray *brands) {
             @strongify(self);
-            self.brandsList = [brands mutableCopy];
-            [self reload];
-            [_collectionView.mj_header endRefreshing];
+            [self->_collectionView.mj_header endRefreshing];
         }];
     }];
     
     _collectionView.mj_footer = [HCFunwearRefreshFooter footerWithRefreshingBlock:^{
-        _cateViewModel.brandApi.pageIndex += 1;
+        _cateViewModel.brandsPageIndex += 1;
         [[_cateViewModel.brandsRequestCommand execute:nil] subscribeNext:^(NSArray *brands) {
             @strongify(self);
-            [self.brandsList addObjectsFromArray:brands];
-            [self reload];
-            [_collectionView.mj_footer endRefreshing];
+            [self->_collectionView.mj_footer endRefreshing];
         }];
     }];
 }
@@ -70,8 +66,17 @@
     [_collectionView.mj_header beginRefreshing];
 }
 
-- (void)reload {
-    [_collectionView reloadData];
+- (void)bindViewModel:(id)viewModel {
+    _cateViewModel = viewModel;
+    
+    @weakify(self);
+    [[RACObserve(_cateViewModel, brandList) skip:1] subscribeNext:^(NSArray *brandList) {
+        @strongify(self);
+        self.brandsList = brandList;
+        [_collectionView reloadData];
+    }];
+    
+    //还有跳转的 push
 }
 
 #pragma mark - UICollectionViewDataSource

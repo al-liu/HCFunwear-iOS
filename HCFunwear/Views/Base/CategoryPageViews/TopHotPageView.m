@@ -50,18 +50,25 @@ static NSString *kTopHotReusableViewIdentifier = @"kTopHotReusableViewIdentifier
     _collectionView.mj_header = [HCFunwearRefreshHeader headerWithRefreshingBlock:^{
         [[self.cateViewModel.layoutRequestCommand execute:nil] subscribeNext:^(HCCategoryLayout *layout) {
             @strongify(self);
-            self.cateMoudule = layout;
-            [self reload];
-            [_collectionView.mj_header endRefreshing];
+            [self->_collectionView.mj_header endRefreshing];
         }];
     }];
 }
 
-- (void)reload {
-    [_collectionView reloadData];
-}
 - (void)beginRefresh {
     [_collectionView.mj_header beginRefreshing];
+}
+
+- (void)bindViewModel:(id)viewModel {
+    _cateViewModel = viewModel;
+    @weakify(self);
+    [[RACObserve(_cateViewModel, hotLayout) skip:1] subscribeNext:^(HCCategoryLayout *layoutCate) {
+        @strongify(self);
+        self.cateMoudule = layoutCate;
+        [_collectionView reloadData];
+    }];
+    
+    //还有跳转的 push
 }
 
 #pragma mark - UICollectionViewDataSource

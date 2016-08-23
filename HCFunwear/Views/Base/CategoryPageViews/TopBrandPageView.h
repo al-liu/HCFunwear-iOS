@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CategoryPageViewModel.h"
+#import "HCViewModelBindProtocol.h"
 
-@interface TopBrandPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface TopBrandPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate,HCViewModelBindProtocol>
 
 @property (nonatomic, strong) CategoryPageViewModel *cateViewModel;
 
-@property (nonatomic, strong) NSMutableArray *brandsList;
+@property (nonatomic, strong) NSArray *brandsList;
 
-- (void)reload;
 - (void)beginRefresh;
 
 @end

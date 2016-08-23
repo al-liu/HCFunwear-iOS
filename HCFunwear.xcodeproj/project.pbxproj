@@ -99,6 +99,7 @@
 		E37F50B81D6B4859008B465A /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50B71D6B4859008B465A /* ProductDetailViewController.m */; };
 		E37F50BB1D6B486F008B465A /* ProductDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */; };
 		E37F50BE1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */; };
+		E37F50C21D6CA680008B465A /* HCCategoryApiServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */; };
 		E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */; };
 		E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31C1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m */; };
 		E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */; };
@@ -352,6 +353,10 @@
 		E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewModel.m; sourceTree = "<group>"; };
 		E37F50BC1D6B50BF008B465A /* UICollectionViewCell+RACCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+RACCommand.h"; sourceTree = "<group>"; };
 		E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+RACCommand.m"; sourceTree = "<group>"; };
+		E37F50BF1D6CA582008B465A /* HCCategoryApiServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryApiServices.h; sourceTree = "<group>"; };
+		E37F50C01D6CA680008B465A /* HCCategoryApiServicesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryApiServicesImpl.h; sourceTree = "<group>"; };
+		E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCategoryApiServicesImpl.m; sourceTree = "<group>"; };
+		E37F50C61D6CB2A0008B465A /* HCViewModelBindProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCViewModelBindProtocol.h; sourceTree = "<group>"; };
 		E3A6D3171D5DAE0F0012E1B8 /* GlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 		E3A6D31B1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
@@ -840,6 +845,10 @@
 				E37F50961D6843BF008B465A /* HCCategory.m */,
 				E37F50981D68452C008B465A /* HCBrand.h */,
 				E37F50991D68452C008B465A /* HCBrand.m */,
+				E37F50BF1D6CA582008B465A /* HCCategoryApiServices.h */,
+				E37F50C61D6CB2A0008B465A /* HCViewModelBindProtocol.h */,
+				E37F50C01D6CA680008B465A /* HCCategoryApiServicesImpl.h */,
+				E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */,
 			);
 			path = CategoryPageModels;
 			sourceTree = "<group>";
@@ -1327,6 +1336,7 @@
 				E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */,
 				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
+				E37F50C21D6CA680008B465A /* HCCategoryApiServicesImpl.m in Sources */,
 				E37F50B21D6B4823008B465A /* HCWebViewController.m in Sources */,
 				E37F508A1D682587008B465A /* GetAppBrandListApi.m in Sources */,
 				E30E9FFF1D2A568000B38B37 /* ShopTheLookViewCell.m in Sources */,

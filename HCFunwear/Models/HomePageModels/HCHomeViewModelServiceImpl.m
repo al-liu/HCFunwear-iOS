@@ -13,9 +13,12 @@
 #import "HCWebViewController.h"
 #import "GlobalContext.h"
 #import "ProductDetailViewController.h"
+#import "HCCategoryApiServices.h"
+#import "HCCategoryApiServicesImpl.h"
 @interface HCHomeViewModelServiceImpl ()
 
 @property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
+@property (nonatomic, strong) HCCategoryApiServicesImpl *cateServiceImpl;
 
 @end
 
@@ -26,12 +29,17 @@
     self = [super init];
     if (self) {
         _serviceImpl = [HCHomeLayoutServiceImpl new];
+        _cateServiceImpl = [HCCategoryApiServicesImpl new];
     }
     return self;
 }
 
 - (id<HCHomeLayoutService>)getHomeLayoutService {
     return self.serviceImpl;
+}
+
+- (id<HCCategoryApiServices>)getCategoryApiService {
+    return self.cateServiceImpl;
 }
 
 - (void)pushViewModel:(id)viewModel {
