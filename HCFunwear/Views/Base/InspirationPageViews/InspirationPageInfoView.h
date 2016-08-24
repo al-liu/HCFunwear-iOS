@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InspirationPageViewModel.h"
 
 @interface InspirationPageInfoView : UIView 
+
+- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel;
+
+- (void)reloadWithTabs:(NSArray *)tabs;
 
 @end

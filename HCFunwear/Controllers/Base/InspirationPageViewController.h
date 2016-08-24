@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InspirationPageViewModel.h"
 
 @interface InspirationPageViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) InspirationPageViewModel *viewModel;
+
+- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel;
 
 @end

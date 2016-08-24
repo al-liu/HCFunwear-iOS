@@ -19,18 +19,30 @@
 {
     TopCategoryView *topView;
     UIScrollView *_scrollView;
+    
+    InspirationPageInfoView *_pageInfoView;
 }
 @end
 
 @implementation InspirationPageViewController
 
 #pragma mark - life_cycle
+- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel {
+    self = [super init];
+    if (self) {
+        _viewModel = viewModel;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     [self initUI];
+    
+    [[_viewModel.infosRequestCommand execute:nil] subscribeNext:^(HCInspirationInfos *info) {
+        [_pageInfoView reloadWithTabs:info.attr];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,17 +63,21 @@
 
 #pragma mark - initUI
 - (void)initUI {
-    topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-180, 44)];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-80, 44)];
     topView.delegate = self;
 
     _scrollView = ({
         UIScrollView *view = [UIScrollView new];
         view.pagingEnabled = YES;
+        view.bounces = NO;
         view.delegate = self;
         [self.view addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
+            make.top.equalTo(self.view).offset(64);
+            make.bottom.left.right.equalTo(self.view);
         }];
         
         view;
@@ -69,14 +85,15 @@
     
     NSNumber *pageWidth = [NSNumber numberWithFloat:CGRectGetWidth(self.view.frame)];
     
-    InspirationPageInfoView *pageInfoView = ({
-        InspirationPageInfoView *view = [InspirationPageInfoView new];
+    _pageInfoView = ({
+        InspirationPageInfoView *view = [[InspirationPageInfoView alloc] initWithViewModel:_viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(self.view).offset(64);
+            make.top.bottom.equalTo(_scrollView);
             make.left.equalTo(_scrollView);
             make.width.equalTo(pageWidth);
+            make.height.equalTo(self.view);
         }];
         
         view;
@@ -87,8 +104,8 @@
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(pageInfoView.mas_right);
-            make.top.bottom.width.equalTo(pageInfoView);
+            make.left.equalTo(_pageInfoView.mas_right);
+            make.top.bottom.width.height.equalTo(_pageInfoView);
         }];
         
         view;
@@ -100,7 +117,7 @@
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(funnerView.mas_right);
-            make.top.bottom.width.equalTo(funnerView);
+            make.top.bottom.width.height.equalTo(funnerView);
             make.right.equalTo(_scrollView);
         }];
         
@@ -112,20 +129,25 @@
 #pragma mark - configration
 - (void)configNavigationBar {
     
-    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
-    rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 58, 0, 0);
+    UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
+    leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
+    [leftButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     [rightButton setImage:[UIImage imageNamed:@"top_search"] forState:UIControlStateNormal];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = rightItem;
-    [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = nil;
     
+//    [GlobalContext ShareInstance].mainTabBarController.navigationItem.leftBarButtonItem = nil;
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topView;
 }
 
 #pragma mark - TopCategoryViewDelegate
 - (NSString *)topCategoryView:(TopCategoryView *)topCategoryView labelForTitleAtIndex:(NSInteger)index {
-    NSArray *titleArray = @[@"资讯",@"范儿",@"关注"];
-    return titleArray[index];
+    return _viewModel.topTitlesList[index];
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {

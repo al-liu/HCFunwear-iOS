@@ -9,23 +9,59 @@
 #import "InspirationStyleScrollView.h"
 #import "Masonry.h"
 #import "GlobalColors.h"
+#import "InspirationPageViewModel.h"
 
 @implementation InspirationStyleScrollView {
     NSMutableArray *_styleButtonArray;
     UIScrollView *styleScrollView;
+    InspirationPageViewModel *_viewModel;
+    
+    NSArray *_tabDataList;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithDatas:(NSArray *)tabsList {
+    self = [super init];
     if (self) {
+        _currentIndex = 0;
+        _tabDataList = tabsList;
         _styleButtonArray = [[NSMutableArray alloc]initWithCapacity:11];
-        [self initUI];
     }
     return self;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _currentIndex = 0;
+        _styleButtonArray = [[NSMutableArray alloc]initWithCapacity:11];
+    }
+    return self;
+}
+
+- (void)reloadWithTabs:(NSArray *)tabs {
+    _tabDataList = tabs;
+    _currentIndex = 0;
+    [self initUI];
+}
+
+- (void)bindViewModel:(id)viewModel {
+    _viewModel = viewModel;
+    @weakify(self);
+    [[RACObserve(_viewModel, inspInfos) skip:1] subscribeNext:^(HCInspirationInfos *infos) {
+        @strongify(self);
+        if (!self->_tabDataList || self->_tabDataList.count == 0) {
+            [self initUI];
+        }
+    }];
+}
+
 - (void)initUI {
+    
+    NSArray *subviews = [self subviews];
+    [subviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
     
     styleScrollView = ({
         UIScrollView *view = [UIScrollView new];
@@ -39,15 +75,17 @@
         view;
     });
     
-    NSArray *titlesArray = @[@"全部",@"实验室",@"咖啡馆",@"趋势",@"搭配",
-                             @"热闻",@"榜单",@"时髦运动",@"特辑",@"生活",@"美妆"];
+//    NSArray *titlesArray = @[@"全部",@"实验室",@"咖啡馆",@"趋势",@"搭配",
+//                             @"热闻",@"榜单",@"时髦运动",@"特辑",@"生活",@"美妆"];
     
     UIView *previousView = nil;
-    for (int i = 0; i < titlesArray.count; i++) {
+    for (int i = 0; i < _tabDataList.count; i++) {
+        HCInfoTab *tab = _tabDataList[i];
+        
         UIButton *styleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [styleButton setTitleColor:kTabNormalColor forState:UIControlStateNormal];
         styleButton.titleLabel.font = [UIFont systemFontOfSize:13];
-        [styleButton setTitle:titlesArray[i] forState:UIControlStateNormal];
+        [styleButton setTitle:tab.name forState:UIControlStateNormal];
         [styleScrollView addSubview:styleButton];
         
         [styleButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -59,7 +97,7 @@
             else {
                 make.left.equalTo(styleScrollView).offset(20);
             }
-            if (i == titlesArray.count - 1) {
+            if (i == _tabDataList.count - 1) {
                 make.right.equalTo(styleScrollView);
             }
         }];
@@ -85,8 +123,7 @@
     horizontalLine.backgroundColor = kCellLineColor;
     [self scrollPageWithIndex:0];
 }
-//TODO:滚动到最后滚到下一个页面：这个需要控制 scrollEnble 属性
-#warning 功能完善
+
 - (void)selectedStyleAction:(UIButton *)button {
     
     CGFloat midReferenceValue = CGRectGetMidX(self.frame);
@@ -126,10 +163,15 @@
     }];
     UIButton *button = _styleButtonArray[index];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(inspirationStyleScrollView:pageIndex:tabInfo:)]) {
+        HCInfoTab *tab = _tabDataList[_currentIndex];
+        [_delegate inspirationStyleScrollView:self pageIndex:_currentIndex tabInfo:tab];
+    }
 }
 
-- (void)setCurrentIndex:(NSInteger)currentIndex {
-    _currentIndex = currentIndex;
+- (void)scrollTabWithIndex:(NSInteger)index {
+    [self selectedStyleAction:_styleButtonArray[index]];
 }
 
 #pragma mark - UIScrollViewDelelgate

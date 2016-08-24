@@ -100,6 +100,12 @@
 		E37F50BB1D6B486F008B465A /* ProductDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */; };
 		E37F50BE1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50BD1D6B50BF008B465A /* UICollectionViewCell+RACCommand.m */; };
 		E37F50C21D6CA680008B465A /* HCCategoryApiServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */; };
+		E37F50CB1D6D44D8008B465A /* HCInspirationApiServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */; };
+		E37F50CE1D6D464B008B465A /* HCGetSpecialListForInspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50CD1D6D464B008B465A /* HCGetSpecialListForInspApi.m */; };
+		E37F50D11D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D01D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m */; };
+		E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D31D6D4D33008B465A /* HCInspirationInfos.m */; };
+		E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */; };
+		E37F50DA1D6D9EA3008B465A /* HCInspInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */; };
 		E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */; };
 		E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31C1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m */; };
 		E3A6D3201D5DB42B0012E1B8 /* HomeLayoutApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D31F1D5DB42B0012E1B8 /* HomeLayoutApi.m */; };
@@ -357,6 +363,19 @@
 		E37F50C01D6CA680008B465A /* HCCategoryApiServicesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryApiServicesImpl.h; sourceTree = "<group>"; };
 		E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCategoryApiServicesImpl.m; sourceTree = "<group>"; };
 		E37F50C61D6CB2A0008B465A /* HCViewModelBindProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCViewModelBindProtocol.h; sourceTree = "<group>"; };
+		E37F50C81D6D41B1008B465A /* HCInspirationApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationApiService.h; sourceTree = "<group>"; };
+		E37F50C91D6D44D8008B465A /* HCInspirationApiServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationApiServiceImpl.h; sourceTree = "<group>"; };
+		E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspirationApiServiceImpl.m; sourceTree = "<group>"; };
+		E37F50CC1D6D464B008B465A /* HCGetSpecialListForInspApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCGetSpecialListForInspApi.h; path = ../InspirationPageModels/HCGetSpecialListForInspApi.h; sourceTree = "<group>"; };
+		E37F50CD1D6D464B008B465A /* HCGetSpecialListForInspApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCGetSpecialListForInspApi.m; path = ../InspirationPageModels/HCGetSpecialListForInspApi.m; sourceTree = "<group>"; };
+		E37F50CF1D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGetCollocationListByUserTypeApi.h; sourceTree = "<group>"; };
+		E37F50D01D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGetCollocationListByUserTypeApi.m; sourceTree = "<group>"; };
+		E37F50D21D6D4D33008B465A /* HCInspirationInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationInfos.h; sourceTree = "<group>"; };
+		E37F50D31D6D4D33008B465A /* HCInspirationInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspirationInfos.m; sourceTree = "<group>"; };
+		E37F50D51D6D50E8008B465A /* HCInspirationByUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationByUsers.h; sourceTree = "<group>"; };
+		E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspirationByUsers.m; sourceTree = "<group>"; };
+		E37F50D81D6D9EA3008B465A /* HCInspInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspInfoModel.h; sourceTree = "<group>"; };
+		E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspInfoModel.m; sourceTree = "<group>"; };
 		E3A6D3171D5DAE0F0012E1B8 /* GlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		E3A6D3181D5DAE0F0012E1B8 /* GlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 		E3A6D31B1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
@@ -514,6 +533,7 @@
 		E30C5A201CED8E4C00BB943C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E37F50C71D6D415C008B465A /* InspirationPageModels */,
 				E37F508B1D683AD7008B465A /* CategoryPageModels */,
 				E3A6D3211D60AF360012E1B8 /* HomePageModels */,
 				E3A6D3161D5D7D7D0012E1B8 /* Apis */,
@@ -862,6 +882,22 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		E37F50C71D6D415C008B465A /* InspirationPageModels */ = {
+			isa = PBXGroup;
+			children = (
+				E37F50C81D6D41B1008B465A /* HCInspirationApiService.h */,
+				E37F50C91D6D44D8008B465A /* HCInspirationApiServiceImpl.h */,
+				E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */,
+				E37F50D21D6D4D33008B465A /* HCInspirationInfos.h */,
+				E37F50D31D6D4D33008B465A /* HCInspirationInfos.m */,
+				E37F50D51D6D50E8008B465A /* HCInspirationByUsers.h */,
+				E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */,
+				E37F50D81D6D9EA3008B465A /* HCInspInfoModel.h */,
+				E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */,
+			);
+			path = InspirationPageModels;
+			sourceTree = "<group>";
+		};
 		E3A6D3161D5D7D7D0012E1B8 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +911,10 @@
 				E37F50861D68250B008B465A /* GetCategoryListApi.m */,
 				E37F50881D682587008B465A /* GetAppBrandListApi.h */,
 				E37F50891D682587008B465A /* GetAppBrandListApi.m */,
+				E37F50CC1D6D464B008B465A /* HCGetSpecialListForInspApi.h */,
+				E37F50CD1D6D464B008B465A /* HCGetSpecialListForInspApi.m */,
+				E37F50CF1D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.h */,
+				E37F50D01D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m */,
 			);
 			path = Apis;
 			sourceTree = "<group>";
@@ -1319,8 +1359,10 @@
 				E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */,
 				E37F50B51D6B483C008B465A /* HCWebViewModel.m in Sources */,
 				E3B1D8611D2F57CB00A8BA3E /* CategoryTableViewCell.m in Sources */,
+				E37F50D11D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m in Sources */,
 				E3B1D8461D2F30DD00A8BA3E /* TopCategoryPageView.m in Sources */,
 				E37F50781D66BC77008B465A /* YYFPSLabel.m in Sources */,
+				E37F50DA1D6D9EA3008B465A /* HCInspInfoModel.m in Sources */,
 				E37F50BB1D6B486F008B465A /* ProductDetailViewModel.m in Sources */,
 				E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */,
 				E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */,
@@ -1361,6 +1403,7 @@
 				E37F50AE1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m in Sources */,
 				E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
+				E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */,
 				E3A6D3331D60BF510012E1B8 /* HCModuleData.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
 				E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */,
@@ -1405,9 +1448,11 @@
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
 				E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
+				E37F50CE1D6D464B008B465A /* HCGetSpecialListForInspApi.m in Sources */,
 				E37F50911D683BD5008B465A /* HCHotModuleData.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */,
+				E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */,
 				E3B1D8571D2F428400A8BA3E /* HotBrandViewCell.m in Sources */,
 				E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
@@ -1433,6 +1478,7 @@
 				E37F50AB1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m in Sources */,
 				E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */,
 				E3FBB15E1D3384DE00573343 /* ShoppingBagPageViewModel.m in Sources */,
+				E37F50CB1D6D44D8008B465A /* HCInspirationApiServiceImpl.m in Sources */,
 				E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

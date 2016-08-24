@@ -15,6 +15,7 @@
 #import "TopBrandPageView.h"
 #import "CategoryPageViewModel.h"
 #import "HCCategoryLayout.h"
+#import "GlobalConstant.h"
 
 @interface CategoryPageViewController () {
     TopCategoryView *topView;
@@ -71,9 +72,7 @@
 - (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat screenWidth = screenSize.width;
-    topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, screenWidth-80, 44)];
+    topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-80, 44)];
 //    topView.backgroundColor = [UIColor redColor];
     topView.delegate = self;
     

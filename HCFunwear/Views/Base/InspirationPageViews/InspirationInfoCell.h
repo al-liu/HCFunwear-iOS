@@ -10,4 +10,7 @@
 
 @interface InspirationInfoCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *inspImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @end

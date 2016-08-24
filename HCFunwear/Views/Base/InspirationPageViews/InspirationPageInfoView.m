@@ -10,6 +10,7 @@
 #import "InspirationStyleScrollView.h"
 #import "Masonry.h"
 #import "InspirationInfoTableView.h"
+#import "HCInspInfoModel.h"
 
 @interface InspirationPageInfoView () <InspirationStyleScrollDelegate,InspirationInfoTableDelegate>
 
@@ -18,12 +19,14 @@
 @implementation InspirationPageInfoView {
     InspirationStyleScrollView *_styleScrollView;
     InspirationInfoTableView *_infoTableView;
+    
+    InspirationPageViewModel *_viewModel;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel {
+    self = [super initWithFrame:CGRectZero];
     if (self) {
+        _viewModel = viewModel;
         [self initUI];
     }
     return self;
@@ -56,18 +59,41 @@
         
         view;
     });
+    
+}
+
+- (void)reloadWithTabs:(NSArray *)tabs {
+    [_styleScrollView reloadWithTabs:tabs];
+    [_infoTableView reloadWithTabs:tabs];
+    [_styleScrollView bindViewModel:_viewModel];
+    [_infoTableView bindViewModel:_viewModel];
+    [self beginRequestWithIndex:0];    
+}
+
+- (void)beginRequestWithIndex:(NSInteger)index {
+    HCInspInfoModel *model = _infoTableView.tableArray[index];
+    if (model.tableInfosList.count == 0) {
+        [_infoTableView header_beginRefreshing];
+    }
 }
 
 #pragma mark - InspirationStyleScrollDelegate
 - (void)inspirationStyleScrollView:(InspirationStyleScrollView *)infoView
-                      PageForIndex:(NSInteger)indx {
-    _infoTableView.currentIndex = indx;
+                         pageIndex:(NSInteger)indx
+                           tabInfo:(HCInfoTab *)tab {
+    if (indx != _infoTableView.currentIndex) {
+        [_infoTableView scrollTabWithIndex:indx];
+        [self beginRequestWithIndex:indx];
+    }
 }
 
 #pragma mark - InspirationInfoTableDelegate
 - (void)inspirationInfoTableView:(InspirationInfoTableView *)infoView
-                    PageForIndex:(NSInteger)indx {
-    _styleScrollView.currentIndex = indx;
+                    pageForIndex:(NSInteger)indx {
+    if (indx != _styleScrollView.currentIndex) {
+        [_styleScrollView scrollTabWithIndex:indx];
+        [self beginRequestWithIndex:indx];
+    }
 }
 
 @end

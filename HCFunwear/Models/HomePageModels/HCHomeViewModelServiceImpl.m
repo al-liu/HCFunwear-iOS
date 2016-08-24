@@ -15,10 +15,12 @@
 #import "ProductDetailViewController.h"
 #import "HCCategoryApiServices.h"
 #import "HCCategoryApiServicesImpl.h"
+#import "HCInspirationApiServiceImpl.h"
 @interface HCHomeViewModelServiceImpl ()
 
 @property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
 @property (nonatomic, strong) HCCategoryApiServicesImpl *cateServiceImpl;
+@property (nonatomic, strong) HCInspirationApiServiceImpl *inspServiceImpl;
 
 @end
 
@@ -30,6 +32,7 @@
     if (self) {
         _serviceImpl = [HCHomeLayoutServiceImpl new];
         _cateServiceImpl = [HCCategoryApiServicesImpl new];
+        _inspServiceImpl = [HCInspirationApiServiceImpl new];
     }
     return self;
 }
@@ -40,6 +43,10 @@
 
 - (id<HCCategoryApiServices>)getCategoryApiService {
     return self.cateServiceImpl;
+}
+
+- (id<HCInspirationApiService>)getInspApiService {
+    return self.inspServiceImpl;
 }
 
 - (void)pushViewModel:(id)viewModel {
