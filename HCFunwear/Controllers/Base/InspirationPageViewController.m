@@ -21,6 +21,7 @@
     UIScrollView *_scrollView;
     
     InspirationPageInfoView *_pageInfoView;
+    InspirationPageFunerView *_funnerView;
 }
 @end
 
@@ -71,13 +72,14 @@
     _scrollView = ({
         UIScrollView *view = [UIScrollView new];
         view.pagingEnabled = YES;
-        view.bounces = NO;
         view.delegate = self;
         [self.view addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).offset(64);
-            make.bottom.left.right.equalTo(self.view);
+//            make.top.equalTo(self.view).offset(64);
+//            make.bottom.left.right.equalTo(self.view);
+            
+            make.edges.equalTo(self.view);
         }];
         
         view;
@@ -90,17 +92,20 @@
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(_scrollView);
+            make.top.equalTo(_scrollView).offset(64);
+            make.bottom.equalTo(_scrollView);
+//            make.top.bottom.equalTo(_scrollView);
             make.left.equalTo(_scrollView);
             make.width.equalTo(pageWidth);
-            make.height.equalTo(self.view);
+            make.height.equalTo(self.view).offset(-64);
         }];
         
         view;
     });
     
-    InspirationPageFunerView *funnerView = ({
+    _funnerView = ({
         InspirationPageFunerView *view = [InspirationPageFunerView new];
+        [view bindViewModel:_viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,8 +121,8 @@
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(funnerView.mas_right);
-            make.top.bottom.width.height.equalTo(funnerView);
+            make.left.equalTo(_funnerView.mas_right);
+            make.top.bottom.width.height.equalTo(_funnerView);
             make.right.equalTo(_scrollView);
         }];
         
@@ -151,7 +156,13 @@
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {
+    
     [_scrollView setContentOffset:CGPointMake(index * CGRectGetWidth(_scrollView.frame), 0) animated:YES];
+    if (index == 1) {
+        if (_funnerView.funerDataList.count == 0) {
+            [_funnerView header_beginRefreshing];
+        }
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

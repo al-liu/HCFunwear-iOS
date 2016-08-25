@@ -20,6 +20,10 @@
         HCGetSpecialListForInspApi *api = [[HCGetSpecialListForInspApi alloc]initWithPageIndex:indexPage
                                                                                           size:pageSize
                                                                                         typeId:aid];
+        id cacheResponseObject = [api cacheJson];
+        if (cacheResponseObject) {
+            [subscriber sendNext:cacheResponseObject];
+        }
         [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
             [subscriber sendNext:request.responseJSONObject];
             [subscriber sendCompleted];
@@ -34,6 +38,10 @@
 - (RACSignal *)getInspInfoFunerDataWithIndexPage:(NSInteger)indexPage {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         HCGetCollocationListByUserTypeApi *api = [[HCGetCollocationListByUserTypeApi alloc]initWithPageIndex:indexPage];
+        id cacheResponseObject = [api cacheJson];
+        if (cacheResponseObject) {
+            [subscriber sendNext:cacheResponseObject];
+        }
         [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
             [subscriber sendNext:request.responseJSONObject];
             [subscriber sendCompleted];

@@ -26,6 +26,7 @@
         _infoPageIndex = 1;
         _infoPageSize = 10;
         _infoAid = @"";
+        _funerPageIndex = 0;
         [self initialize];
     }
     return self;
@@ -55,8 +56,8 @@
 
 - (RACSignal *)executeFunerSignal {
     return [[[self.services getInspApiService] getInspInfoFunerDataWithIndexPage:self.funerPageIndex] map:^id(id value) {
-        NSArray *funerList = [NSArray modelArrayWithClass:HCInspirationByUsers.class json:value[@"data"]];
-        return funerList;
+        self.inspFunerList = [NSArray modelArrayWithClass:HCInspirationByUsers.class json:value[@"data"]];
+        return self.inspFunerList;
     }];
 }
 

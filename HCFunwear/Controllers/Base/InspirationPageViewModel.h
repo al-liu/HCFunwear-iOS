@@ -24,6 +24,7 @@
 @property (nonatomic, assign) NSInteger funerPageIndex;
 
 @property (nonatomic, strong) HCInspirationInfos *inspInfos;
+@property (nonatomic, strong) NSArray *inspFunerList;
 
 
 - (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewModelBindProtocol.h"
+#import "InspirationPageViewModel.h"
+#import "HCInspirationByUsers.h"
 
-@interface InspirationPageFunerView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface InspirationPageFunerView : UIView <UICollectionViewDataSource,UICollectionViewDelegate,HCViewModelBindProtocol>
+
+@property (nonatomic, strong) InspirationPageViewModel *viewModel;
+@property (nonatomic, strong) NSMutableArray *funerDataList;
+
+- (void)header_beginRefreshing;
 
 @end
