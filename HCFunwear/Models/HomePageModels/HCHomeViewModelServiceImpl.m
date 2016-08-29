@@ -52,12 +52,10 @@
 - (void)pushViewModel:(id)viewModel {
     //跳转逻辑
     if ([viewModel isKindOfClass:HCWebViewModel.class]) {
-        HCWebViewModel *viewModel = [HCWebViewModel new];
         HCWebViewController *webViewController = [[HCWebViewController alloc] initWithViewModel:viewModel];
         [[GlobalContext ShareInstance].rootController pushViewController:webViewController animated:YES];
     }
     else if ([viewModel isKindOfClass:ProductDetailViewModel.class]) {
-        ProductDetailViewModel *viewModel = [ProductDetailViewModel new];
         ProductDetailViewController *viewController = [[ProductDetailViewController alloc]initWithViewModel:viewModel];
         [[GlobalContext ShareInstance].rootController pushViewController:viewController animated:YES];
     }

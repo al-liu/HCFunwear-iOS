@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HCWebViewModel.h"
+#import "HCBaseViewController.h"
 
-@interface HCWebViewController : UIViewController
+@interface HCWebViewController : HCBaseViewController
 
 - (instancetype)initWithViewModel:(HCWebViewModel *)viewModel;
 

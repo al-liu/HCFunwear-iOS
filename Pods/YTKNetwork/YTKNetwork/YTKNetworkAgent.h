@@ -23,9 +23,8 @@
 
 #import <Foundation/Foundation.h>
 #import "YTKBaseRequest.h"
-#import "AFNetworking.h"
 
-typedef void (^YTKNetworkAgentCompletionBlock)(void);
+NS_ASSUME_NONNULL_BEGIN
 
 @interface YTKNetworkAgent : NSObject
 
@@ -33,7 +32,7 @@ typedef void (^YTKNetworkAgentCompletionBlock)(void);
 
 - (void)addRequest:(YTKBaseRequest *)request;
 
-- (void)cancelRequest:(YTKBaseRequest *)request completion:(YTKNetworkAgentCompletionBlock)completion;
+- (void)cancelRequest:(YTKBaseRequest *)request;
 
 - (void)cancelAllRequests;
 
@@ -41,3 +40,5 @@ typedef void (^YTKNetworkAgentCompletionBlock)(void);
 - (NSString *)buildRequestUrl:(YTKBaseRequest *)request;
 
 @end
+
+NS_ASSUME_NONNULL_END

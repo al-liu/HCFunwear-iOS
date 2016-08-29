@@ -24,6 +24,9 @@
 #import "YTKBaseRequest.h"
 #import "YTKNetworkAgent.h"
 #import "YTKNetworkPrivate.h"
+#import "AFDownloadRequestOperation.h"
+#import "AFNetworking.h"
+
 
 @implementation YTKBaseRequest
 
@@ -117,9 +120,8 @@
 - (void)stop {
     [self toggleAccessoriesWillStopCallBack];
     self.delegate = nil;
-    [[YTKNetworkAgent sharedInstance] cancelRequest:self completion:^{
-        [self toggleAccessoriesDidStopCallBack];
-    }];
+    [[YTKNetworkAgent sharedInstance] cancelRequest:self];
+    [self toggleAccessoriesDidStopCallBack];
 }
 
 - (BOOL)isCancelled {

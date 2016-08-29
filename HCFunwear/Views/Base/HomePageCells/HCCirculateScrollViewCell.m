@@ -12,7 +12,9 @@
 #import "HCWebViewModel.h"
 #import "UICollectionViewCell+RACCommand.h"
 
-@implementation HCCirculateScrollViewCell
+@implementation HCCirculateScrollViewCell {
+    NSArray * _urlArray;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -35,6 +37,7 @@
     NSArray *urlStrings = [[module.data.rac_sequence map:^id(HCModuleData *value) {
         return value.img;
     }] array];
+    _urlArray = module.data;
     [_circulateScrollView loadView:urlStrings];
 }
 
@@ -45,6 +48,9 @@
 #pragma mark - HCCirculateScrollViewProtocol
 - (void)circulateScrollViewDidSelectedAtIndex:(NSInteger)index {
     HCWebViewModel *viewModel = [HCWebViewModel new];
+    HCModuleData *data = _urlArray[index];
+    viewModel.webRequestURL = data.jump.url;
+    viewModel.webTitle = data.title;
     [self.push execute:viewModel];
 }
 - (void)circulateScrollViewPageControlAtIndex:(NSInteger)index {

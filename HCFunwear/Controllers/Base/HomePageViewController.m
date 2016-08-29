@@ -104,6 +104,13 @@
     TopStyleButton *topStyleButton = [[TopStyleButton alloc]initWithFrame:CGRectMake(0, 0, screenWidth-180, 44)];
     topStyleButton.delegate = self;
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topStyleButton;
+    
+    /*
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
+    [[GlobalContext ShareInstance].rootController.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"top_back"]];
+    [[GlobalContext ShareInstance].rootController.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"top_back"]];
+    [[GlobalContext ShareInstance].rootController.navigationBar setTintColor:[UIColor blackColor]];
+     */
 }
 
 

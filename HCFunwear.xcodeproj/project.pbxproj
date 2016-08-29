@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93D0F7BDF806C2AF836FB8D7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBFA8C88684DBD33266CA81 /* libPods.a */; };
 		E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A291CED8E9700BB943C /* GlobalColors.m */; };
 		E30C5A2E1CED8E9700BB943C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A2C1CED8E9700BB943C /* AppDelegate.m */; };
 		E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C5A311CED95EA00BB943C /* HCTabBar.m */; };
@@ -113,6 +112,7 @@
 		E3A6D3301D60BF270012E1B8 /* HCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D32F1D60BF270012E1B8 /* HCModule.m */; };
 		E3A6D3331D60BF510012E1B8 /* HCModuleData.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A6D3321D60BF510012E1B8 /* HCModuleData.m */; };
 		E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A81E901CF5A08E008FCC51 /* MainStyleView.m */; };
+		E3A89B1C1D7432FD00656780 /* HCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */; };
 		E3B048491CE9B85E00C182EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B048481CE9B85E00C182EA /* main.m */; };
 		E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B048501CE9B85E00C182EA /* Main.storyboard */; };
 		E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3B048531CE9B85E00C182EA /* Assets.xcassets */; };
@@ -162,6 +162,7 @@
 		E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1861D351A6B00573343 /* MineTableMenuModel.m */; };
 		E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1891D35254500573343 /* NewArrivalsHeadCell.m */; };
 		E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB18C1D35256500573343 /* NewArrivalsViewCell.m */; };
+		F4AED9390E9B99A2D70EE4E9 /* libPods-HCFunwear.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F00C78275B358FFDD5837F1C /* libPods-HCFunwear.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,9 +183,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044DC11ABDE3E9AFD7EFBCF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		5CBFA8C88684DBD33266CA81 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A38D791AF9DCCDABBAAF4DBA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		014F1CFB8BF2D9317263CC47 /* Pods-HCFunwear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCFunwear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCFunwear/Pods-HCFunwear.debug.xcconfig"; sourceTree = "<group>"; };
+		4B40DA979698591AFB13A4A5 /* Pods-HCFunwear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCFunwear.release.xcconfig"; path = "Pods/Target Support Files/Pods-HCFunwear/Pods-HCFunwear.release.xcconfig"; sourceTree = "<group>"; };
 		E30C5A281CED8E9700BB943C /* GlobalColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalColors.h; sourceTree = "<group>"; };
 		E30C5A291CED8E9700BB943C /* GlobalColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalColors.m; sourceTree = "<group>"; };
 		E30C5A2B1CED8E9700BB943C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -390,6 +390,8 @@
 		E3A6D3321D60BF510012E1B8 /* HCModuleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCModuleData.m; sourceTree = "<group>"; };
 		E3A81E8F1CF5A08E008FCC51 /* MainStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleView.h; sourceTree = "<group>"; };
 		E3A81E901CF5A08E008FCC51 /* MainStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleView.m; sourceTree = "<group>"; };
+		E3A89B1A1D7432FD00656780 /* HCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseViewController.h; sourceTree = "<group>"; };
+		E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBaseViewController.m; sourceTree = "<group>"; };
 		E3B048441CE9B85E00C182EA /* HCFunwear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCFunwear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B048481CE9B85E00C182EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3B048511CE9B85E00C182EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 		E3FBB1891D35254500573343 /* NewArrivalsHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsHeadCell.m; sourceTree = "<group>"; };
 		E3FBB18B1D35256500573343 /* NewArrivalsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArrivalsViewCell.h; sourceTree = "<group>"; };
 		E3FBB18C1D35256500573343 /* NewArrivalsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArrivalsViewCell.m; sourceTree = "<group>"; };
+		F00C78275B358FFDD5837F1C /* libPods-HCFunwear.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCFunwear.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,7 +487,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D0F7BDF806C2AF836FB8D7 /* libPods.a in Frameworks */,
+				F4AED9390E9B99A2D70EE4E9 /* libPods-HCFunwear.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,21 +508,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E3E8E362CD4E308EAF8B49B /* Frameworks */ = {
+		47F585BD4E0AB9419AEF28F4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5CBFA8C88684DBD33266CA81 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8CA597C614D19A11F32460CA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				044DC11ABDE3E9AFD7EFBCF7 /* Pods.debug.xcconfig */,
-				A38D791AF9DCCDABBAAF4DBA /* Pods.release.xcconfig */,
+				014F1CFB8BF2D9317263CC47 /* Pods-HCFunwear.debug.xcconfig */,
+				4B40DA979698591AFB13A4A5 /* Pods-HCFunwear.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFDF277047117B65E3163A7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F00C78275B358FFDD5837F1C /* libPods-HCFunwear.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E30C5A1F1CED8E4C00BB943C /* Controllers */ = {
@@ -668,6 +671,8 @@
 				E37F50B71D6B4859008B465A /* ProductDetailViewController.m */,
 				E37F50B91D6B486F008B465A /* ProductDetailViewModel.h */,
 				E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */,
+				E3A89B1A1D7432FD00656780 /* HCBaseViewController.h */,
+				E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -986,8 +991,8 @@
 				E3B048601CE9B85E00C182EA /* HCFunwearTests */,
 				E3B0486B1CE9B85E00C182EA /* HCFunwearUITests */,
 				E3B048451CE9B85E00C182EA /* Products */,
-				8CA597C614D19A11F32460CA /* Pods */,
-				5E3E8E362CD4E308EAF8B49B /* Frameworks */,
+				47F585BD4E0AB9419AEF28F4 /* Pods */,
+				AFDF277047117B65E3163A7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1157,12 +1162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3B048711CE9B85E00C182EA /* Build configuration list for PBXNativeTarget "HCFunwear" */;
 			buildPhases = (
-				0817966E618D8CEA1C713BEE /* Check Pods Manifest.lock */,
+				FCE7AEFFF1DB302400990610 /* [CP] Check Pods Manifest.lock */,
 				E3B048401CE9B85E00C182EA /* Sources */,
 				E3B048411CE9B85E00C182EA /* Frameworks */,
 				E3B048421CE9B85E00C182EA /* Resources */,
-				6108A1DFF784224F45BCDFFD /* Embed Pods Frameworks */,
-				6BA26633B3679AB903867B08 /* Copy Pods Resources */,
+				B54B2C6F5F023AB44D9E0CBE /* [CP] Embed Pods Frameworks */,
+				465B2F13333C1F1B33AF0BDA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1301,49 +1306,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0817966E618D8CEA1C713BEE /* Check Pods Manifest.lock */ = {
+		465B2F13333C1F1B33AF0BDA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HCFunwear/Pods-HCFunwear-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B54B2C6F5F023AB44D9E0CBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HCFunwear/Pods-HCFunwear-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCE7AEFFF1DB302400990610 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6108A1DFF784224F45BCDFFD /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6BA26633B3679AB903867B08 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1471,6 +1476,7 @@
 				E37F50A81D6AEE61008B465A /* HCHomeLayoutServiceImpl.m in Sources */,
 				E37F506D1D65F86F008B465A /* HCProduct.m in Sources */,
 				E37F50971D6843BF008B465A /* HCCategory.m in Sources */,
+				E3A89B1C1D7432FD00656780 /* HCBaseViewController.m in Sources */,
 				E37F50871D68250B008B465A /* GetCategoryListApi.m in Sources */,
 				E3B1D83F1D2E439200A8BA3E /* CategoryPageViewModel.m in Sources */,
 				E37F50941D683DFF008B465A /* HCHotModule.m in Sources */,
@@ -1616,7 +1622,7 @@
 		};
 		E3B048721CE9B85E00C182EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 044DC11ABDE3E9AFD7EFBCF7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 014F1CFB8BF2D9317263CC47 /* Pods-HCFunwear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: bingbao yang (YJG932LA4J)";
@@ -1632,7 +1638,7 @@
 		};
 		E3B048731CE9B85E00C182EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A38D791AF9DCCDABBAAF4DBA /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4B40DA979698591AFB13A4A5 /* Pods-HCFunwear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: bingbao yang (YJG932LA4J)";

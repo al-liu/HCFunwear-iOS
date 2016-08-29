@@ -22,10 +22,11 @@
 //  THE SOFTWARE.
 
 #import "YTKNetworkConfig.h"
+#import "AFNetworking.h"
 
 @implementation YTKNetworkConfig {
-    NSMutableArray *_urlFilters;
-    NSMutableArray *_cacheDirPathFilters;
+    NSMutableArray<id<YTKUrlFilterProtocol>> *_urlFilters;
+    NSMutableArray<id<YTKCacheDirPathFilterProtocol>> *_cacheDirPathFilters;
 }
 
 + (YTKNetworkConfig *)sharedInstance {
@@ -37,9 +38,11 @@
     return sharedInstance;
 }
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
+        _baseUrl = @"";
+        _cdnUrl = @"";
         _urlFilters = [NSMutableArray array];
         _cacheDirPathFilters = [NSMutableArray array];
         _securityPolicy = [AFSecurityPolicy defaultPolicy];
@@ -55,11 +58,11 @@
     [_cacheDirPathFilters addObject:filter];
 }
 
-- (NSArray *)urlFilters {
+- (NSArray<id<YTKUrlFilterProtocol>> *)urlFilters {
     return [_urlFilters copy];
 }
 
-- (NSArray *)cacheDirPathFilters {
+- (NSArray<id<YTKCacheDirPathFilterProtocol>> *)cacheDirPathFilters {
     return [_cacheDirPathFilters copy];
 }
 

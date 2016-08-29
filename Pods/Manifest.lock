@@ -22,8 +22,24 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Masonry (1.0.0)
-  - MJRefresh (3.1.0)
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - Masonry (1.0.1)
+  - MJRefresh (3.1.12)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -31,16 +47,19 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - YTKNetwork (1.1.0):
+  - YTKNetwork (1.3.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
-  - YYKit (1.0.5):
-    - YYKit/no-arc (= 1.0.5)
-  - YYKit/no-arc (1.0.5)
+  - YYKit (1.0.7):
+    - YYKit/no-arc (= 1.0.7)
+  - YYKit/no-arc (1.0.7)
 
 DEPENDENCIES:
+  - CocoaLumberjack
+  - FMDB
   - Masonry
   - MJRefresh
+  - NJKWebViewProgress
   - ReactiveCocoa (~> 2.5)
   - YTKNetwork
   - YYKit
@@ -48,10 +67,15 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  YTKNetwork: a41c1df80d4f3b9d05c19c514a2c604e7a6ac341
-  YYKit: f2654fe525de2283648db957bddb37ddd8e06549
+  YTKNetwork: a9fdf7968deefb06a58d988148558453005564c4
+  YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 177c7a67bd2876d792d07e98d663de89da00fa78
+
+COCOAPODS: 1.0.1

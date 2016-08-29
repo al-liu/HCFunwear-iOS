@@ -10,4 +10,7 @@
 
 @interface HCWebViewModel : NSObject
 
+@property (nonatomic, strong) NSURL *webRequestURL;
+@property (nonatomic, copy) NSString *webTitle;
+
 @end
