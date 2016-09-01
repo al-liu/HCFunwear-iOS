@@ -106,14 +106,22 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _hotBrandList.count;
+    return _hotBrandList.count == 0 ? 1 : _hotBrandList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HotBrandViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHotBrandViewCellIdentifier forIndexPath:indexPath];
-    HCHotModuleData *data = _hotBrandList[indexPath.row];
-    [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage02];
-    cell.nameLabel.text = data.name;
+    
+    if (_hotBrandList.count == 0) {
+        cell.nameLabel.text = @"更多品牌";
+        cell.imageView.image = [UIImage imageNamed:@"btn_more01"];
+    }
+    else {
+        HCHotModuleData *data = _hotBrandList[indexPath.row];
+        [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage02];
+        cell.nameLabel.text = data.name;
+    }
+    
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

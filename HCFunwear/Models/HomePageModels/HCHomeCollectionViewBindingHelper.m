@@ -57,6 +57,31 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
     RACCommand *_push;
 }
 
+/*
+之前的数据,没看到 noticeModule ,会影响布局。
+
+{
+        "id": "327",
+        "c_title": "有范公告",
+        "e_title": "youfan",
+        "module_key": "noticeModule",
+        "sort": "2",
+        "is_more": "0",
+        "more_jump_id": "0",
+        "data": [
+          {
+            "title": "G20发往杭州及周边物流延迟！敬请谅解！",
+            "jump_id": "0",
+            "replace_param": "",
+            "img": "",
+            "sort": "1",
+            "module_id": "327"
+          }
+        ]
+ },
+ 
+ */
+
 - (instancetype) initWithCollectionView:(UICollectionView *)collectionView
                            sourceSignal:(RACSignal *)source
                          productsSignal:(RACSignal *)products
@@ -81,6 +106,12 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
             likeModule.module_key = @"likeProductModule";
             
             NSMutableArray *mutableArray = [self->_data mutableCopy];
+            [mutableArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                HCModule *module = obj;
+                if ([module.module_key isEqualToString:@"noticeModule"]) {
+                    [mutableArray removeObjectAtIndex:idx];
+                }
+            }];
             [mutableArray addObject:likeModule];
             self->_data = [mutableArray copy];
             
@@ -115,6 +146,7 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     HCModule *module = _data[indexPath.section];
     HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
+    NSLog(@"index:%ld size:%@",indexPath.section,NSStringFromCGSize(info.sizeItem));
     return info.sizeItem;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -156,6 +188,7 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
 #warning home page limit time without moudle key 在现有的接口返回的数据里看不到 限时搭配购的 moudle key
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HCModule *module = _data[indexPath.section];
+    
     if ([module.module_key isEqualToString:@"likeProductModule"]) {
         ProductShowBrandPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowBrandPriceCellIdentifier forIndexPath:indexPath];
         cell.product = _productsData[indexPath.row];

@@ -79,8 +79,9 @@ static NSString *kTopHotReusableViewIdentifier = @"kTopHotReusableViewIdentifier
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HotCategoryPageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHotCategoryPageViewCellIdentifier forIndexPath:indexPath];
     HCHotModuleData *data = _cateMoudule.hotCategoryModul.list[indexPath.row];
-    [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage03];
-    cell.nameLabel.text = data.name;
+        [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage03];
+        cell.nameLabel.text = data.name;
+
     return cell;
 }
 
