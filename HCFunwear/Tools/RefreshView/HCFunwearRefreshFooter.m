@@ -165,6 +165,8 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
     refreshingAnimation.toValue = @(end_x);
     refreshingAnimation.duration = 1.5;
     refreshingAnimation.repeatCount = HUGE;
+    refreshingAnimation.removedOnCompletion = NO;
+    refreshingAnimation.fillMode = kCAFillModeForwards;
     [_refreshingShapeLayer addAnimation:refreshingAnimation forKey:refreshing_animation_key];
 }
 

@@ -33,7 +33,7 @@
     //60 - 10
     _midLabel = ({
         UILabel *label = [UILabel new];
-        label.font = [UIFont systemFontOfSize:17];
+        label.font = [UIFont systemFontOfSize:15];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = kTabNormalColor;
         [self addSubview:label];
@@ -52,7 +52,7 @@
     
     _leftLabel = ({
         UILabel *label = [UILabel new];
-        label.font = [UIFont systemFontOfSize:17];
+        label.font = [UIFont systemFontOfSize:15];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor blackColor];
         [self addSubview:label];
@@ -72,7 +72,7 @@
     
     _rightLabel = ({
         UILabel *label = [UILabel new];
-        label.font = [UIFont systemFontOfSize:17];
+        label.font = [UIFont systemFontOfSize:15];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = kTabNormalColor;
         [self addSubview:label];

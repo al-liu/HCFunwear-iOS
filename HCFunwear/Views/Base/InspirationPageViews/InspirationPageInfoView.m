@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "InspirationInfoTableView.h"
 #import "HCInspInfoModel.h"
+#import "GlobalColors.h"
 
 @interface InspirationPageInfoView () <InspirationStyleScrollDelegate,InspirationInfoTableDelegate>
 
@@ -59,6 +60,15 @@
         
         view;
     });
+    
+    UIView *line = [UIView new];
+    line.backgroundColor = kCellLineColor;
+    [_styleScrollView addSubview:line];
+    
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@0.5);
+        make.bottom.left.right.equalTo(_styleScrollView);
+    }];
     
 }
 

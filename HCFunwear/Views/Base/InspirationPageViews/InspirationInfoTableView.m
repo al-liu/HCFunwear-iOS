@@ -145,11 +145,20 @@
     
 }
 
+- (void)aaaa {
+    
+}
+
 - (void)header_beginRefreshing {
-    HCInspInfoModel *model = self->_tableArray.firstObject;//全部
-    UITableView *tableView = self->_tableViewList[self->_currentIndex];
+//    HCInspInfoModel *model = self->_tableArray.firstObject;//全部
     //将之前获取的数据设置进去
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UITableView *tableView = self->_tableViewList[self->_currentIndex];
+        [tableView.mj_header beginRefreshing];
+    });
+    
+    /*
     if (_viewModel.inspInfos.list.count != 0 && model.tableInfosList.count == 0) {
         [model.tableInfosList addObjectsFromArray:_viewModel.inspInfos.list];
         
@@ -158,6 +167,7 @@
     else {
         [tableView.mj_header beginRefreshing];
     }
+     */
 }
 
 - (void)bindViewModel:(id)viewModel {
@@ -173,14 +183,14 @@
 }
 
 - (void)scrollTabWithIndex:(NSInteger)index {
-    if (!index) return;
     _currentIndex = index;
     [styleScrollView setContentOffset:CGPointMake(_currentIndex * CGRectGetWidth(self.frame), 0) animated:NO];
 }
 
 #pragma mark - UIScrollViewDelelgate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    _currentIndex = scrollView.contentOffset.x / CGRectGetWidth(self.frame);
+    //不要用scrollView 用 styleScrollView
+    _currentIndex = styleScrollView.contentOffset.x / CGRectGetWidth(self.frame);
     if (_delegate && [_delegate respondsToSelector:@selector(inspirationInfoTableView:pageForIndex:)]) {
         [_delegate inspirationInfoTableView:self pageForIndex:_currentIndex];
     }

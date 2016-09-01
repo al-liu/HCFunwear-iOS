@@ -192,6 +192,9 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
 }
 
 - (void)setupRefreshingLayer {
+    if (_refreshingShapeLayer) {
+        return;
+    }
     
     CGFloat start_x = _pathMaskLayer.position.x - CGRectGetWidth(_pathMaskLayer.bounds)/2.0 -layer_width*2;
     
@@ -217,12 +220,18 @@ static NSString *refreshing_animation_key = @"refreshingAnimation";
 }
 
 - (void)refreshingAnimation {
+    if (!_refreshingShapeLayer) {
+        [self setupRefreshingLayer];
+    }
+    
     CGFloat end_x = CGRectGetWidth(_pathMaskLayer.bounds)+layer_width*2;
     CABasicAnimation *refreshingAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
     refreshingAnimation.fromValue = @(0);
     refreshingAnimation.toValue = @(end_x);
     refreshingAnimation.duration = 1.5;
     refreshingAnimation.repeatCount = HUGE;
+    refreshingAnimation.removedOnCompletion = NO;
+    refreshingAnimation.fillMode = kCAFillModeForwards;
     [_refreshingShapeLayer addAnimation:refreshingAnimation forKey:refreshing_animation_key];
 }
 

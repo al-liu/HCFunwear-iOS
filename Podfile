@@ -2,9 +2,10 @@ platform :ios, "8.0"
 
 target ”HCFunwear” do
 pod 'ReactiveCocoa','~> 2.5'
+pod 'SDWebImage', '~>3.8'
 pod 'YTKNetwork'
 pod 'Masonry'
-# pod 'Realm'
+#pod 'YYModel'
 pod 'YYKit'
 pod 'MJRefresh'
 pod 'NJKWebViewProgress'

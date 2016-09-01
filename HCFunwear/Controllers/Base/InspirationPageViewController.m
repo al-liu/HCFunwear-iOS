@@ -163,11 +163,22 @@
             [_funnerView header_beginRefreshing];
         }
     }
+    else if (topView.currentIndex == 2) {
+        //登陆
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     topView.currentIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
+    if (topView.currentIndex == 1) {
+        if (_funnerView.funerDataList.count == 0) {
+            [_funnerView header_beginRefreshing];
+        }
+    }
+    else if (topView.currentIndex == 2) {
+        //登陆
+    }
 }
 
 @end

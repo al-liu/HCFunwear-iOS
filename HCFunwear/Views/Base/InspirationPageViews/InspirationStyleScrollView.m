@@ -152,6 +152,7 @@
             [styleScrollView setContentOffset:CGPointMake(styleScrollView.contentOffset.x + offset, 0) animated:YES];
         }
     }
+    //
     _currentIndex = button.tag;
     [self scrollPageWithIndex:_currentIndex];
 }
