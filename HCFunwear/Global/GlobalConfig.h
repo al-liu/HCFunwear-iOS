@@ -11,4 +11,5 @@
 @interface GlobalConfig : NSObject
 - (void)configDefaultNetworkParameters;
 - (void)alterNetworkPublicParameters:(NSDictionary *)parameters;
+- (void)configLog;
 @end

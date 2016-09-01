@@ -39,8 +39,9 @@
 //    MainStyleViewController *styleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
     
     //配置网络服务
-    GlobalConfig *config = [GlobalConfig new];
-    [config configDefaultNetworkParameters];
+    GlobalConfig *configManager = [GlobalConfig new];
+    [configManager configDefaultNetworkParameters];
+    [configManager configLog];
     
     
     self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -56,6 +57,7 @@
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
     [GlobalContext ShareInstance].rootController = navigationController;
+    
         
     return YES;
 }

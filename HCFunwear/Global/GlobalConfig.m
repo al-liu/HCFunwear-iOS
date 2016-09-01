@@ -11,6 +11,7 @@
 #import "YTKUrlArgumentsFilter.h"
 #import "YYFPSLabel.h"
 #import "AppDelegate.h"
+#import "CocoaLumberjack.h"
 
 @implementation GlobalConfig
 - (void)configDefaultNetworkParameters {
@@ -44,6 +45,15 @@
         }
     }];
     NSAssert(isAlter, @"YTKNetworkConfig's urlFilters has't YTKUrlArgumentsFilter");
+}
+
+- (void)configLog {
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
 }
 
 @end
