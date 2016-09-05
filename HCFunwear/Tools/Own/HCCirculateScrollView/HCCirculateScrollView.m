@@ -7,7 +7,8 @@
 //
 
 #import "HCCirculateScrollView.h"
-#import "UIImageView+YYWebImage.h"
+#import "UIImageView+HCPackWebImage.h"
+#import "GlobalConstant.h"
 
 static NSInteger const kDescriptionTime = 2;
 
@@ -179,11 +180,11 @@ static NSInteger const kDescriptionTime = 2;
             [_delegate circulateScrollView:self loadImageUrl:url withImageView:view];
         }
         else {
-            [view setImageURL:url];
+            [view packAspectFillModeSetImageWithURL:url placeholder:defaultImage02];
         }
     }
     else {
-        [view setImageURL:url];
+        [view packAspectFillModeSetImageWithURL:url placeholder:defaultImage02];
     }
 }
 - (void)didSelectedViewOfProtocolWithIndex:(NSInteger)index {

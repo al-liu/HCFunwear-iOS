@@ -30,7 +30,6 @@
 #import "HCModule.h"
 #import "HCModuleData.h"
 #import "HCCollectionCellInfo.h"
-#import "UIImageView+YYWebImage.h"
 #import "HCHomeModuleCellProtocol.h"
 
 static NSString *kCirculateScrollCellIdentifier      = @"kCirculateScrollCellIdentifier";

@@ -11,8 +11,8 @@
 #import "Masonry.h"
 #import "ProductShowNameCell.h"
 #import "GlobalConstant.h"
-#import "UIImageView+YYWebImage.h"
 #import "SingleImageCell.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation HotCategoryView {
     HomePageHeadTitleView *_headTitleView;
@@ -96,10 +96,8 @@
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
     HCModuleData *moduleData = _hotCategoryModule.data[indexPath.row];
-    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        cell.imageView.image = image;
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+
+    [cell.imageView packAspectFitModeSetImageWithURL:moduleData.img placeholder:defaultImage02];
     
     return cell;
 }

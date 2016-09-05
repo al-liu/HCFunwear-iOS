@@ -10,9 +10,9 @@
 #import "Masonry.h"
 #import "GlobalConstant.h"
 #import "CategoryTableViewCell.h"
-#import "UIImageView+Image.h"
 #import "HCFunwearRefreshHeader.h"
 #import "RACEXTScope.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation TopCategoryPageView {
     UITableView *_tableView;
@@ -78,7 +78,7 @@
     CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryTableViewCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     HCCategory *data = _categoryArray[indexPath.row];
-    [cell.cateImageView toloadImageWithURL:data.img placeholder:defaultImage03];
+    [cell.cateImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage03];
     return cell;
 }
 

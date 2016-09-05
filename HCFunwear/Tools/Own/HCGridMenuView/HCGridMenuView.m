@@ -10,8 +10,8 @@
 #import "Masonry.h"
 #import "GlobalColors.h"
 #import "HCModuleData.h"
-#import "UIImageView+YYWebImage.h"
 #import "GlobalConstant.h"
+#import "UIImageView+HCPackWebImage.h"
 
 static NSString *const kCellIdentifier = @"HCGridMenuCellIndentifier";
 static NSInteger const kNumberOfOnepage = 8;
@@ -98,8 +98,8 @@ static NSInteger const kNumberOfOnepage = 8;
     HCGridMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     NSInteger index = indexPath.section * kNumberOfOnepage + indexPath.row;
     HCModuleData *model = _gridInfoModels[index];
-    [cell.iconView setImageURL:model.img];
-//    cell.iconView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.iconView packAspectFitModeSetImageWithURL:model.img placeholder:defaultImage03];
+//    [cell.iconView packSetImageWithURL:model.img placeholder:defaultImage03 contentMode:UIViewContentModeCenter];
     cell.titleView.text = model.title;
     return cell;
 }
@@ -145,6 +145,7 @@ static NSInteger const kNumberOfOnepage = 8;
 }
 
 - (void)initUI {
+//    self.contentView.backgroundColor = [UIColor blueColor];
     //126
     _iconView = ({
         UIImageView *view = [UIImageView new];
@@ -152,12 +153,14 @@ static NSInteger const kNumberOfOnepage = 8;
         [self.contentView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.equalTo(self);
+            make.top.equalTo(self);
+            make.left.equalTo(self).offset(15);
+            make.right.equalTo(self).offset(-15);
             make.height.equalTo(@63);
         }];
         view;
     });
-    //    _iconView.backgroundColor = kImageViewBGColor;
+//        _iconView.backgroundColor = [UIColor redColor];
     //默认图片
     _iconView.image = [UIImage imageNamed:@"fan_default_03"];
     

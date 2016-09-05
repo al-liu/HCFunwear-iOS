@@ -15,3 +15,5 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 #import "GlobalColors.h"
 #import "GlobalContext.h"
 #import "GlobalConstant.h"
+
+#import "UIImageView+HCPackWebImage.h"

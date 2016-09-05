@@ -12,7 +12,7 @@
 #import "HotBrandViewCell.h"
 #import "GlobalConstant.h"
 #import "HCHotModuleData.h"
-#import "UIImageView+Image.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation TopHotReusableView {
     
@@ -118,7 +118,7 @@
     }
     else {
         HCHotModuleData *data = _hotBrandList[indexPath.row];
-        [cell.imageView toloadImageWithURL:data.img placeholder:defaultImage02];
+        [cell.imageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
         cell.nameLabel.text = data.name;
     }
     

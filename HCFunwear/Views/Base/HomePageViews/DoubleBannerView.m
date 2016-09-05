@@ -11,7 +11,7 @@
 #import "GlobalColors.h"
 #import "GlobalConstant.h"
 #import "SingleImageCell.h"
-#import "UIImageView+YYWebImage.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation DoubleBannerView {
     UICollectionView *_productGridView;
@@ -76,10 +76,9 @@
     cell.backgroundColor = [UIColor whiteColor];
     //    cell.backgroundColor = [UIColor grayColor];
     HCModuleData *moduleData = _module.data[indexPath.row];
-    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        cell.imageView.image = image;
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+    
+    [cell.imageView packAspectFitModeSetImageWithURL:moduleData.img placeholder:defaultImage02];
+    
     return cell;
 }
 

@@ -16,7 +16,7 @@
 #import "RACEXTScope.h"
 #import "InspirationPageViewModel.h"
 #import "HCInspInfoModel.h"
-#import "UIImageView+Image.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation InspirationInfoTableView {
     NSArray *_tabsList;
@@ -210,7 +210,7 @@
     HCInspInfoModel *model = self->_tableArray[tableViewIndex];
     HCInspInfo *info = model.tableInfosList[indexPath.row];
     
-    [cell.inspImageView toloadImageWithURL:info.img placeholder:defaultImage02];
+    [cell.inspImageView packAspectFitModeSetImageWithURL:info.img placeholder:defaultImage02];
     cell.nameLabel.text = info.title;
     
     return cell;

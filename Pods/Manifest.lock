@@ -47,6 +47,9 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - YTKNetwork (1.3.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
@@ -61,6 +64,7 @@ DEPENDENCIES:
   - MJRefresh
   - NJKWebViewProgress
   - ReactiveCocoa (~> 2.5)
+  - SDWebImage (~> 3.8)
   - YTKNetwork
   - YYKit
 
@@ -73,9 +77,10 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   YTKNetwork: a9fdf7968deefb06a58d988148558453005564c4
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: 177c7a67bd2876d792d07e98d663de89da00fa78
+PODFILE CHECKSUM: 737dff474f0354bf1bfd1ed8858ddbf95bfa7ad5
 
 COCOAPODS: 1.0.1

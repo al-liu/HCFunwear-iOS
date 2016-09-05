@@ -11,9 +11,9 @@
 #import "GlobalColors.h"
 #import "GlobalConstant.h"
 #import "ProductShowStyleCell.h"
-#import "UIImageView+YYWebImage.h"
 #import "SingleImageCell.h"
 #import "RACEXTScope.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation WearTemplateView {
     UICollectionView *_productGridView;
@@ -88,13 +88,7 @@
         _headTitleView.headModule = _module;
         HCModuleData *data = _module.data.firstObject;
         
-        @weakify(self);
-        self.modelImageView.contentMode = UIViewContentModeCenter;
-        [_modelImageView setImageWithURL:data.img placeholder:defaultImage03 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            @strongify(self)
-            self.modelImageView.image = image;
-            self.modelImageView.contentMode = UIViewContentModeScaleAspectFit;
-        }];
+        [_modelImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage03];
 
         [_productGridView reloadData];
     }
@@ -122,12 +116,8 @@
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
     HCModuleData *moduleData = _module.data[indexPath.row+1];
-    
-    cell.imageView.contentMode = UIViewContentModeCenter;
-    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage03 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        cell.imageView.image = image;
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+
+    [cell.imageView packAspectFitModeSetImageWithURL:moduleData.img placeholder:defaultImage03];
     
     return cell;
 }

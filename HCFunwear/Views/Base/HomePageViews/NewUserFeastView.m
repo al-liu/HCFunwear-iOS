@@ -13,8 +13,8 @@
 #import "ProductShowPriceCell.h"
 #import "GlobalConstant.h"
 #import "HCModuleData.h"
-#import "UIImageView+YYWebImage.h"
 #import "RACEXTScope.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation NewUserFeastView {
     HomePageHeadTitleView *_headTitleView;
@@ -93,14 +93,8 @@
     if (_userFeastModule.data.count == 4) {
         _headTitleView.headModule = _userFeastModule;
         HCModuleData *data = _userFeastModule.data.firstObject;
-        [_feastImageView setImageURL:data.img];
         
-        @weakify(self);
-        [_feastImageView setImageWithURL:data.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            @strongify(self)
-            self.feastImageView.image = image;
-            self.feastImageView.contentMode = UIViewContentModeScaleAspectFit;
-        }];
+        [_feastImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
         
         [_productGridView reloadData];
     }
@@ -133,10 +127,7 @@
     ProductShowPriceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProductShowPriceCellIdentifier forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor grayColor];
     HCModuleData *moduleData = _userFeastModule.data[indexPath.row+1];
-    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        cell.imageView.image = image;
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+    [cell.imageView packAspectFitModeSetImageWithURL:moduleData.img placeholder:defaultImage02];
     cell.nameLabel.text = moduleData.title;
     cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [moduleData.product_price doubleValue]];
     return cell;

@@ -13,7 +13,7 @@
 #import "ProductShowStyleCell.h"
 #import "BrandBorderCell.h"
 #import "RACEXTScope.h"
-#import "UIImageView+YYWebImage.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation NewJoinBrandView {
     UICollectionView *_productGridView;
@@ -73,12 +73,7 @@
     if (_module.data.count == 7) {
         HCModuleData *data = _module.data.firstObject;
         
-        @weakify(self);
-        [_modelImageView setImageWithURL:data.img placeholder:defaultImage02 options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            @strongify(self)
-            self.modelImageView.image = image;
-            self.modelImageView.contentMode = UIViewContentModeScaleAspectFit;
-        }];
+        [_modelImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
         
         [_productGridView reloadData];
     }
@@ -112,10 +107,7 @@
     BrandBorderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBrandBorderCellIdentifier forIndexPath:indexPath];
     //    cell.backgroundColor = [UIColor grayColor];
     HCModuleData *moduleData = _module.data[indexPath.row+1];
-    [cell.imageView setImageWithURL:moduleData.img placeholder:defaultImage02 options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        cell.imageView.image = image;
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+    [cell.imageView packAspectFitModeSetImageWithURL:moduleData.img placeholder:defaultImage02];
     return cell;
 }
 

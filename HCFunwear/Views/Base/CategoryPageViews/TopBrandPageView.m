@@ -13,8 +13,8 @@
 #import "HCFunwearRefreshHeader.h"
 #import "HCFunwearRefreshFooter.h"
 #import "HCBrand.h"
-#import "UIImageView+Image.h"
 #import "BrandsViewCell.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation TopBrandPageView {
     UICollectionView *_collectionView;
@@ -89,7 +89,8 @@
     cell.backgroundColor = [UIColor whiteColor];
     
     HCBrand *brand = _brandsList[indexPath.row];
-    [cell.imageView toloadImageWithURL:brand.logo_img placeholder:defaultImage04];
+    [cell.imageView packAspectFitModeSetImageWithURL:brand.logo_img placeholder:defaultImage04];
+
     
     return cell;
 }

@@ -11,11 +11,10 @@
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
 #import "GlobalColors.h"
-#import "UIImageView+Image.h"
 #import "HCFunwearRefreshHeader.h"
 #import "HCFunwearRefreshFooter.h"
-#import "UIImageView+YYWebImage.h"
 #import "UIImage+YYAdd.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @implementation InspirationPageFunerView {
     UICollectionView *_collectionView;
@@ -85,14 +84,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
     HCInspirationByUsers *inspUser = _funerDataList[indexPath.row];
-    @weakify(self);
-    self.contentMode = UIViewContentModeCenter;
-    [cell.imageView setImageWithURL:inspUser.img placeholder:defaultImage02 options:YYWebImageOptionAllowBackgroundTask completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        @strongify(self);
-//        cell.imageView.image = [image imageByResizeToSize:CGSizeMake([inspUser.img_width floatValue], [inspUser.img_height floatValue]) contentMode:UIViewContentModeScaleToFill];
-        self.contentMode = UIViewContentModeScaleToFill;
-        cell.imageView.image = image;
-    }];
+    
+    [cell.imageView packAspectFillModeSetImageWithURL:inspUser.img placeholder:defaultImage02];
+    
     return cell;
 }
 

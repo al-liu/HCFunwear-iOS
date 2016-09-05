@@ -10,10 +10,11 @@
 #import "GlobalColors.h"
 #import "Masonry.h"
 #import "HCModule.h"
-#import "UIImageView+YYWebImage.h"
 #import "UICollectionViewCell+RACCommand.h"
 #import "HCWebViewModel.h"
 #import "RACEXTScope.h"
+#import "UIImageView+HCPackWebImage.h"
+#import "GlobalConstant.h"
 
 @implementation SinglePageAdvertViewCell
 
@@ -49,12 +50,8 @@
     HCModule *module = data;
     HCModuleData *moudleData = module.data.firstObject;
     
-    @weakify(self);
-    [_advertView setImageWithURL:moudleData.img placeholder:nil options:YYWebImageOptionAvoidSetImage completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        @strongify(self)
-        self.advertView.image = image;
-        self.advertView.contentMode = UIViewContentModeScaleAspectFit;
-    }];
+    [_advertView packAspectFitModeSetImageWithURL:moudleData.img placeholder:defaultImage03];
+
 }
 
 - (void)bindPush:(RACCommand *)push {
