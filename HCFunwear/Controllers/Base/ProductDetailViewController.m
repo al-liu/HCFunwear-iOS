@@ -7,6 +7,9 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "HCTopGoodsDetailView.h"
+#import "Masonry.h"
+#import "HCShoppingCartView.h"
 
 @interface ProductDetailViewController ()
 
@@ -26,6 +29,24 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    HCTopGoodsDetailView *goodsDetailView = [HCTopGoodsDetailView new];
+    [self.view addSubview:goodsDetailView];
+    
+    [goodsDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self);
+        make.top.equalTo(self.view).offset(64);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-50);
+
+    }];
+    
+    HCShoppingCartView *shoppingCartView = [HCShoppingCartView new];
+    [self.view addSubview:shoppingCartView];
+    
+    [shoppingCartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@50);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

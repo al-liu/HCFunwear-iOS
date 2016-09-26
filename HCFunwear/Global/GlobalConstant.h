@@ -23,6 +23,7 @@ UIKIT_EXTERN NSString *const kHotCategoryPageViewCellIdentifier;
 UIKIT_EXTERN NSString *const kCategoryTableViewCellIdentifier;
 UIKIT_EXTERN NSString *const kInspirationInfoCellIdentifier;
 UIKIT_EXTERN NSString *const kInspirationAttentionCellIdentifier;
+UIKIT_EXTERN NSString *const kHCGoodsDetailShopPlanCellIdentifier;
 
 #define defaultImage01 [UIImage imageNamed:@"fan_default_01"]
 #define defaultImage02 [UIImage imageNamed:@"fan_default_02"]

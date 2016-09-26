@@ -11,8 +11,10 @@
 #import "Masonry.h"
 #import "HCGoodsPriceView.h"
 #import "GlobalImport.h"
+#import "HCGoodsDetailShopPlanCell.h"
+#import "HCGoodsDetailShopView.h"
 
-@interface HCTopGoodsDetailView ()
+@interface HCTopGoodsDetailView () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -47,11 +49,12 @@
     //图片浏览 320:388.5
     HCGoodsDetailShowPictureView *showPictureView = ({
         HCGoodsDetailShowPictureView *view = [HCGoodsDetailShowPictureView new];
-        [self addSubview:view];
+        [self.scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.equalTo(self);
-            make.height.equalTo(self.mas_width).multipliedBy(388.5/320.0);
+            make.top.equalTo(self.scrollView);
+            make.left.right.equalTo(self);
+            make.height.equalTo(self.mas_width).multipliedBy(388/320.0);
         }];
         
         view;
@@ -60,7 +63,7 @@
     //价格和名字
     HCGoodsPriceView *goodsPriceView = ({
         HCGoodsPriceView *view = [HCGoodsPriceView new];
-        [self addSubview:view];
+        [self.scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
@@ -75,7 +78,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.showsTouchWhenHighlighted = NO;
         button.backgroundColor = [UIColor whiteColor];
-        [self addSubview:button];
+        [self.scrollView addSubview:button];
         
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
@@ -85,12 +88,60 @@
         
         button;
     });
+    explainButton.backgroundColor = [UIColor colorWithRed:1.000 green:1.000 blue:0.745 alpha:1.000];//一张图片
     
     //这里是根据活动数量动态展示的
     DDLogWarn(@"HCTopGoodsDetailView 需要 数据动态生成 UI");
     
+    //包邮 h:44
+    UITableView *shopPlanTabelView = ({
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        [self.scrollView addSubview:tableView];
+        
+        [tableView registerNib:[UINib nibWithNibName:@"HCGoodsDetailShopPlanCell" bundle:nil] forCellReuseIdentifier:kHCGoodsDetailShopPlanCellIdentifier];
+        
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(explainButton.mas_bottom).offset(8);
+            make.left.right.equalTo(self);
+            make.height.equalTo(@88);//暂时写死
+        }];
+        
+        tableView;
+    });
     
+    HCGoodsDetailShopView *shopView = ({
+        HCGoodsDetailShopView *view = [[UINib nibWithNibName:@"HCGoodsDetailShopView" bundle:nil] instantiateWithOwner:nil options:nil].lastObject;
+        [self.scrollView addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(shopPlanTabelView.mas_bottom).offset(8);
+            make.left.right.equalTo(self);
+            make.height.equalTo(@75);
+            make.bottom.equalTo(self.scrollView);
+        }];
+        
+        view;
+    });
     
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HCGoodsDetailShopPlanCell *cell = [tableView dequeueReusableCellWithIdentifier:kHCGoodsDetailShopPlanCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.001;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.001;
 }
 
 @end

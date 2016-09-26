@@ -30,6 +30,7 @@
         collectionView.dataSource = self;
         collectionView.delegate = self;
         collectionView.backgroundColor = [UIColor whiteColor];
+        collectionView.pagingEnabled = YES;
         [self addSubview:collectionView];
         
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,6 +49,7 @@
         label.layer.borderWidth = .5f;
         label.font = [UIFont systemFontOfSize:10];
         label.text = @"2/10";
+        label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,9 +71,13 @@
     return CGSizeMake(viewWidth, viewHeight);
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 30;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

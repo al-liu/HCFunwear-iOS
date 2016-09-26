@@ -19,6 +19,7 @@
 #define kMainStyleColor [UIColor colorWithWhite:0.149 alpha:1.000]
 
 #define kBaseViewBGColor [UIColor colorWithWhite:0.937 alpha:1.000]
+#define kTextColor325 [UIColor colorWithWhite:0.325 alpha:1.000]
 
 @interface GlobalColors : NSObject
 @end

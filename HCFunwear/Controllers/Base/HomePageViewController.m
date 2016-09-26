@@ -13,6 +13,7 @@
 #import "RACEXTScope.h"
 #import "HCHomeCollectionViewBindingHelper.h"
 #import "ReactiveCocoa.h"
+#import "ProductDetailViewController.h"
 
 @interface HomePageViewController ()
 <
@@ -48,6 +49,8 @@
     [super viewWillAppear:animated];
     [self configNavigationBar];
     
+    ProductDetailViewController *vc = [[ProductDetailViewController alloc]init];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

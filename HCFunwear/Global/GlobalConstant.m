@@ -22,6 +22,7 @@ NSString *const kHotCategoryPageViewCellIdentifier = @"HotCategoryPageViewCellId
 NSString *const kCategoryTableViewCellIdentifier = @"CategoryTableViewCellIdentifier";
 NSString *const kInspirationInfoCellIdentifier = @"InspirationInfoCellIdentifier";
 NSString *const kInspirationAttentionCellIdentifier = @"InspirationAttentionCellIdentifier";
+NSString *const kHCGoodsDetailShopPlanCellIdentifier = @"kHCGoodsDetailShopPlanCellIdentifier";
 
 
 @implementation GlobalConstant

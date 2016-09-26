@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HCGoodsDetailShopView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan_default_03" translatesAutoresizingMaskIntoConstraints="NO" id="ZqK-99-cFe">
+                    <rect key="frame" x="15" y="11.5" width="52" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="Is0-13-wUO"/>
+                        <constraint firstAttribute="height" constant="52" id="X6W-h4-kGS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adidas neo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goH-pG-9A5">
+                    <rect key="frame" x="80" y="27" width="200" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="oba-rB-fOL">
+                    <rect key="frame" x="290" y="28" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Zwo-3J-l9U"/>
+                        <constraint firstAttribute="width" constant="20" id="rSL-c2-XB7"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oba-rB-fOL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BEO-3E-LyR"/>
+                <constraint firstItem="oba-rB-fOL" firstAttribute="leading" secondItem="goH-pG-9A5" secondAttribute="trailing" constant="10" id="JPx-PV-5bz"/>
+                <constraint firstAttribute="trailing" secondItem="oba-rB-fOL" secondAttribute="trailing" constant="10" id="Mto-Vy-udE"/>
+                <constraint firstItem="ZqK-99-cFe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="UCq-Ik-c9l"/>
+                <constraint firstItem="goH-pG-9A5" firstAttribute="leading" secondItem="ZqK-99-cFe" secondAttribute="trailing" constant="13" id="jjh-r3-RP3"/>
+                <constraint firstItem="goH-pG-9A5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nKt-J0-xdw"/>
+                <constraint firstItem="ZqK-99-cFe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vPx-sL-jxN"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="shopLogoImageView" destination="ZqK-99-cFe" id="ryO-sr-Fx5"/>
+                <outlet property="shopNameLabel" destination="goH-pG-9A5" id="Y3I-1y-VRa"/>
+            </connections>
+            <point key="canvasLocation" x="305" y="289.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fan_default_03" width="25" height="30"/>
+        <image name="right_arrow" width="15" height="15"/>
+    </resources>
+</document>
