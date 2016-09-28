@@ -10,4 +10,7 @@
 
 @interface HCBottomGoodsDetailView : UIView
 
+@property (nonatomic,assign)BOOL isGoBackTop;
+@property (nonatomic,copy)void(^goBackBlock)();
+
 @end

@@ -17,8 +17,6 @@
 
 @interface HCTopGoodsDetailView () <UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) UIScrollView *scrollView;
-
 @end
 
 @implementation HCTopGoodsDetailView
@@ -68,7 +66,7 @@
         [self addSubview:button];
         
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(@15);
+            make.right.equalTo(@-15);
             make.top.equalTo(@25);
             make.width.height.equalTo(@32);
         }];
@@ -156,10 +154,6 @@
         
         view;
     });
-    
-    self.scrollView.mj_footer = [HCGoodsDetailRefreshFooter footerWithRefreshingBlock:^{
-        [self.scrollView.mj_footer endRefreshing];
-    }];
 }
 
 #pragma mark - UITableViewDataSource

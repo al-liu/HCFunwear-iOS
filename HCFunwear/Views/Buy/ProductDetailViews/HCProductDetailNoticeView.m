@@ -11,7 +11,9 @@
 #import "HCBuyQACell.h"
 
 static NSString *kBuyQACellIdentifier = @"kBuyQACellIdentifier";
-@interface HCProductDetailNoticeView () <UITableViewDataSource,UITableViewDelegate>
+
+static CGFloat kOffset = 100.0;
+@interface HCProductDetailNoticeView () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_noticeTableView;
     HCBuyQACell *_referenceCell;
@@ -41,6 +43,17 @@ static NSString *kBuyQACellIdentifier = @"kBuyQACellIdentifier";
         });
     }
     return self;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //    DDLogInfo(@"offset scroll :%f",scrollView.contentOffset.y);
+    //暂按100算
+    if (scrollView.contentOffset.y < -kOffset) {
+        if (_delegate && [_delegate respondsToSelector:@selector(productDetailBottomGoBackTop)]) {
+            [_delegate productDetailBottomGoBackTop];
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource

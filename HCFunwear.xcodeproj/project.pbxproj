@@ -427,6 +427,7 @@
 		E383FE8C1D9B550400813688 /* HCBuyQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBuyQACell.m; sourceTree = "<group>"; };
 		E383FE8E1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextCell.h; sourceTree = "<group>"; };
 		E383FE8F1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseOnlyTextCell.m; sourceTree = "<group>"; };
+		E383FE911D9BBDD100813688 /* HCProductDetailProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailProtocol.h; sourceTree = "<group>"; };
 		E3A447281D793109009D0A3E /* HCGoodsDetailShowPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsDetailShowPictureView.h; sourceTree = "<group>"; };
 		E3A447291D793109009D0A3E /* HCGoodsDetailShowPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsDetailShowPictureView.m; sourceTree = "<group>"; };
 		E3A4472B1D795CAF009D0A3E /* HCShoppingCartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCShoppingCartView.h; sourceTree = "<group>"; };
@@ -1011,6 +1012,7 @@
 				E383FE6E1D97D96A00813688 /* HCTopImageBottpnTitleView.m */,
 				E383FE731D9A09DA00813688 /* HCBottomGoodsDetailView.h */,
 				E383FE741D9A09DA00813688 /* HCBottomGoodsDetailView.m */,
+				E383FE911D9BBDD100813688 /* HCProductDetailProtocol.h */,
 				E383FE791D9A219800813688 /* HCProductDetailCollectionView.h */,
 				E383FE7A1D9A219800813688 /* HCProductDetailCollectionView.m */,
 				E383FE7C1D9A21C000813688 /* HCProductDetailAppraiseView.h */,

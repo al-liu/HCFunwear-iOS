@@ -23,4 +23,6 @@
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 
+- (void)selectedWithIndex:(NSUInteger)index;
+
 @end

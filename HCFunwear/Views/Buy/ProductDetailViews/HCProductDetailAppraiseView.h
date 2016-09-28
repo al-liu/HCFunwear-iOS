@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCProductDetailProtocol.h"
 
 @interface HCProductDetailAppraiseView : UIView
+
+@property (nonatomic,weak)id <HCProductDetailProtocol> delegate;
 
 @end

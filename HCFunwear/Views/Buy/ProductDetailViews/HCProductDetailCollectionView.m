@@ -11,7 +11,8 @@
 #import "GlobalImport.h"
 #import "SingleImageCell.h"
 
-@interface HCProductDetailCollectionView () <UICollectionViewDataSource,UICollectionViewDelegate>
+static CGFloat kOffset = 100.0;
+@interface HCProductDetailCollectionView () <UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 {
     UICollectionView *_detailCollectionView;
 }
@@ -46,6 +47,19 @@
         
         collectionView;
     });
+    
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    DDLogInfo(@"offset scroll :%f",scrollView.contentOffset.y);
+    //暂按100算
+    if (scrollView.contentOffset.y < -kOffset) {
+        if (_delegate && [_delegate respondsToSelector:@selector(productDetailBottomGoBackTop)]) {
+            [_delegate productDetailBottomGoBackTop];
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

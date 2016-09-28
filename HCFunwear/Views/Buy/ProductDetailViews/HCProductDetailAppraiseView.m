@@ -16,7 +16,8 @@
 static NSString *kAppraiseCellIdentifier = @"kAppraiseCellIdentifier";
 static NSString *kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentifier";
 
-@interface HCProductDetailAppraiseView () <UITableViewDataSource,UITableViewDelegate>
+static CGFloat kOffset = 100.0;
+@interface HCProductDetailAppraiseView () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_appraiseTableView;
     HCAppraiseCell *_referenceCell;
@@ -67,6 +68,17 @@ static NSString *kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdenti
         tableView;
     });
     
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //    DDLogInfo(@"offset scroll :%f",scrollView.contentOffset.y);
+    //暂按100算
+    if (scrollView.contentOffset.y < -kOffset) {
+        if (_delegate && [_delegate respondsToSelector:@selector(productDetailBottomGoBackTop)]) {
+            [_delegate productDetailBottomGoBackTop];
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource

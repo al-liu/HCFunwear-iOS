@@ -12,9 +12,13 @@
 #import "HCProductDetailCollectionView.h"
 #import "HCProductDetailAppraiseView.h"
 #import "HCProductDetailNoticeView.h"
+#import "RACEXTScope.h"
 
-@interface HCBottomGoodsDetailView ()
-
+@interface HCBottomGoodsDetailView () <UIScrollViewDelegate,HCProductDetailProtocol>
+{
+    HCSelectedMoudleView *_selectedMoudleView;
+    
+}
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
@@ -25,6 +29,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _isGoBackTop = NO;
         [self initUI];
     }
     return self;
@@ -32,22 +37,30 @@
 
 - (void)initUI {
     //Selected Moudle
-    HCSelectedMoudleView *selectedMoudleView = [[HCSelectedMoudleView alloc]initWithTitles:@[@"商品详情",@"全部评价(0)",@"购买咨询"]];
-    [self addSubview:selectedMoudleView];
+    _selectedMoudleView = [[HCSelectedMoudleView alloc]initWithTitles:@[@"商品详情",@"全部评价(0)",@"购买咨询"]];
+    [self addSubview:_selectedMoudleView];
     
-    [selectedMoudleView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_selectedMoudleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
         make.height.equalTo(@43);
     }];
+    
+    @weakify(self)
+    _selectedMoudleView.selectedMoudleBlock = ^(NSUInteger index) {
+        @strongify(self)
+        CGFloat offset = CGRectGetWidth(self.scrollView.frame) * index;
+        [self.scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+    };
     
     //scorll view
     self.scrollView = ({
         UIScrollView *view = [UIScrollView new];
         view.pagingEnabled = YES;
+        view.delegate = self;
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(selectedMoudleView.mas_bottom);
+            make.top.equalTo(_selectedMoudleView.mas_bottom);
             make.bottom.left.right.equalTo(self);
         }];
         
@@ -95,7 +108,27 @@
         view;
     });
 
-    
+    detailCollectionView.delegate = self;
+    detailAppraiseView.delegate = self;
+    detailNoticeView.delegate = self;
+}
+
+#pragma mark - HCProductDetailProtocol
+- (void)productDetailBottomGoBackTop {
+    if (_isGoBackTop) {
+        return;
+    }
+    NSLog(@"productDetailBottomGoBackTop");
+    _isGoBackTop = YES;
+    if (_goBackBlock) {
+        self.goBackBlock();
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSUInteger index = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
+    [_selectedMoudleView selectedWithIndex:index];
 }
 
 @end

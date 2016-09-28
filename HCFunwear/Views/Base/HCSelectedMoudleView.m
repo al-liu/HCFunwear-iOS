@@ -30,6 +30,7 @@ CGFloat const LINE_HEIGHT = 2.0;
     if (self) {
         _btnArray = [[NSMutableArray alloc]initWithCapacity:titles.count];
         _selectedIndex = 0;
+        self.backgroundColor = [UIColor whiteColor];
         [self initUI:titles];
     }
     return self;
@@ -100,12 +101,17 @@ CGFloat const LINE_HEIGHT = 2.0;
     if (selectedButton.tag == _selectedIndex) {
         return;
     }
+    [self selectedWithIndex:selectedButton.tag];
+}
+
+- (void)selectedWithIndex:(NSUInteger)index {
     [_btnArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *btn = obj;
         btn.selected = NO;
     }];
+    UIButton *selectedButton = _btnArray[index];
     selectedButton.selected = YES;
-    _selectedIndex = selectedButton.tag;
+    _selectedIndex = index;
     
     if (_delegate && [_delegate respondsToSelector:@selector(selectedMoudleView:selectedIndex:)]) {
         [_delegate selectedMoudleView:self selectedIndex:_selectedIndex];

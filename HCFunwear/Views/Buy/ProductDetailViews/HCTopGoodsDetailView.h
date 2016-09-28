@@ -10,4 +10,6 @@
 
 @interface HCTopGoodsDetailView : UIView
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
 @end
