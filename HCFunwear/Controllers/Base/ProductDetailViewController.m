@@ -10,6 +10,8 @@
 #import "HCTopGoodsDetailView.h"
 #import "Masonry.h"
 #import "HCShoppingCartView.h"
+#import "HCGoodsDetailRefreshFooter.h"
+#import "HCBottomGoodsDetailView.h"
 
 @interface ProductDetailViewController ()
 
@@ -29,15 +31,24 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    /*
     HCTopGoodsDetailView *goodsDetailView = [HCTopGoodsDetailView new];
     [self.view addSubview:goodsDetailView];
     
     [goodsDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self);
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-50);
+
+    }];
+    */
+    
+    HCBottomGoodsDetailView *bottomGoodsView = [HCBottomGoodsDetailView new];
+    [self.view addSubview:bottomGoodsView];
+    
+    [bottomGoodsView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(64);
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-50);
-
     }];
     
     HCShoppingCartView *shoppingCartView = [HCShoppingCartView new];

@@ -87,6 +87,20 @@
         view;
     });
     line.backgroundColor = kCellLineColor;
+    
+    UIView *line02 = ({
+        UIView *view = [UIView new];
+        [self addSubview:view];
+       
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@.5f);
+            make.top.equalTo(self);
+            make.left.right.equalTo(self);
+        }];
+        
+        view;
+    });
+    line02.backgroundColor = kCellLineColor;
 }
 
 - (void)addGoods {

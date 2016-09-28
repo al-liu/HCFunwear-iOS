@@ -13,6 +13,7 @@
 #import "GlobalImport.h"
 #import "HCGoodsDetailShopPlanCell.h"
 #import "HCGoodsDetailShopView.h"
+#import "HCGoodsDetailRefreshFooter.h"
 
 @interface HCTopGoodsDetailView () <UITableViewDataSource,UITableViewDelegate>
 
@@ -34,6 +35,8 @@
 - (void)initUI {
     self.backgroundColor = kBaseViewBGColor;
     
+    
+    
     self.scrollView = ({
         UIScrollView *view = [UIScrollView new];
 //        view.delegate = self;
@@ -45,6 +48,35 @@
         
         view;
     });
+    
+    //t-25 l/r:15 返回和分享
+    UIButton *backBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:button];
+        
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@15);
+            make.top.equalTo(@25);
+            make.width.height.equalTo(@32);
+        }];
+        
+        button;
+    });
+    
+    UIButton *shareBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:button];
+        
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@15);
+            make.top.equalTo(@25);
+            make.width.height.equalTo(@32);
+        }];
+        
+        button;
+    });
+    [backBtn setImage:[UIImage imageNamed:@"top_back_y"] forState:UIControlStateNormal];
+    [shareBtn setImage:[UIImage imageNamed:@"top_share_y"] forState:UIControlStateNormal];
     
     //图片浏览 320:388.5
     HCGoodsDetailShowPictureView *showPictureView = ({
@@ -119,12 +151,15 @@
             make.top.equalTo(shopPlanTabelView.mas_bottom).offset(8);
             make.left.right.equalTo(self);
             make.height.equalTo(@75);
-            make.bottom.equalTo(self.scrollView);
+            make.bottom.equalTo(self.scrollView).offset(-8);
         }];
         
         view;
     });
     
+    self.scrollView.mj_footer = [HCGoodsDetailRefreshFooter footerWithRefreshingBlock:^{
+        [self.scrollView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark - UITableViewDataSource

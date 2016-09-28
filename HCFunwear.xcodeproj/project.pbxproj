@@ -110,6 +110,17 @@
 		E383FE6A1D97CD5300813688 /* HCGoodsDetailShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE691D97CD5300813688 /* HCGoodsDetailShopView.m */; };
 		E383FE6C1D97CD5D00813688 /* HCGoodsDetailShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E383FE6B1D97CD5D00813688 /* HCGoodsDetailShopView.xib */; };
 		E383FE6F1D97D96A00813688 /* HCTopImageBottpnTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE6E1D97D96A00813688 /* HCTopImageBottpnTitleView.m */; };
+		E383FE721D99650800813688 /* HCGoodsDetailRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE711D99650800813688 /* HCGoodsDetailRefreshFooter.m */; };
+		E383FE751D9A09DA00813688 /* HCBottomGoodsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE741D9A09DA00813688 /* HCBottomGoodsDetailView.m */; };
+		E383FE781D9A0B7C00813688 /* HCSelectedMoudleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE771D9A0B7C00813688 /* HCSelectedMoudleView.m */; };
+		E383FE7B1D9A219800813688 /* HCProductDetailCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE7A1D9A219800813688 /* HCProductDetailCollectionView.m */; };
+		E383FE7E1D9A21C000813688 /* HCProductDetailAppraiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE7D1D9A21C000813688 /* HCProductDetailAppraiseView.m */; };
+		E383FE811D9A21E200813688 /* HCProductDetailNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE801D9A21E200813688 /* HCProductDetailNoticeView.m */; };
+		E383FE841D9A538C00813688 /* HCAppraiseScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE831D9A538C00813688 /* HCAppraiseScoreView.m */; };
+		E383FE871D9A53A200813688 /* HCAppraiseStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE861D9A53A200813688 /* HCAppraiseStarsView.m */; };
+		E383FE8A1D9A6BE200813688 /* HCAppraiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE891D9A6BE200813688 /* HCAppraiseCell.m */; };
+		E383FE8D1D9B550400813688 /* HCBuyQACell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE8C1D9B550400813688 /* HCBuyQACell.m */; };
+		E383FE901D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE8F1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m */; };
 		E3A4472A1D793109009D0A3E /* HCGoodsDetailShowPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A447291D793109009D0A3E /* HCGoodsDetailShowPictureView.m */; };
 		E3A4472D1D795CAF009D0A3E /* HCShoppingCartView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A4472C1D795CAF009D0A3E /* HCShoppingCartView.m */; };
 		E3A447301D795FD1009D0A3E /* HCTopGoodsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A4472F1D795FD1009D0A3E /* HCTopGoodsDetailView.m */; };
@@ -394,6 +405,28 @@
 		E383FE6B1D97CD5D00813688 /* HCGoodsDetailShopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsDetailShopView.xib; sourceTree = "<group>"; };
 		E383FE6D1D97D96A00813688 /* HCTopImageBottpnTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTopImageBottpnTitleView.h; sourceTree = "<group>"; };
 		E383FE6E1D97D96A00813688 /* HCTopImageBottpnTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTopImageBottpnTitleView.m; sourceTree = "<group>"; };
+		E383FE701D99650800813688 /* HCGoodsDetailRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsDetailRefreshFooter.h; sourceTree = "<group>"; };
+		E383FE711D99650800813688 /* HCGoodsDetailRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsDetailRefreshFooter.m; sourceTree = "<group>"; };
+		E383FE731D9A09DA00813688 /* HCBottomGoodsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBottomGoodsDetailView.h; sourceTree = "<group>"; };
+		E383FE741D9A09DA00813688 /* HCBottomGoodsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBottomGoodsDetailView.m; sourceTree = "<group>"; };
+		E383FE761D9A0B7C00813688 /* HCSelectedMoudleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSelectedMoudleView.h; sourceTree = "<group>"; };
+		E383FE771D9A0B7C00813688 /* HCSelectedMoudleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSelectedMoudleView.m; sourceTree = "<group>"; };
+		E383FE791D9A219800813688 /* HCProductDetailCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailCollectionView.h; sourceTree = "<group>"; };
+		E383FE7A1D9A219800813688 /* HCProductDetailCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProductDetailCollectionView.m; sourceTree = "<group>"; };
+		E383FE7C1D9A21C000813688 /* HCProductDetailAppraiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailAppraiseView.h; sourceTree = "<group>"; };
+		E383FE7D1D9A21C000813688 /* HCProductDetailAppraiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProductDetailAppraiseView.m; sourceTree = "<group>"; };
+		E383FE7F1D9A21E200813688 /* HCProductDetailNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailNoticeView.h; sourceTree = "<group>"; };
+		E383FE801D9A21E200813688 /* HCProductDetailNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProductDetailNoticeView.m; sourceTree = "<group>"; };
+		E383FE821D9A538C00813688 /* HCAppraiseScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseScoreView.h; sourceTree = "<group>"; };
+		E383FE831D9A538C00813688 /* HCAppraiseScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseScoreView.m; sourceTree = "<group>"; };
+		E383FE851D9A53A200813688 /* HCAppraiseStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseStarsView.h; sourceTree = "<group>"; };
+		E383FE861D9A53A200813688 /* HCAppraiseStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseStarsView.m; sourceTree = "<group>"; };
+		E383FE881D9A6BE200813688 /* HCAppraiseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseCell.h; sourceTree = "<group>"; };
+		E383FE891D9A6BE200813688 /* HCAppraiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseCell.m; sourceTree = "<group>"; };
+		E383FE8B1D9B550400813688 /* HCBuyQACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBuyQACell.h; sourceTree = "<group>"; };
+		E383FE8C1D9B550400813688 /* HCBuyQACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBuyQACell.m; sourceTree = "<group>"; };
+		E383FE8E1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextCell.h; sourceTree = "<group>"; };
+		E383FE8F1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseOnlyTextCell.m; sourceTree = "<group>"; };
 		E3A447281D793109009D0A3E /* HCGoodsDetailShowPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsDetailShowPictureView.h; sourceTree = "<group>"; };
 		E3A447291D793109009D0A3E /* HCGoodsDetailShowPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsDetailShowPictureView.m; sourceTree = "<group>"; };
 		E3A4472B1D795CAF009D0A3E /* HCShoppingCartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCShoppingCartView.h; sourceTree = "<group>"; };
@@ -868,6 +901,8 @@
 				E37F50271D64475B008B465A /* HCFunwearRefreshHeader.m */,
 				E37F50681D65B4E6008B465A /* HCFunwearRefreshFooter.h */,
 				E37F50691D65B4E6008B465A /* HCFunwearRefreshFooter.m */,
+				E383FE701D99650800813688 /* HCGoodsDetailRefreshFooter.h */,
+				E383FE711D99650800813688 /* HCGoodsDetailRefreshFooter.m */,
 			);
 			path = RefreshView;
 			sourceTree = "<group>";
@@ -974,6 +1009,24 @@
 				E3A4472C1D795CAF009D0A3E /* HCShoppingCartView.m */,
 				E383FE6D1D97D96A00813688 /* HCTopImageBottpnTitleView.h */,
 				E383FE6E1D97D96A00813688 /* HCTopImageBottpnTitleView.m */,
+				E383FE731D9A09DA00813688 /* HCBottomGoodsDetailView.h */,
+				E383FE741D9A09DA00813688 /* HCBottomGoodsDetailView.m */,
+				E383FE791D9A219800813688 /* HCProductDetailCollectionView.h */,
+				E383FE7A1D9A219800813688 /* HCProductDetailCollectionView.m */,
+				E383FE7C1D9A21C000813688 /* HCProductDetailAppraiseView.h */,
+				E383FE7D1D9A21C000813688 /* HCProductDetailAppraiseView.m */,
+				E383FE7F1D9A21E200813688 /* HCProductDetailNoticeView.h */,
+				E383FE801D9A21E200813688 /* HCProductDetailNoticeView.m */,
+				E383FE821D9A538C00813688 /* HCAppraiseScoreView.h */,
+				E383FE831D9A538C00813688 /* HCAppraiseScoreView.m */,
+				E383FE851D9A53A200813688 /* HCAppraiseStarsView.h */,
+				E383FE861D9A53A200813688 /* HCAppraiseStarsView.m */,
+				E383FE881D9A6BE200813688 /* HCAppraiseCell.h */,
+				E383FE891D9A6BE200813688 /* HCAppraiseCell.m */,
+				E383FE8E1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.h */,
+				E383FE8F1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m */,
+				E383FE8B1D9B550400813688 /* HCBuyQACell.h */,
+				E383FE8C1D9B550400813688 /* HCBuyQACell.m */,
 			);
 			path = ProductDetailViews;
 			sourceTree = "<group>";
@@ -1055,6 +1108,8 @@
 				E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */,
 				E3B1D8371D2E3EC000A8BA3E /* TopCategoryView.h */,
 				E3B1D8381D2E3EC000A8BA3E /* TopCategoryView.m */,
+				E383FE761D9A0B7C00813688 /* HCSelectedMoudleView.h */,
+				E383FE771D9A0B7C00813688 /* HCSelectedMoudleView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1438,9 +1493,11 @@
 				E3A6D3191D5DAE0F0012E1B8 /* GlobalConfig.m in Sources */,
 				E37F50281D64475B008B465A /* HCFunwearRefreshHeader.m in Sources */,
 				E383FE6F1D97D96A00813688 /* HCTopImageBottpnTitleView.m in Sources */,
+				E383FE751D9A09DA00813688 /* HCBottomGoodsDetailView.m in Sources */,
 				E3FBB1611D338E8100573343 /* MinePageViewController.m in Sources */,
 				E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */,
 				E37F50B51D6B483C008B465A /* HCWebViewModel.m in Sources */,
+				E383FE841D9A538C00813688 /* HCAppraiseScoreView.m in Sources */,
 				E3B1D8611D2F57CB00A8BA3E /* CategoryTableViewCell.m in Sources */,
 				E37F50D11D6D49DA008B465A /* HCGetCollocationListByUserTypeApi.m in Sources */,
 				E383FE661D97C56300813688 /* HCGoodsDetailShopPlanCell.m in Sources */,
@@ -1453,6 +1510,7 @@
 				E3FBB1871D351A6B00573343 /* MineTableMenuModel.m in Sources */,
 				E37947851D3A7FD0001CE89C /* HomePageView.m in Sources */,
 				E34B7BDF1D23DC780066FE80 /* ProductShowStyleCell.m in Sources */,
+				E383FE7B1D9A219800813688 /* HCProductDetailCollectionView.m in Sources */,
 				E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */,
 				E3B1D8531D2F393900A8BA3E /* CategoryPageHeadTitleView.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
@@ -1460,6 +1518,7 @@
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
 				E37F50B81D6B4859008B465A /* ProductDetailViewController.m in Sources */,
 				E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */,
+				E383FE871D9A53A200813688 /* HCAppraiseStarsView.m in Sources */,
 				E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */,
 				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
@@ -1488,10 +1547,12 @@
 				E30E9FF91D2A4E3F00B38B37 /* FushionTrendViewCell.m in Sources */,
 				E37F50AE1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m in Sources */,
 				E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */,
+				E383FE8D1D9B550400813688 /* HCBuyQACell.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
 				E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */,
 				E3A6D3331D60BF510012E1B8 /* HCModuleData.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
+				E383FE781D9A0B7C00813688 /* HCSelectedMoudleView.m in Sources */,
 				E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */,
 				E3B1D86A1D2F8A6600A8BA3E /* InspirationPageViewController.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
@@ -1514,6 +1575,7 @@
 				E37F50221D62F074008B465A /* HCCollectionCellInfo.m in Sources */,
 				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
 				E3B1D86D1D2F8A8A00A8BA3E /* InspirationPageViewModel.m in Sources */,
+				E383FE721D99650800813688 /* HCGoodsDetailRefreshFooter.m in Sources */,
 				E3A6D32A1D60B6B10012E1B8 /* HCJump.m in Sources */,
 				E30EA0021D2A5C4200B38B37 /* MagazineInfoView.m in Sources */,
 				E3FBB1801D34DF8100573343 /* MinePageView.m in Sources */,
@@ -1530,22 +1592,26 @@
 				E3FBB15B1D337D6200573343 /* ShoppingBagPageViewController.m in Sources */,
 				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,
 				E3B1D8501D2F34F400A8BA3E /* TopHotReusableView.m in Sources */,
+				E383FE901D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m in Sources */,
 				E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */,
 				E383FE6A1D97CD5300813688 /* HCGoodsDetailShopView.m in Sources */,
 				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
 				E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */,
 				E34B7BD01D23CCFD0066FE80 /* SingleImageCell.m in Sources */,
+				E383FE8A1D9A6BE200813688 /* HCAppraiseCell.m in Sources */,
 				E37F50CE1D6D464B008B465A /* HCGetSpecialListForInspApi.m in Sources */,
 				E37F50911D683BD5008B465A /* HCHotModuleData.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
 				E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */,
 				E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */,
+				E383FE811D9A21E200813688 /* HCProductDetailNoticeView.m in Sources */,
 				E3B1D8571D2F428400A8BA3E /* HotBrandViewCell.m in Sources */,
 				E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,
 				E3A6D3301D60BF270012E1B8 /* HCModule.m in Sources */,
 				E30E9FE41D29EF1100B38B37 /* GlobalConstant.m in Sources */,
+				E383FE7E1D9A21C000813688 /* HCProductDetailAppraiseView.m in Sources */,
 				E30C5A391CED95EA00BB943C /* HCTabBarController.m in Sources */,
 				E3B1D8391D2E3EC000A8BA3E /* TopCategoryView.m in Sources */,
 				E37F506A1D65B4E6008B465A /* HCFunwearRefreshFooter.m in Sources */,
