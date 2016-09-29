@@ -15,6 +15,7 @@
 #import "HCModuleData.h"
 #import "RACEXTScope.h"
 #import "UIImageView+HCPackWebImage.h"
+#import "ReactiveCocoa.h"
 
 @implementation NewUserFeastView {
     HomePageHeadTitleView *_headTitleView;
@@ -51,6 +52,7 @@
         UIImageView *imageView = [UIImageView new];
         imageView.contentMode = UIViewContentModeCenter;
         imageView.image = [UIImage imageNamed:@"fan_default_01"];
+        imageView.userInteractionEnabled = YES;
         [self addSubview:imageView];
         
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -61,6 +63,17 @@
         
         imageView;
     });
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+    [_feastImageView addGestureRecognizer:tap];
+    @weakify(self);
+    [tap.rac_gestureSignal subscribeNext:^(id x) {
+        @strongify(self);
+        HCModuleData *data = self.userFeastModule.data.firstObject;
+        if (_delegate && [_delegate respondsToSelector:@selector(newUserFeastView:topAdvert:)]) {
+            [_delegate newUserFeastView:self topAdvert:data];
+        }
+    }];
     
 //    _feastImageView.backgroundColor = [UIColor orangeColor];
     
@@ -134,7 +147,12 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    HCModuleData *moduleData = _userFeastModule.data[indexPath.row+1];
+    if (_delegate && [_delegate respondsToSelector:@selector(newUserFeastView:product:)]) {
+        [_delegate newUserFeastView:self product:moduleData];
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

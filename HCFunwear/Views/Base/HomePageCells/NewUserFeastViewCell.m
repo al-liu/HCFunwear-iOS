@@ -10,6 +10,8 @@
 #import "NewUserFeastView.h"
 #import "Masonry.h"
 #import "UICollectionViewCell+RACCommand.h"
+#import "HCWebViewModel.h"
+#import "ProductDetailViewModel.h"
 
 @implementation NewUserFeastViewCell
 
@@ -19,6 +21,7 @@
     if (self) {
         _feastView = ({
             NewUserFeastView *view = [NewUserFeastView new];
+            view.delegate = self;
             [self.contentView addSubview:view];
             
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,6 +42,18 @@
 
 - (void)bindPush:(RACCommand *)push {
     self.push = push;
+}
+
+#pragma mark - NewUserFeastViewDelegate
+- (void)newUserFeastView:(NewUserFeastView *)feastView topAdvert:(HCModuleData *)data {
+    HCWebViewModel *viewModel = [HCWebViewModel new];
+    viewModel.webRequestURL = data.jump.url;
+    viewModel.webTitle = data.title;
+    [self.push execute:viewModel];
+}
+- (void)newUserFeastView:(NewUserFeastView *)feastView product:(HCModuleData *)data {
+    ProductDetailViewModel *viewModel = [ProductDetailViewModel new];
+    [self.push execute:viewModel];
 }
 
 @end

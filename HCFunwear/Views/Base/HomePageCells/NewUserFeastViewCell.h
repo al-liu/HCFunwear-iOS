@@ -10,7 +10,7 @@
 #import "NewUserFeastView.h"
 #import "HCHomeModuleCellProtocol.h"
 
-@interface NewUserFeastViewCell : UICollectionViewCell <HCHomeModuleCellProtocol>
+@interface NewUserFeastViewCell : UICollectionViewCell <HCHomeModuleCellProtocol,NewUserFeastViewDelegate>
 
 @property (nonatomic, strong) NewUserFeastView *feastView;
 
