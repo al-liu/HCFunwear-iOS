@@ -1,5 +1,5 @@
 //
-//  getProductConsultListApi.h
+//  getProductDetailsApi.h
 //  HCFunwear
 //
 //  Created by 刘海川 on 16/9/29.
@@ -8,7 +8,7 @@
 
 #import "YTKRequest.h"
 
-@interface getProductConsultListApi : YTKRequest
+@interface GetProductDetailsApi : YTKRequest
 
 @property (nonatomic, copy)NSString *code;
 - (instancetype)initWithCode:(NSString *)code;

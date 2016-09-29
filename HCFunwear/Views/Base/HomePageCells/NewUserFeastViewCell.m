@@ -12,6 +12,7 @@
 #import "UICollectionViewCell+RACCommand.h"
 #import "HCWebViewModel.h"
 #import "ProductDetailViewModel.h"
+#import "HCHomeViewModelServiceImpl.h"
 
 @implementation NewUserFeastViewCell
 
@@ -52,7 +53,8 @@
     [self.push execute:viewModel];
 }
 - (void)newUserFeastView:(NewUserFeastView *)feastView product:(HCModuleData *)data {
-    ProductDetailViewModel *viewModel = [ProductDetailViewModel new];
+    HCHomeViewModelServiceImpl *imp = [HCHomeViewModelServiceImpl new];
+    ProductDetailViewModel *viewModel = [[ProductDetailViewModel alloc] initWithServices:imp productCode:data.replace_param];
     [self.push execute:viewModel];
 }
 

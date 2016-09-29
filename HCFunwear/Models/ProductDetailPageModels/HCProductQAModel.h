@@ -11,7 +11,7 @@
 @interface HCProductQAModel : NSObject
 
 @property (nonatomic, copy) NSString *question;
-@property (nonatomic, copy) NSString *question;
+@property (nonatomic, copy) NSString *answer;
 @property (nonatomic, copy) NSString *create_time;
 
 @end

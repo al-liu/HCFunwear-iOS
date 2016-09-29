@@ -106,13 +106,13 @@ static CGFloat kOffset = 100.0;
     if (indexPath.row % 2 == 0) {
         [_referenceOnlyTextCell setData];
         CGSize size = [_referenceOnlyTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
+//        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
         return size.height+10;
     }
     else {
         [_referenceCell setData];
         CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
+//        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
         return size.height+10;
     }
     

@@ -14,6 +14,7 @@
 #import "HCBottomGoodsDetailView.h"
 #import "GlobalContext.h"
 #import "RACEXTScope.h"
+#import "GlobalImport.h"
 
 typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     HCContentMoudleTop,
@@ -25,6 +26,8 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     HCContentMoudleType _contentMoudleType;
     HCTopGoodsDetailView *_goodsDetailView;
     HCBottomGoodsDetailView *_bottomGoodsView;
+    
+    ProductDetailViewModel *_viewModel;
 }
 @end
 
@@ -33,7 +36,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
 - (instancetype)initWithViewModel:(ProductDetailViewModel *)viewModel {
     self = [super init];
     if (self) {
-        
+        _viewModel = viewModel;
     }
     return self;
 }
@@ -87,6 +90,10 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@50);
     }];
+    
+    [[_viewModel.detailRequestCommand execute:nil] subscribeNext:^(id x) {
+        DDLogInfo(@"商品详情数据：%@",x);
+    }];    
 }
 
 - (void)switchBottomView:(HCContentMoudleType)type {

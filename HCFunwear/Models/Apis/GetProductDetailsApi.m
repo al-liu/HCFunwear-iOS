@@ -1,14 +1,14 @@
 //
-//  getProductConsultListApi.m
+//  getProductDetailsApi.m
 //  HCFunwear
 //
 //  Created by 刘海川 on 16/9/29.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "getProductConsultListApi.h"
+#import "getProductDetailsApi.h"
 
-@implementation getProductConsultListApi
+@implementation GetProductDetailsApi
 
 - (instancetype)initWithCode:(NSString *)code {
     self = [super init];
@@ -24,7 +24,7 @@
 
 - (id)requestArgument {
     return @{
-             @"a": @"getProductConsultList",
+             @"a": @"getProductDetails",
              @"m": @"Product",
              @"token":@"",
              @"code":self.code

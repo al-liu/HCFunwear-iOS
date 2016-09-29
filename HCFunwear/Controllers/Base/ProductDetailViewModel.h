@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCHomeViewModelServices.h"
+#import "ReactiveCocoa.h"
+#import "HCProductDetailModel.h"
+#import "HCCommentListModel.h"
+#import "HCProductQAModel.h"
 
 @interface ProductDetailViewModel : NSObject
+
+@property (nonatomic, strong) RACCommand *detailRequestCommand;
+@property (nonatomic, strong) RACCommand *commentRequestCommand;
+@property (nonatomic, strong) RACCommand *qaRequestCommand;
+@property (nonatomic, strong) RACCommand *pushCommand;
+
+@property (nonatomic, copy) NSString *productCode;
+@property (nonatomic, assign) NSInteger commentListIndex;
+@property (nonatomic, strong) NSMutableArray *commentList;
+@property (nonatomic, strong) NSArray *qaList;
+@property (nonatomic, strong) HCProductDetailModel *productDetailModel;
+
+- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services
+                     productCode:(NSString *)code;
 
 @end

@@ -145,7 +145,6 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     HCModule *module = _data[indexPath.section];
     HCCollectionCellInfo *info = _moudelDictionary[module.module_key];
-    NSLog(@"index:%ld size:%@",indexPath.section,NSStringFromCGSize(info.sizeItem));
     return info.sizeItem;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {

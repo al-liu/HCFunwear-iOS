@@ -1,5 +1,5 @@
 //
-//  getProductDetailsApi.h
+//  getCommentList.h
 //  HCFunwear
 //
 //  Created by 刘海川 on 16/9/29.
@@ -8,9 +8,10 @@
 
 #import "YTKRequest.h"
 
-@interface getProductDetailsApi : YTKRequest
+@interface GetCommentListApi : YTKRequest
 
 @property (nonatomic, copy)NSString *code;
-- (instancetype)initWithCode:(NSString *)code;
+@property (nonatomic, assign) NSInteger page;
+- (instancetype)initWithCode:(NSString *)code page:(NSInteger)index;
 
 @end

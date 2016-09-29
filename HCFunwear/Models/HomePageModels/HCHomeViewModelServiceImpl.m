@@ -16,11 +16,13 @@
 #import "HCCategoryApiServices.h"
 #import "HCCategoryApiServicesImpl.h"
 #import "HCInspirationApiServiceImpl.h"
+#import "HCProductDetailApiServiceImp.h"
 @interface HCHomeViewModelServiceImpl ()
 
 @property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
 @property (nonatomic, strong) HCCategoryApiServicesImpl *cateServiceImpl;
 @property (nonatomic, strong) HCInspirationApiServiceImpl *inspServiceImpl;
+@property (nonatomic, strong) HCProductDetailApiServiceImp *productDetailServiceImpl;
 
 @end
 
@@ -33,6 +35,7 @@
         _serviceImpl = [HCHomeLayoutServiceImpl new];
         _cateServiceImpl = [HCCategoryApiServicesImpl new];
         _inspServiceImpl = [HCInspirationApiServiceImpl new];
+        _productDetailServiceImpl = [HCProductDetailApiServiceImp new];
     }
     return self;
 }
@@ -49,6 +52,10 @@
     return self.inspServiceImpl;
 }
 
+- (id<HCProductDetailApiService>)getProductDetailApiService {
+    return self.productDetailServiceImpl;
+}
+
 - (void)pushViewModel:(id)viewModel {
     //跳转逻辑
     if ([viewModel isKindOfClass:HCWebViewModel.class]) {
@@ -59,6 +66,7 @@
         ProductDetailViewController *viewController = [[ProductDetailViewController alloc]initWithViewModel:viewModel];
         [[GlobalContext ShareInstance].rootController pushViewController:viewController animated:YES];
     }
+    
 }
 
 @end

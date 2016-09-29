@@ -1,20 +1,19 @@
 //
-//  getCommentList.m
+//  getProductConsultListApi.m
 //  HCFunwear
 //
 //  Created by 刘海川 on 16/9/29.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "getCommentListApi.h"
+#import "getProductConsultListApi.h"
 
-@implementation getCommentListApi
+@implementation GetProductConsultListApi
 
-- (instancetype)initWithCode:(NSString *)code page:(NSInteger)index {
+- (instancetype)initWithCode:(NSString *)code {
     self = [super init];
     if (self) {
         _code = code;
-        _page = index;
     }
     return self;
 }
@@ -25,10 +24,10 @@
 
 - (id)requestArgument {
     return @{
-             @"a": @"getCommentList",
-             @"m": @"Comment",
-             @"tid":self.code,
-             @"page":@(self.page)
+             @"a": @"getProductConsultList",
+             @"m": @"Product",
+             @"token":@"",
+             @"code":self.code
              };
 }
 

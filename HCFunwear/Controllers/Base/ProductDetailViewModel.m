@@ -7,7 +7,74 @@
 //
 
 #import "ProductDetailViewModel.h"
+#import "NSObject+YYModel.h"
+
+@interface ProductDetailViewModel ()
+
+@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+
+@end
 
 @implementation ProductDetailViewModel
+
+- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services
+                     productCode:(NSString *)code {
+    self = [super init];
+    if (self) {
+        _services = services;
+        _productCode = code;
+        _commentListIndex = 0;
+        _commentList = [[NSMutableArray alloc]init];
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    self.detailRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeDetailSignal];
+    }];
+    self.commentRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeCommentSignal];
+    }];
+    self.qaRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeQASignal];
+    }];
+    self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executePushSignal:input];
+    }];
+}
+
+- (RACSignal *)executeDetailSignal {
+    return [[[self.services getProductDetailApiService] getProductDetailsWithCode:_productCode] map:^id(id value) {
+        self.productDetailModel = [HCProductDetailModel modelWithJSON:value[@"data"]];
+        return self.productDetailModel;
+    }];
+}
+
+- (RACSignal *)executeCommentSignal {
+    return [[[self.services getProductDetailApiService] getCommentListWithCode:_productCode page:_commentListIndex] map:^id(id value) {
+        NSArray *data = [NSArray modelArrayWithClass:HCCommentListModel.class json:value[@"data"]];
+        NSMutableArray *mutableData = [NSMutableArray arrayWithArray:_commentList];
+        [mutableData addObjectsFromArray:data];//为了KVO的监听
+        self.commentList = mutableData;
+        return self.commentList;
+    }];
+}
+
+- (RACSignal *)executeQASignal {
+    return [[[self.services getProductDetailApiService] getProductConsultListWithCode:_productCode] map:^id(id value) {
+        self.qaList = [NSArray modelArrayWithClass:HCProductQAModel.class json:value[@"data"][@"sys"]];
+        return self.qaList;
+    }];
+}
+
+- (RACSignal *)executePushSignal:(id)viewModel {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self.services pushViewModel:viewModel];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
 
 @end
