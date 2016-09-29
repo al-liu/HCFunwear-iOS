@@ -16,7 +16,9 @@
 #import "UIImageView+HCPackWebImage.h"
 #import "GlobalConstant.h"
 
-@implementation SinglePageAdvertViewCell
+@implementation SinglePageAdvertViewCell {
+    HCModuleData *_moudleData;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -39,6 +41,8 @@
         [tap.rac_gestureSignal subscribeNext:^(id x) {
             @strongify(self);
             HCWebViewModel *viewModel = [HCWebViewModel new];
+            viewModel.webRequestURL = _moudleData.jump.url;
+            viewModel.webTitle = _moudleData.title;
             [self.push execute:viewModel];
         }];
         
@@ -48,9 +52,9 @@
 
 - (void)bindData:(id)data {
     HCModule *module = data;
-    HCModuleData *moudleData = module.data.firstObject;
+    _moudleData = module.data.firstObject;
     
-    [_advertView packAspectFitModeSetImageWithURL:moudleData.img placeholder:defaultImage03];
+    [_advertView packAspectFitModeSetImageWithURL:_moudleData.img placeholder:defaultImage03];
 
 }
 

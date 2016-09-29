@@ -43,6 +43,8 @@
 #pragma mark - HCGridMenuViewProtocol
 - (void)HCGridMenuView:(HCGridMenuView *)menuView selectedAtGridInfo:(HCModuleData *)gridInfo {
     HCWebViewModel *viewModel = [HCWebViewModel new];
+    viewModel.webRequestURL = gridInfo.jump.url;
+    viewModel.webTitle = gridInfo.title;
     [self.push execute:viewModel];
 }
 
