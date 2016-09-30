@@ -8,6 +8,7 @@
 
 #import "ProductDetailViewModel.h"
 #import "NSObject+YYModel.h"
+#import "GlobalConstant.h"
 
 @interface ProductDetailViewModel ()
 
@@ -55,6 +56,26 @@
 - (RACSignal *)executeCommentSignal {
     return [[[self.services getProductDetailApiService] getCommentListWithCode:_productCode page:_commentListIndex] map:^id(id value) {
         NSArray *data = [NSArray modelArrayWithClass:HCCommentListModel.class json:value[@"data"]];
+        //处理下模型数据的单元格标识
+        [data enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            HCCommentListModel *model = obj;
+            if (model.img_list.count == 0) {
+                if (model.subs.count == 0){
+                    model.cellIdentifier = kAppraiseOnlyTextNoReplyCellIdentifier;//不带图片 无回复
+                }
+                else {
+                    model.cellIdentifier = kAppraiseOnlyTextCellIdentifier;//不带图片 有回复
+                }
+            }
+            else {
+                if (model.subs.count == 0){
+                    model.cellIdentifier = kAppraiseNoReplyCellIdentifier;//带图片 无回复
+                }
+                else {
+                    model.cellIdentifier = kAppraiseCellIdentifier;//带图片 有回复
+                }
+            }
+        }];
         NSMutableArray *mutableData = [NSMutableArray arrayWithArray:_commentList];
         [mutableData addObjectsFromArray:data];//为了KVO的监听
         self.commentList = mutableData;

@@ -25,6 +25,11 @@ UIKIT_EXTERN NSString *const kInspirationInfoCellIdentifier;
 UIKIT_EXTERN NSString *const kInspirationAttentionCellIdentifier;
 UIKIT_EXTERN NSString *const kHCGoodsDetailShopPlanCellIdentifier;
 
+UIKIT_EXTERN NSString *const kAppraiseCellIdentifier;
+UIKIT_EXTERN NSString *const kAppraiseOnlyTextCellIdentifier;
+UIKIT_EXTERN NSString *const kAppraiseNoReplyCellIdentifier;
+UIKIT_EXTERN NSString *const kAppraiseOnlyTextNoReplyCellIdentifier;
+
 #define defaultImage01 [UIImage imageNamed:@"fan_default_01"]
 #define defaultImage02 [UIImage imageNamed:@"fan_default_02"]
 #define defaultImage03 [UIImage imageNamed:@"fan_default_03"]

@@ -276,6 +276,7 @@
 		E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseNoReplyCell.m; sourceTree = "<group>"; };
 		E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextNoReplyCell.h; sourceTree = "<group>"; };
 		E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseOnlyTextNoReplyCell.m; sourceTree = "<group>"; };
+		E333D99E1D9E524E00575305 /* HCAppraiseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseCellProtocol.h; sourceTree = "<group>"; };
 		E348F6881D264FD4006306C2 /* NewUserFeastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserFeastView.h; sourceTree = "<group>"; };
 		E348F6891D264FD4006306C2 /* NewUserFeastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastView.m; sourceTree = "<group>"; };
 		E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadTitleView.h; sourceTree = "<group>"; };
@@ -1070,6 +1071,7 @@
 				E383FE831D9A538C00813688 /* HCAppraiseScoreView.m */,
 				E383FE851D9A53A200813688 /* HCAppraiseStarsView.h */,
 				E383FE861D9A53A200813688 /* HCAppraiseStarsView.m */,
+				E333D99E1D9E524E00575305 /* HCAppraiseCellProtocol.h */,
 				E383FE881D9A6BE200813688 /* HCAppraiseCell.h */,
 				E383FE891D9A6BE200813688 /* HCAppraiseCell.m */,
 				E333D9981D9E44FA00575305 /* HCAppraiseNoReplyCell.h */,

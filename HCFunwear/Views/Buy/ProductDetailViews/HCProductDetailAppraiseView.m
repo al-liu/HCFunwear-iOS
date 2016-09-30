@@ -16,20 +16,17 @@
 #import "HCAppraiseNoReplyCell.h"
 #import "HCAppraiseOnlyTextNoReplyCell.h"
 
-static NSString *kAppraiseCellIdentifier = @"kAppraiseCellIdentifier";
-static NSString *kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentifier";
-static NSString *kAppraiseNoReplyCellIdentifier = @"kAppraiseNoReplyCellIdentifier";
-static NSString *kAppraiseOnlyTextNoReplyCellIdentifier = @"kAppraiseOnlyTextNoReplyCellIdentifier";
-
 static CGFloat kOffset = 100.0;
 @interface HCProductDetailAppraiseView () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_appraiseTableView;
     
-    HCAppraiseCell *_referenceCell;
-    HCAppraiseOnlyTextCell *_referenceOnlyTextCell;
-    HCAppraiseNoReplyCell *_referenceNoReplyCell;
-    HCAppraiseOnlyTextNoReplyCell *_referenceOnlyTextNoReplyCell;
+//    HCAppraiseCell *_referenceCell;
+//    HCAppraiseOnlyTextCell *_referenceOnlyTextCell;
+//    HCAppraiseNoReplyCell *_referenceNoReplyCell;
+//    HCAppraiseOnlyTextNoReplyCell *_referenceOnlyTextNoReplyCell;
+    
+    NSDictionary *_referenceCellList;
 }
 
 @property (nonatomic,strong)NSArray *list;
@@ -42,10 +39,15 @@ static CGFloat kOffset = 100.0;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _referenceCell = [[HCAppraiseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        _referenceOnlyTextCell = [[HCAppraiseOnlyTextCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        _referenceNoReplyCell = [[HCAppraiseNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        _referenceOnlyTextNoReplyCell = [[HCAppraiseOnlyTextNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        HCAppraiseCell *referenceCell = [[HCAppraiseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        HCAppraiseOnlyTextCell *referenceOnlyTextCell = [[HCAppraiseOnlyTextCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        HCAppraiseNoReplyCell *referenceNoReplyCell = [[HCAppraiseNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        HCAppraiseOnlyTextNoReplyCell *referenceOnlyTextNoReplyCell = [[HCAppraiseOnlyTextNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        
+        _referenceCellList = @{kAppraiseCellIdentifier:referenceCell,
+                               kAppraiseNoReplyCellIdentifier:referenceNoReplyCell,
+                               kAppraiseOnlyTextCellIdentifier:referenceOnlyTextCell,
+                               kAppraiseOnlyTextNoReplyCellIdentifier:referenceOnlyTextNoReplyCell};
         [self initUI];
     }
     return self;
@@ -109,64 +111,19 @@ static CGFloat kOffset = 100.0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     HCCommentListModel *model = _list[indexPath.row];
+    UITableViewCell<HCAppraiseCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:model.cellIdentifier forIndexPath:indexPath];
+    [cell setData:model];
+    return cell;
     
-    if (model.img_list.count == 0) {
-        if (model.subs.count == 0) {
-            HCAppraiseOnlyTextNoReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextNoReplyCellIdentifier forIndexPath:indexPath];
-            [cell setData:model];
-            return cell;
-        }
-        else {
-            HCAppraiseOnlyTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextCellIdentifier forIndexPath:indexPath];
-            [cell setData:model];
-            return cell;
-        }
-        
-    }
-    else {
-        if (model.subs.count == 0) {
-            HCAppraiseNoReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseNoReplyCellIdentifier forIndexPath:indexPath];
-            [cell setData:model];
-            return cell;
-        }
-        else {
-            HCAppraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseCellIdentifier forIndexPath:indexPath];
-            [cell setData:model];
-            return cell;
-        }
-    }
-    return nil;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HCCommentListModel *model = _list[indexPath.row];
-    if (model.img_list.count == 0) {
-        if (model.subs.count == 0) {
-            [_referenceOnlyTextNoReplyCell setData:model];
-            CGSize size = [_referenceOnlyTextNoReplyCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            return size.height+10;
-        }
-        else {
-            [_referenceOnlyTextCell setData:model];
-            CGSize size = [_referenceOnlyTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            return size.height+10;
-        }
-        
-    }
-    else {
-        if (model.subs.count == 0) {
-            [_referenceNoReplyCell setData:model];
-            CGSize size = [_referenceNoReplyCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            return size.height+10;
-        }
-        else {
-            [_referenceCell setData:model];
-            CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            return size.height+10;
-        }
-    }
-    
+    UITableViewCell<HCAppraiseCellProtocol> *cell = _referenceCellList[model.cellIdentifier];
+    [cell setData:model];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height+10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0.0001;
@@ -174,14 +131,5 @@ static CGFloat kOffset = 100.0;
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.0001;
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

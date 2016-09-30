@@ -7,8 +7,9 @@
 //
 
 #import "HCAppraiseCell.h"
+#import "HCAppraiseCellProtocol.h"
 
-@interface HCAppraiseNoReplyCell : UITableViewCell
+@interface HCAppraiseNoReplyCell : UITableViewCell<HCAppraiseCellProtocol>
 
 - (void)setData:(HCCommentListModel *)model;
 

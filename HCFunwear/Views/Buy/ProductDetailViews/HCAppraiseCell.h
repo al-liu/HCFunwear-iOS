@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HCCommentListModel.h"
+#import "HCAppraiseCellProtocol.h"
 
-@interface HCAppraiseCell : UITableViewCell
+@interface HCAppraiseCell : UITableViewCell <HCAppraiseCellProtocol>
 
 - (void)setData:(HCCommentListModel *)model;
 

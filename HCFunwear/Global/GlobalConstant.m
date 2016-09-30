@@ -23,6 +23,11 @@ NSString *const kCategoryTableViewCellIdentifier = @"CategoryTableViewCellIdenti
 NSString *const kInspirationInfoCellIdentifier = @"InspirationInfoCellIdentifier";
 NSString *const kInspirationAttentionCellIdentifier = @"InspirationAttentionCellIdentifier";
 NSString *const kHCGoodsDetailShopPlanCellIdentifier = @"kHCGoodsDetailShopPlanCellIdentifier";
+//产品详情里面用到的评论单元格标识
+NSString *const kAppraiseCellIdentifier = @"kAppraiseCellIdentifier";
+NSString *const kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentifier";
+NSString *const kAppraiseNoReplyCellIdentifier = @"kAppraiseNoReplyCellIdentifier";
+NSString *const kAppraiseOnlyTextNoReplyCellIdentifier = @"kAppraiseOnlyTextNoReplyCellIdentifier";
 
 
 @implementation GlobalConstant

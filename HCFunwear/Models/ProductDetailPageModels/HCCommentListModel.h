@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSDictionary *to_user;
 @property (nonatomic, strong) NSArray *subs;
 
+@property (nonatomic, copy) NSString *cellIdentifier;
+
 @end
 
 @interface HCCommentListSubsModel : NSObject
