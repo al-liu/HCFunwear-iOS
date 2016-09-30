@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductDetailViewModel.h"
+#import "HCBaseViewController.h"
 
-@interface ProductDetailViewController : UIViewController
+@interface ProductDetailViewController : HCBaseViewController
 
 - (instancetype)initWithViewModel:(ProductDetailViewModel *)viewModel;
 

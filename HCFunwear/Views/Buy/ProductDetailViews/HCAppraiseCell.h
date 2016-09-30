@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCCommentListModel.h"
 
 @interface HCAppraiseCell : UITableViewCell
 
-//暂时
-- (void)setData;
+- (void)setData:(HCCommentListModel *)model;
 
 @end

@@ -10,6 +10,14 @@
 #import "SingleImageCell.h"
 #import "GlobalConstant.h"
 #import "GlobalColors.h"
+#import "HCProductDetailModel.h"
+#import "UIImageView+HCPackWebImage.h"
+
+@interface HCGoodsDetailShowPictureView ()
+
+@property (nonatomic, strong) NSArray *list;
+
+@end
 
 @implementation HCGoodsDetailShowPictureView
 
@@ -63,6 +71,18 @@
     });
 }
 
+- (void)reloadData:(NSArray *)list {
+    _list = list;
+    [_showPictureView reloadData];
+    _pageControlLabel.text = [NSString stringWithFormat:@"0/%ld",_list.count];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
+    _pageControlLabel.text = [NSString stringWithFormat:@"%ld/%ld",index,_list.count];
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat viewWidth = CGRectGetWidth(self.frame);
@@ -77,12 +97,15 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    return _list.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    
+    HCPicUrl *pic = _list[indexPath.row];
+    [cell.imageView packAspectFillModeSetImageWithURL:pic.filE_PATH placeholder:defaultImage02];
     
     return cell;
 }

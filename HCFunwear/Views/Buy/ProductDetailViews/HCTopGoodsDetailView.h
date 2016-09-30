@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewModelBindProtocol.h"
 
-@interface HCTopGoodsDetailView : UIView
+@interface HCTopGoodsDetailView : UIView <HCViewModelBindProtocol>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 

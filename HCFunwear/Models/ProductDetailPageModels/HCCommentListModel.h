@@ -23,5 +23,16 @@
 @property (nonatomic, copy) NSString *product_size;
 @property (nonatomic, strong) NSArray *img_list;
 @property (nonatomic, strong) NSDictionary *to_user;
+@property (nonatomic, strong) NSArray *subs;
+
+@end
+
+@interface HCCommentListSubsModel : NSObject
+
+@property (nonatomic, copy) NSString *nick_name;
+//@property (nonatomic, copy) NSString *cl_id;
+@property (nonatomic, copy) NSString *parent_id;
+@property (nonatomic, copy) NSString *info;
+@property (nonatomic, copy) NSString *create_time;
 
 @end

@@ -12,6 +12,7 @@
 #import "HCAppraiseCell.h"
 #import "GlobalImport.h"
 #import "HCAppraiseOnlyTextCell.h"
+#import "HCCommentListModel.h"
 
 static NSString *kAppraiseCellIdentifier = @"kAppraiseCellIdentifier";
 static NSString *kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentifier";
@@ -23,6 +24,9 @@ static CGFloat kOffset = 100.0;
     HCAppraiseCell *_referenceCell;
     HCAppraiseOnlyTextCell *_referenceOnlyTextCell;
 }
+
+@property (nonatomic,strong)NSArray *list;
+
 @end
 
 @implementation HCProductDetailAppraiseView
@@ -70,6 +74,11 @@ static CGFloat kOffset = 100.0;
     
 }
 
+- (void)reloadData:(NSArray *)list {
+    _list = list;
+    [_appraiseTableView reloadData];
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //    DDLogInfo(@"offset scroll :%f",scrollView.contentOffset.y);
@@ -83,36 +92,36 @@ static CGFloat kOffset = 100.0;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
+    
+    HCCommentListModel *model = _list[indexPath.row];
+    
+    if (model.img_list.count == 0) {
         HCAppraiseOnlyTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextCellIdentifier forIndexPath:indexPath];
-        [cell setData];
+        [cell setData:model];
         return cell;
     }
     else {
         HCAppraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseCellIdentifier forIndexPath:indexPath];
-        [cell setData];
+        [cell setData:model];
         return cell;
     }
-    
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row % 2 == 0) {
-        [_referenceOnlyTextCell setData];
+    HCCommentListModel *model = _list[indexPath.row];
+    if (model.img_list.count == 0) {
+        [_referenceOnlyTextCell setData:model];
         CGSize size = [_referenceOnlyTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
         return size.height+10;
     }
     else {
-        [_referenceCell setData];
+        [_referenceCell setData:model];
         CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//        DDLogDebug(@"row size index:%ld-%@",indexPath.row,NSStringFromCGSize(size));
         return size.height+10;
     }
     

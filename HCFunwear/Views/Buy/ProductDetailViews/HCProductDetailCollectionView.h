@@ -13,4 +13,6 @@
 
 @property (nonatomic,weak)id <HCProductDetailProtocol> delegate;
 
+- (void)reloadData:(NSArray *)list;
+
 @end

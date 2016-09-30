@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCProductDetailModel.h"
 
 @interface HCGoodsPriceView : UIView
+
+- (void)reloadData:(HCClsInfo *)clsInfo;
 
 @end

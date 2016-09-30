@@ -10,12 +10,16 @@
 #import "Masonry.h"
 #import "GlobalImport.h"
 #import "SingleImageCell.h"
+#import "HCProductDetailModel.h"
 
 static CGFloat kOffset = 100.0;
 @interface HCProductDetailCollectionView () <UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 {
     UICollectionView *_detailCollectionView;
 }
+
+@property (nonatomic, strong) NSArray *list;
+
 @end
 
 @implementation HCProductDetailCollectionView
@@ -51,6 +55,11 @@ static CGFloat kOffset = 100.0;
     
 }
 
+- (void)reloadData:(NSArray *)list {
+    _list = list;
+    [_detailCollectionView reloadData];
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    DDLogInfo(@"offset scroll :%f",scrollView.contentOffset.y);
@@ -77,13 +86,14 @@ static CGFloat kOffset = 100.0;
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return _list.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:0.247 green:0.557 blue:0.984 alpha:1.000];
+    HCPicUrl *pic = _list[indexPath.row];
+    [cell.imageView packAspectFillModeSetImageWithURL:pic.filE_PATH placeholder:defaultImage02];
     
     return cell;
 }

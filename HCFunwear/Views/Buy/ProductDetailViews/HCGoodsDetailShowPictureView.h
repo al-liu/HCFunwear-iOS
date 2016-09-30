@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
 
-@interface HCGoodsDetailShowPictureView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface HCGoodsDetailShowPictureView : UIView <UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *showPictureView;
 @property (nonatomic, strong) UILabel *pageControlLabel;
+
+- (void)reloadData:(NSArray *)list;
 
 @end

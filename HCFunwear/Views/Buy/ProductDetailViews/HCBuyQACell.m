@@ -19,10 +19,9 @@
 
 @implementation HCBuyQACell
 
-//暂时
-- (void)setData {
-    _qLabel.text = @"大发送到发送到发送到发低烧发";
-    _aLabel.text = @"大发送到发送到发送到发低烧发似懂非懂萨法舒服的沙发发送到发送到发送到大发送到发送到发送到发低烧发似懂非懂萨法舒服的沙发发送到发送到发送到大发送到发送到发送到发低烧发似懂非懂萨法舒服的沙发发送到发送到发送到";
+- (void)setData:(HCProductQAModel *)model {
+    _qLabel.text = model.question;
+    _aLabel.text = model.answer;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

@@ -27,6 +27,7 @@
     return @{
              @"a": @"getCommentList",
              @"m": @"Comment",
+             @"type":@"2",
              @"tid":self.code,
              @"page":@(self.page)
              };

@@ -11,6 +11,7 @@ pod 'MJRefresh'
 pod 'NJKWebViewProgress'
 pod 'FMDB'
 pod 'CocoaLumberjack'
+pod 'MBProgressHUD', '~> 1.0.0'
 # pod 'SDCycleScrollView','~> 1.61'
 
 #target :HCFunwearTests, :exclusive => true do

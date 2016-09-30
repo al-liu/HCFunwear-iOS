@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewModelBindProtocol.h"
 
-@interface HCBottomGoodsDetailView : UIView
+@interface HCBottomGoodsDetailView : UIView <HCViewModelBindProtocol>
 
 @property (nonatomic,assign)BOOL isGoBackTop;
 @property (nonatomic,copy)void(^goBackBlock)();

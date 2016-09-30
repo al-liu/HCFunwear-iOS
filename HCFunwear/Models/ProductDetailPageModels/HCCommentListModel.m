@@ -21,4 +21,12 @@
     return YES;
 }
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"subs" : HCCommentListSubsModel.class};
+}
+
+@end
+
+@implementation HCCommentListSubsModel
+
 @end

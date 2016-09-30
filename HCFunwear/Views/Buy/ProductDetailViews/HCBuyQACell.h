@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCProductQAModel.h"
 
 @interface HCBuyQACell : UITableViewCell
 
-//暂时
-- (void)setData;
+- (void)setData:(HCProductQAModel *)model;
+
 
 @end

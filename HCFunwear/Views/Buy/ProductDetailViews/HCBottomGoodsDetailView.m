@@ -13,13 +13,18 @@
 #import "HCProductDetailAppraiseView.h"
 #import "HCProductDetailNoticeView.h"
 #import "RACEXTScope.h"
+#import "ProductDetailViewModel.h"
 
 @interface HCBottomGoodsDetailView () <UIScrollViewDelegate,HCProductDetailProtocol>
 {
     HCSelectedMoudleView *_selectedMoudleView;
-    
+    HCProductDetailCollectionView *_detailCollectionView;
+    HCProductDetailAppraiseView *_detailAppraiseView;
+    HCProductDetailNoticeView *_detailNoticeView;
 }
 @property (nonatomic, strong) UIScrollView *scrollView;
+
+@property (nonatomic, strong)ProductDetailViewModel *detailViewModel;
 
 @end
 
@@ -67,7 +72,7 @@
         view;
     });
     
-    HCProductDetailCollectionView *detailCollectionView = ({
+    _detailCollectionView = ({
         HCProductDetailCollectionView *view = [HCProductDetailCollectionView new];
         [self.scrollView addSubview:view];
         
@@ -80,37 +85,57 @@
         view;
     });
     
-    HCProductDetailAppraiseView *detailAppraiseView = ({
+    _detailAppraiseView = ({
         HCProductDetailAppraiseView *view = [HCProductDetailAppraiseView new];
         [self.scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self.scrollView);
-            make.left.equalTo(detailCollectionView.mas_right);
+            make.left.equalTo(_detailCollectionView.mas_right);
             make.width.equalTo(self);
-            make.height.equalTo(detailCollectionView);
+            make.height.equalTo(_detailCollectionView);
         }];
         
         view;
     });
     
-    HCProductDetailNoticeView *detailNoticeView = ({
+    _detailNoticeView = ({
         HCProductDetailNoticeView *view = [HCProductDetailNoticeView new];
         [self.scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self.scrollView);
-            make.left.equalTo(detailAppraiseView.mas_right);
+            make.left.equalTo(_detailAppraiseView.mas_right);
             make.width.equalTo(self);
-            make.height.equalTo(detailAppraiseView);
+            make.height.equalTo(_detailAppraiseView);
         }];
         
         view;
     });
 
-    detailCollectionView.delegate = self;
-    detailAppraiseView.delegate = self;
-    detailNoticeView.delegate = self;
+    _detailCollectionView.delegate = self;
+    _detailAppraiseView.delegate = self;
+    _detailNoticeView.delegate = self;
+}
+#pragma mark - HCViewModelBindProtocol
+- (void)bindViewModel:(id)viewModel {
+    _detailViewModel = viewModel;
+    @weakify(self)
+    [[RACObserve(_detailViewModel, productDetailModel) skip:1] subscribeNext:^(HCProductDetailModel *data) {
+        @strongify(self)
+        [self->_detailCollectionView reloadData:data.clsPicUrl];
+    }];
+    
+    [[RACObserve(_detailViewModel, commentList) skip:1] subscribeNext:^(NSArray *data) {
+        @strongify(self)
+        [self->_detailAppraiseView reloadData:data];
+    }];
+    
+    [[RACObserve(_detailViewModel, qaList) skip:1] subscribeNext:^(NSArray *data) {
+        @strongify(self)
+        [self->_detailNoticeView reloadData:data];
+    }];
+    
 }
 
 #pragma mark - HCProductDetailProtocol

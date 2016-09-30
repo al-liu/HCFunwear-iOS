@@ -18,18 +18,45 @@
     UILabel *_appraiseContentLabel;
     UILabel *_colorSizeLabel;
     UILabel *_shopReplyLabel;
+    
+    UIView *_line;
+    
+    HCCommentListSubsModel *_sub;
 }
 @end
 
 @implementation HCAppraiseOnlyTextCell
 
-- (void)setData {
-    _userNameLabel.text = @"海纳百川";
-    _timestampLabel.text = @"1900年前";
-    _appraiseContentLabel.text = @"山东发送到发送到发送发送的方式出现在大风持续持续线程的虽然文件上的风景阿斯顿发的是风刀霜剑的司法鉴定撒风";
-    _colorSizeLabel.text = @"颜色：宝蓝深蓝 尺寸：170/92A";
-    _shopReplyLabel.text = @"[有范回复]：亲您好，大幅度撒风啊风多少啊多少发多少发觉可视电话风景的撒风宁可接受撒地方撒的大撒风。：亲您好，大幅度撒风啊风多少啊多少发多少发觉可视电话风景的撒风宁可接受撒地方撒的大撒风。";
+- (void)setData:(HCCommentListModel *)model {
+    _userNameLabel.text = model.nick_name;
+    _timestampLabel.text = model.create_time;
+    _appraiseContentLabel.text = model.info;
+    _colorSizeLabel.text = [NSString stringWithFormat:@"颜色：%@ 尺寸：%@",model.product_color,model.product_size];
+    _sub = model.subs.firstObject;//只做了一个回复
+    if (_sub.info && ![_sub.info isEqualToString:@""]) {
+        _line.hidden = NO;
+        _shopReplyLabel.text = [NSString stringWithFormat:@"[有范回复]:%@",_sub.info];
+    }
+    else {
+        _line.hidden = YES;
+    }
+}
+
+- (void)updateConstraints {
+    CGFloat offset = 0;
+    if (_sub.info && ![_sub.info isEqualToString:@""]) {
+        offset = 10;
+    }
+
+    [_shopReplyLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_appraiseContentLabel);
+        make.top.equalTo(_line.mas_bottom).offset(offset);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.bottom.equalTo(self.contentView).offset(-offset);
+    }];
+
     
+    [super updateConstraints];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -62,7 +89,6 @@
         label.font = [UIFont systemFontOfSize:10];
         label.textColor = kTextColor404;
         label.textAlignment = NSTextAlignmentRight;
-        label.text = @"109天前";
         [self.contentView addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,7 +110,6 @@
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:13];
         label.textColor = kTextColor404;
-        label.text = @"言言言";
         [self.contentView addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -106,14 +131,13 @@
     _appraiseContentLabel = ({
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:14];
-        label.text = @"山东发送到发送到发送发送的方式出现在大风持续持续线程的虽然文件上的风景阿斯顿发的是风刀霜剑的司法鉴定撒风";
-        label.preferredMaxLayoutWidth = SCREEN_WIDTH-55-73;
+        label.preferredMaxLayoutWidth = SCREEN_WIDTH-55-15;
         label.numberOfLines = 0;
         [self.contentView addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_userNameLabel);
-            make.right.equalTo(self.contentView).offset(-73);
+            make.right.equalTo(self.contentView).offset(-15);
             make.top.equalTo(_userNameLabel.mas_bottom).offset(4);
         }];
         
@@ -125,7 +149,6 @@
         UILabel *label = [UILabel new];
         label.font = [UIFont systemFontOfSize:10];
         label.textColor = kTextColor404;
-        label.text = @"颜色：宝蓝深蓝 尺寸：170/92A";
         [self.contentView addSubview:label];
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -139,7 +162,7 @@
     });
     
     //line
-    UIView *line = ({
+    _line = ({
         UIView *view = [UIView new];
         view.backgroundColor = kCellLineColor;
         [self.contentView addSubview:view];
@@ -168,13 +191,15 @@
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_appraiseContentLabel);
-            make.top.equalTo(line.mas_bottom).offset(10);
+            make.top.equalTo(_line.mas_bottom).offset(10);
             make.right.equalTo(self.contentView).offset(-15);
             make.bottom.equalTo(self.contentView).offset(-10);
         }];
         
         label;
     });
+
+    MASAttachKeys(_headImageView,_userNameLabel,_timestampLabel,_appraiseContentLabel,_colorSizeLabel,_line,_shopReplyLabel);
 }
 
 - (void)awakeFromNib {

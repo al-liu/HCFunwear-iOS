@@ -10,6 +10,11 @@
 
 @implementation HCGoodsDetailShopView
 
+- (void)awakeFromNib {
+    _shopLogoImageView.layer.borderWidth = 0.5f;
+    _shopLogoImageView.layer.borderColor = [UIColor blackColor].CGColor;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

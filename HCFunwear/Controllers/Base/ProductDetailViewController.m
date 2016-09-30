@@ -43,8 +43,14 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self configDetailNavigationBar];
     [[GlobalContext ShareInstance].rootController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[GlobalContext ShareInstance].rootController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidLoad {
@@ -54,6 +60,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     // Do any additional setup after loading the view.
     
     _goodsDetailView = [HCTopGoodsDetailView new];
+    [_goodsDetailView bindViewModel:_viewModel];
     [self.view addSubview:_goodsDetailView];
     
     [_goodsDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,6 +76,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     }];
     
     _bottomGoodsView = [HCBottomGoodsDetailView new];
+    [_bottomGoodsView bindViewModel:_viewModel];
     [self.view addSubview:_bottomGoodsView];
     
     [_bottomGoodsView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,9 +99,28 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         make.height.equalTo(@50);
     }];
     
-    [[_viewModel.detailRequestCommand execute:nil] subscribeNext:^(id x) {
-        DDLogInfo(@"商品详情数据：%@",x);
-    }];    
+    NSArray *commandArray = @[_viewModel.detailRequestCommand.executionSignals,
+                              _viewModel.commentRequestCommand.executionSignals,
+                              _viewModel.qaRequestCommand.executionSignals];
+    [[RACSignal zip:commandArray] subscribeNext:^(RACTuple *tuple) {
+        RACTupleUnpack(RACSignal *a,id b,id c) = tuple;
+        [a subscribeNext:^(id x) {
+            DDLogInfo(@"x:%@",x);
+        }];
+        DDLogInfo(@"a:%@",a);
+        DDLogInfo(@"b:%@",b);
+        DDLogInfo(@"c:%@",c);
+    }];
+    
+    
+//    [[_viewModel.detailRequestCommand execute:nil] subscribeNext:^(id x) {
+//        DDLogInfo(@"商品详情数据：%@",x);
+//    }];
+    
+    
+    [_viewModel.detailRequestCommand execute:nil];
+    [_viewModel.commentRequestCommand execute:nil];
+    [_viewModel.qaRequestCommand execute:nil];
 }
 
 - (void)switchBottomView:(HCContentMoudleType)type {
@@ -131,8 +158,8 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
 
 - (void)updateViewConstraints {
     
-    NSLog(@"top height:%f",CGRectGetHeight(_goodsDetailView.frame));
-    NSLog(@"bottom height:%f",CGRectGetHeight(_bottomGoodsView.frame));
+//    NSLog(@"top height:%f",CGRectGetHeight(_goodsDetailView.frame));
+//    NSLog(@"bottom height:%f",CGRectGetHeight(_bottomGoodsView.frame));
     CGFloat topHeight = CGRectGetHeight(_goodsDetailView.frame);
     CGFloat bottomHeight = CGRectGetHeight(_bottomGoodsView.frame);
     if (topHeight != 0 && bottomHeight != 0) {
@@ -151,24 +178,19 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
             }];
         }
     }
-    
-    
     [super updateViewConstraints];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)configDetailNavigationBar {
+    
+    self.titleLabel.text = @"单品详情";
+    
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+    [rightButton setImage:[UIImage imageNamed:@"top_share"] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = rightItem;
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

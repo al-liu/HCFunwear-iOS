@@ -18,6 +18,9 @@ static CGFloat kOffset = 100.0;
     UITableView *_noticeTableView;
     HCBuyQACell *_referenceCell;
 }
+
+@property (nonatomic,strong)NSArray *list;
+
 @end
 
 @implementation HCProductDetailNoticeView
@@ -26,11 +29,13 @@ static CGFloat kOffset = 100.0;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         _referenceCell = [[HCBuyQACell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         _noticeTableView = ({
             UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
             tableView.dataSource = self;
             tableView.delegate = self;
+            tableView.backgroundColor = [UIColor whiteColor];
             [self addSubview:tableView];
             
             [tableView registerClass:[HCBuyQACell class] forCellReuseIdentifier:kBuyQACellIdentifier];
@@ -43,6 +48,11 @@ static CGFloat kOffset = 100.0;
         });
     }
     return self;
+}
+
+- (void)reloadData:(NSArray *)list {
+    _list = list;
+    [_noticeTableView reloadData];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -58,19 +68,20 @@ static CGFloat kOffset = 100.0;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HCBuyQACell *cell = [tableView dequeueReusableCellWithIdentifier:kBuyQACellIdentifier forIndexPath:indexPath];
-    [cell setData];
+    HCProductQAModel *model = _list[indexPath.row];
+    [cell setData:model];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [_referenceCell setData];
+    HCProductQAModel *model = _list[indexPath.row];
+    [_referenceCell setData:model];
     CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height+10;
     
