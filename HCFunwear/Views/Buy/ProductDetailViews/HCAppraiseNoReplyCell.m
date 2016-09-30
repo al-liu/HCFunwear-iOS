@@ -1,41 +1,51 @@
 //
-//  HCAppraiseOnlyTextCell.m
+//  HCAppraiseNoReplyCell.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/9/28.
+//  Created by 刘海川 on 16/9/30.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCAppraiseOnlyTextCell.h"
+#import "HCAppraiseNoReplyCell.h"
 #import "Masonry.h"
-#import "GlobalImport.h"
+#import "GlobalColors.h"
+#import "SingleImageCell.h"
+#import "GlobalConstant.h"
+#import "UIColor+YYAdd.h"
+#import "HCCommentListModel.h"
+#import "UIImageView+HCPackWebImage.h"
 
-@interface HCAppraiseOnlyTextCell ()
+@interface HCAppraiseNoReplyCell ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     UIImageView *_headImageView;
     UILabel *_userNameLabel;
     UILabel *_timestampLabel;
     UILabel *_appraiseContentLabel;
     UILabel *_colorSizeLabel;
-    UILabel *_shopReplyLabel;
-    
-    UIView *_line;
+    UICollectionView *_photoCollevtionView;
     
     HCCommentListSubsModel *_sub;
 }
+
+@property (nonatomic,strong)NSArray *imageList;
 @end
 
-@implementation HCAppraiseOnlyTextCell
+@implementation HCAppraiseNoReplyCell
 
 - (void)setData:(HCCommentListModel *)model {
     _userNameLabel.text = model.nick_name;
     _timestampLabel.text = model.create_time;
     _appraiseContentLabel.text = model.info;
-    _colorSizeLabel.text = [NSString stringWithFormat:@"颜色：%@ 尺寸：%@",model.product_color,model.product_size];
-    _sub = model.subs.firstObject;//只做了一个回复
-    if (_sub.info && ![_sub.info isEqualToString:@""]) {
-        _shopReplyLabel.text = [NSString stringWithFormat:@"[有范回复]:%@",_sub.info];
+    
+    if (![model.product_color isEqualToString:@""]&&![model.product_size isEqualToString:@""]) {
+        _colorSizeLabel.text = [NSString stringWithFormat:@"颜色：%@ 尺寸：%@",model.product_color,model.product_size];
     }
+
+    _imageList = model.img_list;
+    if (_imageList.count != 0) {
+        [_photoCollevtionView reloadData];
+    }
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -46,6 +56,7 @@
     }
     return self;
 }
+
 
 - (void)initUI {
     //头像
@@ -140,45 +151,28 @@
         label;
     });
     
-    //line
-    _line = ({
-        UIView *view = [UIView new];
-        view.backgroundColor = kCellLineColor;
-        [self.contentView addSubview:view];
+    //图片
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    _photoCollevtionView = ({
+        UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        collectionView.dataSource = self;
+        collectionView.delegate = self;
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:collectionView];
         
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@.5f);
-            make.left.equalTo(_colorSizeLabel);
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_userNameLabel);
             make.right.equalTo(self.contentView);
             make.top.equalTo(_colorSizeLabel.mas_bottom).offset(10);
-        }];
-        
-        view;
-    });
-    
-    //商家回复
-    _shopReplyLabel = ({
-        UILabel *label = [UILabel new];
-        label.font = [UIFont systemFontOfSize:12];
-        //        label.textColor = [UIColor colorWithHexString:@"#FFFFC407"];
-        //        label.text = @"ds";
-        label.preferredMaxLayoutWidth = SCREEN_WIDTH-55-15;
-        label.numberOfLines = 0;
-        [self.contentView addSubview:label];
-        
-        //        label.backgroundColor = [UIColor colorWithRed:0.486 green:0.616 blue:0.835 alpha:1.000];
-        
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_appraiseContentLabel);
-            make.top.equalTo(_line.mas_bottom).offset(10);
-            make.right.equalTo(self.contentView).offset(-15);
+            make.height.equalTo(@55);
             make.bottom.equalTo(self.contentView).offset(-10);
         }];
         
-        label;
+        [collectionView registerNib:[UINib nibWithNibName:@"SingleImageCell" bundle:nil] forCellWithReuseIdentifier:kSingleImageCellIdentifier];
+        
+        collectionView;
     });
-
-    MASAttachKeys(_headImageView,_userNameLabel,_timestampLabel,_appraiseContentLabel,_colorSizeLabel,_line,_shopReplyLabel);
 }
 
 - (void)awakeFromNib {
@@ -191,5 +185,30 @@
     
     // Configure the view for the selected state
 }
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return CGSizeMake(55, 55);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 7;
+}
+
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _imageList.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SingleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSingleImageCellIdentifier forIndexPath:indexPath];
+    NSURL *url = [NSURL URLWithString:_imageList[indexPath.row]];
+    [cell.imageView packAspectFillModeSetImageWithURL:url placeholder:defaultImage03];
+    
+    return cell;
+}
+
 
 @end

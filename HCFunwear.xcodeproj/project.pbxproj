@@ -36,6 +36,8 @@
 		E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA01F1D2B5B1F00B38B37 /* HomePageHeadReusableView.m */; };
 		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
+		E333D99A1D9E44FA00575305 /* HCAppraiseNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */; };
+		E333D99D1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */; };
 		E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F6891D264FD4006306C2 /* NewUserFeastView.m */; };
 		E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */; };
 		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
@@ -270,6 +272,10 @@
 		E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleViewController.h; sourceTree = "<group>"; };
 		E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleViewController.m; sourceTree = "<group>"; };
 		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
+		E333D9981D9E44FA00575305 /* HCAppraiseNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseNoReplyCell.h; sourceTree = "<group>"; };
+		E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseNoReplyCell.m; sourceTree = "<group>"; };
+		E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextNoReplyCell.h; sourceTree = "<group>"; };
+		E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseOnlyTextNoReplyCell.m; sourceTree = "<group>"; };
 		E348F6881D264FD4006306C2 /* NewUserFeastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserFeastView.h; sourceTree = "<group>"; };
 		E348F6891D264FD4006306C2 /* NewUserFeastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastView.m; sourceTree = "<group>"; };
 		E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadTitleView.h; sourceTree = "<group>"; };
@@ -1066,8 +1072,12 @@
 				E383FE861D9A53A200813688 /* HCAppraiseStarsView.m */,
 				E383FE881D9A6BE200813688 /* HCAppraiseCell.h */,
 				E383FE891D9A6BE200813688 /* HCAppraiseCell.m */,
+				E333D9981D9E44FA00575305 /* HCAppraiseNoReplyCell.h */,
+				E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */,
 				E383FE8E1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.h */,
 				E383FE8F1D9B5CBA00813688 /* HCAppraiseOnlyTextCell.m */,
+				E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */,
+				E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */,
 				E383FE8B1D9B550400813688 /* HCBuyQACell.h */,
 				E383FE8C1D9B550400813688 /* HCBuyQACell.m */,
 			);
@@ -1649,6 +1659,7 @@
 				E3FBB18A1D35254500573343 /* NewArrivalsHeadCell.m in Sources */,
 				E383FEA11D9CE71F00813688 /* HCCommentListModel.m in Sources */,
 				E383FE6A1D97CD5300813688 /* HCGoodsDetailShopView.m in Sources */,
+				E333D99D1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m in Sources */,
 				E30EA0081D2A64C600B38B37 /* WearTemplateView.m in Sources */,
 				E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */,
 				E37F50701D65FA5F008B465A /* HCProductTag.m in Sources */,
@@ -1660,6 +1671,7 @@
 				E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */,
 				E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */,
 				E383FE811D9A21E200813688 /* HCProductDetailNoticeView.m in Sources */,
+				E333D99A1D9E44FA00575305 /* HCAppraiseNoReplyCell.m in Sources */,
 				E3B1D8571D2F428400A8BA3E /* HotBrandViewCell.m in Sources */,
 				E30EA0171D2B3D6600B38B37 /* NewJoinBrandViewCell.m in Sources */,
 				E30C5A3B1CED95EA00BB943C /* HCTabItem.m in Sources */,

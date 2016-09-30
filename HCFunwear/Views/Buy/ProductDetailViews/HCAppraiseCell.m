@@ -39,36 +39,20 @@
     _userNameLabel.text = model.nick_name;
     _timestampLabel.text = model.create_time;
     _appraiseContentLabel.text = model.info;
-    _colorSizeLabel.text = [NSString stringWithFormat:@"颜色：%@ 尺寸：%@",model.product_color,model.product_size];
+    
+    if (![model.product_color isEqualToString:@""]&&![model.product_size isEqualToString:@""]) {
+        _colorSizeLabel.text = [NSString stringWithFormat:@"颜色：%@ 尺寸：%@",model.product_color,model.product_size];
+    }
     
     _sub = model.subs.firstObject;//只做了一个回复
     if (_sub.info && ![_sub.info isEqualToString:@""]) {
-        _line.hidden = NO;
         _shopReplyLabel.text = [NSString stringWithFormat:@"[有范回复]:%@",_sub.info];
     }
-    else {
-        _line.hidden = YES;
-    }
-    
     _imageList = model.img_list;
-    [_photoCollevtionView reloadData];
-}
-
-- (void)updateConstraints {
-    CGFloat offset = 0;
-    if (_sub.info && ![_sub.info isEqualToString:@""]) {
-        offset = 10;
+    if (_imageList.count != 0) {
+        [_photoCollevtionView reloadData];
     }
     
-    [_shopReplyLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_appraiseContentLabel);
-        make.top.equalTo(_line.mas_bottom).offset(offset);
-        make.right.equalTo(self.contentView).offset(-15);
-        make.bottom.equalTo(self.contentView).offset(-offset);
-    }];
-    
-    
-    [super updateConstraints];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

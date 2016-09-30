@@ -13,16 +13,23 @@
 #import "GlobalImport.h"
 #import "HCAppraiseOnlyTextCell.h"
 #import "HCCommentListModel.h"
+#import "HCAppraiseNoReplyCell.h"
+#import "HCAppraiseOnlyTextNoReplyCell.h"
 
 static NSString *kAppraiseCellIdentifier = @"kAppraiseCellIdentifier";
 static NSString *kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentifier";
+static NSString *kAppraiseNoReplyCellIdentifier = @"kAppraiseNoReplyCellIdentifier";
+static NSString *kAppraiseOnlyTextNoReplyCellIdentifier = @"kAppraiseOnlyTextNoReplyCellIdentifier";
 
 static CGFloat kOffset = 100.0;
 @interface HCProductDetailAppraiseView () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_appraiseTableView;
+    
     HCAppraiseCell *_referenceCell;
     HCAppraiseOnlyTextCell *_referenceOnlyTextCell;
+    HCAppraiseNoReplyCell *_referenceNoReplyCell;
+    HCAppraiseOnlyTextNoReplyCell *_referenceOnlyTextNoReplyCell;
 }
 
 @property (nonatomic,strong)NSArray *list;
@@ -37,6 +44,8 @@ static CGFloat kOffset = 100.0;
     if (self) {
         _referenceCell = [[HCAppraiseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         _referenceOnlyTextCell = [[HCAppraiseOnlyTextCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        _referenceNoReplyCell = [[HCAppraiseNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        _referenceOnlyTextNoReplyCell = [[HCAppraiseOnlyTextNoReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         [self initUI];
     }
     return self;
@@ -63,6 +72,8 @@ static CGFloat kOffset = 100.0;
         
         [tableView registerClass:[HCAppraiseCell class] forCellReuseIdentifier:kAppraiseCellIdentifier];
         [tableView registerClass:[HCAppraiseOnlyTextCell class] forCellReuseIdentifier:kAppraiseOnlyTextCellIdentifier];
+        [tableView registerClass:[HCAppraiseNoReplyCell class] forCellReuseIdentifier:kAppraiseNoReplyCellIdentifier];
+        [tableView registerClass:[HCAppraiseOnlyTextNoReplyCell class] forCellReuseIdentifier:kAppraiseOnlyTextNoReplyCellIdentifier];
         
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(scoreView.mas_bottom);
@@ -100,29 +111,60 @@ static CGFloat kOffset = 100.0;
     HCCommentListModel *model = _list[indexPath.row];
     
     if (model.img_list.count == 0) {
-        HCAppraiseOnlyTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextCellIdentifier forIndexPath:indexPath];
-        [cell setData:model];
-        return cell;
+        if (model.subs.count == 0) {
+            HCAppraiseOnlyTextNoReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextNoReplyCellIdentifier forIndexPath:indexPath];
+            [cell setData:model];
+            return cell;
+        }
+        else {
+            HCAppraiseOnlyTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseOnlyTextCellIdentifier forIndexPath:indexPath];
+            [cell setData:model];
+            return cell;
+        }
+        
     }
     else {
-        HCAppraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseCellIdentifier forIndexPath:indexPath];
-        [cell setData:model];
-        return cell;
+        if (model.subs.count == 0) {
+            HCAppraiseNoReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseNoReplyCellIdentifier forIndexPath:indexPath];
+            [cell setData:model];
+            return cell;
+        }
+        else {
+            HCAppraiseCell *cell = [tableView dequeueReusableCellWithIdentifier:kAppraiseCellIdentifier forIndexPath:indexPath];
+            [cell setData:model];
+            return cell;
+        }
     }
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HCCommentListModel *model = _list[indexPath.row];
     if (model.img_list.count == 0) {
-        [_referenceOnlyTextCell setData:model];
-        CGSize size = [_referenceOnlyTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        return size.height+10;
+        if (model.subs.count == 0) {
+            [_referenceOnlyTextNoReplyCell setData:model];
+            CGSize size = [_referenceOnlyTextNoReplyCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            return size.height+10;
+        }
+        else {
+            [_referenceOnlyTextCell setData:model];
+            CGSize size = [_referenceOnlyTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            return size.height+10;
+        }
+        
     }
     else {
-        [_referenceCell setData:model];
-        CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        return size.height+10;
+        if (model.subs.count == 0) {
+            [_referenceNoReplyCell setData:model];
+            CGSize size = [_referenceNoReplyCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            return size.height+10;
+        }
+        else {
+            [_referenceCell setData:model];
+            CGSize size = [_referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            return size.height+10;
+        }
     }
     
 }
