@@ -189,7 +189,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     [rightButton setImage:[UIImage imageNamed:@"top_share"] forState:UIControlStateNormal];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
-    [GlobalContext ShareInstance].mainTabBarController.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
     
 }
 
