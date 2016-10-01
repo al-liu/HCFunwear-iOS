@@ -44,6 +44,10 @@
     self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executePushSignal:input];
     }];
+    NSArray *batch = @[[self executeDetailSignal],
+                       [self executeCommentSignal],
+                       [self executeQASignal]];
+    self.batchStream = [RACSignal zip:batch];
 }
 
 - (RACSignal *)executeDetailSignal {

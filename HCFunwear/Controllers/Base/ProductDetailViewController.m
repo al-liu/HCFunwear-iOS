@@ -15,6 +15,7 @@
 #import "GlobalContext.h"
 #import "RACEXTScope.h"
 #import "GlobalImport.h"
+#import "HCHudManager.h"
 
 typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     HCContentMoudleTop,
@@ -57,6 +58,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     [super viewDidLoad];
     _contentMoudleType = HCContentMoudleTop;
     self.view.backgroundColor = [UIColor whiteColor];
+    
     // Do any additional setup after loading the view.
     
     _goodsDetailView = [HCTopGoodsDetailView new];
@@ -99,28 +101,19 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         make.height.equalTo(@50);
     }];
     
-    NSArray *commandArray = @[_viewModel.detailRequestCommand.executionSignals,
-                              _viewModel.commentRequestCommand.executionSignals,
-                              _viewModel.qaRequestCommand.executionSignals];
-    [[RACSignal zip:commandArray] subscribeNext:^(RACTuple *tuple) {
-        RACTupleUnpack(RACSignal *a,id b,id c) = tuple;
-        [a subscribeNext:^(id x) {
-            DDLogInfo(@"x:%@",x);
-        }];
-        DDLogInfo(@"a:%@",a);
-        DDLogInfo(@"b:%@",b);
-        DDLogInfo(@"c:%@",c);
+    HCHudManager *hudManager = [HCHudManager new];
+    [hudManager addHUDToView:self.navigationController.view];
+    [hudManager show];
+    
+    [_viewModel.batchStream subscribeNext:^(id x) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [hudManager hidden];
+        });
     }];
     
-    
-//    [[_viewModel.detailRequestCommand execute:nil] subscribeNext:^(id x) {
-//        DDLogInfo(@"商品详情数据：%@",x);
-//    }];
-    
-    
-    [_viewModel.detailRequestCommand execute:nil];
-    [_viewModel.commentRequestCommand execute:nil];
-    [_viewModel.qaRequestCommand execute:nil];
+//    [_viewModel.detailRequestCommand execute:nil];
+//    [_viewModel.commentRequestCommand execute:nil];
+//    [_viewModel.qaRequestCommand execute:nil];
 }
 
 - (void)switchBottomView:(HCContentMoudleType)type {

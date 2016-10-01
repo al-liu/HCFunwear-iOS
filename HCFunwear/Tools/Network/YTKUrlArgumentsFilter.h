@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "YTKNetworkConfig.h"
 #import "YTKBaseRequest.h"
+#import "YTKNetworkPrivate.h"
 
 /// 给url追加arguments，用于全局参数，比如AppVersion, ApiVersion等
 @interface YTKUrlArgumentsFilter : NSObject <YTKUrlFilterProtocol>

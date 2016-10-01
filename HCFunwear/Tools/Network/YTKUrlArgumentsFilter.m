@@ -4,7 +4,6 @@
 //
 
 #import "YTKUrlArgumentsFilter.h"
-#import "YTKNetworkPrivate.h"
 
 @implementation YTKUrlArgumentsFilter {
     NSDictionary *_arguments;

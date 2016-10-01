@@ -20,6 +20,8 @@
 @property (nonatomic, strong) RACCommand *qaRequestCommand;
 @property (nonatomic, strong) RACCommand *pushCommand;
 
+@property (nonatomic, strong) RACSignal *batchStream;
+
 @property (nonatomic, copy) NSString *productCode;
 @property (nonatomic, assign) NSInteger commentListIndex;
 @property (nonatomic, strong) NSMutableArray *commentList;

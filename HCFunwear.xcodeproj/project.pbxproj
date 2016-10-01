@@ -38,6 +38,7 @@
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
 		E333D99A1D9E44FA00575305 /* HCAppraiseNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */; };
 		E333D99D1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */; };
+		E333D9A81D9FC83000575305 /* HCHudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9A71D9FC83000575305 /* HCHudManager.m */; };
 		E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F6891D264FD4006306C2 /* NewUserFeastView.m */; };
 		E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */; };
 		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
@@ -277,6 +278,8 @@
 		E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextNoReplyCell.h; sourceTree = "<group>"; };
 		E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseOnlyTextNoReplyCell.m; sourceTree = "<group>"; };
 		E333D99E1D9E524E00575305 /* HCAppraiseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseCellProtocol.h; sourceTree = "<group>"; };
+		E333D9A61D9FC83000575305 /* HCHudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHudManager.h; sourceTree = "<group>"; };
+		E333D9A71D9FC83000575305 /* HCHudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHudManager.m; sourceTree = "<group>"; };
 		E348F6881D264FD4006306C2 /* NewUserFeastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserFeastView.h; sourceTree = "<group>"; };
 		E348F6891D264FD4006306C2 /* NewUserFeastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastView.m; sourceTree = "<group>"; };
 		E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadTitleView.h; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E333D99F1D9FC3E700575305 /* HUDView */,
 				E37F509B1D688EDD008B465A /* Other */,
 				E34B7BC21D23C4050066FE80 /* CommonCells */,
 				E34B7BAB1D227BB40066FE80 /* HCGridMenuView */,
@@ -776,6 +780,15 @@
 				E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E333D99F1D9FC3E700575305 /* HUDView */ = {
+			isa = PBXGroup;
+			children = (
+				E333D9A61D9FC83000575305 /* HCHudManager.h */,
+				E333D9A71D9FC83000575305 /* HCHudManager.m */,
+			);
+			path = HUDView;
 			sourceTree = "<group>";
 		};
 		E34B7BAB1D227BB40066FE80 /* HCGridMenuView */ = {
@@ -1694,6 +1707,7 @@
 				E37F50A81D6AEE61008B465A /* HCHomeLayoutServiceImpl.m in Sources */,
 				E37F506D1D65F86F008B465A /* HCProduct.m in Sources */,
 				E37F50971D6843BF008B465A /* HCCategory.m in Sources */,
+				E333D9A81D9FC83000575305 /* HCHudManager.m in Sources */,
 				E3A89B1C1D7432FD00656780 /* HCBaseViewController.m in Sources */,
 				E37F50871D68250B008B465A /* GetCategoryListApi.m in Sources */,
 				E383FE971D9CC45D00813688 /* GetCommentListApi.m in Sources */,

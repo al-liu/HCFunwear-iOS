@@ -43,6 +43,7 @@
     
     [self initUI];
     [self bindViewModel];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
