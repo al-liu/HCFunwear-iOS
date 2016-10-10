@@ -11,8 +11,12 @@
 
 @implementation MainStyleView
 
--(void)awakeFromNib {
-    [self layoutViews];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self layoutViews];
+    }
+    return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -25,7 +29,8 @@
 
 - (void)layoutViews {
     self.backgroundColor = kMainStyleColor;
-    
+    self.layer.borderWidth = 2;
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
     UIImageView *arrowhead = ({
         UIImageView *imageView = [UIImageView new];
         imageView.image = [UIImage imageNamed:@"btn_more"];

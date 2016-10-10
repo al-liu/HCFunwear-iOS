@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainStyleViewController">
             <connections>
+                <outlet property="advertImageView" destination="a4T-Xc-Ks5" id="Hh5-ah-nKi"/>
                 <outlet property="firstStyle" destination="a5R-5L-PzK" id="Bih-BR-BTD"/>
                 <outlet property="secondStyle" destination="yo5-EX-xEy" id="KMV-QS-ZqI"/>
                 <outlet property="thirdStyle" destination="Ojy-k1-d7o" id="iGJ-JB-pwj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="styleViewList" destination="a5R-5L-PzK" id="MMh-jY-A0q"/>
+                <outletCollection property="styleViewList" destination="yo5-EX-xEy" id="djQ-bS-8c9"/>
+                <outletCollection property="styleViewList" destination="Ojy-k1-d7o" id="duJ-D4-v5Q"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-Xc-Ks5">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-Xc-Ks5"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5R-5L-PzK" userLabel="MEN" customClass="MainStyleView">
-                    <rect key="frame" x="204" y="175" width="192" height="47"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="HrB-Ym-tFU"/>
                         <constraint firstAttribute="width" constant="192" id="RPk-vR-KH3"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo5-EX-xEy" userLabel="WOMEN" customClass="MainStyleView">
-                    <rect key="frame" x="204" y="276" width="192" height="47"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="192" id="G3z-ZT-mZr"/>
                         <constraint firstAttribute="height" constant="47" id="HuC-wu-Xpb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ojy-k1-d7o" userLabel="LIFE" customClass="MainStyleView">
-                    <rect key="frame" x="204" y="377" width="192" height="47"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="192" id="0jA-yn-5LE"/>
                         <constraint firstAttribute="height" constant="47" id="7UP-yM-bsp"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfp-3F-q1C">
+                    <frame key="frameInset" minX="313" minY="20" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="跳过">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="yo5-EX-xEy" firstAttribute="top" secondItem="a5R-5L-PzK" secondAttribute="bottom" constant="54" id="Aum-zF-j3A"/>
                 <constraint firstItem="a4T-Xc-Ks5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HZ3-Tx-HYv"/>

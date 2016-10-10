@@ -15,4 +15,8 @@
 @property (weak, nonatomic) IBOutlet MainStyleView *secondStyle;
 @property (weak, nonatomic) IBOutlet MainStyleView *thirdStyle;
 
+@property (strong, nonatomic) IBOutletCollection(MainStyleView) NSArray *styleViewList;
+
+@property (weak, nonatomic) IBOutlet UIImageView *advertImageView;
+
 @end

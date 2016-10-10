@@ -25,7 +25,6 @@
 #import "HomePageViewModel.h"
 #import "CategoryPageViewModel.h"
 #import "InspirationPageViewModel.h"
-#import "HCRootMenuViewController.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -49,9 +48,9 @@
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
     
-    HCRootMenuViewController *rootMenuVC = [[HCRootMenuViewController alloc]init];
+    MainStyleViewController *rootMenuVC = [[MainStyleViewController alloc]initWithNibName:@"MainStyleViewController" bundle:nil];
     
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:rootMenuVC];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     

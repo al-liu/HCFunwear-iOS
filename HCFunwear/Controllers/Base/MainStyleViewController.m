@@ -7,6 +7,7 @@
 //
 
 #import "MainStyleViewController.h"
+#import "GlobalContext.h"
 
 @interface MainStyleViewController ()
 
@@ -24,6 +25,20 @@
     _secondStyle.enTitleLabel.text = @"WOMEN";
     _thirdStyle.chTitleLabel.text = @"生活";
     _thirdStyle.enTitleLabel.text = @"LIFE";
+    
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[GlobalContext ShareInstance].rootController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[GlobalContext ShareInstance].rootController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {

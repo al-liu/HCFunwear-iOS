@@ -50,8 +50,6 @@
     [super viewWillAppear:animated];
     [self configNavigationBar];
     
-//    ProductDetailViewController *vc = [[ProductDetailViewController alloc]init];
-//    [self presentViewController:vc animated:NO completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
