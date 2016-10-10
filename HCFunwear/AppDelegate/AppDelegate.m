@@ -25,6 +25,7 @@
 #import "HomePageViewModel.h"
 #import "CategoryPageViewModel.h"
 #import "InspirationPageViewModel.h"
+#import "HCRootMenuViewController.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -47,7 +48,10 @@
     self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
+    
+    HCRootMenuViewController *rootMenuVC = [[HCRootMenuViewController alloc]init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:rootMenuVC];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
@@ -147,15 +151,17 @@
 }
 - (void)tabBarController:(HCTabBarController *)tabBarController indexOfRepeatSelectedViewController:(NSInteger)index {
     NSLog(@"重复点击的是第 %ld 个视图控制器",index);
-    if (index == 1) {
+    if (index == 1 || index == 0) {
         NSLog(@"如果重复点击的是第二个，则切换第四个tabButton的item。");
-        HCTabItem *minePointTabItem = [[HCTabItem alloc]initWithTitle:@"我的"
-                                                           image:[UIImage imageNamed:@"tab_me_n_u"]
-                                                   selectedImage:[UIImage imageNamed:@"tab_me_s_u"]
-                                                      titleColor:kTabNormalColor
-                                                   selectedColor:kTabSelectedColor];
-        HCTabButton *mineTabButton = tabBarController.tabBar.tabButtonList.lastObject;
-        [mineTabButton updateItem:minePointTabItem];
+//        HCTabItem *minePointTabItem = [[HCTabItem alloc]initWithTitle:@"我的"
+//                                                           image:[UIImage imageNamed:@"tab_me_n_u"]
+//                                                   selectedImage:[UIImage imageNamed:@"tab_me_s_u"]
+//                                                      titleColor:kTabNormalColor
+//                                                   selectedColor:kTabSelectedColor];
+//        HCTabButton *mineTabButton = tabBarController.tabBar.tabButtonList.lastObject;
+//        [mineTabButton updateItem:minePointTabItem];
+        
+        [[GlobalContext ShareInstance].rootController popViewControllerAnimated:YES];
     }
 }
 
