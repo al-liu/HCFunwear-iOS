@@ -7,6 +7,7 @@
 //
 
 #import "getCommentListApi.h"
+#import "GlobalContext.h"
 
 @implementation GetCommentListApi
 
@@ -25,6 +26,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getCommentList",
              @"m": @"Comment",
              @"type":@"2",

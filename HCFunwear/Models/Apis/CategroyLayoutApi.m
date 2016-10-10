@@ -7,6 +7,7 @@
 //
 
 #import "CategroyLayoutApi.h"
+#import "GlobalContext.h"
 
 @implementation CategroyLayoutApi
 
@@ -16,6 +17,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getAppHotLayout",
              @"m": @"Home",
              @"token":@""

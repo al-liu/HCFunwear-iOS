@@ -7,6 +7,7 @@
 //
 
 #import "GetAppBrandListApi.h"
+#import "GlobalContext.h"
 
 @implementation GetAppBrandListApi
 
@@ -43,6 +44,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getAppBrandList",
              @"m": @"BrandMb",
              @"pageIndex":@(_pageIndex),

@@ -7,6 +7,7 @@
 //
 
 #import "HomeLayoutApi.h"
+#import "GlobalContext.h"
 
 @implementation HomeLayoutApi
 
@@ -16,6 +17,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getAppLayoutV2",
              @"m": @"Home",
              @"page":@"home",
@@ -24,7 +26,7 @@
 }
 
 - (NSInteger)cacheTimeInSeconds {
-    return 5;
+    return 1;
 }
 
 @end

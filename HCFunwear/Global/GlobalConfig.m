@@ -25,7 +25,7 @@
     NSString *osVersion = device.systemVersion;
     NSDictionary *arguments = @{@"_platform":@"1",
                                 @"appName":@"youfanguanfang",
-                                @"cid":[GlobalContext ShareInstance].cid,
+//                                @"cid":[GlobalContext ShareInstance].cid, 是变量
                                 @"deviceId":deviceId,
                                 @"osCode":@"ios",
                                 @"osName":osName,

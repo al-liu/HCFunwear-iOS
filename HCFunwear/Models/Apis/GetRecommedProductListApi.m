@@ -7,6 +7,7 @@
 //
 
 #import "GetRecommedProductListApi.h"
+#import "GlobalContext.h"
 
 @implementation GetRecommedProductListApi
 
@@ -32,6 +33,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getRecommedProductList",
              @"m": @"Product",
              @"page":@(_page),

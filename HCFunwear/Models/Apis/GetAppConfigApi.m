@@ -7,6 +7,7 @@
 //
 
 #import "GetAppConfigApi.h"
+#import "GlobalContext.h"
 
 @implementation GetAppConfigApi
 
@@ -27,7 +28,7 @@
     NSString *osVersion = device.systemVersion;
     NSDictionary *arguments = @{@"_platform":@"1",
                                 @"appName":@"youfanguanfang",
-                                @"cid":@"2",
+                                @"cid":[GlobalContext ShareInstance].cid,
                                 @"deviceId":deviceId,
                                 @"osCode":@"ios",
                                 @"osName":osName,

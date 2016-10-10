@@ -12,6 +12,9 @@
 #import "MainStyleViewModel.h"
 #import "HCTabBarViewModel.h"
 
+#import "CategoryPageViewController.h"
+#import "HomePageViewController.h"
+
 @interface MainStyleViewController ()
 {
     MainStyleViewModel *_mainStyleViewModel;
@@ -69,6 +72,30 @@
 }
 
 - (void)changeStyle:(UITapGestureRecognizer *)tap {
+    UIView *tapView = tap.view;
+    NSString *changedCid ;
+    if (tapView.tag == 1) {
+        changedCid = @"1";
+    }
+    else if (tapView.tag == 2) {
+        changedCid = @"2";
+    }
+    else if (tapView.tag == 3) {
+        changedCid = @"4";
+    }
+    if (![changedCid isEqualToString:[GlobalContext ShareInstance].cid]) {
+        //需要更新
+        [GlobalContext ShareInstance].cid = changedCid;
+        //更新FLAG
+        HomePageViewController *homePageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[0];
+        homePageController.homePageViewModel.refreshFlag = YES;
+        
+        CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
+        categoryPageController.categoryViewModel.refreshHotFlag = YES;
+        categoryPageController.categoryViewModel.refreshCategoryFlag = YES;
+        categoryPageController.categoryViewModel.refreshBrandFlag = YES;
+    }
+    
     HCTabBarViewModel *tabBarVM = [HCTabBarViewModel new];
     [_mainStyleViewModel.pushCommand execute:tabBarVM];
 }

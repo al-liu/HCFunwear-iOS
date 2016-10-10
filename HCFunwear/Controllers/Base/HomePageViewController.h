@@ -12,6 +12,8 @@
 
 @interface HomePageViewController : UIViewController
 
+@property (weak, nonatomic) HomePageViewModel *homePageViewModel;
+
 - (instancetype)initWithViewModel:(HomePageViewModel *)viewModel;
 
 @end

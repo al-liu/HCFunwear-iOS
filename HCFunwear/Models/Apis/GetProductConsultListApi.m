@@ -7,6 +7,7 @@
 //
 
 #import "getProductConsultListApi.h"
+#import "GlobalContext.h"
 
 @implementation GetProductConsultListApi
 
@@ -24,6 +25,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getProductConsultList",
              @"m": @"Product",
              @"token":@"",

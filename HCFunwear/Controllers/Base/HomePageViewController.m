@@ -23,7 +23,6 @@
     TopStyleDelegate
 >
 
-@property (weak, nonatomic) HomePageViewModel *homePageViewModel;
 @property (strong, nonatomic) HomePageView *homePageView;
 
 @end
@@ -125,7 +124,7 @@
     else if ([[GlobalContext ShareInstance].cid isEqualToString:@"2"]) {
         topStyleButton.funwearStyle = WomenFunwearStyle;
     }
-    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"3"]) {
+    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"4"]) {
         topStyleButton.funwearStyle = LifeFunwearStyle;
     }
     
@@ -154,13 +153,12 @@
         changedCid = @"2";
     }
     else if (style == LifeFunwearStyle) {
-        changedCid = @"3";
+        changedCid = @"4";
     }
     
     if (![changedCid isEqualToString:[GlobalContext ShareInstance].cid]) {
         //需要更新
         [GlobalContext ShareInstance].cid = changedCid;
-        [[GlobalConfig new] alterNetworkPublicParameters:@{@"cid":[GlobalContext ShareInstance].cid}];
         //更新FLAG
         self.homePageViewModel.refreshFlag = YES;
         [_homePageView beginRefresh];

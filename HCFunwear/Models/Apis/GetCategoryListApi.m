@@ -7,6 +7,7 @@
 //
 
 #import "GetCategoryListApi.h"
+#import "GlobalContext.h"
 
 @implementation GetCategoryListApi
 
@@ -16,6 +17,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getCategoryList",
              @"m": @"Category",
              @"token":@""

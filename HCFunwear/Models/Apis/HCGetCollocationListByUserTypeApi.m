@@ -7,6 +7,7 @@
 //
 
 #import "HCGetCollocationListByUserTypeApi.h"
+#import "GlobalContext.h"
 
 @implementation HCGetCollocationListByUserTypeApi
 
@@ -24,6 +25,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getCollocationListByUserType",
              @"m": @"Collocation",
              @"page":@(_pageIndex),

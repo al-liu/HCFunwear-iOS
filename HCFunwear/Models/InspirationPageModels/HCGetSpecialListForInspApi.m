@@ -7,6 +7,7 @@
 //
 
 #import "HCGetSpecialListForInspApi.h"
+#import "GlobalContext.h"
 
 @implementation HCGetSpecialListForInspApi
 
@@ -28,6 +29,7 @@
 
 - (id)requestArgument {
     return @{
+             @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"getSpecialListForInsp",
              @"m": @"Special",
              @"pageIndex":@(_pageIndex),
