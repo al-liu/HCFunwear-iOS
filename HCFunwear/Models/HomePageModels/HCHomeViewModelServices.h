@@ -10,6 +10,7 @@
 #import "HCCategoryApiServices.h"
 #import "HCInspirationApiService.h"
 #import "HCProductDetailApiService.h"
+#import "HCMainStyleApiService.h"
 
 @protocol HCHomeViewModelServices <NSObject>
 
@@ -22,5 +23,7 @@
 - (id<HCInspirationApiService>)getInspApiService;
 
 - (id<HCProductDetailApiService>)getProductDetailApiService;
+
+- (id<HCMainStyleApiService>)getMainStyleApiService;
 
 @end

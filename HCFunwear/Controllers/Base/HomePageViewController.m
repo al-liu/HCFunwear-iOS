@@ -15,6 +15,7 @@
 #import "ReactiveCocoa.h"
 #import "ProductDetailViewController.h"
 
+#import "MainStyleViewController.h"
 @interface HomePageViewController ()
 <
     TopStyleDelegate

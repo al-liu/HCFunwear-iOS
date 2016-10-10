@@ -25,5 +25,4 @@
 @property (nonatomic, strong) NSArray *layoutDataArray;
 @property (nonatomic, strong) NSArray *productsDataArray;
 
-
 @end

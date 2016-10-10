@@ -28,6 +28,7 @@
 }
 
 - (void)layoutViews {
+    self.userInteractionEnabled = YES;
     self.backgroundColor = kMainStyleColor;
     self.layer.borderWidth = 2;
     self.layer.borderColor = [UIColor whiteColor].CGColor;

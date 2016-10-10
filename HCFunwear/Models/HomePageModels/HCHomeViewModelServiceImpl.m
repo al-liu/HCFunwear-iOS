@@ -8,8 +8,11 @@
 
 #import "HCHomeViewModelServiceImpl.h"
 #import "HCHomeLayoutServiceImpl.h"
+
 #import "HCWebViewModel.h"
 #import "ProductDetailViewModel.h"
+#import "HCTabBarViewModel.h"
+
 #import "HCWebViewController.h"
 #import "GlobalContext.h"
 #import "ProductDetailViewController.h"
@@ -17,12 +20,14 @@
 #import "HCCategoryApiServicesImpl.h"
 #import "HCInspirationApiServiceImpl.h"
 #import "HCProductDetailApiServiceImp.h"
+#import "HCMainStyleApiServiceImp.h"
 @interface HCHomeViewModelServiceImpl ()
 
 @property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
 @property (nonatomic, strong) HCCategoryApiServicesImpl *cateServiceImpl;
 @property (nonatomic, strong) HCInspirationApiServiceImpl *inspServiceImpl;
 @property (nonatomic, strong) HCProductDetailApiServiceImp *productDetailServiceImpl;
+@property (nonatomic, strong) HCMainStyleApiServiceImp *mainStyleApiServiceImpl;
 
 @end
 
@@ -36,8 +41,13 @@
         _cateServiceImpl = [HCCategoryApiServicesImpl new];
         _inspServiceImpl = [HCInspirationApiServiceImpl new];
         _productDetailServiceImpl = [HCProductDetailApiServiceImp new];
+        _mainStyleApiServiceImpl = [HCMainStyleApiServiceImp new];
     }
     return self;
+}
+
+- (id<HCMainStyleApiService>)getMainStyleApiService {
+    return self.mainStyleApiServiceImpl;
 }
 
 - (id<HCHomeLayoutService>)getHomeLayoutService {
@@ -66,7 +76,9 @@
         ProductDetailViewController *viewController = [[ProductDetailViewController alloc]initWithViewModel:viewModel];
         [[GlobalContext ShareInstance].rootController pushViewController:viewController animated:YES];
     }
-    
+    else if ([viewModel isKindOfClass:HCTabBarViewModel.class]) {
+        [[GlobalContext ShareInstance].rootController pushViewController:[GlobalContext ShareInstance].mainTabBarController animated:YES];
+    }
 }
 
 @end

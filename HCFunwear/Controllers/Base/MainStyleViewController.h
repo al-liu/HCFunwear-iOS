@@ -19,4 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *advertImageView;
 
+@property (weak, nonatomic) IBOutlet UIButton *jumpButton;
+
 @end

@@ -50,7 +50,7 @@
     
     MainStyleViewController *rootMenuVC = [[MainStyleViewController alloc]initWithNibName:@"MainStyleViewController" bundle:nil];
     
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:rootMenuVC];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     

@@ -8,16 +8,32 @@
 
 #import "MainStyleViewController.h"
 #import "GlobalContext.h"
+#import "HCHomeViewModelServiceImpl.h"
+#import "MainStyleViewModel.h"
+#import "HCTabBarViewModel.h"
 
 @interface MainStyleViewController ()
+{
+    MainStyleViewModel *_mainStyleViewModel;
+}
 
 @end
 
 @implementation MainStyleViewController
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    _jumpButton.layer.borderWidth = 1;
+    _jumpButton.layer.borderColor = [UIColor whiteColor].CGColor;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    HCHomeViewModelServiceImpl *homeViewModelServiceImpl = [HCHomeViewModelServiceImpl new];
+    _mainStyleViewModel = [[MainStyleViewModel alloc]initWithServices:homeViewModelServiceImpl];
     
     _firstStyle.chTitleLabel.text = @"男士";
     _firstStyle.enTitleLabel.text = @"MEN";
@@ -25,9 +41,36 @@
     _secondStyle.enTitleLabel.text = @"WOMEN";
     _thirdStyle.chTitleLabel.text = @"生活";
     _thirdStyle.enTitleLabel.text = @"LIFE";
+ 
+    [_styleViewList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MainStyleView *view = obj;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                             action:@selector(changeStyle:)];
+        [view addGestureRecognizer:tap];
+        
+        view.alpha = 0;
+    }];
     
+    _advertImageView.image = _mainStyleViewModel.launchBannerImage;
     
+    _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
+    [UIView animateWithDuration:5 animations:^{
+        _advertImageView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5f animations:^{
+            _firstStyle.alpha = 1;
+            _secondStyle.alpha = 1;
+            _thirdStyle.alpha = 1;
+            _jumpButton.alpha = 0;
+        }];
+    }];
     
+    [_mainStyleViewModel.appConfigRequestCommand execute:nil];
+}
+
+- (void)changeStyle:(UITapGestureRecognizer *)tap {
+    HCTabBarViewModel *tabBarVM = [HCTabBarViewModel new];
+    [_mainStyleViewModel.pushCommand execute:tabBarVM];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,9 +84,13 @@
     [[GlobalContext ShareInstance].rootController setNavigationBarHidden:NO animated:animated];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)jumpAnimation:(id)sender {
+    [UIView animateWithDuration:0.5f animations:^{
+        _firstStyle.alpha = 1;
+        _secondStyle.alpha = 1;
+        _thirdStyle.alpha = 1;
+        _jumpButton.alpha = 0;
+    }];
 }
 
 /*
