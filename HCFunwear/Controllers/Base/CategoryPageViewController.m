@@ -25,9 +25,6 @@
     TopBrandPageView *_topBrandPageView;
 }
 
-@property (nonatomic, weak)CategoryPageViewModel *categoryViewModel;
-
-
 @end
 
 @implementation CategoryPageViewController
@@ -61,6 +58,12 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self beginRequestWithIndex:topView.currentIndex];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,22 +141,25 @@
     switch (index) {
         case 0:
         {
-            if (!self.categoryViewModel.hotLayout) {
+            if (!self.categoryViewModel.hotLayout | self.categoryViewModel.refreshHotFlag) {
                 [_topHotPageView beginRefresh];
+                self.categoryViewModel.refreshHotFlag = NO;
             }
         }
             break;
         case 1:
         {
-            if (self.categoryViewModel.cateList.count == 0) {
+            if ((self.categoryViewModel.cateList.count == 0) | self.categoryViewModel.refreshCategoryFlag) {
                 [_topCategoryPageView beginRefresh];
+                self.categoryViewModel.refreshCategoryFlag = NO;
             }
         }
             break;
         case 2:
         {
-            if (self.categoryViewModel.brandList.count == 0) {
+            if ((self.categoryViewModel.brandList.count == 0) | self.categoryViewModel.refreshBrandFlag) {
                 [_topBrandPageView beginRefresh];
+                self.categoryViewModel.refreshBrandFlag = NO;
             }
         }
             break;

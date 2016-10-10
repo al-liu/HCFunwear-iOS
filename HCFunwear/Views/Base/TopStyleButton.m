@@ -17,6 +17,7 @@ static NSString *kStyleCellIdentifier = @"kStyleCellIdentifier";
 @implementation TopStyleButton {
     UIControl *_board;
     UIImageView *_imageView;
+    UILabel *_currentLabel;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -39,13 +40,13 @@ static NSString *kStyleCellIdentifier = @"kStyleCellIdentifier";
         make.center.equalTo(self);
     }];
     
-    UILabel *label = [UILabel new];
-    label.userInteractionEnabled = NO;
-    label.font = [UIFont systemFontOfSize:15];
-    label.text = @"男生";
-    [topView addSubview:label];
+    _currentLabel = [UILabel new];
+    _currentLabel.userInteractionEnabled = NO;
+    _currentLabel.font = [UIFont systemFontOfSize:15];
+    _currentLabel.text = @"男生";
+    [topView addSubview:_currentLabel];
     
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_currentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(topView);
     }];
     
@@ -55,8 +56,8 @@ static NSString *kStyleCellIdentifier = @"kStyleCellIdentifier";
     [topView addSubview:_imageView];
     
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(label);
-        make.left.equalTo(label.mas_right).offset(5);
+        make.centerY.equalTo(_currentLabel);
+        make.left.equalTo(_currentLabel.mas_right).offset(5);
         make.right.equalTo(topView).offset(-5);
     }];
 }
@@ -111,6 +112,23 @@ static NSString *kStyleCellIdentifier = @"kStyleCellIdentifier";
     }
 }
 
+- (void)setFunwearStyle:(FunwearStyle)funwearStyle {
+    _funwearStyle = funwearStyle;
+    switch (funwearStyle) {
+        case ManFunwearStyle:
+            _currentLabel.text = @"男生";
+            break;
+        case WomenFunwearStyle:
+            _currentLabel.text = @"女生";
+            break;
+        case LifeFunwearStyle:
+            _currentLabel.text = @"生活";
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -146,19 +164,27 @@ static NSString *kStyleCellIdentifier = @"kStyleCellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *valueStr  ;
     switch (indexPath.row) {
         case 0:
             _funwearStyle = ManFunwearStyle;
+            valueStr = @"男生";
             break;
         case 1:
             _funwearStyle = WomenFunwearStyle;
+            valueStr = @"女生";
             break;
         case 2:
             _funwearStyle = LifeFunwearStyle;
+            valueStr = @"生活";
             break;
         default:
             break;
     }
+    _isShow = NO;
+    [self arrowAnimationWithIsShow:_isShow];
+    [self hideBoard];
+    _currentLabel.text = valueStr;
     if (_delegate && [_delegate respondsToSelector:@selector(topStyleButton:didSelectStyle:)]) {
         [_delegate topStyleButton:self didSelectStyle:_funwearStyle];
     }

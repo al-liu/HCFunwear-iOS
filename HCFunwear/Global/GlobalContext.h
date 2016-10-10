@@ -16,6 +16,9 @@
 @property (nonatomic, strong) HCTabBarController *mainTabBarController;
 @property (nonatomic, strong) UINavigationController *rootController;
 
+// cid 1,2,3 = man，woman，life 风格
+@property (nonatomic, copy) NSString *cid;
+
 + (instancetype)ShareInstance;
 
 @end

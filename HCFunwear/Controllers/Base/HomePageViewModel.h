@@ -25,4 +25,7 @@
 @property (nonatomic, strong) NSArray *layoutDataArray;
 @property (nonatomic, strong) NSArray *productsDataArray;
 
+//yes 是需要刷新
+@property (nonatomic, assign) BOOL refreshFlag;
+
 @end

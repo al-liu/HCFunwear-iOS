@@ -27,6 +27,11 @@
 @property (nonatomic, strong) NSArray *topTitlesList;
 @property (nonatomic, assign) NSInteger brandsPageIndex;
 
+//yes 是需要刷新
+@property (nonatomic, assign) BOOL refreshHotFlag;
+@property (nonatomic, assign) BOOL refreshCategoryFlag;
+@property (nonatomic, assign) BOOL refreshBrandFlag;
+
 - (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;
 
 @end

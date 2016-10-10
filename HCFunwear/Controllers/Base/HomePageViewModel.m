@@ -38,6 +38,8 @@
     _productsDataArray = [NSArray array];
     _productsPage = 0;
     
+    _refreshFlag = YES;
+    
     self.layoutRequestCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executeLayoutSignal];
     }];

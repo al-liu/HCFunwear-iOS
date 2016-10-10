@@ -29,6 +29,9 @@ NSString *const kAppraiseOnlyTextCellIdentifier = @"kAppraiseOnlyTextCellIdentif
 NSString *const kAppraiseNoReplyCellIdentifier = @"kAppraiseNoReplyCellIdentifier";
 NSString *const kAppraiseOnlyTextNoReplyCellIdentifier = @"kAppraiseOnlyTextNoReplyCellIdentifier";
 
+//UserDefault key
+NSString *const kCID = @"kCID";
+
 
 @implementation GlobalConstant
 

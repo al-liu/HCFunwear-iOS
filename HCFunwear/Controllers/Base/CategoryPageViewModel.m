@@ -30,6 +30,10 @@
         _brandList = [NSMutableArray array];
         _topTitlesList = @[@"热门",@"品类",@"品牌"];
         _brandsPageIndex = 0;
+        _refreshHotFlag = YES;
+        _refreshCategoryFlag = YES;
+        _refreshBrandFlag = YES;
+        
         [self initialize];
     }
     return self;

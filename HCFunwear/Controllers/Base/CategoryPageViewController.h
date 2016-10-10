@@ -12,6 +12,8 @@
 
 @interface CategoryPageViewController : UIViewController <TopCategoryViewDelegate,UIScrollViewDelegate>
 
+@property (nonatomic, weak)CategoryPageViewModel *categoryViewModel;
+
 - (instancetype)initWithViewModel:(CategoryPageViewModel *)viewModel;
 
 @end

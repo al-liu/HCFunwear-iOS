@@ -53,4 +53,8 @@
     }];
 }
 
+- (void)beginRefresh {
+    [_homePageCollectionView.mj_header beginRefreshing];
+}
+
 @end

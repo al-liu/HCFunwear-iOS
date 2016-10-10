@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger,FunwearStyle) {
 
 @interface TopStyleButton : UIButton <UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, assign, readonly) FunwearStyle funwearStyle;
+@property (nonatomic, assign) FunwearStyle funwearStyle;
 @property (nonatomic, assign, readonly) BOOL isShow;
 @property (nonatomic, weak) id delegate;
 

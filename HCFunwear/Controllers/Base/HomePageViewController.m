@@ -8,7 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "TopStyleButton.h"
-#import "GlobalContext.h"
+#import "GlobalImport.h"
 #import "HomePageView.h"
 #import "RACEXTScope.h"
 #import "HCHomeCollectionViewBindingHelper.h"
@@ -16,6 +16,8 @@
 #import "ProductDetailViewController.h"
 
 #import "MainStyleViewController.h"
+#import "CategoryPageViewController.h"
+#import "GlobalConfig.h"
 @interface HomePageViewController ()
 <
     TopStyleDelegate
@@ -56,6 +58,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (_homePageViewModel.refreshFlag) {
+        [_homePageView beginRefresh];
+        _homePageViewModel.refreshFlag = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +119,16 @@
     topStyleButton.delegate = self;
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topStyleButton;
     
+    if ([[GlobalContext ShareInstance].cid isEqualToString:@"1"]) {
+        topStyleButton.funwearStyle = ManFunwearStyle;
+    }
+    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"2"]) {
+        topStyleButton.funwearStyle = WomenFunwearStyle;
+    }
+    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"3"]) {
+        topStyleButton.funwearStyle = LifeFunwearStyle;
+    }
+    
     /*
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
     [[GlobalContext ShareInstance].rootController.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"top_back"]];
@@ -124,7 +145,31 @@
 }
 
 - (void)topStyleButton:(TopStyleButton *)button didSelectStyle:(FunwearStyle )style {
+    //处理全局 cid
+    NSString *changedCid ;
+    if (style == ManFunwearStyle) {
+        changedCid = @"1";
+    }
+    else if (style == WomenFunwearStyle) {
+        changedCid = @"2";
+    }
+    else if (style == LifeFunwearStyle) {
+        changedCid = @"3";
+    }
     
+    if (![changedCid isEqualToString:[GlobalContext ShareInstance].cid]) {
+        //需要更新
+        [GlobalContext ShareInstance].cid = changedCid;
+        [[GlobalConfig new] alterNetworkPublicParameters:@{@"cid":[GlobalContext ShareInstance].cid}];
+        //更新FLAG
+        self.homePageViewModel.refreshFlag = YES;
+        [_homePageView beginRefresh];
+        
+        CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
+        categoryPageController.categoryViewModel.refreshHotFlag = YES;
+        categoryPageController.categoryViewModel.refreshCategoryFlag = YES;
+        categoryPageController.categoryViewModel.refreshBrandFlag = YES;
+    }
 }
 
 

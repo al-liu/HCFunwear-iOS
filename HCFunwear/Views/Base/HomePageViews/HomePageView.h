@@ -16,4 +16,6 @@
 
 - (instancetype)initWithViewModel:(HomePageViewModel *)mdoel;
 
+- (void)beginRefresh;
+
 @end
