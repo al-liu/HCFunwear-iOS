@@ -334,6 +334,7 @@
 		E35BA5D01DAB76F800AB4BC1 /* HCTabBarViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTabBarViewModel.h; sourceTree = "<group>"; };
 		E35BA5D11DAB76F800AB4BC1 /* HCTabBarViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabBarViewModel.m; sourceTree = "<group>"; };
 		E35BA5D41DAB7F7000AB4BC1 /* pic_enter_empt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_enter_empt@2x.png"; sourceTree = "<group>"; };
+		E35BA5D71DAC8D8500AB4BC1 /* HCNavigationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationService.h; sourceTree = "<group>"; };
 		E368C7981D2FA98100E8783F /* InspirationPageInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationPageInfoView.h; sourceTree = "<group>"; };
 		E368C7991D2FA98100E8783F /* InspirationPageInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationPageInfoView.m; sourceTree = "<group>"; };
 		E368C79B1D2FA99800E8783F /* InspirationPageFunerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationPageFunerView.h; sourceTree = "<group>"; };
@@ -699,6 +700,7 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E35BA5D61DAC8D4700AB4BC1 /* BaseService */,
 				E333D99F1D9FC3E700575305 /* HUDView */,
 				E37F509B1D688EDD008B465A /* Other */,
 				E34B7BC21D23C4050066FE80 /* CommonCells */,
@@ -940,6 +942,14 @@
 			path = Imgs;
 			sourceTree = "<group>";
 		};
+		E35BA5D61DAC8D4700AB4BC1 /* BaseService */ = {
+			isa = PBXGroup;
+			children = (
+				E35BA5D71DAC8D8500AB4BC1 /* HCNavigationService.h */,
+			);
+			path = BaseService;
+			sourceTree = "<group>";
+		};
 		E368C7931D2FA8ED00E8783F /* InspirationPageCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1052,15 +1062,15 @@
 		E37F50C71D6D415C008B465A /* InspirationPageModels */ = {
 			isa = PBXGroup;
 			children = (
-				E37F50C81D6D41B1008B465A /* HCInspirationApiService.h */,
-				E37F50C91D6D44D8008B465A /* HCInspirationApiServiceImpl.h */,
-				E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */,
 				E37F50D21D6D4D33008B465A /* HCInspirationInfos.h */,
 				E37F50D31D6D4D33008B465A /* HCInspirationInfos.m */,
 				E37F50D51D6D50E8008B465A /* HCInspirationByUsers.h */,
 				E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */,
 				E37F50D81D6D9EA3008B465A /* HCInspInfoModel.h */,
 				E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */,
+				E37F50C81D6D41B1008B465A /* HCInspirationApiService.h */,
+				E37F50C91D6D44D8008B465A /* HCInspirationApiServiceImpl.h */,
+				E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */,
 			);
 			path = InspirationPageModels;
 			sourceTree = "<group>";
@@ -1198,6 +1208,8 @@
 				E37F506C1D65F86F008B465A /* HCProduct.m */,
 				E37F506E1D65FA5F008B465A /* HCProductTag.h */,
 				E37F506F1D65FA5F008B465A /* HCProductTag.m */,
+				E37F50AC1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.h */,
+				E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */,
 				E37F50A41D6AED0C008B465A /* HCHomeLayoutService.h */,
 				E37F50A51D6AEDCD008B465A /* HCHomeViewModelServices.h */,
 				E37F50AF1D6B3D79008B465A /* HCHomeModuleCellProtocol.h */,
@@ -1205,8 +1217,6 @@
 				E37F50A71D6AEE61008B465A /* HCHomeLayoutServiceImpl.m */,
 				E37F50A91D6AFD92008B465A /* HCHomeViewModelServiceImpl.h */,
 				E37F50AA1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m */,
-				E37F50AC1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.h */,
-				E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */,
 			);
 			path = HomePageModels;
 			sourceTree = "<group>";

@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "ReactiveCocoa.h"
 
+
+/**
+ api 服务
+ */
 @protocol HCHomeLayoutService <NSObject>
 
 - (RACSignal *)getLayoutModule;
