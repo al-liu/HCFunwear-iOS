@@ -16,13 +16,13 @@
 
 @interface CategoryPageViewModel ()
 
-@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+@property (strong, nonatomic) id <HCCategoryViewModelServices> services;
 
 @end
 
 @implementation CategoryPageViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services {
+- (instancetype)initWithServices:(id<HCCategoryViewModelServices>)services {
     self = [super init];
     if (self) {
         _services = services;
@@ -82,7 +82,7 @@
 
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.services pushViewModel:viewModel];
+        [self.services pushViewModel:viewModel animated:YES];
         [subscriber sendCompleted];
         return nil;
     }];

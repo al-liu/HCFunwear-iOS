@@ -12,13 +12,13 @@
 
 @interface ProductDetailViewModel ()
 
-@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+@property (strong, nonatomic) id <HCProductDetailViewModelService> services;
 
 @end
 
 @implementation ProductDetailViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services
+- (instancetype)initWithServices:(id<HCProductDetailViewModelService>)services
                      productCode:(NSString *)code {
     self = [super init];
     if (self) {
@@ -96,7 +96,7 @@
 
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.services pushViewModel:viewModel];
+        [self.services pushViewModel:viewModel animated:YES];
         [subscriber sendCompleted];
         return nil;
     }];

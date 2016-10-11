@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCNavigationService.h"
+#import "HCProductDetailApiService.h"
 
-@protocol HCProductDetailViewModelService <NSObject>
+@protocol HCProductDetailViewModelService <HCNavigationService>
+
+- (id<HCProductDetailApiService>)getProductDetailApiService;
 
 @end

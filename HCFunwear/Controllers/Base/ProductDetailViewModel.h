@@ -12,6 +12,7 @@
 #import "HCProductDetailModel.h"
 #import "HCCommentListModel.h"
 #import "HCProductQAModel.h"
+#import "HCProductDetailViewModelService.h"
 
 @interface ProductDetailViewModel : NSObject
 
@@ -28,7 +29,7 @@
 @property (nonatomic, strong) NSArray *qaList;
 @property (nonatomic, strong) HCProductDetailModel *productDetailModel;
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services
+- (instancetype)initWithServices:(id<HCProductDetailViewModelService>)services
                      productCode:(NSString *)code;
 
 @end

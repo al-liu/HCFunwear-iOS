@@ -77,7 +77,7 @@
 
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.services pushViewModel:viewModel];
+        [self.services pushViewModel:viewModel animated:YES];
         [subscriber sendCompleted];
         return nil;
     }];

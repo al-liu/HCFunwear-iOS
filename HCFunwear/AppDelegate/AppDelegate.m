@@ -26,6 +26,10 @@
 #import "CategoryPageViewModel.h"
 #import "InspirationPageViewModel.h"
 
+#import "HCCategoryViewModelServicesImp.h"
+#import "HCInspirationViewModelServiceImp.h"
+#import "HCProductDetailViewModelServiceImp.h"
+
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
 @end
@@ -129,10 +133,12 @@
     HomePageViewModel *homeViewModel = [[HomePageViewModel alloc]initWithServices:homeViewModelServiceImpl];
     HomePageViewController *homePageViewController = [[HomePageViewController alloc]initWithViewModel:homeViewModel];
     
-    CategoryPageViewModel *cateViewModel = [[CategoryPageViewModel alloc] initWithServices:homeViewModelServiceImpl];
+    HCCategoryViewModelServicesImp *categoryViewModelServiceImp = [HCCategoryViewModelServicesImp new];
+    CategoryPageViewModel *cateViewModel = [[CategoryPageViewModel alloc] initWithServices:categoryViewModelServiceImp];
     CategoryPageViewController *categoryPageViewController = [[CategoryPageViewController alloc]initWithViewModel:cateViewModel];
     
-    InspirationPageViewModel *InspViewModel = [[InspirationPageViewModel alloc] initWithServices:homeViewModelServiceImpl];
+    HCInspirationViewModelServiceImp *inspirationViewModelServiceImp = [HCInspirationViewModelServiceImp new];
+    InspirationPageViewModel *InspViewModel = [[InspirationPageViewModel alloc] initWithServices:inspirationViewModelServiceImp];
     InspirationPageViewController *inspirationController = [[InspirationPageViewController alloc]initWithViewModel:InspViewModel];
     
     ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];

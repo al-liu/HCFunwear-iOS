@@ -12,13 +12,13 @@
 
 @interface InspirationPageViewModel ()
 
-@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+@property (strong, nonatomic) id <HCInspirationViewModelService> services;
 
 @end
 
 @implementation InspirationPageViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services {
+- (instancetype)initWithServices:(id<HCInspirationViewModelService>)services {
     self = [super init];
     if (self) {
         _services = services;
@@ -63,7 +63,7 @@
 
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.services pushViewModel:viewModel];
+        [self.services pushViewModel:viewModel animated:YES];
         [subscriber sendCompleted];
         return nil;
     }];

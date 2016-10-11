@@ -1,42 +1,41 @@
 //
-//  HCHomeViewModelServiceImpl.m
+//  HCInspirationViewModelServiceImp.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/8/22.
+//  Created by 刘海川 on 16/10/11.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCHomeViewModelServiceImpl.h"
-#import "HCHomeLayoutServiceImpl.h"
+#import "HCInspirationViewModelServiceImp.h"
+#import "HCInspirationApiServiceImpl.h"
 
 #import "HCWebViewModel.h"
 #import "ProductDetailViewModel.h"
+#import "HCTabBarViewModel.h"
 
 #import "HCWebViewController.h"
 #import "GlobalContext.h"
-
 #import "ProductDetailViewController.h"
 
-@interface HCHomeViewModelServiceImpl ()
+@interface HCInspirationViewModelServiceImp ()
 
-@property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
+@property (nonatomic, strong) HCInspirationApiServiceImpl *inspServiceImpl;
 
 @end
 
-@implementation HCHomeViewModelServiceImpl
+@implementation HCInspirationViewModelServiceImp
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _serviceImpl = [HCHomeLayoutServiceImpl new];
-        
+        _inspServiceImpl = [HCInspirationApiServiceImpl new];
     }
     return self;
 }
 
-- (id<HCHomeLayoutService>)getHomeLayoutService {
-    return self.serviceImpl;
+- (id<HCInspirationApiService>)getInspApiService {
+    return self.inspServiceImpl;
 }
 
 - (void)pushViewModel:(__nullable id)viewModel animated:(BOOL)animated {
@@ -50,5 +49,6 @@
         [[GlobalContext ShareInstance].rootController pushViewController:viewController animated:YES];
     }
 }
+
 
 @end

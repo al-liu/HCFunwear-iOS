@@ -1,13 +1,13 @@
 //
-//  HCHomeViewModelServiceImpl.m
+//  HCCategoryViewModelServicesImp.m
 //  HCFunwear
 //
-//  Created by 刘海川 on 16/8/22.
+//  Created by 刘海川 on 16/10/11.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCHomeViewModelServiceImpl.h"
-#import "HCHomeLayoutServiceImpl.h"
+#import "HCCategoryViewModelServicesImp.h"
+#import "HCCategoryApiServicesImpl.h"
 
 #import "HCWebViewModel.h"
 #import "ProductDetailViewModel.h"
@@ -17,26 +17,25 @@
 
 #import "ProductDetailViewController.h"
 
-@interface HCHomeViewModelServiceImpl ()
+@interface HCCategoryViewModelServicesImp ()
 
-@property (nonatomic, strong) HCHomeLayoutServiceImpl *serviceImpl;
+@property (nonatomic, strong) HCCategoryApiServicesImpl *cateServiceImpl;
 
 @end
 
-@implementation HCHomeViewModelServiceImpl
+@implementation HCCategoryViewModelServicesImp
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _serviceImpl = [HCHomeLayoutServiceImpl new];
-        
+        _cateServiceImpl = [HCCategoryApiServicesImpl new];
     }
     return self;
 }
 
-- (id<HCHomeLayoutService>)getHomeLayoutService {
-    return self.serviceImpl;
+- (id<HCCategoryApiServices>)getCategoryApiService {
+    return self.cateServiceImpl;
 }
 
 - (void)pushViewModel:(__nullable id)viewModel animated:(BOOL)animated {

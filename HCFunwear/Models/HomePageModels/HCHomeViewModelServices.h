@@ -11,19 +11,13 @@
 #import "HCInspirationApiService.h"
 #import "HCProductDetailApiService.h"
 #import "HCMainStyleApiService.h"
+#import "HCNavigationService.h"
 
-@protocol HCHomeViewModelServices <NSObject>
-
-- (void)pushViewModel:(id)viewModel;
+/**
+ 首页的总线服务
+ */
+@protocol HCHomeViewModelServices <HCNavigationService>
 
 - (id<HCHomeLayoutService>)getHomeLayoutService;
-
-- (id<HCCategoryApiServices>)getCategoryApiService;
-
-- (id<HCInspirationApiService>)getInspApiService;
-
-- (id<HCProductDetailApiService>)getProductDetailApiService;
-
-- (id<HCMainStyleApiService>)getMainStyleApiService;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HCHomeViewModelServices.h"
+#import "HCMainStyleViewModelService.h"
 #import "AppConfigModel.h"
 
 @interface MainStyleViewModel : NSObject
@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong) UIImage *launchBannerImage;
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;
+- (instancetype)initWithServices:(id<HCMainStyleViewModelService>)services;
 
 @end

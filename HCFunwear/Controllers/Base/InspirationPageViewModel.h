@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HCHomeViewModelServices.h"
+#import "HCInspirationViewModelService.h"
 #import "HCInspirationInfos.h"
 
 @interface InspirationPageViewModel : NSObject
@@ -27,6 +27,6 @@
 @property (nonatomic, strong) NSArray *inspFunerList;
 
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;
+- (instancetype)initWithServices:(id<HCInspirationViewModelService>)services;
 
 @end

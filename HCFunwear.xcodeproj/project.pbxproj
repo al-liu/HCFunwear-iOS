@@ -66,6 +66,10 @@
 		E35BA5CC1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5CB1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m */; };
 		E35BA5D21DAB76F800AB4BC1 /* HCTabBarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5D11DAB76F800AB4BC1 /* HCTabBarViewModel.m */; };
 		E35BA5D51DAB7F7000AB4BC1 /* pic_enter_empt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E35BA5D41DAB7F7000AB4BC1 /* pic_enter_empt@2x.png */; };
+		E35BA5DD1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5DC1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.m */; };
+		E35BA5E11DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5E01DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m */; };
+		E35BA5E41DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5E31DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m */; };
+		E35BA5E71DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BA5E61DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.m */; };
 		E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C7991D2FA98100E8783F /* InspirationPageInfoView.m */; };
 		E368C79D1D2FA99800E8783F /* InspirationPageFunerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C79C1D2FA99800E8783F /* InspirationPageFunerView.m */; };
 		E368C7A01D2FA9C100E8783F /* InspirationPageAttentionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C79F1D2FA9C100E8783F /* InspirationPageAttentionView.m */; };
@@ -335,6 +339,16 @@
 		E35BA5D11DAB76F800AB4BC1 /* HCTabBarViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTabBarViewModel.m; sourceTree = "<group>"; };
 		E35BA5D41DAB7F7000AB4BC1 /* pic_enter_empt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_enter_empt@2x.png"; sourceTree = "<group>"; };
 		E35BA5D71DAC8D8500AB4BC1 /* HCNavigationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationService.h; sourceTree = "<group>"; };
+		E35BA5D81DAC944600AB4BC1 /* HCCategoryViewModelServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryViewModelServices.h; sourceTree = "<group>"; };
+		E35BA5DB1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCategoryViewModelServicesImp.h; sourceTree = "<group>"; };
+		E35BA5DC1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCategoryViewModelServicesImp.m; sourceTree = "<group>"; };
+		E35BA5DE1DAC967C00AB4BC1 /* HCInspirationViewModelService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationViewModelService.h; sourceTree = "<group>"; };
+		E35BA5DF1DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspirationViewModelServiceImp.h; sourceTree = "<group>"; };
+		E35BA5E01DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspirationViewModelServiceImp.m; sourceTree = "<group>"; };
+		E35BA5E21DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailViewModelServiceImp.h; sourceTree = "<group>"; };
+		E35BA5E31DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProductDetailViewModelServiceImp.m; sourceTree = "<group>"; };
+		E35BA5E51DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainStyleViewModelServiceImp.h; sourceTree = "<group>"; };
+		E35BA5E61DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainStyleViewModelServiceImp.m; sourceTree = "<group>"; };
 		E368C7981D2FA98100E8783F /* InspirationPageInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationPageInfoView.h; sourceTree = "<group>"; };
 		E368C7991D2FA98100E8783F /* InspirationPageInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationPageInfoView.m; sourceTree = "<group>"; };
 		E368C79B1D2FA99800E8783F /* InspirationPageFunerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationPageFunerView.h; sourceTree = "<group>"; };
@@ -930,6 +944,8 @@
 				E35BA5C91DAB693D00AB4BC1 /* HCMainStyleViewModelService.h */,
 				E35BA5CA1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.h */,
 				E35BA5CB1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m */,
+				E35BA5E51DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.h */,
+				E35BA5E61DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.m */,
 			);
 			path = BaseModels;
 			sourceTree = "<group>";
@@ -1043,9 +1059,12 @@
 				E37F50981D68452C008B465A /* HCBrand.h */,
 				E37F50991D68452C008B465A /* HCBrand.m */,
 				E37F50BF1D6CA582008B465A /* HCCategoryApiServices.h */,
-				E37F50C61D6CB2A0008B465A /* HCViewModelBindProtocol.h */,
 				E37F50C01D6CA680008B465A /* HCCategoryApiServicesImpl.h */,
 				E37F50C11D6CA680008B465A /* HCCategoryApiServicesImpl.m */,
+				E35BA5D81DAC944600AB4BC1 /* HCCategoryViewModelServices.h */,
+				E35BA5DB1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.h */,
+				E35BA5DC1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.m */,
+				E37F50C61D6CB2A0008B465A /* HCViewModelBindProtocol.h */,
 			);
 			path = CategoryPageModels;
 			sourceTree = "<group>";
@@ -1071,6 +1090,9 @@
 				E37F50C81D6D41B1008B465A /* HCInspirationApiService.h */,
 				E37F50C91D6D44D8008B465A /* HCInspirationApiServiceImpl.h */,
 				E37F50CA1D6D44D8008B465A /* HCInspirationApiServiceImpl.m */,
+				E35BA5DE1DAC967C00AB4BC1 /* HCInspirationViewModelService.h */,
+				E35BA5DF1DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.h */,
+				E35BA5E01DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m */,
 			);
 			path = InspirationPageModels;
 			sourceTree = "<group>";
@@ -1088,6 +1110,8 @@
 				E383FEA61D9CF4C300813688 /* HCProductDetailApiServiceImp.h */,
 				E383FEA71D9CF4C300813688 /* HCProductDetailApiServiceImp.m */,
 				E383FEA91D9D03A900813688 /* HCProductDetailViewModelService.h */,
+				E35BA5E21DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.h */,
+				E35BA5E31DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m */,
 			);
 			path = ProductDetailPageModels;
 			sourceTree = "<group>";
@@ -1212,11 +1236,11 @@
 				E37F50AD1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m */,
 				E37F50A41D6AED0C008B465A /* HCHomeLayoutService.h */,
 				E37F50A51D6AEDCD008B465A /* HCHomeViewModelServices.h */,
-				E37F50AF1D6B3D79008B465A /* HCHomeModuleCellProtocol.h */,
 				E37F50A61D6AEE61008B465A /* HCHomeLayoutServiceImpl.h */,
 				E37F50A71D6AEE61008B465A /* HCHomeLayoutServiceImpl.m */,
 				E37F50A91D6AFD92008B465A /* HCHomeViewModelServiceImpl.h */,
 				E37F50AA1D6AFD92008B465A /* HCHomeViewModelServiceImpl.m */,
+				E37F50AF1D6B3D79008B465A /* HCHomeModuleCellProtocol.h */,
 			);
 			path = HomePageModels;
 			sourceTree = "<group>";
@@ -1629,6 +1653,7 @@
 				E383FE751D9A09DA00813688 /* HCBottomGoodsDetailView.m in Sources */,
 				E3FBB1611D338E8100573343 /* MinePageViewController.m in Sources */,
 				E30EA01A1D2B4B0D00B38B37 /* RecommendedViewCell.m in Sources */,
+				E35BA5DD1DAC948F00AB4BC1 /* HCCategoryViewModelServicesImp.m in Sources */,
 				E37F50B51D6B483C008B465A /* HCWebViewModel.m in Sources */,
 				E383FE841D9A538C00813688 /* HCAppraiseScoreView.m in Sources */,
 				E3B1D8611D2F57CB00A8BA3E /* CategoryTableViewCell.m in Sources */,
@@ -1647,12 +1672,14 @@
 				E3A6D31D1D5DB09D0012E1B8 /* YTKUrlArgumentsFilter.m in Sources */,
 				E3B1D8531D2F393900A8BA3E /* CategoryPageHeadTitleView.m in Sources */,
 				E34B7BE41D23E1C10066FE80 /* BrandBorderCell.m in Sources */,
+				E35BA5E41DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m in Sources */,
 				E37F507E1D66F8F6008B465A /* YYFPSLabel+draw.m in Sources */,
 				E34B7BD51D23CEC90066FE80 /* ProductShowNameCell.m in Sources */,
 				E37F50B81D6B4859008B465A /* ProductDetailViewController.m in Sources */,
 				E37F50A21D68AAEA008B465A /* BrandsViewCell.m in Sources */,
 				E383FE871D9A53A200813688 /* HCAppraiseStarsView.m in Sources */,
 				E37F507B1D66EAA4008B465A /* HCWindow.m in Sources */,
+				E35BA5E71DAC9A2F00AB4BC1 /* HCMainStyleViewModelServiceImp.m in Sources */,
 				E37F50731D65FC57008B465A /* GetRecommedProductListApi.m in Sources */,
 				E3FBB1841D34E91A00573343 /* MineMenuModel.m in Sources */,
 				E37F50C21D6CA680008B465A /* HCCategoryApiServicesImpl.m in Sources */,
@@ -1695,6 +1722,7 @@
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,
 				E35BA5CC1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m in Sources */,
+				E35BA5E11DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
 				E37F509A1D68452C008B465A /* HCBrand.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "MainStyleViewController.h"
 #import "GlobalContext.h"
-#import "HCHomeViewModelServiceImpl.h"
+#import "HCMainStyleViewModelServiceImp.h"
 #import "MainStyleViewModel.h"
 #import "HCTabBarViewModel.h"
 
@@ -35,8 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    HCHomeViewModelServiceImpl *homeViewModelServiceImpl = [HCHomeViewModelServiceImpl new];
-    _mainStyleViewModel = [[MainStyleViewModel alloc]initWithServices:homeViewModelServiceImpl];
+    HCMainStyleViewModelServiceImp *styleViewModelServiceImpl = [HCMainStyleViewModelServiceImp new];
+    _mainStyleViewModel = [[MainStyleViewModel alloc]initWithServices:styleViewModelServiceImpl];
     
     _firstStyle.chTitleLabel.text = @"男士";
     _firstStyle.enTitleLabel.text = @"MEN";

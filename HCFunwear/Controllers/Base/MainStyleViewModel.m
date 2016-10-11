@@ -9,26 +9,18 @@
 #import "MainStyleViewModel.h"
 #import "NSObject+YYModel.h"
 #import "SDWebImageDownloader.h"
-/*
- [ ]请求广告的接口
- [ ]对应的数据模型
- [ ]保存广告图片的接口
- [ ]按钮跳转的逻辑
- [ ]ImageView 的动画，按钮隐藏显示的逻辑
- 
- */
 
 static NSString *lanuch_banner_image_key = @"launchBanner_img";
 
 @interface MainStyleViewModel ()
 
-@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+@property (strong, nonatomic) id <HCMainStyleViewModelService> services;
 
 @end
 
 @implementation MainStyleViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services {
+- (instancetype)initWithServices:(id<HCMainStyleViewModelService>)services {
     self = [super init];
     if (self) {
         _services = services;
@@ -76,7 +68,7 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
 
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self.services pushViewModel:viewModel];
+        [self.services pushViewModel:viewModel animated:YES];
         [subscriber sendCompleted];
         return nil;
     }];

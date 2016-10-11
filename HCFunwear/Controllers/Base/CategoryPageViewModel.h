@@ -10,7 +10,7 @@
 #import "ReactiveCocoa.h"
 #import "GetAppBrandListApi.h"
 #import "HCCategoryApiServices.h"
-#import "HCHomeViewModelServices.h"
+#import "HCCategoryViewModelServices.h"
 #import "HCCategoryLayout.h"
 
 @interface CategoryPageViewModel : NSObject
@@ -32,6 +32,6 @@
 @property (nonatomic, assign) BOOL refreshCategoryFlag;
 @property (nonatomic, assign) BOOL refreshBrandFlag;
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;
+- (instancetype)initWithServices:(id<HCCategoryViewModelServices>)services;
 
 @end

@@ -16,6 +16,7 @@
 @protocol HCHomeLayoutService <NSObject>
 
 - (RACSignal *)getLayoutModule;
+
 - (RACSignal *)getProductsWithIndexPage:(NSInteger)indexPage;
 
 @end
