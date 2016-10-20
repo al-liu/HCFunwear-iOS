@@ -36,6 +36,9 @@
 		E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30EA01F1D2B5B1F00B38B37 /* HomePageHeadReusableView.m */; };
 		E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */; };
 		E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */; };
+		E32EB5AF1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5AE1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m */; };
+		E32EB5B21DB858DF00A3129C /* HCSliderLeftDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */; };
+		E32EB5B51DB8648A00A3129C /* HCSliderLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */; };
 		E333D99A1D9E44FA00575305 /* HCAppraiseNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */; };
 		E333D99D1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */; };
 		E333D9A81D9FC83000575305 /* HCHudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9A71D9FC83000575305 /* HCHudManager.m */; };
@@ -175,6 +178,7 @@
 		E3B1D8671D2F6D1800A8BA3E /* HotCategoryPageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B1D8651D2F6D1800A8BA3E /* HotCategoryPageViewCell.xib */; };
 		E3B1D86A1D2F8A6600A8BA3E /* InspirationPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1D8691D2F8A6600A8BA3E /* InspirationPageViewController.m */; };
 		E3B1D86D1D2F8A8A00A8BA3E /* InspirationPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B1D86C1D2F8A8A00A8BA3E /* InspirationPageViewModel.m */; };
+		E3CC56231DB84DCE00B89646 /* HCBaseTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CC56221DB84DCE00B89646 /* HCBaseTransitionAnimator.m */; };
 		E3FBB13F1D33358C00573343 /* InspirationAttentionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB13E1D33358C00573343 /* InspirationAttentionHeaderView.m */; };
 		E3FBB1411D33359900573343 /* InspirationAttentionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FBB1401D33359900573343 /* InspirationAttentionHeaderView.xib */; };
 		E3FBB1441D33395500573343 /* InspirationNotAttentionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBB1431D33395500573343 /* InspirationNotAttentionView.m */; };
@@ -283,6 +287,12 @@
 		E3240DEE1CEF133B004C48C0 /* MainStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStyleViewController.h; sourceTree = "<group>"; };
 		E3240DEF1CEF133B004C48C0 /* MainStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStyleViewController.m; sourceTree = "<group>"; };
 		E3240DF01CEF133B004C48C0 /* MainStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStyleViewController.xib; sourceTree = "<group>"; };
+		E32EB5AD1DB858AD00A3129C /* HCSliderLeftPresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSliderLeftPresentAnimator.h; sourceTree = "<group>"; };
+		E32EB5AE1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftPresentAnimator.m; sourceTree = "<group>"; };
+		E32EB5B01DB858DF00A3129C /* HCSliderLeftDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSliderLeftDismissAnimator.h; sourceTree = "<group>"; };
+		E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftDismissAnimator.m; sourceTree = "<group>"; };
+		E32EB5B31DB8648A00A3129C /* HCSliderLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSliderLeftViewController.h; sourceTree = "<group>"; };
+		E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftViewController.m; sourceTree = "<group>"; };
 		E333D9981D9E44FA00575305 /* HCAppraiseNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseNoReplyCell.h; sourceTree = "<group>"; };
 		E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseNoReplyCell.m; sourceTree = "<group>"; };
 		E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextNoReplyCell.h; sourceTree = "<group>"; };
@@ -560,6 +570,8 @@
 		E3B1D8691D2F8A6600A8BA3E /* InspirationPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationPageViewController.m; sourceTree = "<group>"; };
 		E3B1D86B1D2F8A8A00A8BA3E /* InspirationPageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationPageViewModel.h; sourceTree = "<group>"; };
 		E3B1D86C1D2F8A8A00A8BA3E /* InspirationPageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationPageViewModel.m; sourceTree = "<group>"; };
+		E3CC56211DB84DCE00B89646 /* HCBaseTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseTransitionAnimator.h; sourceTree = "<group>"; };
+		E3CC56221DB84DCE00B89646 /* HCBaseTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBaseTransitionAnimator.m; sourceTree = "<group>"; };
 		E3FBB13D1D33358C00573343 /* InspirationAttentionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationAttentionHeaderView.h; sourceTree = "<group>"; };
 		E3FBB13E1D33358C00573343 /* InspirationAttentionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationAttentionHeaderView.m; sourceTree = "<group>"; };
 		E3FBB1401D33359900573343 /* InspirationAttentionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InspirationAttentionHeaderView.xib; sourceTree = "<group>"; };
@@ -714,6 +726,7 @@
 		E30C5A251CED8E9700BB943C /* Own */ = {
 			isa = PBXGroup;
 			children = (
+				E3CC56201DB84DA600B89646 /* TransitionAnimator */,
 				E35BA5D61DAC8D4700AB4BC1 /* BaseService */,
 				E333D99F1D9FC3E700575305 /* HUDView */,
 				E37F509B1D688EDD008B465A /* Other */,
@@ -817,6 +830,8 @@
 				E37F50B71D6B4859008B465A /* ProductDetailViewController.m */,
 				E37F50B91D6B486F008B465A /* ProductDetailViewModel.h */,
 				E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */,
+				E32EB5B31DB8648A00A3129C /* HCSliderLeftViewController.h */,
+				E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */,
 				E3A89B1A1D7432FD00656780 /* HCBaseViewController.h */,
 				E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */,
 			);
@@ -1374,6 +1389,19 @@
 			path = CategoryPageCells;
 			sourceTree = "<group>";
 		};
+		E3CC56201DB84DA600B89646 /* TransitionAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				E3CC56211DB84DCE00B89646 /* HCBaseTransitionAnimator.h */,
+				E3CC56221DB84DCE00B89646 /* HCBaseTransitionAnimator.m */,
+				E32EB5AD1DB858AD00A3129C /* HCSliderLeftPresentAnimator.h */,
+				E32EB5AE1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m */,
+				E32EB5B01DB858DF00A3129C /* HCSliderLeftDismissAnimator.h */,
+				E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */,
+			);
+			path = TransitionAnimator;
+			sourceTree = "<group>";
+		};
 		E3FBB1471D335EDA00573343 /* ShoppingBagPageCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1696,6 +1724,7 @@
 				E30EA0141D2A920900B38B37 /* NewJoinBrandView.m in Sources */,
 				E30C5A381CED95EA00BB943C /* HCTabBar.m in Sources */,
 				E303A3D11D7CFDF400C053BC /* UIImageView+HCPackWebImage.m in Sources */,
+				E3CC56231DB84DCE00B89646 /* HCBaseTransitionAnimator.m in Sources */,
 				E368C7A81D3087DA00E8783F /* InspirationStyleScrollView.m in Sources */,
 				E3240DF11CEF133B004C48C0 /* MainStyleViewController.m in Sources */,
 				E30EA0051D2A617100B38B37 /* MagazineInfoViewCell.m in Sources */,
@@ -1711,6 +1740,7 @@
 				E383FE8D1D9B550400813688 /* HCBuyQACell.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
 				E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */,
+				E32EB5AF1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m in Sources */,
 				E3A6D3331D60BF510012E1B8 /* HCModuleData.m in Sources */,
 				E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */,
 				E383FE781D9A0B7C00813688 /* HCSelectedMoudleView.m in Sources */,
@@ -1728,6 +1758,7 @@
 				E37F509A1D68452C008B465A /* HCBrand.m in Sources */,
 				E35BA5C01DAB555A00AB4BC1 /* MainStyleViewModel.m in Sources */,
 				E37F50841D6824A5008B465A /* CategroyLayoutApi.m in Sources */,
+				E32EB5B51DB8648A00A3129C /* HCSliderLeftViewController.m in Sources */,
 				E3A4472D1D795CAF009D0A3E /* HCShoppingCartView.m in Sources */,
 				E3FBB16C1D34CDC100573343 /* MinePageUserHeadCell.m in Sources */,
 				E383FEA41D9CF27F00813688 /* HCProductQAModel.m in Sources */,
@@ -1789,6 +1820,7 @@
 				E3B1D8391D2E3EC000A8BA3E /* TopCategoryView.m in Sources */,
 				E37F506A1D65B4E6008B465A /* HCFunwearRefreshFooter.m in Sources */,
 				E368C79D1D2FA99800E8783F /* InspirationPageFunerView.m in Sources */,
+				E32EB5B21DB858DF00A3129C /* HCSliderLeftDismissAnimator.m in Sources */,
 				E34B7BB81D23B8610066FE80 /* HomePageViewModel.m in Sources */,
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
 				E3FBB1761D34D97A00573343 /* MineOrderCell.m in Sources */,

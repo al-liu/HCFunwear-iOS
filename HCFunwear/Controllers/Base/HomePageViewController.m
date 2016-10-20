@@ -18,9 +18,14 @@
 #import "MainStyleViewController.h"
 #import "CategoryPageViewController.h"
 #import "GlobalConfig.h"
+
+#import "HCSliderLeftPresentAnimator.h"
+#import "HCSliderLeftDismissAnimator.h"
+#import "HCSliderLeftViewController.h"
 @interface HomePageViewController ()
 <
-    TopStyleDelegate
+    TopStyleDelegate,
+    UIViewControllerTransitioningDelegate
 >
 
 @property (strong, nonatomic) HomePageView *homePageView;
@@ -102,6 +107,7 @@
     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
     leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 58);
     [leftButton setImage:[UIImage imageNamed:@"top_cebian"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(toSliderLeft) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.leftBarButtonItem = leftItem;
     
@@ -169,6 +175,29 @@
     }
 }
 
+#pragma mark - 侧滑
+- (void)toSliderLeft {
+    HCSliderLeftViewController *viewController = [[HCSliderLeftViewController alloc]init];
+    viewController.transitioningDelegate = self;
+    viewController.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+#pragma mark - 定制转场动画 (Present 与 Dismiss动画代理)
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    // 推出控制器的动画
+    return [HCSliderLeftPresentAnimator new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    
+    HCSliderLeftDismissAnimator *dismissAnimator   = [HCSliderLeftDismissAnimator new];
+    // 退出控制器动画
+    return dismissAnimator;
+}
 
 /*
 #pragma mark - Navigation
