@@ -18,6 +18,8 @@
 
 // cid 1,2,3 = man，woman，life 风格
 @property (nonatomic, copy) NSString *cid;
+// MainStyle 里展示广告 每次进 app 才有
+@property (nonatomic, assign) BOOL isShowAdvert;
 
 + (instancetype)ShareInstance;
 

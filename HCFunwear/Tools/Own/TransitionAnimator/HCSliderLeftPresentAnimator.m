@@ -18,22 +18,17 @@
     [self.containerView addSubview:toView];
     
     //0.74 占比 
-    CGFloat originX = 0;
     CGFloat toX = SCREEN_WIDTH * 0.74;
     
     toView.right = 0;
-    self.transitionDuration = 0.3;
-    [UIView animateWithDuration:self.transitionDuration
-                          delay:0.f
-         usingSpringWithDamping:1.f
-          initialSpringVelocity:0.f
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         toView.right = toX;
-                         currentView.left = toX;
-                    } completion:^(BOOL finished) {
-                        [self completeTransition];
-                    }];
+    self.transitionDuration = 0.5;
+    [UIView animateWithDuration:self.transitionDuration animations:^{
+        toView.right = toX;
+        currentView.left = toX;
+    } completion:^(BOOL finished) {
+        [self completeTransition];
+    }];
+    
 }
 
 @end

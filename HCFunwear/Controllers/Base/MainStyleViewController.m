@@ -15,7 +15,9 @@
 #import "CategoryPageViewController.h"
 #import "HomePageViewController.h"
 
-@interface MainStyleViewController ()
+#import "HCTabBarController.h"
+
+@interface MainStyleViewController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 {
     MainStyleViewModel *_mainStyleViewModel;
 }
@@ -56,20 +58,39 @@
     
     _advertImageView.image = _mainStyleViewModel.launchBannerImage;
     
-    _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
-    [UIView animateWithDuration:5 animations:^{
-        _advertImageView.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5f animations:^{
-            _firstStyle.alpha = 1;
-            _secondStyle.alpha = 1;
-            _thirdStyle.alpha = 1;
-            _jumpButton.alpha = 0;
-        }];
-    }];
-    
     [_mainStyleViewModel.appConfigRequestCommand execute:nil];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([GlobalContext ShareInstance].isShowAdvert) {
+        _firstStyle.alpha = 1;
+        _secondStyle.alpha = 1;
+        _thirdStyle.alpha = 1;
+        _jumpButton.alpha = 0;
+    }
+    else {
+        _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
+        [UIView animateWithDuration:5 animations:^{
+            _advertImageView.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.5f animations:^{
+                _firstStyle.alpha = 1;
+                _secondStyle.alpha = 1;
+                _thirdStyle.alpha = 1;
+                _jumpButton.alpha = 0;
+            }];
+        }];
+        [GlobalContext ShareInstance].isShowAdvert = YES;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+}
+
 
 - (void)changeStyle:(UITapGestureRecognizer *)tap {
     UIView *tapView = tap.view;
@@ -96,19 +117,10 @@
         categoryPageController.categoryViewModel.refreshBrandFlag = YES;
     }
     
-    HCTabBarViewModel *tabBarVM = [HCTabBarViewModel new];
-    [_mainStyleViewModel.pushCommand execute:tabBarVM];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[GlobalContext ShareInstance].rootController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+//    HCTabBarViewModel *tabBarVM = [HCTabBarViewModel new];
+//    [_mainStyleViewModel.pushCommand execute:tabBarVM];
     
-    [[GlobalContext ShareInstance].rootController setNavigationBarHidden:NO animated:animated];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)jumpAnimation:(id)sender {

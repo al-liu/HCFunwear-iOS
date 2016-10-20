@@ -83,4 +83,20 @@
     }
 }
 
+#pragma mark - 定制转场动画 (Present 与 Dismiss动画代理)
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    // 推出控制器的动画
+    return [HCMainStylePresentAnimator new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    
+    HCMainStyleDismissAnimator *dismissAnimator   = [HCMainStyleDismissAnimator new];
+    // 退出控制器动画
+    return dismissAnimator;
+}
+
 @end

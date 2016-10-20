@@ -39,6 +39,8 @@
 		E32EB5AF1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5AE1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m */; };
 		E32EB5B21DB858DF00A3129C /* HCSliderLeftDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */; };
 		E32EB5B51DB8648A00A3129C /* HCSliderLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */; };
+		E32EB5CB1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5CA1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m */; };
+		E32EB5CE1DB8F71100A3129C /* HCMainStyleDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E32EB5CD1DB8F71100A3129C /* HCMainStyleDismissAnimator.m */; };
 		E333D99A1D9E44FA00575305 /* HCAppraiseNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */; };
 		E333D99D1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D99C1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.m */; };
 		E333D9A81D9FC83000575305 /* HCHudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9A71D9FC83000575305 /* HCHudManager.m */; };
@@ -293,6 +295,10 @@
 		E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftDismissAnimator.m; sourceTree = "<group>"; };
 		E32EB5B31DB8648A00A3129C /* HCSliderLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSliderLeftViewController.h; sourceTree = "<group>"; };
 		E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftViewController.m; sourceTree = "<group>"; };
+		E32EB5C91DB8F6DA00A3129C /* HCMainStylePresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainStylePresentAnimator.h; sourceTree = "<group>"; };
+		E32EB5CA1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainStylePresentAnimator.m; sourceTree = "<group>"; };
+		E32EB5CC1DB8F71100A3129C /* HCMainStyleDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMainStyleDismissAnimator.h; sourceTree = "<group>"; };
+		E32EB5CD1DB8F71100A3129C /* HCMainStyleDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMainStyleDismissAnimator.m; sourceTree = "<group>"; };
 		E333D9981D9E44FA00575305 /* HCAppraiseNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseNoReplyCell.h; sourceTree = "<group>"; };
 		E333D9991D9E44FA00575305 /* HCAppraiseNoReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAppraiseNoReplyCell.m; sourceTree = "<group>"; };
 		E333D99B1D9E482700575305 /* HCAppraiseOnlyTextNoReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAppraiseOnlyTextNoReplyCell.h; sourceTree = "<group>"; };
@@ -1398,6 +1404,10 @@
 				E32EB5AE1DB858AD00A3129C /* HCSliderLeftPresentAnimator.m */,
 				E32EB5B01DB858DF00A3129C /* HCSliderLeftDismissAnimator.h */,
 				E32EB5B11DB858DF00A3129C /* HCSliderLeftDismissAnimator.m */,
+				E32EB5C91DB8F6DA00A3129C /* HCMainStylePresentAnimator.h */,
+				E32EB5CA1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m */,
+				E32EB5CC1DB8F71100A3129C /* HCMainStyleDismissAnimator.h */,
+				E32EB5CD1DB8F71100A3129C /* HCMainStyleDismissAnimator.m */,
 			);
 			path = TransitionAnimator;
 			sourceTree = "<group>";
@@ -1747,6 +1757,7 @@
 				E383FE9E1D9CE58400813688 /* HCProductDetailModel.m in Sources */,
 				E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */,
 				E3B1D86A1D2F8A6600A8BA3E /* InspirationPageViewController.m in Sources */,
+				E32EB5CE1DB8F71100A3129C /* HCMainStyleDismissAnimator.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
 				E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */,
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
@@ -1770,6 +1781,7 @@
 				E383FE941D9CC0BC00813688 /* GetProductDetailsApi.m in Sources */,
 				E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
+				E32EB5CB1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m in Sources */,
 				E37F50221D62F074008B465A /* HCCollectionCellInfo.m in Sources */,
 				E34B7BE91D23E5A90066FE80 /* ProductShowBrandPriceCell.m in Sources */,
 				E3B1D86D1D2F8A8A00A8BA3E /* InspirationPageViewModel.m in Sources */,

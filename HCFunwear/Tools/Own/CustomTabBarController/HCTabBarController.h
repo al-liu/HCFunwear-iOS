@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "HCTabBar.h"
 
+#import "HCMainStylePresentAnimator.h"
+#import "HCMainStyleDismissAnimator.h"
+#import "MainStyleViewController.h"
+
 @class HCTabBarController;
 @protocol HCTabBarControllerDelegate <NSObject>
 
@@ -21,7 +25,7 @@
 //- (void)tabBarControllerDidLayoutViewControllers:(HCTabBarController *)tabBarController;
 
 @end
-@interface HCTabBarController : UIViewController <tabBarDelegate>
+@interface HCTabBarController : UIViewController <tabBarDelegate,UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, weak) id <HCTabBarControllerDelegate> delegate;
 @property (nonatomic, strong, readonly) NSArray *viewControllers;

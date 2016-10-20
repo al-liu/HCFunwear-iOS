@@ -7,21 +7,23 @@
 //
 
 #import "AppDelegate.h"
+
 #import "HCTabItem.h"
-#import "GlobalColors.h"
 #import "HCTabBar.h"
 #import "HCTabButton.h"
 #import "HCTabBarController.h"
 
 #import "MainStyleViewController.h"
 #import "HomePageViewController.h"
-#import "GlobalContext.h"
 #import "CategoryPageViewController.h"
 #import "InspirationPageViewController.h"
 #import "ShoppingBagPageViewController.h"
 #import "MinePageViewController.h"
+
+#import "GlobalContext.h"
 #import "GlobalConfig.h"
-#import "HCHomeViewModelServiceImpl.h"
+#import "GlobalColors.h"
+
 #import "HomePageViewModel.h"
 #import "CategoryPageViewModel.h"
 #import "InspirationPageViewModel.h"
@@ -29,6 +31,7 @@
 #import "HCCategoryViewModelServicesImp.h"
 #import "HCInspirationViewModelServiceImp.h"
 #import "HCProductDetailViewModelServiceImp.h"
+#import "HCHomeViewModelServiceImpl.h"
 
 @interface AppDelegate () <HCTabBarControllerDelegate>
 
@@ -40,8 +43,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    MainStyleViewController *styleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
-    
     //配置网络服务
     GlobalConfig *configManager = [GlobalConfig new];
     [configManager configDefaultNetworkParameters];
@@ -52,9 +53,7 @@
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
     
-    MainStyleViewController *rootMenuVC = [[MainStyleViewController alloc]initWithNibName:@"MainStyleViewController" bundle:nil];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:rootMenuVC];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
@@ -64,6 +63,11 @@
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
     [GlobalContext ShareInstance].rootController = navigationController;
+    //默认广告页
+    MainStyleViewController *mainStyleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+    mainStyleController.transitioningDelegate = tabBarController;
+    mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
+    [[GlobalContext ShareInstance].mainTabBarController presentViewController:mainStyleController animated:NO completion:nil];
     
         
     return YES;
@@ -166,7 +170,12 @@
 //        HCTabButton *mineTabButton = tabBarController.tabBar.tabButtonList.lastObject;
 //        [mineTabButton updateItem:minePointTabItem];
         
-        [[GlobalContext ShareInstance].rootController popViewControllerAnimated:YES];
+//        [[GlobalContext ShareInstance].rootController popViewControllerAnimated:YES];
+        
+        MainStyleViewController *mainStyleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+        mainStyleController.transitioningDelegate = tabBarController;
+        mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
+        [tabBarController presentViewController:mainStyleController animated:YES completion:nil];
     }
 }
 

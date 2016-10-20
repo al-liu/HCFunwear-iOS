@@ -1,36 +1,34 @@
-
 //
-//  HCSliderLeftDismissAnimator.m
+//  HCMainStylePresentAnimator.m
 //  HCFunwear
 //
 //  Created by 刘海川 on 16/10/20.
 //  Copyright © 2016年 Haichuan Liu. All rights reserved.
 //
 
-#import "HCSliderLeftDismissAnimator.h"
-#import "GlobalConstant.h"
+#import "HCMainStylePresentAnimator.h"
 #import "UIView+YYAdd.h"
+#import "GlobalConstant.h"
 
-@implementation HCSliderLeftDismissAnimator
+@implementation HCMainStylePresentAnimator
 
 - (void)animateTransitionEvent {
     UIView *currentView = self.fromViewController.view;
     UIView *toView = self.toViewController.view;
+    [self.containerView addSubview:toView];
     
-    //0.74 占比
-    CGFloat originX = 0;
-    CGFloat toX = SCREEN_WIDTH * 0.74;
-    
-    toView.left = toX;
-    
+    toView.right = 0;
+    toView.left = -SCREEN_WIDTH;
+    toView.top = 0;
+    toView.width = SCREEN_WIDTH;
+    toView.height = SCREEN_HEIGHT;
     self.transitionDuration = 0.7;
     [UIView animateWithDuration:self.transitionDuration animations:^{
-        toView.left = originX;
-        currentView.right = originX;
+        toView.left = 0;
+        currentView.left = SCREEN_WIDTH;
     } completion:^(BOOL finished) {
         [self completeTransition];
     }];
-
 }
 
 @end
