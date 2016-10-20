@@ -10,4 +10,8 @@
 
 @interface HCSliderLeftPresentAnimator : HCBaseTransitionAnimator
 
+//回调 self.containerView 的事件
+
+@property (nonatomic, copy)void(^gobackSliderLeftBlock)();
+
 @end

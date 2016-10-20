@@ -30,6 +30,8 @@
 
 @property (strong, nonatomic) HomePageView *homePageView;
 
+@property (strong, nonatomic) HCSliderLeftPresentAnimator *sliderLeftPresentAnimator;
+
 @end
 
 @implementation HomePageViewController
@@ -47,6 +49,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _sliderLeftPresentAnimator = [HCSliderLeftPresentAnimator new];
+    @weakify(self);
+    _sliderLeftPresentAnimator.gobackSliderLeftBlock = ^(){
+        @strongify(self);
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
     
     [self initUI];
     [self bindViewModel];
@@ -189,7 +197,7 @@
                                                                       sourceController:(UIViewController *)source {
     
     // 推出控制器的动画
-    return [HCSliderLeftPresentAnimator new];
+    return _sliderLeftPresentAnimator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
