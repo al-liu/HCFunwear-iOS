@@ -26,16 +26,11 @@
 
 @implementation MainStyleViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    _jumpButton.layer.borderWidth = 1;
-    _jumpButton.layer.borderColor = [UIColor whiteColor].CGColor;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _jumpButton.layer.borderWidth = 1;
+    _jumpButton.layer.borderColor = [UIColor whiteColor].CGColor;
     
     HCMainStyleViewModelServiceImp *styleViewModelServiceImpl = [HCMainStyleViewModelServiceImp new];
     _mainStyleViewModel = [[MainStyleViewModel alloc]initWithServices:styleViewModelServiceImpl];
@@ -72,7 +67,7 @@
     }
     else {
         _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
-        [UIView animateWithDuration:5 animations:^{
+        [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             _advertImageView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.5f animations:^{
@@ -82,6 +77,7 @@
                 _jumpButton.alpha = 0;
             }];
         }];
+
         [GlobalContext ShareInstance].isShowAdvert = YES;
     }
 }
