@@ -16,6 +16,7 @@
 #import "HomePageViewController.h"
 
 #import "HCTabBarController.h"
+#import "HCProductDetailStyleViewController.h"
 
 @interface MainStyleViewController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 {
@@ -59,34 +60,37 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([GlobalContext ShareInstance].isShowAdvert) {
-        _firstStyle.alpha = 1;
-        _secondStyle.alpha = 1;
-        _thirdStyle.alpha = 1;
-        _jumpButton.alpha = 0;
-    }
-    else {
-        _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
-        [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            _advertImageView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.5f animations:^{
-                _firstStyle.alpha = 1;
-                _secondStyle.alpha = 1;
-                _thirdStyle.alpha = 1;
-                _jumpButton.alpha = 0;
-            }];
-        }];
-
-        [GlobalContext ShareInstance].isShowAdvert = YES;
-    }
+//    if ([GlobalContext ShareInstance].isShowAdvert) {
+//        _firstStyle.alpha = 1;
+//        _secondStyle.alpha = 1;
+//        _thirdStyle.alpha = 1;
+//        _jumpButton.alpha = 0;
+//    }
+//    else {
+//        _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
+//        [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//            _advertImageView.transform = CGAffineTransformIdentity;
+//        } completion:^(BOOL finished) {
+//            [UIView animateWithDuration:0.5f animations:^{
+//                _firstStyle.alpha = 1;
+//                _secondStyle.alpha = 1;
+//                _thirdStyle.alpha = 1;
+//                _jumpButton.alpha = 0;
+//            }];
+//        }];
+//
+//        [GlobalContext ShareInstance].isShowAdvert = YES;
+//    }
+    
+    HCProductDetailStyleViewController *vc = [[HCProductDetailStyleViewController alloc]init];
+    [self presentViewController:vc animated:NO completion:nil];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
 }
-
 
 - (void)changeStyle:(UITapGestureRecognizer *)tap {
     UIView *tapView = tap.view;

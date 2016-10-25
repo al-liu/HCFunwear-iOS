@@ -39,7 +39,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -69,7 +68,6 @@
     mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
     [[GlobalContext ShareInstance].mainTabBarController presentViewController:mainStyleController animated:NO completion:nil];
     
-        
     return YES;
 }
 
