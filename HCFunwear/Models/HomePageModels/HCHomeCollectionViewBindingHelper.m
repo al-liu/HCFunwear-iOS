@@ -24,6 +24,9 @@
 #import "ProductShowBrandPriceCell.h"
 #import "HomePageHeadReusableView.h"
 
+#import "HCFunwearRefreshHeader.h"
+#import "HCFunwearRefreshFooter.h"
+
 #import "GlobalConstant.h"
 #import "GlobalColors.h"
 
@@ -115,11 +118,13 @@ static NSString *kHomePageHeadReusableViewIdentifier = @"kHomePageHeadReusableVi
             self->_data = [mutableArray copy];
             
             [self->_collectionView reloadData];
+            [self->_collectionView.mj_header endRefreshing];
         }];
         
         [[products skip:1] subscribeNext:^(id x) {
             self->_productsData = x;
             [self->_collectionView reloadData];
+            [self->_collectionView.mj_footer endRefreshing];
         }];
         
         [self registerCollectionCells];

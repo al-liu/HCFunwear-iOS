@@ -19,7 +19,9 @@
 @property (nonatomic, strong) RACCommand *detailRequestCommand;
 @property (nonatomic, strong) RACCommand *commentRequestCommand;
 @property (nonatomic, strong) RACCommand *qaRequestCommand;
+
 @property (nonatomic, strong) RACCommand *pushCommand;
+@property (nonatomic, strong) RACCommand *addGoodsCommand;
 
 @property (nonatomic, strong) RACSignal *batchStream;
 

@@ -7,6 +7,10 @@
 //
 
 #import "ProductDetailViewModel.h"
+
+#import "HCProductDetailStyleViewModel.h"
+#import "HCGoodsKindViewModelServiceImp.h"
+
 #import "NSObject+YYModel.h"
 #import "GlobalConstant.h"
 
@@ -44,6 +48,10 @@
     self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executePushSignal:input];
     }];
+    self.addGoodsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeToGoodKindSignal];
+    }];
+    
     NSArray *batch = @[[self executeDetailSignal],
                        [self executeCommentSignal],
                        [self executeQASignal]];
@@ -97,6 +105,17 @@
 - (RACSignal *)executePushSignal:(id)viewModel {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [self.services pushViewModel:viewModel animated:YES];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
+
+- (RACSignal *)executeToGoodKindSignal {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        HCGoodsKindViewModelServiceImp *imp = [HCGoodsKindViewModelServiceImp new];
+        HCProductDetailStyleViewModel *viewModel = [[HCProductDetailStyleViewModel alloc] initWithServices:imp];
+        viewModel.goodsCode = self.productCode;
+        [self.services presentViewModel:viewModel animated:YES completion:nil];
         [subscriber sendCompleted];
         return nil;
     }];

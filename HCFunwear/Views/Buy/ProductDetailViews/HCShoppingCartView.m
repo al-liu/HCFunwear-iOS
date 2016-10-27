@@ -34,7 +34,7 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:18];
         [self addSubview:btn];
         
-        [btn addTarget:self action:@selector(addGoods) forControlEvents:UIControlEventTouchUpInside];
+//        [btn addTarget:self action:@selector(addGoods) forControlEvents:UIControlEventTouchUpInside];
         
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self);
@@ -43,6 +43,7 @@
         
         btn;
     });
+    self.addGoodsCommand = addGoodsBtn.rac_command;
     
     HCTopImageBottpnTitleView *collectView = ({
         HCTopImageBottpnTitleView *view = [HCTopImageBottpnTitleView new];
@@ -101,10 +102,6 @@
         view;
     });
     line02.backgroundColor = kCellLineColor;
-}
-
-- (void)addGoods {
-    
 }
 
 @end

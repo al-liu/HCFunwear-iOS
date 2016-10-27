@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReactiveCocoa.h"
 
 @interface HCShoppingCartView : UIView
+
+@property (nonatomic, strong) RACCommand *addGoodsCommand;
 
 @end
