@@ -11,6 +11,7 @@
 @interface GetProductDetailsApi : YTKRequest
 
 @property (nonatomic, copy)NSString *code;
+
 - (instancetype)initWithCode:(NSString *)code;
 
 @end

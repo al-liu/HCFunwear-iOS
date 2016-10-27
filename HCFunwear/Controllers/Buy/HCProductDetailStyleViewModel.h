@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCGoodsKindViewModelService.h"
 
 @interface HCProductDetailStyleViewModel : NSObject
+
+@property (nonatomic, strong) RACCommand *requestCommand;
+
+@property (nonatomic, strong) RACCommand *pushCommand;
+
+@property (nonatomic, copy) NSString *goodsCode;
+
+@property (nonatomic, strong) NSArray *goodsKindList;
+
+- (instancetype)initWithServices:(id<HCGoodsKindViewModelService>)services;
 
 @end

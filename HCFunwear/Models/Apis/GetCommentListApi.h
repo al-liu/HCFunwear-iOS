@@ -11,7 +11,9 @@
 @interface GetCommentListApi : YTKRequest
 
 @property (nonatomic, copy)NSString *code;
+
 @property (nonatomic, assign) NSInteger page;
+
 - (instancetype)initWithCode:(NSString *)code page:(NSInteger)index;
 
 @end
