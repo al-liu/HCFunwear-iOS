@@ -19,7 +19,11 @@
 
 #import "GlobalContext.h"
 
-@interface HCProductDetailViewModelServiceImp () 
+@interface HCProductDetailViewModelServiceImp ()
+
+{
+    HCProductDetailStyleViewController *detailStyleViewController;
+}
 
 @property (nonatomic, strong) HCProductDetailApiServiceImp *productDetailServiceImpl;
 
@@ -40,7 +44,10 @@
         @weakify(self);
         _productDetailStylePresentAnimator.productStyleBlock = ^(){
             @strongify(self);
-            [self dismissViewModelAnimated:YES completion:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self -> detailStyleViewController dismissViewControllerAnimated:YES completion:nil];
+            });
+            
         };
     }
     return self;
@@ -60,7 +67,7 @@
 
 - (void)presentViewModel:(id)viewModel animated:(BOOL)animated completion:(void (^)(void))completion {
     if ([viewModel isKindOfClass:HCProductDetailStyleViewModel.class]) {
-        HCProductDetailStyleViewController *detailStyleViewController = [[HCProductDetailStyleViewController alloc]initWithViewModel:viewModel];
+        detailStyleViewController = [[HCProductDetailStyleViewController alloc]initWithViewModel:viewModel];
         detailStyleViewController.transitioningDelegate = self;
         detailStyleViewController.modalPresentationStyle = UIModalPresentationCustom;
         [[GlobalContext ShareInstance].rootController presentViewController:detailStyleViewController animated:YES completion:nil];

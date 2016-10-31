@@ -47,8 +47,8 @@
     [configManager configDefaultNetworkParameters];
     [configManager configLog];
     
-    
     self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
     

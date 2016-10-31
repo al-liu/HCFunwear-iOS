@@ -11,6 +11,12 @@
 #import "HCTopImageBottpnTitleView.h"
 #import "GlobalColors.h"
 
+@interface HCShoppingCartView ()
+{
+    UIButton *_addGoodsBtn;
+}
+@end
+
 @implementation HCShoppingCartView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -25,7 +31,7 @@
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
     //135/320 加入购物袋 f:18
-    UIButton *addGoodsBtn = ({
+    _addGoodsBtn = ({
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.backgroundColor = [UIColor colorWithWhite:0.133 alpha:1.000];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -34,8 +40,6 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:18];
         [self addSubview:btn];
         
-//        [btn addTarget:self action:@selector(addGoods) forControlEvents:UIControlEventTouchUpInside];
-        
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self);
             make.width.equalTo(self.mas_width).multipliedBy(135.0/320);
@@ -43,7 +47,6 @@
         
         btn;
     });
-    self.addGoodsCommand = addGoodsBtn.rac_command;
     
     HCTopImageBottpnTitleView *collectView = ({
         HCTopImageBottpnTitleView *view = [HCTopImageBottpnTitleView new];
@@ -65,7 +68,7 @@
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
             make.left.equalTo(collectView.mas_right);
-            make.right.equalTo(addGoodsBtn.mas_left);
+            make.right.equalTo(_addGoodsBtn.mas_left);
             make.width.equalTo(collectView.mas_width);
         }];
         
@@ -102,6 +105,10 @@
         view;
     });
     line02.backgroundColor = kCellLineColor;
+}
+
+- (void)bindAddGoodsCommand:(RACCommand *)command {
+    _addGoodsBtn.rac_command = command;
 }
 
 @end

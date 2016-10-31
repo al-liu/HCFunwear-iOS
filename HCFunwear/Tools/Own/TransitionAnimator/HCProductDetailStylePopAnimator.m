@@ -15,10 +15,10 @@
 - (void)animateTransitionEvent {
     UIView *currentView = self.fromViewController.view;
     UIView *toView = self.toViewController.view;
-    [self.containerView addSubview:toView];
     
     toView.transform = CGAffineTransformMakeScale(0.90, 0.90);
     
+    self.containerView.backgroundColor = [UIColor clearColor];
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.transform = CGAffineTransformMakeScale(1, 1);
         currentView.top = SCREEN_HEIGHT;

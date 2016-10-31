@@ -11,6 +11,6 @@
 
 @interface HCShoppingCartView : UIView
 
-@property (nonatomic, strong) RACCommand *addGoodsCommand;
+- (void)bindAddGoodsCommand:(RACCommand *)command;
 
 @end

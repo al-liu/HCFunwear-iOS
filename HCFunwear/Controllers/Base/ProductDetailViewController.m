@@ -101,7 +101,11 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         make.height.equalTo(@50);
     }];
     
-    _viewModel.addGoodsCommand = shoppingCartView.addGoodsCommand;
+    [shoppingCartView bindAddGoodsCommand:_viewModel.addGoodsCommand];
+    
+//    [[shoppingCartView.addGoodsCommand execute:nil] subscribeNext:^(id x) {
+//        NSLog(@"aaa");
+//    }]; 
     
     HCHudManager *hudManager = [HCHudManager new];
     [hudManager addHUDToView:self.navigationController.view];

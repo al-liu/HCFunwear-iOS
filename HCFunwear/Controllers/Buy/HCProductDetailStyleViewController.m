@@ -24,7 +24,6 @@
     if (self) {
         _productDetailStyleViewModel = viewModel;
         
-        
     }
     return self;
 }
@@ -37,8 +36,7 @@
     [self.view addSubview:detailStyleView];
     
     [detailStyleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(SCREEN_HEIGHT * 0.31));
-        make.left.right.equalTo(self.view);
+        make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view);
     }];
 }
