@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReactiveCocoa.h"
+#import "HCProductDetailStyleViewModel.h"
 
 @interface ProductDetailStyleView : UIView
+
+- (void)bindViewModel:(HCProductDetailStyleViewModel *)viewModel;
 
 @end

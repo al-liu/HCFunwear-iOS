@@ -23,9 +23,6 @@
     CGFloat toY = SCREEN_HEIGHT * 0.31;
     
     self.containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-    self.containerView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(productSyle)];
-    [self.containerView addGestureRecognizer:tap];
     
     [UIView animateWithDuration:self.transitionDuration animations:^{
         currentView.transform = CGAffineTransformMakeScale(0.9, 0.9);
@@ -34,12 +31,5 @@
         [self completeTransition];
     }];
 }
-
-- (void)productSyle {
-    if (_productStyleBlock) {
-        _productStyleBlock();
-    }
-}
-
 
 @end

@@ -15,6 +15,7 @@
 #import "HCGoodsKindTagCell.h"
 #import "HCGoodsKindTagKindHeaderView.h"
 #import "HCGoodsKindSelectFooterView.h"
+#import "HCGoodsKindModel.h"
 
 static NSString *kHCGoodsKindTagCellId = @"HCGoodsKindTagCellId";
 static NSString *kHCGoodsKindTagKindHeaderId = @"HCGoodsKindTagKindHeaderId";
@@ -28,8 +29,10 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     //color size 实际上会做成模型
     NSMutableDictionary *_goodsStyleInfo;
     
-    NSIndexPath *_colorSelectedIndexPath;
-    NSIndexPath *_sizeSelectedIndexPath;
+    NSInteger _colorSelectedIndex;
+    NSInteger _sizeSelectedIndex;
+    
+    UICollectionView *_collectionView;
 }
 
 @property (nonatomic, strong) HCProductDetailStyleViewModel *productDetailStyleViewModel;
@@ -50,6 +53,25 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initUI];
+    
+    @weakify(self);
+    [_productDetailStyleViewModel.requestCommand execute:nil];
+    [[RACObserve(_productDetailStyleViewModel, goodsKindList) skip:1] subscribeNext:^(id x) {
+        @strongify(self);
+        [self->_collectionView reloadData];
+        _colorSelectedIndex = 0;
+        _sizeSelectedIndex = 0;
+        [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0]
+                                      animated:NO
+                                scrollPosition:UICollectionViewScrollPositionNone];
+        [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1]
+                                      animated:NO
+                                scrollPosition:UICollectionViewScrollPositionNone];
+    }];
+}
+
+- (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
     //商品信息
     ProductDetailStyleView *detailStyleView = [ProductDetailStyleView new];
@@ -59,6 +81,8 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
         make.top.left.right.equalTo(self.view);
         make.height.equalTo(@104);
     }];
+    
+    [detailStyleView bindViewModel:_productDetailStyleViewModel];
     
     //底部确定按钮
     CGFloat bottom = SCREEN_HEIGHT * 0.31;
@@ -91,55 +115,60 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
     flowLayout.headerReferenceSize = CGSizeMake(screen_size.width, 37);
     
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    collectionView.backgroundColor = [UIColor whiteColor];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    collectionView.allowsMultipleSelection = YES;
-    [self.view addSubview:collectionView];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    _collectionView.allowsMultipleSelection = YES;
+    [self.view addSubview:_collectionView];
     
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(detailStyleView.mas_bottom);
         make.bottom.equalTo(submitButton.mas_top);
     }];
     
-    [collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindTagCell" bundle:nil]
+    [_collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindTagCell" bundle:nil]
      forCellWithReuseIdentifier:kHCGoodsKindTagCellId];
-    [collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindTagKindHeaderView" bundle:nil]
+    [_collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindTagKindHeaderView" bundle:nil]
      forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
             withReuseIdentifier:kHCGoodsKindTagKindHeaderId];
-    [collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindSelectFooterView" bundle:nil]
+    [_collectionView registerNib:[UINib nibWithNibName:@"HCGoodsKindSelectFooterView" bundle:nil]
      forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
             withReuseIdentifier:kHCGoodsKindSelectFooterId];
     
-    _colorSelectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    _sizeSelectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-    [collectionView selectItemAtIndexPath:_colorSelectedIndexPath
-                                 animated:NO
-                           scrollPosition:UICollectionViewScrollPositionNone];
-    [collectionView selectItemAtIndexPath:_sizeSelectedIndexPath
-                                 animated:NO
-                           scrollPosition:UICollectionViewScrollPositionNone];
-    NSString *defaultColorString = _datas[_colorSelectedIndexPath.section][@"tags"][_colorSelectedIndexPath.row];
-    NSString *defaultSizeString = _datas[_sizeSelectedIndexPath.section][@"tags"][_sizeSelectedIndexPath.row];
-    _goodsStyleInfo = [[NSMutableDictionary alloc]initWithDictionary:@{@"color":defaultColorString,@"size":defaultSizeString}];
     
+    
+//    NSString *defaultColorString = _datas[_colorSelectedIndexPath.section][@"tags"][_colorSelectedIndexPath.row];
+//    NSString *defaultSizeString = _datas[_sizeSelectedIndexPath.section][@"tags"][_sizeSelectedIndexPath.row];
+//    _goodsStyleInfo = [[NSMutableDictionary alloc]initWithDictionary:@{@"color":defaultColorString,@"size":defaultSizeString}];
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSArray *tags = _datas[section][@"tags"];
-    return tags.count;
+    if (section == 0) {
+        return _productDetailStyleViewModel.goodsKindList.count;
+    }
+    HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+    return kindModel.sizeList.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _datas.count;
+    return 2;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HCGoodsKindTagCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHCGoodsKindTagCellId forIndexPath:indexPath];
-    cell.tagLabel.text = _datas[indexPath.section][@"tags"][indexPath.row];
+    if (indexPath.section == 0) {
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[indexPath.row];
+        cell.tagLabel.text = kindModel.coloR_NAME;
+    }
+    else if (indexPath.section == 1) {
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[indexPath.row];
+        cell.tagLabel.text = sizeModel.speC_NAME;
+    }
+    
     return cell;
 }
 
@@ -148,7 +177,13 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
                                  atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         HCGoodsKindTagKindHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHCGoodsKindTagKindHeaderId forIndexPath:indexPath];
-        header.kindTitleLabel.text = _datas[indexPath.section][@"title"];
+        if (indexPath.section == 0) {
+            header.kindTitleLabel.text = @"颜色";
+        }
+        else if (indexPath.section == 1) {
+            header.kindTitleLabel.text = @"尺寸";
+        }
+        
         return header;
     }
     else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
@@ -159,58 +194,59 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
 }
 
 #pragma mark - UICollectionViewDelegate
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *value = _datas[indexPath.section][@"tags"][indexPath.row];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     switch (indexPath.section) {
         case 0:
         {
-            if ([value isEqualToString:_goodsStyleInfo[@"color"]]) {
-                return NO;
-            }
-            else {
-                return YES;
-            }
+            //取出 Kind
+            HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[indexPath.row];
+            
+            [collectionView deselectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0] animated:NO];
+            _colorSelectedIndex = indexPath.row;
+            _sizeSelectedIndex = 0;
+            //刷新 size 组
+            [collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:1]];
+            [collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
         }
             break;
         case 1:
-            if ([value isEqualToString:_goodsStyleInfo[@"size"]]) {
-                return NO;
-            }
-            else {
-                return YES;
-            }
+        {
+            //取出 Size
+            HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+            HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[indexPath.row];
+            
+            [collectionView deselectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1] animated:NO];
+            _sizeSelectedIndex = indexPath.row;
+        }
         default:
             break;
     }
-    return YES;
-}
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"选中了 第 %ld 组 第 %ld 个",indexPath.section,indexPath.row);
-    NSString *value = _datas[indexPath.section][@"tags"][indexPath.row];
-    switch (indexPath.section) {
-        case 0:
-            [_goodsStyleInfo setObject:value forKey:@"color"];
-            [collectionView deselectItemAtIndexPath:_colorSelectedIndexPath animated:NO];
-            _colorSelectedIndexPath = indexPath;
-            break;
-        case 1:
-            [_goodsStyleInfo setObject:value forKey:@"size"];
-            [collectionView deselectItemAtIndexPath:_sizeSelectedIndexPath animated:NO];
-            _sizeSelectedIndexPath = indexPath;
-        default:
-            break;
-    }
+    
+    
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    //计算暂时在这里做
-    NSString *tagString = _datas[indexPath.section][@"tags"][indexPath.row];
-    CGRect tagRect = [tagString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, _defaultItemSize.height)
-                                             options:NSStringDrawingUsesLineFragmentOrigin
-                                          attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}
-                                             context:nil];
-    CGFloat countItemWidth = tagRect.size.width + 10;
+    
+    CGFloat countItemWidth = 0;
+    if (indexPath.section == 0) {
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[indexPath.row];
+        countItemWidth = kindModel.color_tag_width;
+    }
+    else if (indexPath.section == 1) {
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[indexPath.row];
+        countItemWidth = sizeModel.spec_tag_width;
+    }
+//    
+//    //计算暂时在这里做
+//    NSString *tagString = _datas[indexPath.section][@"tags"][indexPath.row];
+//    CGRect tagRect = [tagString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, _defaultItemSize.height)
+//                                             options:NSStringDrawingUsesLineFragmentOrigin
+//                                          attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}
+//                                             context:nil];
+//    CGFloat countItemWidth = tagRect.size.width + 10;
     CGFloat itemWidth = countItemWidth > _defaultItemSize.width ? (countItemWidth + 10) : _defaultItemSize.width;
     return CGSizeMake(itemWidth , _defaultItemSize.height);
 }

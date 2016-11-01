@@ -103,14 +103,13 @@
 }
 
 - (void)reloadData {
-    if (_userFeastModule.data.count == 4) {
-        _headTitleView.headModule = _userFeastModule;
-        HCModuleData *data = _userFeastModule.data.firstObject;
-        
-        [_feastImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
-        
-        [_productGridView reloadData];
-    }
+    
+    _headTitleView.headModule = _userFeastModule;
+    HCModuleData *data = _userFeastModule.data.firstObject;
+    
+    [_feastImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
+    
+    [_productGridView reloadData];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -131,7 +130,13 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    if (_userFeastModule.data.count >= 4) {
+        return 3;
+    }
+    else if (_userFeastModule.data.count == 0) {
+        return 0;
+    }
+    return _userFeastModule.data.count - 1;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:

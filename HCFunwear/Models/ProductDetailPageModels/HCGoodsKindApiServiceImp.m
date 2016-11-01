@@ -24,4 +24,10 @@
     }];
 }
 
+/*
+ 
+ [1]	(null)	@"NSErrorFailingURLKey" : @"http://api.funwear.com/mbfun_server/index.php?_platform=1&deviceId=41A19C47-0EAB-45AC-98C1-28E852EE5F17&appName=youfanguanfang&osName=iPhone%20OS&osCode=ios&osVersion=9.2.1&a=ProductFilter&cid=2&m=ProductFilter&prodClsIdList=818936&token="
+ 
+ */
+
 @end

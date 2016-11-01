@@ -27,8 +27,6 @@
 
 @property (nonatomic, strong) HCProductDetailApiServiceImp *productDetailServiceImpl;
 
-@property (nonatomic, strong) HCProductDetailStylePresentAnimator *productDetailStylePresentAnimator;
-
 @end
 
 @implementation HCProductDetailViewModelServiceImp
@@ -38,17 +36,7 @@
     self = [super init];
     if (self) {
         _productDetailServiceImpl = [HCProductDetailApiServiceImp new];
-        
-        _productDetailStylePresentAnimator = [HCProductDetailStylePresentAnimator new];
-        
-        @weakify(self);
-        _productDetailStylePresentAnimator.productStyleBlock = ^(){
-            @strongify(self);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self -> detailStyleViewController dismissViewControllerAnimated:YES completion:nil];
-            });
-            
-        };
+                
     }
     return self;
 }
@@ -79,8 +67,7 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
     
-    // 推出控制器的动画
-    return _productDetailStylePresentAnimator;
+    return [HCProductDetailStylePresentAnimator new];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {

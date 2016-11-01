@@ -17,6 +17,7 @@
     UILabel *_priceLabel;
     UILabel *_goodsCodeLabel;
     UILabel *_preferentialInfoLabel;
+    UIButton *_closeButton;
 }
 
 @end
@@ -33,6 +34,7 @@
 }
 
 - (void)initUI {
+    self.userInteractionEnabled = YES;
     //Product Info h：103
     //goods image  w:93 h:103
     _productImageView = ({
@@ -68,7 +70,7 @@
     });
     
     //close button
-    UIButton *closeButton = ({
+    _closeButton = ({
         UIButton *view = [UIButton buttonWithType:UIButtonTypeCustom];
         [view setImage:[UIImage imageNamed:@"cameraclose"] forState:UIControlStateNormal];
         [self addSubview:view];
@@ -132,7 +134,10 @@
         view;
     });
     
-    
+}
+
+- (void)bindViewModel:(HCProductDetailStyleViewModel *)viewModel {
+    _closeButton.rac_command = viewModel.dismissCommand;
 }
 
 /*

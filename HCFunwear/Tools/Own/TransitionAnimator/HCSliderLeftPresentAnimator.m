@@ -17,10 +17,6 @@
     UIView *toView = self.toViewController.view;
     [self.containerView addSubview:toView];
     self.containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-    self.containerView.userInteractionEnabled = YES;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gobackSliderLeft)];
-    [self.containerView addGestureRecognizer:tap];
     
     //0.74 占比 
     CGFloat toX = SCREEN_WIDTH * 0.74;
@@ -34,12 +30,6 @@
         [self completeTransition];
     }];
     
-}
-
-- (void)gobackSliderLeft {
-    if (_gobackSliderLeftBlock) {
-        _gobackSliderLeftBlock();
-    }
 }
 
 @end

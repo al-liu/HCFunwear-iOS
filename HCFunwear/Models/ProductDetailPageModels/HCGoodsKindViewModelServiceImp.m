@@ -41,4 +41,8 @@
     }
 }
 
+- (void)dismissViewModelAnimated:(BOOL)animated completion:(void (^)(void))completion {
+    [[GlobalContext ShareInstance].rootController dismissViewControllerAnimated:animated completion:nil];
+}
+
 @end

@@ -51,7 +51,9 @@
     RACSignal *signal02 = RACObserve(_categoryViewModel, refreshCategoryFlag);
     RACSignal *signal03 = RACObserve(_categoryViewModel, refreshBrandFlag);
     NSArray *signalArray = @[signal01,signal02,signal03];
+    @weakify(self);
     [[RACSignal merge:signalArray] subscribeNext:^(id x) {
+        @strongify(self);
         if ([x isEqual:@YES]) {
             [self beginRequestWithIndex:topView.currentIndex];
             [self configNavigationBar];

@@ -70,13 +70,12 @@
 }
 
 - (void)reloadData {
-    if (_module.data.count == 7) {
-        HCModuleData *data = _module.data.firstObject;
-        
-        [_modelImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
-        
-        [_productGridView reloadData];
-    }
+
+    HCModuleData *data = _module.data.firstObject;
+    
+    [_modelImageView packAspectFitModeSetImageWithURL:data.img placeholder:defaultImage02];
+    
+    [_productGridView reloadData];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -98,7 +97,13 @@
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    if (_module.data.count >= 7) {
+        return 6;
+    }
+    else if (_module.data.count == 0) {
+        return 0;
+    }
+    return _module.data.count - 1;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:

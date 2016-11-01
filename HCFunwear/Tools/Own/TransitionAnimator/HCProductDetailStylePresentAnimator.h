@@ -10,6 +10,4 @@
 
 @interface HCProductDetailStylePresentAnimator : HCBaseTransitionAnimator
 
-@property (nonatomic, copy)void(^productStyleBlock)();
-
 @end

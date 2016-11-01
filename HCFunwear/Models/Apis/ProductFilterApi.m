@@ -27,7 +27,7 @@
     return @{
              @"cid":[GlobalContext ShareInstance].cid,
              @"a": @"ProductFilter",
-             @"m": @"ProductFilter",
+             @"m": @"Product",
              @"token":@"",
              @"prodClsIdList":self.code
              };

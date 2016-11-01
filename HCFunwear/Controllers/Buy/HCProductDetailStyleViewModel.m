@@ -35,6 +35,10 @@ static CGFloat TAG_HEIGHT = 24;
     self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executePushSignal:input];
     }];
+    
+    self.dismissCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeDismissSignal];
+    }];
 }
 
 - (RACSignal *)executeGoodsKindSignal {
@@ -52,6 +56,14 @@ static CGFloat TAG_HEIGHT = 24;
         return nil;
     }];
 }
+
+- (RACSignal *)executeDismissSignal {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self.services dismissViewModelAnimated:YES completion:nil];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
 //处理数据，得到适合视图显示的数据结构。
 - (NSArray *)handleApiData:(NSArray *)datas {
     NSMutableArray *processDataArray = [NSMutableArray array];
@@ -59,7 +71,7 @@ static CGFloat TAG_HEIGHT = 24;
     [datas enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary *data = obj;
         
-        HCGoodsKindModel *goodsKindModel = _goodsKindList.lastObject;
+        HCGoodsKindModel *goodsKindModel = processDataArray.lastObject;
         if (goodsKindModel && [goodsKindModel.coloR_ID isEqualToString:data[@"coloR_ID"]]) {
             //将这一种样式商品的 一种 size 类型加进去。
             HCGoodsKindSizeModel *goodsKindSizeModel = [HCGoodsKindSizeModel new];
@@ -93,7 +105,7 @@ static CGFloat TAG_HEIGHT = 24;
             goodsKindModel.activity_icon = data[@"activity_icon"];
             goodsKindModel.activity_rule = data[@"activity_rule"];
             goodsKindModel.status = [data[@"status"] description];
-            goodsKindModel.color_tag_width = [self getTagWidthWithText:data[@"coloR_FILE_PATH"]];
+            goodsKindModel.color_tag_width = [self getTagWidthWithText:data[@"coloR_NAME"]];
             
             HCGoodsKindSizeModel *goodsKindSizeModel = [HCGoodsKindSizeModel new];
             goodsKindSizeModel.speC_ID = data[@"speC_ID"];
@@ -103,6 +115,8 @@ static CGFloat TAG_HEIGHT = 24;
             NSMutableArray *mutableSizeList = [[NSMutableArray alloc]initWithArray:goodsKindModel.sizeList];
             [mutableSizeList addObject:goodsKindSizeModel];
             goodsKindModel.sizeList = [mutableSizeList copy];
+            
+            [processDataArray addObject:goodsKindModel];
         }
     }];
     return processDataArray;
@@ -111,7 +125,7 @@ static CGFloat TAG_HEIGHT = 24;
 /*
     默认使用 24 的高度
     默认使用 13 的字号
-    默认增加 20 的偏差量
+    默认增加 10 的偏差量
  
  */
 - (CGFloat)getTagWidthWithText:(NSString *)tagString {
@@ -120,7 +134,7 @@ static CGFloat TAG_HEIGHT = 24;
                                              options:NSStringDrawingUsesLineFragmentOrigin
                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}
                                              context:nil];
-    CGFloat countItemWidth = tagRect.size.width + 20;
+    CGFloat countItemWidth = tagRect.size.width + 10;
     return countItemWidth;
 }
 
