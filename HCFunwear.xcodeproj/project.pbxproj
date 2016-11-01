@@ -87,6 +87,12 @@
 		E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */; };
 		E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */; };
 		E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */; };
+		E37021891DC867E1002AE096 /* HCGoodsKindSelectFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E37021811DC867E1002AE096 /* HCGoodsKindSelectFooterView.m */; };
+		E370218A1DC867E1002AE096 /* HCGoodsKindSelectFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021821DC867E1002AE096 /* HCGoodsKindSelectFooterView.xib */; };
+		E370218B1DC867E1002AE096 /* HCGoodsKindTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E37021841DC867E1002AE096 /* HCGoodsKindTagCell.m */; };
+		E370218C1DC867E1002AE096 /* HCGoodsKindTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021851DC867E1002AE096 /* HCGoodsKindTagCell.xib */; };
+		E370218D1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */; };
+		E370218E1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */; };
 		E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */; };
 		E377C51E1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E377C51D1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.m */; };
 		E377C5211DBF03D3007B333B /* HCProductDetailStylePopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E377C5201DBF03D3007B333B /* HCProductDetailStylePopAnimator.m */; };
@@ -396,6 +402,15 @@
 		E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalContext.m; sourceTree = "<group>"; };
 		E36EC3A01CF706C900A4F6D7 /* TopStyleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleButton.h; sourceTree = "<group>"; };
 		E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleButton.m; sourceTree = "<group>"; };
+		E37021801DC867E1002AE096 /* HCGoodsKindSelectFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsKindSelectFooterView.h; sourceTree = "<group>"; };
+		E37021811DC867E1002AE096 /* HCGoodsKindSelectFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsKindSelectFooterView.m; sourceTree = "<group>"; };
+		E37021821DC867E1002AE096 /* HCGoodsKindSelectFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsKindSelectFooterView.xib; sourceTree = "<group>"; };
+		E37021831DC867E1002AE096 /* HCGoodsKindTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsKindTagCell.h; sourceTree = "<group>"; };
+		E37021841DC867E1002AE096 /* HCGoodsKindTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsKindTagCell.m; sourceTree = "<group>"; };
+		E37021851DC867E1002AE096 /* HCGoodsKindTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsKindTagCell.xib; sourceTree = "<group>"; };
+		E37021861DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsKindTagKindHeaderView.h; sourceTree = "<group>"; };
+		E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsKindTagKindHeaderView.m; sourceTree = "<group>"; };
+		E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsKindTagKindHeaderView.xib; sourceTree = "<group>"; };
 		E3715DCB1D1BC31E00DC3B9E /* HCCirculateScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollView.h; sourceTree = "<group>"; };
 		E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCirculateScrollView.m; sourceTree = "<group>"; };
 		E377C51C1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailStylePresentAnimator.h; sourceTree = "<group>"; };
@@ -1056,6 +1071,22 @@
 			path = InspirationPageViews;
 			sourceTree = "<group>";
 		};
+		E370217F1DC867E1002AE096 /* GoodsKindView */ = {
+			isa = PBXGroup;
+			children = (
+				E37021801DC867E1002AE096 /* HCGoodsKindSelectFooterView.h */,
+				E37021811DC867E1002AE096 /* HCGoodsKindSelectFooterView.m */,
+				E37021821DC867E1002AE096 /* HCGoodsKindSelectFooterView.xib */,
+				E37021831DC867E1002AE096 /* HCGoodsKindTagCell.h */,
+				E37021841DC867E1002AE096 /* HCGoodsKindTagCell.m */,
+				E37021851DC867E1002AE096 /* HCGoodsKindTagCell.xib */,
+				E37021861DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.h */,
+				E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */,
+				E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */,
+			);
+			path = GoodsKindView;
+			sourceTree = "<group>";
+		};
 		E3715DCA1D1BC2C900DC3B9E /* HCCirculateScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1322,6 +1353,7 @@
 		E3A81E8B1CF59C15008FCC51 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E370217F1DC867E1002AE096 /* GoodsKindView */,
 				E3FBB17D1D34DF6700573343 /* MinePageViews */,
 				E3FBB1651D33A66100573343 /* MinePageCells */,
 				E3FBB1471D335EDA00573343 /* ShoppingBagPageCells */,
@@ -1658,17 +1690,20 @@
 				E37F50A31D68AAEA008B465A /* BrandsViewCell.xib in Resources */,
 				E383FE6C1D97CD5D00813688 /* HCGoodsDetailShopView.xib in Resources */,
 				E3FBB1461D3339A400573343 /* InspirationNotAttentionView.xib in Resources */,
+				E370218C1DC867E1002AE096 /* HCGoodsKindTagCell.xib in Resources */,
 				E34B7BDB1D23D6ED0066FE80 /* LimitTimeBuyCell.xib in Resources */,
 				E3240DF21CEF133B004C48C0 /* MainStyleViewController.xib in Resources */,
 				E3FBB1721D34D4BD00573343 /* MineMenuCell.xib in Resources */,
 				E3B048541CE9B85E00C182EA /* Assets.xcassets in Resources */,
 				E34B7BE51D23E1C10066FE80 /* BrandBorderCell.xib in Resources */,
 				E3FBB1411D33359900573343 /* InspirationAttentionHeaderView.xib in Resources */,
+				E370218A1DC867E1002AE096 /* HCGoodsKindSelectFooterView.xib in Resources */,
 				E3FBB14D1D335F3500573343 /* ShoppingBagToolBar.xib in Resources */,
 				E3FBB16D1D34CDC100573343 /* MinePageUserHeadCell.xib in Resources */,
 				E3FBB1551D336FEC00573343 /* ShoppingBagDefaultVIew.xib in Resources */,
 				E3B048521CE9B85E00C182EA /* Main.storyboard in Resources */,
 				E3FBB1771D34D97A00573343 /* MineOrderCell.xib in Resources */,
+				E370218E1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib in Resources */,
 				E34B7BC71D23C58A0066FE80 /* ProductShowPriceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1808,6 +1843,7 @@
 				E37F50AE1D6B2325008B465A /* HCHomeCollectionViewBindingHelper.m in Sources */,
 				E368C79A1D2FA98100E8783F /* InspirationPageInfoView.m in Sources */,
 				E383FE8D1D9B550400813688 /* HCBuyQACell.m in Sources */,
+				E370218B1DC867E1002AE096 /* HCGoodsKindTagCell.m in Sources */,
 				E377C5751DC08497007B333B /* ProductFilterApi.m in Sources */,
 				E3B1D8431D2F30CB00A8BA3E /* TopHotPageView.m in Sources */,
 				E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */,
@@ -1819,6 +1855,7 @@
 				E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */,
 				E3B1D86A1D2F8A6600A8BA3E /* InspirationPageViewController.m in Sources */,
 				E32EB5CE1DB8F71100A3129C /* HCMainStyleDismissAnimator.m in Sources */,
+				E370218D1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
 				E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */,
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
@@ -1860,6 +1897,7 @@
 				E3FBB1641D338E9200573343 /* MinePageViewModel.m in Sources */,
 				E3FBB1501D336FA400573343 /* ShoppingBagNoGoodsView.m in Sources */,
 				E3B1D84C1D2F312300A8BA3E /* TopBrandPageView.m in Sources */,
+				E37021891DC867E1002AE096 /* HCGoodsKindSelectFooterView.m in Sources */,
 				E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */,
 				E3FBB15B1D337D6200573343 /* ShoppingBagPageViewController.m in Sources */,
 				E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */,

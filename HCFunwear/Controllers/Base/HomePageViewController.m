@@ -58,7 +58,16 @@
     
     [self initUI];
     [self bindViewModel];
+ 
     
+    [RACObserve(_homePageViewModel, refreshFlag) subscribeNext:^(id x) {
+        if ([x  isEqual: @YES]) {
+            @strongify(self);
+            [self->_homePageView beginRefresh];
+            self->_homePageViewModel.refreshFlag = NO;
+            [self configNavigationBar];
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -73,11 +82,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    if (_homePageViewModel.refreshFlag) {
-        [_homePageView beginRefresh];
-        _homePageViewModel.refreshFlag = NO;
-    }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -47,12 +47,22 @@
     
     [self topCategoryView:topView clickAtIndex:0];
     
+    RACSignal *signal01 = RACObserve(_categoryViewModel, refreshHotFlag);
+    RACSignal *signal02 = RACObserve(_categoryViewModel, refreshCategoryFlag);
+    RACSignal *signal03 = RACObserve(_categoryViewModel, refreshBrandFlag);
+    NSArray *signalArray = @[signal01,signal02,signal03];
+    [[RACSignal merge:signalArray] subscribeNext:^(id x) {
+        if ([x isEqual:@YES]) {
+            [self beginRequestWithIndex:topView.currentIndex];
+            [self configNavigationBar];
+        }
+    }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self configNavigationBar];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -62,8 +72,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    [self beginRequestWithIndex:topView.currentIndex];
 }
 
 - (void)didReceiveMemoryWarning {
