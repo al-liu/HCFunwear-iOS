@@ -30,6 +30,8 @@
 
 @property (strong, nonatomic) HomePageView *homePageView;
 
+@property (strong, nonatomic) HCSliderLeftPresentAnimator *animator;
+
 @end
 
 @implementation HomePageViewController
@@ -40,6 +42,12 @@
     self = [super init];
     if (self ) {
         self.homePageViewModel = viewModel;
+        _animator = [HCSliderLeftPresentAnimator new];
+        @weakify(self);
+        _animator.gobackSliderLeftBlock = ^(){
+            @strongify(self);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
     }
     return self;
 }
@@ -193,7 +201,7 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
     
-    return [HCSliderLeftPresentAnimator new];
+    return _animator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {

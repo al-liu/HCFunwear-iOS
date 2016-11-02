@@ -17,10 +17,28 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sE9-Jn-jBm" customClass="HCCounterView">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="14f-nG-Jmw"/>
+                        <constraint firstAttribute="width" constant="90" id="B5o-dk-63X"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="库存15000件" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-5j-NgG">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
+                <constraint firstItem="sE9-Jn-jBm" firstAttribute="leading" secondItem="ymG-5j-NgG" secondAttribute="trailing" constant="10" id="00u-O8-12M"/>
+                <constraint firstAttribute="bottom" secondItem="ymG-5j-NgG" secondAttribute="bottom" id="6Ke-Tp-t6Y"/>
                 <constraint firstItem="w1g-Nv-8aM" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="CDs-dw-9bw"/>
+                <constraint firstItem="ymG-5j-NgG" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="FQN-hJ-Kmc"/>
+                <constraint firstItem="sE9-Jn-jBm" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Ffx-Vh-iY5"/>
                 <constraint firstAttribute="bottom" secondItem="w1g-Nv-8aM" secondAttribute="bottom" id="LPk-dC-fhG"/>
+                <constraint firstItem="ymG-5j-NgG" firstAttribute="leading" secondItem="w1g-Nv-8aM" secondAttribute="trailing" constant="10" id="W9g-49-9lf"/>
+                <constraint firstAttribute="trailing" secondItem="sE9-Jn-jBm" secondAttribute="trailing" constant="10" id="WbC-bR-KK9"/>
                 <constraint firstItem="w1g-Nv-8aM" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="kJW-A8-9Gf"/>
             </constraints>
         </collectionReusableView>

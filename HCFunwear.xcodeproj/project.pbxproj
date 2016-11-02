@@ -93,6 +93,8 @@
 		E370218C1DC867E1002AE096 /* HCGoodsKindTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021851DC867E1002AE096 /* HCGoodsKindTagCell.xib */; };
 		E370218D1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */; };
 		E370218E1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */; };
+		E37021911DC97A72002AE096 /* HCCounterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E37021901DC97A72002AE096 /* HCCounterView.m */; };
+		E37021931DC97A7F002AE096 /* HCCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37021921DC97A7F002AE096 /* HCCounterView.xib */; };
 		E3715DCD1D1BC31E00DC3B9E /* HCCirculateScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */; };
 		E377C51E1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E377C51D1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.m */; };
 		E377C5211DBF03D3007B333B /* HCProductDetailStylePopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E377C5201DBF03D3007B333B /* HCProductDetailStylePopAnimator.m */; };
@@ -411,6 +413,9 @@
 		E37021861DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsKindTagKindHeaderView.h; sourceTree = "<group>"; };
 		E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsKindTagKindHeaderView.m; sourceTree = "<group>"; };
 		E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsKindTagKindHeaderView.xib; sourceTree = "<group>"; };
+		E370218F1DC97A72002AE096 /* HCCounterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCounterView.h; sourceTree = "<group>"; };
+		E37021901DC97A72002AE096 /* HCCounterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCounterView.m; sourceTree = "<group>"; };
+		E37021921DC97A7F002AE096 /* HCCounterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCCounterView.xib; sourceTree = "<group>"; };
 		E3715DCB1D1BC31E00DC3B9E /* HCCirculateScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollView.h; sourceTree = "<group>"; };
 		E3715DCC1D1BC31E00DC3B9E /* HCCirculateScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCirculateScrollView.m; sourceTree = "<group>"; };
 		E377C51C1DBF03BE007B333B /* HCProductDetailStylePresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProductDetailStylePresentAnimator.h; sourceTree = "<group>"; };
@@ -1083,6 +1088,9 @@
 				E37021861DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.h */,
 				E37021871DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m */,
 				E37021881DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.xib */,
+				E370218F1DC97A72002AE096 /* HCCounterView.h */,
+				E37021901DC97A72002AE096 /* HCCounterView.m */,
+				E37021921DC97A7F002AE096 /* HCCounterView.xib */,
 			);
 			path = GoodsKindView;
 			sourceTree = "<group>";
@@ -1682,6 +1690,7 @@
 				E3FBB17C1D34DB1C00573343 /* MineTableMenuCell.xib in Resources */,
 				E3B1D8671D2F6D1800A8BA3E /* HotCategoryPageViewCell.xib in Resources */,
 				E3B1D8581D2F428400A8BA3E /* HotBrandViewCell.xib in Resources */,
+				E37021931DC97A7F002AE096 /* HCCounterView.xib in Resources */,
 				E383FE671D97C56300813688 /* HCGoodsDetailShopPlanCell.xib in Resources */,
 				E3B048571CE9B85E00C182EA /* LaunchScreen.storyboard in Resources */,
 				E34B7BD61D23CEC90066FE80 /* ProductShowNameCell.xib in Resources */,
@@ -1857,6 +1866,7 @@
 				E32EB5CE1DB8F71100A3129C /* HCMainStyleDismissAnimator.m in Sources */,
 				E370218D1DC867E1002AE096 /* HCGoodsKindTagKindHeaderView.m in Sources */,
 				E30EA00E1D2A8BF600B38B37 /* DoubleBannerView.m in Sources */,
+				E37021911DC97A72002AE096 /* HCCounterView.m in Sources */,
 				E3FBB18D1D35256500573343 /* NewArrivalsViewCell.m in Sources */,
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,

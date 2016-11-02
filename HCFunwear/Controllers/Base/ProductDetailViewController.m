@@ -17,6 +17,8 @@
 #import "GlobalImport.h"
 #import "HCHudManager.h"
 
+#import "HCCounterView.h"
+
 typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     HCContentMoudleTop,
     HCContentMoudleBottom
@@ -103,10 +105,6 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     
     [shoppingCartView bindAddGoodsCommand:_viewModel.addGoodsCommand];
     
-//    [[shoppingCartView.addGoodsCommand execute:nil] subscribeNext:^(id x) {
-//        NSLog(@"aaa");
-//    }]; 
-    
     HCHudManager *hudManager = [HCHudManager new];
     [hudManager addHUDToView:self.navigationController.view];
     [hudManager show];
@@ -117,9 +115,9 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         });
     }];
     
-//    [_viewModel.detailRequestCommand execute:nil];
-//    [_viewModel.commentRequestCommand execute:nil];
-//    [_viewModel.qaRequestCommand execute:nil];
+    
+//    HCCounterView *counterView = [[UINib nibWithNibName:@"HCCounterView" bundle:nil] instantiateWithOwner:self options:nil].lastObject;
+//    [self.view addSubview:counterView];
 }
 
 - (void)switchBottomView:(HCContentMoudleType)type {

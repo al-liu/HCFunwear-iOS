@@ -23,7 +23,6 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
 
 @interface HCProductDetailStyleViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
 {
-    NSArray *_datas;
     CGSize _defaultItemSize;
     
     //color size 实际上会做成模型
@@ -99,10 +98,6 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     }];
     
     //商品类型
-    // 初始化一些数据
-    _datas = @[@{@"title":@"颜色",@"tags":@[@"深蓝/白色/超级黑",@"非常白/超级蓝",@"很黄",@"很暴力",@"很漂亮",@"阿尔法"]},
-               @{@"title":@"尺寸",@"tags":@[@"170/85A",@"171/85A",@"172/85A",@"173/85A",@"174/85A",@"175/85A",@"176/85A"]}];
-    
     CGSize screen_size = [UIScreen mainScreen].bounds.size;
     
     CGFloat estimatedItemWidth = (screen_size.width - 5 * 10)/4;
@@ -239,14 +234,7 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
         HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[indexPath.row];
         countItemWidth = sizeModel.spec_tag_width;
     }
-//    
-//    //计算暂时在这里做
-//    NSString *tagString = _datas[indexPath.section][@"tags"][indexPath.row];
-//    CGRect tagRect = [tagString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, _defaultItemSize.height)
-//                                             options:NSStringDrawingUsesLineFragmentOrigin
-//                                          attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}
-//                                             context:nil];
-//    CGFloat countItemWidth = tagRect.size.width + 10;
+
     CGFloat itemWidth = countItemWidth > _defaultItemSize.width ? (countItemWidth + 10) : _defaultItemSize.width;
     return CGSizeMake(itemWidth , _defaultItemSize.height);
 }

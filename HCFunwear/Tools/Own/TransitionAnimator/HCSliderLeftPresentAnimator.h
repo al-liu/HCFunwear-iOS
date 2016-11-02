@@ -10,4 +10,6 @@
 
 @interface HCSliderLeftPresentAnimator : HCBaseTransitionAnimator
 
+@property (nonatomic, copy)void(^gobackSliderLeftBlock)();
+
 @end

@@ -10,4 +10,6 @@
 
 @interface HCProductDetailStylePresentAnimator : HCBaseTransitionAnimator
 
+@property (nonatomic, copy) void(^dismissBlock)();
+
 @end

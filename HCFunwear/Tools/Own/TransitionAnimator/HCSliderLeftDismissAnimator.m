@@ -24,7 +24,7 @@
     toView.left = toX;
     
     self.containerView.backgroundColor = [UIColor clearColor];
-    self.transitionDuration = 0.5;
+    self.transitionDuration = 0.3;
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.left = originX;
         currentView.right = originX;

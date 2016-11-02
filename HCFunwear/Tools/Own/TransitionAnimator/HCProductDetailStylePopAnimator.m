@@ -18,6 +18,8 @@
     
     toView.transform = CGAffineTransformMakeScale(0.90, 0.90);
     
+    self.transitionDuration = 0.2;
+    
     self.containerView.backgroundColor = [UIColor clearColor];
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.transform = CGAffineTransformMakeScale(1, 1);

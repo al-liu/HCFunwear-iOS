@@ -23,6 +23,8 @@
 
 {
     HCProductDetailStyleViewController *detailStyleViewController;
+    
+    HCProductDetailStylePresentAnimator *animator;
 }
 
 @property (nonatomic, strong) HCProductDetailApiServiceImp *productDetailServiceImpl;
@@ -36,6 +38,11 @@
     self = [super init];
     if (self) {
         _productDetailServiceImpl = [HCProductDetailApiServiceImp new];
+        
+        animator = [HCProductDetailStylePresentAnimator new];
+        animator.dismissBlock = ^(){
+            [[GlobalContext ShareInstance].rootController dismissViewControllerAnimated:YES completion:nil];
+        };
                 
     }
     return self;
@@ -67,7 +74,7 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source {
     
-    return [HCProductDetailStylePresentAnimator new];
+    return animator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {

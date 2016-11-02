@@ -15,21 +15,36 @@
 - (void)animateTransitionEvent {
     UIView *currentView = self.fromViewController.view;
     UIView *toView = self.toViewController.view;
-    [self.containerView addSubview:toView];
-    self.containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     
-    //0.74 占比 
+    self.containerView.userInteractionEnabled = YES;
+    //0.74 占比
     CGFloat toX = SCREEN_WIDTH * 0.74;
     
     toView.right = 0;
-    self.transitionDuration = 0.3;
+    self.transitionDuration = 0.2;
+    
+    //半透明浮层
+    UIButton *controlView = [[UIButton alloc]initWithFrame:CGRectMake(toX, 0, SCREEN_WIDTH-toX, SCREEN_HEIGHT)];
+    [self.containerView addSubview:controlView];
+    [controlView addTarget:self action:@selector(gobackSliderLeft) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.containerView addSubview:toView];
+    
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.right = toX;
         currentView.left = toX;
+        self.containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
+
     } completion:^(BOOL finished) {
         [self completeTransition];
     }];
     
+}
+
+- (void)gobackSliderLeft {
+    if (_gobackSliderLeftBlock) {
+        _gobackSliderLeftBlock();
+    }
 }
 
 @end

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HCCounterView">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-dW-Hu1">
+                    <state key="normal" title="－">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="subtractAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fgy-p1-Xw6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNt-S8-jUp">
+                    <state key="normal" title="0">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbw-2C-pYw">
+                    <state key="normal" title="＋">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="increaseAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ndn-wM-iAo"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygA-r6-178" userLabel="line01">
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="8ye-g6-vmR"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OS0-bh-sqD" userLabel="line02">
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="jp3-na-W3b"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bbw-2C-pYw" firstAttribute="width" secondItem="cNt-S8-jUp" secondAttribute="width" id="7VS-wZ-ADZ"/>
+                <constraint firstItem="ygA-r6-178" firstAttribute="leading" secondItem="b1M-dW-Hu1" secondAttribute="trailing" id="BPS-GT-R3J"/>
+                <constraint firstItem="b1M-dW-Hu1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DEc-pw-Hnd"/>
+                <constraint firstAttribute="trailing" secondItem="bbw-2C-pYw" secondAttribute="trailing" id="GIO-LG-jx3"/>
+                <constraint firstItem="bbw-2C-pYw" firstAttribute="leading" secondItem="cNt-S8-jUp" secondAttribute="trailing" id="K0J-RW-1Hd"/>
+                <constraint firstItem="ygA-r6-178" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K2O-pb-YlP"/>
+                <constraint firstItem="bbw-2C-pYw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Klf-cx-R17"/>
+                <constraint firstAttribute="bottom" secondItem="OS0-bh-sqD" secondAttribute="bottom" id="MN4-eF-RLH"/>
+                <constraint firstAttribute="bottom" secondItem="b1M-dW-Hu1" secondAttribute="bottom" id="MjZ-G0-dA5"/>
+                <constraint firstItem="OS0-bh-sqD" firstAttribute="leading" secondItem="cNt-S8-jUp" secondAttribute="trailing" id="YhW-Lj-VOk"/>
+                <constraint firstItem="cNt-S8-jUp" firstAttribute="leading" secondItem="b1M-dW-Hu1" secondAttribute="trailing" id="a0m-bB-b1e"/>
+                <constraint firstAttribute="bottom" secondItem="bbw-2C-pYw" secondAttribute="bottom" id="c8E-am-epN"/>
+                <constraint firstItem="cNt-S8-jUp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="e3E-Hf-uQL"/>
+                <constraint firstItem="b1M-dW-Hu1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fk4-yb-3Dl"/>
+                <constraint firstItem="cNt-S8-jUp" firstAttribute="width" secondItem="b1M-dW-Hu1" secondAttribute="width" id="p04-rl-XcI"/>
+                <constraint firstAttribute="bottom" secondItem="ygA-r6-178" secondAttribute="bottom" id="qPN-q5-g7g"/>
+                <constraint firstItem="OS0-bh-sqD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="toc-7p-q5B"/>
+                <constraint firstAttribute="bottom" secondItem="cNt-S8-jUp" secondAttribute="bottom" id="xwN-D6-dej"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="countButton" destination="cNt-S8-jUp" id="3sF-aE-3Me"/>
+                <outlet property="increaseButton" destination="bbw-2C-pYw" id="whg-bZ-aWw"/>
+                <outlet property="subtractButton" destination="b1M-dW-Hu1" id="cE1-RA-T8g"/>
+            </connections>
+            <point key="canvasLocation" x="1" y="-155.5"/>
+        </view>
+    </objects>
+</document>
