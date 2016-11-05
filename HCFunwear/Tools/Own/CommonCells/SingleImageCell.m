@@ -11,6 +11,7 @@
 @implementation SingleImageCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

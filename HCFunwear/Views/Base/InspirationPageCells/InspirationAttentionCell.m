@@ -18,7 +18,7 @@
 @implementation InspirationAttentionCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
     userImageView.layer.cornerRadius = 22.5f;
     userImageView.layer.masksToBounds = YES;
 }

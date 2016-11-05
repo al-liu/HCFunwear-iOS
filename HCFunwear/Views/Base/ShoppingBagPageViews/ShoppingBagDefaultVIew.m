@@ -19,6 +19,7 @@
 @implementation ShoppingBagDefaultVIew
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     loginButton.layer.borderWidth = .5f;
     loginButton.layer.borderColor = [UIColor blackColor].CGColor;
 }

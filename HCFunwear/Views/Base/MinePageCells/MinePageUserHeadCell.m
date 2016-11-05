@@ -19,6 +19,7 @@
 @implementation MinePageUserHeadCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
     collocationLogButton.layer.cornerRadius = 27/2.0;
     collocationLogButton.layer.borderColor = kCellLineColor.CGColor;

@@ -12,7 +12,9 @@
 #import "Masonry.h"
 
 @interface ShoppingBagPageViewController ()
-
+{
+    ShoppingBagNoGoodsView *_noGoodsView;
+}
 @end
 
 @implementation ShoppingBagPageViewController
@@ -39,7 +41,7 @@
 }
 
 - (void)initUI {
-    ShoppingBagNoGoodsView *noGoodsView = ({
+    _noGoodsView = ({
         ShoppingBagNoGoodsView *view = [ShoppingBagNoGoodsView new];
         [self.view addSubview:view];
         

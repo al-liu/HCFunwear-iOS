@@ -19,6 +19,7 @@
 @implementation MineTableMenuCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
     awakePointView.layer.cornerRadius = 7/2.0;
     awakePointView.layer.masksToBounds = YES;

@@ -11,6 +11,7 @@
 @implementation HCGoodsDetailShopView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     _shopLogoImageView.layer.borderWidth = 0.5f;
     _shopLogoImageView.layer.borderColor = [UIColor blackColor].CGColor;
 }

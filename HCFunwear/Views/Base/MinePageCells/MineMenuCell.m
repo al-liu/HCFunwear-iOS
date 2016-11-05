@@ -17,6 +17,7 @@
 @implementation MineMenuCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

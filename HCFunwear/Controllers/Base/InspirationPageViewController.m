@@ -22,6 +22,8 @@
     
     InspirationPageInfoView *_pageInfoView;
     InspirationPageFunerView *_funnerView;
+    
+    InspirationPageAttentionView *_attentionView;
 }
 @end
 
@@ -116,7 +118,7 @@
         view;
     });
     
-    InspirationPageAttentionView *attentionView = ({
+    _attentionView = ({
         InspirationPageAttentionView *view = [InspirationPageAttentionView new];
         [_scrollView addSubview:view];
         

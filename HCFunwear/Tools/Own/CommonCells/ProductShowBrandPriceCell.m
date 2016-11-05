@@ -14,6 +14,7 @@
 @implementation ProductShowBrandPriceCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

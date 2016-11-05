@@ -11,6 +11,7 @@
 @implementation ProductShowNameCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

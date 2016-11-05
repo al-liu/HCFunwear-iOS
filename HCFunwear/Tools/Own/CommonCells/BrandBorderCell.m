@@ -12,7 +12,7 @@
 @implementation BrandBorderCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
     self.layer.borderWidth = .5f;
     self.layer.borderColor = kCellLineColor.CGColor;
 }

@@ -12,6 +12,7 @@
 @implementation HotCategoryPageViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

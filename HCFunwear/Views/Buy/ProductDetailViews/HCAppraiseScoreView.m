@@ -11,6 +11,12 @@
 #import "Masonry.h"
 #import "HCAppraiseStarsView.h"
 
+@interface HCAppraiseScoreView ()
+{
+    HCAppraiseStarsView *starsView;
+}
+
+@end
 @implementation HCAppraiseScoreView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -34,7 +40,7 @@
         });
         
         //星星
-        HCAppraiseStarsView *starsView = ({
+        starsView = ({
             HCAppraiseStarsView *view = [HCAppraiseStarsView new];
             [self addSubview:view];
             

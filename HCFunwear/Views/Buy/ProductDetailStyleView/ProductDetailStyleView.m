@@ -18,6 +18,7 @@
     UILabel *_goodsCodeLabel;
     UILabel *_preferentialInfoLabel;
     UIButton *_closeButton;
+    UIView *_lineView;
 }
 
 @end
@@ -120,7 +121,7 @@
     });
     
     //line
-    UIView *lineView = ({
+    _lineView = ({
         UIView *view = [UIView new];
         view.backgroundColor = kCellLineColor;
         [self addSubview:view];
