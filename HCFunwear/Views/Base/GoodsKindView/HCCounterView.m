@@ -8,8 +8,9 @@
 
 #import "HCCounterView.h"
 #import "UIColor+YYAdd.h"
+#import "XXNibBridge.h"
 
-@interface HCCounterView ()
+@interface HCCounterView () <XXNibBridge>
 
 @property (weak, nonatomic) IBOutlet UIButton *subtractButton;
 @property (weak, nonatomic) IBOutlet UIButton *increaseButton;

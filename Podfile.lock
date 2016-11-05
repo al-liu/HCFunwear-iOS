@@ -51,6 +51,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - XXNibBridge (2.3.1)
   - YTKNetwork (1.3.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - NJKWebViewProgress
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (~> 3.8)
+  - XXNibBridge (~> 2.3.0)
   - YTKNetwork (~> 1.3.0)
   - YYKit
 
@@ -81,9 +83,10 @@ SPEC CHECKSUMS:
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
   YTKNetwork: a9fdf7968deefb06a58d988148558453005564c4
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: a1ffb3f47d6bf64556f0f4e0d062f85e6575c7a7
+PODFILE CHECKSUM: 58156c1ee79687c33a0478460734d690c3087240
 
 COCOAPODS: 1.0.1

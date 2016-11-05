@@ -12,6 +12,8 @@
 
 @interface ProductDetailStyleView : UIView
 
+- (void)updateProductImage:(NSString *)imageUrlStr;
+
 - (void)bindViewModel:(HCProductDetailStyleViewModel *)viewModel;
 
 @end

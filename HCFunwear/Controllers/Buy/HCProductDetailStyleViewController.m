@@ -32,6 +32,8 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     NSInteger _sizeSelectedIndex;
     
     UICollectionView *_collectionView;
+    HCGoodsKindSelectFooterView *_footerView;
+    ProductDetailStyleView *_detailStyleView;
 }
 
 @property (nonatomic, strong) HCProductDetailStyleViewModel *productDetailStyleViewModel;
@@ -61,6 +63,13 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
         [self->_collectionView reloadData];
         _colorSelectedIndex = 0;
         _sizeSelectedIndex = 0;
+        
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+        //更新产品图片
+        [_detailStyleView updateProductImage:kindModel.coloR_FILE_PATH];
+        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList.firstObject;
+        [self setFooterDataWith:sizeModel];
+        
         [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0]
                                       animated:NO
                                 scrollPosition:UICollectionViewScrollPositionNone];
@@ -73,15 +82,15 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
 - (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
     //商品信息
-    ProductDetailStyleView *detailStyleView = [ProductDetailStyleView new];
-    [self.view addSubview:detailStyleView];
+    _detailStyleView = [ProductDetailStyleView new];
+    [self.view addSubview:_detailStyleView];
     
-    [detailStyleView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_detailStyleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
         make.height.equalTo(@104);
     }];
     
-    [detailStyleView bindViewModel:_productDetailStyleViewModel];
+    [_detailStyleView bindViewModel:_productDetailStyleViewModel];
     
     //底部确定按钮
     CGFloat bottom = SCREEN_HEIGHT * 0.31;
@@ -119,7 +128,7 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(detailStyleView.mas_bottom);
+        make.top.equalTo(_detailStyleView.mas_bottom);
         make.bottom.equalTo(submitButton.mas_top);
     }];
     
@@ -137,6 +146,13 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
 //    NSString *defaultColorString = _datas[_colorSelectedIndexPath.section][@"tags"][_colorSelectedIndexPath.row];
 //    NSString *defaultSizeString = _datas[_sizeSelectedIndexPath.section][@"tags"][_sizeSelectedIndexPath.row];
 //    _goodsStyleInfo = [[NSMutableDictionary alloc]initWithDictionary:@{@"color":defaultColorString,@"size":defaultSizeString}];
+}
+
+- (void)setFooterDataWith:(HCGoodsKindSizeModel *)sizeModel {
+    _footerView.stockAmountLabel.text = [NSString stringWithFormat:@"库存%@件",sizeModel.lisT_QTY];
+    [_footerView.counterView resetCount:1];
+    _footerView.counterView.minCount = 1;
+    _footerView.counterView.maxCount = [sizeModel.lisT_QTY integerValue];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -182,13 +198,39 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
         return header;
     }
     else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        HCGoodsKindSelectFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kHCGoodsKindSelectFooterId forIndexPath:indexPath];
-        return footer;
+        _footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kHCGoodsKindSelectFooterId forIndexPath:indexPath];
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[_sizeSelectedIndex];
+        //设置库存
+        [self setFooterDataWith:sizeModel];
+        return _footerView;
     }
     return nil;
 }
 
 #pragma mark - UICollectionViewDelegate
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+        {
+            if (indexPath.row == _colorSelectedIndex) {
+                return NO;
+            }
+        }
+            break;
+        case 1:
+        {
+            if (indexPath.row == _sizeSelectedIndex) {
+                return NO;
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return YES;
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.section) {
@@ -196,6 +238,11 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
         {
             //取出 Kind
             HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[indexPath.row];
+            
+            //更新产品图片
+            [_detailStyleView updateProductImage:kindModel.coloR_FILE_PATH];
+            HCGoodsKindSizeModel *sizeModel = kindModel.sizeList.firstObject;
+            [self setFooterDataWith:sizeModel];
             
             [collectionView deselectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0] animated:NO];
             _colorSelectedIndex = indexPath.row;
@@ -210,6 +257,9 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
             //取出 Size
             HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
             HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[indexPath.row];
+            
+            //设置库存
+           [self setFooterDataWith:sizeModel];
             
             [collectionView deselectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1] animated:NO];
             _sizeSelectedIndex = indexPath.row;

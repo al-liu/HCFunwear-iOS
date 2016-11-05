@@ -24,7 +24,6 @@
 @property (nonatomic, copy) NSString *coloR_FILE_PATH;
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *salE_PRICE;
-@property (nonatomic, copy) NSString *lisT_QTY;
 @property (nonatomic, copy) NSString *salE_QTY;
 @property (nonatomic, copy) NSString *activity_id;
 @property (nonatomic, copy) NSString *activity_icon;
@@ -39,8 +38,11 @@
 
 @interface HCGoodsKindSizeModel : NSObject
 
+//尺寸
 @property (nonatomic, copy) NSString *speC_ID;
 @property (nonatomic, copy) NSString *speC_NAME;
 @property (nonatomic, assign) CGFloat spec_tag_width;
+//库存
+@property (nonatomic, copy) NSString *lisT_QTY;
 
 @end

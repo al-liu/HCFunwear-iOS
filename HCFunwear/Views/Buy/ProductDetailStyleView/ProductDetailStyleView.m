@@ -9,6 +9,8 @@
 #import "ProductDetailStyleView.h"
 #import "GlobalImport.h"
 #import "Masonry.h"
+#import "HCGoodsKindModel.h"
+#import "UIImageView+HCPackWebImage.h"
 
 @interface ProductDetailStyleView ()
 
@@ -58,7 +60,6 @@
         UILabel *view = [UILabel new];
         [view sizeToFit];
         view.font = [UIFont boldSystemFontOfSize:27];
-        view.text = @"¥ 2789";
         view.numberOfLines = 1;
         [self addSubview:view];
         
@@ -89,7 +90,6 @@
         UILabel *view = [UILabel new];
         [view sizeToFit];
         view.font = [UIFont boldSystemFontOfSize:13];
-        view.text = @"商品编号:832323";
         view.numberOfLines = 1;
         [self addSubview:view];
         
@@ -108,7 +108,6 @@
         view.numberOfLines = 0;
         view.font = [UIFont systemFontOfSize:11];
         view.textColor = kFlagQABG;
-        view.text = @"任意搭配1件，本商品可减56元 / 任意搭配2件，本商品可减56元";
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,8 +136,24 @@
     
 }
 
+- (void)updateProductImage:(NSString *)imageUrlStr {
+    NSURL *imageURL = [NSURL URLWithString:imageUrlStr];
+    [_productImageView packSetImageWithURL:imageURL placeholder:nil contentMode:UIViewContentModeScaleAspectFit];
+}
+
+
 - (void)bindViewModel:(HCProductDetailStyleViewModel *)viewModel {
     _closeButton.rac_command = viewModel.dismissCommand;
+    
+    [[RACObserve(viewModel, goodsKindList) skip:1] subscribeNext:^(id x) {
+        NSArray *goodsKindList = x;
+        if (goodsKindList.count > 0) {
+            HCGoodsKindModel *model = goodsKindList.firstObject;
+            _priceLabel.text = [NSString stringWithFormat:@"¥ %@",model.price];
+            _goodsCodeLabel.text = [NSString stringWithFormat:@"商品编号:%@",model.proD_CLS_NUM];
+            _preferentialInfoLabel.text = model.proD_NAME;
+        }
+    }];
 }
 
 /*

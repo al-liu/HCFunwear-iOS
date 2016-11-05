@@ -14,6 +14,9 @@
     [super awakeFromNib];
     // Initialization code
     
+    _counterView.minCount = 1;
+    [_counterView resetCount:1];
+    
 }
 
 @end

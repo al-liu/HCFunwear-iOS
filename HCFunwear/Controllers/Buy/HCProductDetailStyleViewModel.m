@@ -78,6 +78,7 @@ static CGFloat TAG_HEIGHT = 24;
             goodsKindSizeModel.speC_ID = data[@"speC_ID"];
             goodsKindSizeModel.speC_NAME = data[@"speC_NAME"];
             goodsKindSizeModel.spec_tag_width = [self getTagWidthWithText:data[@"speC_NAME"]];
+            goodsKindSizeModel.lisT_QTY = [data[@"lisT_QTY"] description];
             
             NSMutableArray *mutableSizeList = [[NSMutableArray alloc]initWithArray:goodsKindModel.sizeList];
             [mutableSizeList addObject:goodsKindSizeModel];
@@ -99,7 +100,6 @@ static CGFloat TAG_HEIGHT = 24;
             goodsKindModel.coloR_FILE_PATH = data[@"coloR_FILE_PATH"];
             goodsKindModel.price = [data[@"price"] description];
             goodsKindModel.salE_PRICE = [data[@"salE_PRICE"] description];
-            goodsKindModel.lisT_QTY = [data[@"lisT_QTY"] description];
             goodsKindModel.salE_QTY = [data[@"salE_QTY"] description];
             goodsKindModel.activity_id = [data[@"activity_id"] description];
             goodsKindModel.activity_icon = data[@"activity_icon"];
@@ -111,6 +111,7 @@ static CGFloat TAG_HEIGHT = 24;
             goodsKindSizeModel.speC_ID = data[@"speC_ID"];
             goodsKindSizeModel.speC_NAME = data[@"speC_NAME"];
             goodsKindSizeModel.spec_tag_width = [self getTagWidthWithText:data[@"speC_NAME"]];
+            goodsKindSizeModel.lisT_QTY = [data[@"lisT_QTY"] description];
             
             NSMutableArray *mutableSizeList = [[NSMutableArray alloc]initWithArray:goodsKindModel.sizeList];
             [mutableSizeList addObject:goodsKindSizeModel];

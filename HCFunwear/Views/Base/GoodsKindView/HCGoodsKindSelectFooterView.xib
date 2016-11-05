@@ -24,7 +24,7 @@
                         <constraint firstAttribute="width" constant="90" id="B5o-dk-63X"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="库存15000件" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-5j-NgG">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-5j-NgG">
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,6 +41,10 @@
                 <constraint firstAttribute="trailing" secondItem="sE9-Jn-jBm" secondAttribute="trailing" constant="10" id="WbC-bR-KK9"/>
                 <constraint firstItem="w1g-Nv-8aM" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="kJW-A8-9Gf"/>
             </constraints>
+            <connections>
+                <outlet property="counterView" destination="sE9-Jn-jBm" id="YKw-lX-pXm"/>
+                <outlet property="stockAmountLabel" destination="ymG-5j-NgG" id="hfx-3A-mKb"/>
+            </connections>
         </collectionReusableView>
     </objects>
 </document>

@@ -12,6 +12,8 @@ pod 'NJKWebViewProgress'
 pod 'FMDB'
 pod 'CocoaLumberjack', '~>2.3.0'
 pod 'MBProgressHUD', '~> 1.0.0'
+pod 'XXNibBridge', '~> 2.3.0'
+
 # pod 'SDCycleScrollView','~> 1.61'
 
 #target :HCFunwearTests, :exclusive => true do

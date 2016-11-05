@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCCounterView.h"
 
 @interface HCGoodsKindSelectFooterView : UICollectionReusableView
+
+@property (weak, nonatomic) IBOutlet UILabel *stockAmountLabel;
+
+@property (weak, nonatomic) IBOutlet HCCounterView *counterView;
 
 @end
