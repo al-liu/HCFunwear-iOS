@@ -16,12 +16,12 @@
     UIView *currentView = self.fromViewController.view;
     UIView *toView = self.toViewController.view;
     
-    toView.left = SCREEN_WIDTH;
+    toView.right = 0;
     
 //    self.transitionDuration = 0.7;
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.left = 0;
-        currentView.right = 0;
+        currentView.left = SCREEN_WIDTH;
     } completion:^(BOOL finished) {
         [self completeTransition];
     }];

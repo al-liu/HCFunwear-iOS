@@ -53,7 +53,10 @@
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
     
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
-    self.window.rootViewController = navigationController;
+    
+    //默认广告页
+    MainStyleViewController *mainStyleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+    self.window.rootViewController = mainStyleController;
     [self.window makeKeyAndVisible];
     
     //只是检测 CPU 的
@@ -62,11 +65,11 @@
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
     [GlobalContext ShareInstance].rootController = navigationController;
-    //默认广告页
-    MainStyleViewController *mainStyleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
+    /*
     mainStyleController.transitioningDelegate = tabBarController;
     mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
     [[GlobalContext ShareInstance].mainTabBarController presentViewController:mainStyleController animated:NO completion:nil];
+     */
     
     return YES;
 }
@@ -170,10 +173,7 @@
         
 //        [[GlobalContext ShareInstance].rootController popViewControllerAnimated:YES];
         
-        MainStyleViewController *mainStyleController = [[MainStyleViewController alloc] initWithNibName:@"MainStyleViewController" bundle:nil];
-        mainStyleController.transitioningDelegate = tabBarController;
-        mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
-        [tabBarController presentViewController:mainStyleController animated:YES completion:nil];
+        [tabBarController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

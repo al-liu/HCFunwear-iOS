@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MainStyleView.h"
 
-@interface MainStyleViewController : UIViewController
+@interface MainStyleViewController : UIViewController <UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet MainStyleView *firstStyle;
 @property (weak, nonatomic) IBOutlet MainStyleView *secondStyle;

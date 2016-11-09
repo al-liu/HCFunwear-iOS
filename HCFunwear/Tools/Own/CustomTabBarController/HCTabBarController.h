@@ -25,7 +25,7 @@
 //- (void)tabBarControllerDidLayoutViewControllers:(HCTabBarController *)tabBarController;
 
 @end
-@interface HCTabBarController : UIViewController <tabBarDelegate,UIViewControllerTransitioningDelegate>
+@interface HCTabBarController : UIViewController <tabBarDelegate>
 
 @property (nonatomic, weak) id <HCTabBarControllerDelegate> delegate;
 @property (nonatomic, strong, readonly) NSArray *viewControllers;

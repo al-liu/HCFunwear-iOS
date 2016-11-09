@@ -17,15 +17,15 @@
     UIView *toView = self.toViewController.view;
     [self.containerView addSubview:toView];
     
-    toView.right = 0;
-    toView.left = -SCREEN_WIDTH;
+
+    toView.left = SCREEN_WIDTH;
     toView.top = 0;
     toView.width = SCREEN_WIDTH;
     toView.height = SCREEN_HEIGHT;
 //    self.transitionDuration = 0.7;
     [UIView animateWithDuration:self.transitionDuration animations:^{
         toView.left = 0;
-        currentView.left = SCREEN_WIDTH;
+        currentView.right = 0;
     } completion:^(BOOL finished) {
         [self completeTransition];
     }];
