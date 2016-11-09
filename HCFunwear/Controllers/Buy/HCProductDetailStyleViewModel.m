@@ -79,6 +79,9 @@ static CGFloat TAG_HEIGHT = 24;
 
 //处理数据，得到适合视图显示的数据结构。
 - (NSArray *)handleApiData:(NSArray *)datas {
+    if (!datas) {
+        return nil;
+    }
     NSMutableArray *processDataArray = [NSMutableArray array];
     
     [datas enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

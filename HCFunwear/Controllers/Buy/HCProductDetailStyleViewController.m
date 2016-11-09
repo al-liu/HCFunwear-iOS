@@ -61,22 +61,24 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     [_productDetailStyleViewModel.requestCommand execute:nil];
     [[RACObserve(_productDetailStyleViewModel, goodsKindList) skip:1] subscribeNext:^(id x) {
         @strongify(self);
-        [self->_collectionView reloadData];
-        _colorSelectedIndex = 0;
-        _sizeSelectedIndex = 0;
-        
-        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
-        //更新产品图片
-        [_detailStyleView updateProductImage:kindModel.coloR_FILE_PATH];
-        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList.firstObject;
-        [self setFooterDataWith:sizeModel];
-        
-        [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0]
-                                      animated:NO
-                                scrollPosition:UICollectionViewScrollPositionNone];
-        [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1]
-                                      animated:NO
-                                scrollPosition:UICollectionViewScrollPositionNone];
+        if (_productDetailStyleViewModel.goodsKindList) {
+            [self->_collectionView reloadData];
+            _colorSelectedIndex = 0;
+            _sizeSelectedIndex = 0;
+            
+            HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+            //更新产品图片
+            [_detailStyleView updateProductImage:kindModel.coloR_FILE_PATH];
+            HCGoodsKindSizeModel *sizeModel = kindModel.sizeList.firstObject;
+            [self setFooterDataWith:sizeModel];
+            
+            [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_colorSelectedIndex inSection:0]
+                                          animated:NO
+                                    scrollPosition:UICollectionViewScrollPositionNone];
+            [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_sizeSelectedIndex inSection:1]
+                                          animated:NO
+                                    scrollPosition:UICollectionViewScrollPositionNone];
+        }
     }];
 }
 
