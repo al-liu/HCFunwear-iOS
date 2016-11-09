@@ -46,6 +46,7 @@
 		E333D9A81D9FC83000575305 /* HCHudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E333D9A71D9FC83000575305 /* HCHudManager.m */; };
 		E348F68A1D264FD4006306C2 /* NewUserFeastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F6891D264FD4006306C2 /* NewUserFeastView.m */; };
 		E348F68D1D267EFE006306C2 /* HomePageHeadTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */; };
+		E349F25E1DCE39C00041E672 /* HCShoppingCartGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E349F25D1DCE39C00041E672 /* HCShoppingCartGoodsModel.m */; };
 		E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */; };
 		E34B7BB21D236DAF0066FE80 /* HCCirculateScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB11D236DAF0066FE80 /* HCCirculateScrollViewCell.m */; };
 		E34B7BB51D23AB560066FE80 /* HCGridMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34B7BB41D23AB560066FE80 /* HCGridMenuViewCell.m */; };
@@ -327,6 +328,8 @@
 		E348F6891D264FD4006306C2 /* NewUserFeastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserFeastView.m; sourceTree = "<group>"; };
 		E348F68B1D267EFE006306C2 /* HomePageHeadTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageHeadTitleView.h; sourceTree = "<group>"; };
 		E348F68C1D267EFE006306C2 /* HomePageHeadTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageHeadTitleView.m; sourceTree = "<group>"; };
+		E349F25C1DCE39C00041E672 /* HCShoppingCartGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCShoppingCartGoodsModel.h; sourceTree = "<group>"; };
+		E349F25D1DCE39C00041E672 /* HCShoppingCartGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCShoppingCartGoodsModel.m; sourceTree = "<group>"; };
 		E34B7BAC1D227BC60066FE80 /* HCGridMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridMenuView.h; sourceTree = "<group>"; };
 		E34B7BAD1D227BC60066FE80 /* HCGridMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridMenuView.m; sourceTree = "<group>"; };
 		E34B7BB01D236DAF0066FE80 /* HCCirculateScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCirculateScrollViewCell.h; sourceTree = "<group>"; };
@@ -1207,6 +1210,8 @@
 				E35BA5E31DAC988600AB4BC1 /* HCProductDetailViewModelServiceImp.m */,
 				E377C5811DC090FD007B333B /* HCGoodsKindModel.h */,
 				E377C5821DC090FD007B333B /* HCGoodsKindModel.m */,
+				E349F25C1DCE39C00041E672 /* HCShoppingCartGoodsModel.h */,
+				E349F25D1DCE39C00041E672 /* HCShoppingCartGoodsModel.m */,
 				E377C5791DC0861D007B333B /* HCGoodsKindApiService.h */,
 				E377C57A1DC0866A007B333B /* HCGoodsKindApiServiceImp.h */,
 				E377C57B1DC0866A007B333B /* HCGoodsKindApiServiceImp.m */,
@@ -1949,6 +1954,7 @@
 				E34B7BAE1D227BC60066FE80 /* HCGridMenuView.m in Sources */,
 				E3FBB1761D34D97A00573343 /* MineOrderCell.m in Sources */,
 				E35BA5D21DAB76F800AB4BC1 /* HCTabBarViewModel.m in Sources */,
+				E349F25E1DCE39C00041E672 /* HCShoppingCartGoodsModel.m in Sources */,
 				E377C5831DC090FD007B333B /* HCGoodsKindModel.m in Sources */,
 				E30E9FFC1D2A544E00B38B37 /* ShopTheLookView.m in Sources */,
 				E30E9FED1D2A0A6C00B38B37 /* HotCategoryViewCell.m in Sources */,

@@ -39,6 +39,10 @@ static CGFloat TAG_HEIGHT = 24;
     self.dismissCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executeDismissSignal];
     }];
+    
+    self.affirmCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeAffirmSinal:input];
+    }];
 }
 
 - (RACSignal *)executeGoodsKindSignal {
@@ -64,6 +68,15 @@ static CGFloat TAG_HEIGHT = 24;
         return nil;
     }];
 }
+
+- (RACSignal *)executeAffirmSinal:(id)goods {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self.services addGoods:goods];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
+
 //处理数据，得到适合视图显示的数据结构。
 - (NSArray *)handleApiData:(NSArray *)datas {
     NSMutableArray *processDataArray = [NSMutableArray array];

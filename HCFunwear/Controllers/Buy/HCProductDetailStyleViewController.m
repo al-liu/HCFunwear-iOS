@@ -16,6 +16,7 @@
 #import "HCGoodsKindTagKindHeaderView.h"
 #import "HCGoodsKindSelectFooterView.h"
 #import "HCGoodsKindModel.h"
+#import "HCShoppingCartGoodsModel.h"
 
 static NSString *kHCGoodsKindTagCellId = @"HCGoodsKindTagCellId";
 static NSString *kHCGoodsKindTagKindHeaderId = @"HCGoodsKindTagKindHeaderId";
@@ -99,6 +100,27 @@ static NSString *kHCGoodsKindSelectFooterId = @"HCGoodsKindSelectFooterId";
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitButton setTitle:@"确定" forState:UIControlStateNormal];
     [self.view addSubview:submitButton];
+    
+    @weakify(self);
+    [[submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        HCGoodsKindModel *kindModel = _productDetailStyleViewModel.goodsKindList[_colorSelectedIndex];
+        HCGoodsKindSizeModel *sizeModel = kindModel.sizeList[_sizeSelectedIndex];
+        HCShoppingCartGoodsModel *goods = [HCShoppingCartGoodsModel new];
+        goods.proD_CLS_NUM = kindModel.proD_CLS_NUM;
+        goods.branD_ID = kindModel.branD_ID;
+        goods.brand_name = kindModel.brand_name;
+        goods.proD_NUM = kindModel.proD_NUM;
+        goods.proD_NAME = kindModel.proD_NAME;
+        goods.coloR_ID = kindModel.coloR_ID;
+        goods.coloR_NAME = kindModel.coloR_NAME;
+        goods.coloR_FILE_PATH = kindModel.coloR_FILE_PATH;
+        goods.salE_PRICE = kindModel.salE_PRICE;
+        goods.speC_ID = sizeModel.speC_ID;
+        goods.speC_NAME = sizeModel.speC_NAME;
+        goods.count = self->_footerView.counterView.countValue;
+        [self->_productDetailStyleViewModel.affirmCommand execute:goods];
+    }];
     
     [submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);

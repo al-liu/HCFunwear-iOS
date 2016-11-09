@@ -27,6 +27,9 @@
     TopStyleDelegate,
     UIViewControllerTransitioningDelegate
 >
+{
+    TopStyleButton *_topStyleButton;
+}
 
 @property (strong, nonatomic) HomePageView *homePageView;
 
@@ -65,7 +68,7 @@
             @strongify(self);
             [self->_homePageView beginRefresh];
             self->_homePageViewModel.refreshFlag = NO;
-            [self configNavigationBar];
+            [self updateHomePageTopStyle];
         }
     }];
 }
@@ -132,19 +135,12 @@
     
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
-    TopStyleButton *topStyleButton = [[TopStyleButton alloc]initWithFrame:CGRectMake(0, 0, screenWidth-180, 44)];
-    topStyleButton.delegate = self;
-    [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = topStyleButton;
     
-    if ([[GlobalContext ShareInstance].cid isEqualToString:@"1"]) {
-        topStyleButton.funwearStyle = ManFunwearStyle;
-    }
-    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"2"]) {
-        topStyleButton.funwearStyle = WomenFunwearStyle;
-    }
-    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"4"]) {
-        topStyleButton.funwearStyle = LifeFunwearStyle;
-    }
+    _topStyleButton = [[TopStyleButton alloc]initWithFrame:CGRectMake(0, 0, screenWidth-180, 44)];
+    _topStyleButton.delegate = self;
+    [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = _topStyleButton;
+    
+    [self updateHomePageTopStyle];
     
     /*
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
@@ -154,7 +150,17 @@
      */
 }
 
-
+- (void)updateHomePageTopStyle {
+    if ([[GlobalContext ShareInstance].cid isEqualToString:@"1"]) {
+        _topStyleButton.funwearStyle = ManFunwearStyle;
+    }
+    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"2"]) {
+        _topStyleButton.funwearStyle = WomenFunwearStyle;
+    }
+    else if ([[GlobalContext ShareInstance].cid isEqualToString:@"4"]) {
+        _topStyleButton.funwearStyle = LifeFunwearStyle;
+    }
+}
 
 #pragma mark - TopStyleDelegate
 - (NSString *)topStyleButton:(TopStyleButton *)button cellForTitleAtIndexPath:(NSIndexPath *)indexPath {

@@ -10,6 +10,8 @@
 
 @interface HCCounterView : UIView
 
+@property (nonatomic, assign, readonly) NSInteger countValue;
+
 @property (nonatomic, assign) NSInteger minCount;
 
 @property (nonatomic, assign) NSInteger maxCount;

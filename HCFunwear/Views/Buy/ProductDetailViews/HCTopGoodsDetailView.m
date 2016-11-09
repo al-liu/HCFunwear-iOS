@@ -225,7 +225,7 @@
     HCGoodsDetailShopPlanCell *cell = [tableView dequeueReusableCellWithIdentifier:kHCGoodsDetailShopPlanCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     HCActivity *activity = _detailViewModel.productDetailModel.activity[indexPath.row];
-    cell.planContentLabel.text = activity.info;
+    cell.planContentLabel.text = activity.name;
     return cell;
 }
 #pragma mark - UITableViewDelegate

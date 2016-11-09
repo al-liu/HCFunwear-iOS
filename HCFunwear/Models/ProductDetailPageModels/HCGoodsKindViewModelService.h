@@ -14,4 +14,6 @@
 
 - (id<HCGoodsKindApiService>)getGoodsKindApiService;
 
+- (void)addGoods:(id)goods;
+
 @end

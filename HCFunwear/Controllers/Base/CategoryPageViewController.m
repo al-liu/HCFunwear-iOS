@@ -56,7 +56,6 @@
         @strongify(self);
         if ([x isEqual:@YES]) {
             [self beginRequestWithIndex:topView.currentIndex];
-            [self configNavigationBar];
         }
     }];
     

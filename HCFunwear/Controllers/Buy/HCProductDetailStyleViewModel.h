@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) RACCommand *dismissCommand;
 
+@property (nonatomic, strong) RACCommand *affirmCommand;
+
 @property (nonatomic, copy) NSString *goodsCode;
 
 @property (nonatomic, strong) NSArray *goodsKindList;

@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *increaseButton;
 @property (weak, nonatomic) IBOutlet UIButton *countButton;
 
-@property (assign, nonatomic) NSInteger countValue;
+@property (nonatomic, assign, readwrite) NSInteger countValue;
 
 @end
 
