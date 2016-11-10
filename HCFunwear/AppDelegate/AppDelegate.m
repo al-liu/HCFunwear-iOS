@@ -49,9 +49,9 @@
     
     self.window = [[HCWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
     HCTabBarController *tabBarController = [self configTabBarController];
     tabBarController.automaticallyAdjustsScrollViewInsets = NO;
-    
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
     
     //默认广告页
@@ -65,11 +65,6 @@
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
     [GlobalContext ShareInstance].rootController = navigationController;
-    /*
-    mainStyleController.transitioningDelegate = tabBarController;
-    mainStyleController.modalPresentationStyle = UIModalPresentationCustom;
-    [[GlobalContext ShareInstance].mainTabBarController presentViewController:mainStyleController animated:NO completion:nil];
-     */
     
     return YES;
 }

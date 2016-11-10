@@ -78,21 +78,6 @@
     [self configNavigationBar];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - initUI
 - (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
@@ -141,13 +126,6 @@
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.titleView = _topStyleButton;
     
     [self updateHomePageTopStyle];
-    
-    /*
-    [GlobalContext ShareInstance].mainTabBarController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
-    [[GlobalContext ShareInstance].rootController.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"top_back"]];
-    [[GlobalContext ShareInstance].rootController.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"top_back"]];
-    [[GlobalContext ShareInstance].rootController.navigationBar setTintColor:[UIColor blackColor]];
-     */
 }
 
 - (void)updateHomePageTopStyle {
@@ -216,15 +194,5 @@
     // 退出控制器动画
     return dismissAnimator;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
