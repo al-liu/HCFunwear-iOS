@@ -18,7 +18,7 @@
 #import "HCTabBarController.h"
 #import "HCProductDetailStyleViewController.h"
 
-@interface MainStyleViewController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface MainStyleViewController ()
 {
     MainStyleViewModel *_mainStyleViewModel;
 }
@@ -45,9 +45,30 @@
  
     [_styleViewList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MainStyleView *view = obj;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                             action:@selector(changeStyle:)];
+
+        UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
         [view addGestureRecognizer:tap];
+        
+        [[tap.rac_gestureSignal map:^id(UITapGestureRecognizer *tap) {
+            return @(tap.view.tag);
+        }] subscribeNext:^(NSNumber *x) {
+            [[_mainStyleViewModel.tapCommand execute:x] subscribeNext:^(id x) {
+                RACTuple *tuple = x;
+                NSString *cid = tuple.first;
+                BOOL isRefresh = [tuple.second boolValue];
+                
+                //需要更新
+                [GlobalContext ShareInstance].cid = cid;
+                //更新FLAG
+                HomePageViewController *homePageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[0];
+                homePageController.homePageViewModel.refreshFlag = isRefresh;
+                
+                CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
+                categoryPageController.categoryViewModel.refreshHotFlag = isRefresh;
+                categoryPageController.categoryViewModel.refreshCategoryFlag = isRefresh;
+                categoryPageController.categoryViewModel.refreshBrandFlag = isRefresh;
+            }];
+        }];
         
         view.alpha = 0;
     }];
@@ -61,10 +82,7 @@
     [super viewWillAppear:animated];
     
     if ([GlobalContext ShareInstance].isShowAdvert) {
-        _firstStyle.alpha = 1;
-        _secondStyle.alpha = 1;
-        _thirdStyle.alpha = 1;
-        _jumpButton.alpha = 0;
+        [self showStyleButton];
     }
     else {
         _advertImageView.transform = CGAffineTransformScale(_advertImageView.transform, 1.5, 1.5);
@@ -72,58 +90,18 @@
             _advertImageView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.5f animations:^{
-                _firstStyle.alpha = 1;
-                _secondStyle.alpha = 1;
-                _thirdStyle.alpha = 1;
-                _jumpButton.alpha = 0;
+                [self showStyleButton];
             }];
         }];
-
         [GlobalContext ShareInstance].isShowAdvert = YES;
     }
-    
-//    HCProductDetailStyleViewController *vc = [[HCProductDetailStyleViewController alloc]init];
-//    [self presentViewController:vc animated:NO completion:nil];
-    
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-}
-
-- (void)changeStyle:(UITapGestureRecognizer *)tap {
-    UIView *tapView = tap.view;
-    NSString *changedCid ;
-    if (tapView.tag == 1) {
-        changedCid = @"1";
-    }
-    else if (tapView.tag == 2) {
-        changedCid = @"2";
-    }
-    else if (tapView.tag == 3) {
-        changedCid = @"4";
-    }
-    if (![changedCid isEqualToString:[GlobalContext ShareInstance].cid]) {
-        //需要更新
-        [GlobalContext ShareInstance].cid = changedCid;
-        //更新FLAG
-        HomePageViewController *homePageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[0];
-        homePageController.homePageViewModel.refreshFlag = YES;
-        
-        CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
-        categoryPageController.categoryViewModel.refreshHotFlag = YES;
-        categoryPageController.categoryViewModel.refreshCategoryFlag = YES;
-        categoryPageController.categoryViewModel.refreshBrandFlag = YES;
-        
-    }
-    [GlobalContext ShareInstance].rootController.transitioningDelegate = self;
-    [GlobalContext ShareInstance].rootController.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:[GlobalContext ShareInstance].rootController animated:YES completion:nil];
-    
-//    HCTabBarViewModel *tabBarVM = [HCTabBarViewModel new];
-//    [_mainStyleViewModel.pushCommand execute:tabBarVM];
-    
+- (void)showStyleButton {
+    _firstStyle.alpha = 1;
+    _secondStyle.alpha = 1;
+    _thirdStyle.alpha = 1;
+    _jumpButton.alpha = 0;
 }
 
 - (IBAction)jumpAnimation:(id)sender {
@@ -134,31 +112,5 @@
         _jumpButton.alpha = 0;
     }];
 }
-
-#pragma mark - 定制转场动画 (Present 与 Dismiss动画代理)
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source {
-    
-    // 推出控制器的动画
-    return [HCMainStylePresentAnimator new];
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    
-    HCMainStyleDismissAnimator *dismissAnimator   = [HCMainStyleDismissAnimator new];
-    // 退出控制器动画
-    return dismissAnimator;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

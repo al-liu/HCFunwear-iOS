@@ -12,13 +12,15 @@
 
 @interface MainStyleViewModel : NSObject
 
-@property (nonatomic, strong) RACCommand *appConfigRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *appConfigRequestCommand;
 
-@property (nonatomic, strong) RACCommand *pushCommand;
+@property (nonatomic, strong, readonly) RACCommand *pushCommand;
 
-@property (nonatomic, strong) AppConfigModel *appConfigModel;
+@property (nonatomic, strong, readonly) RACCommand *tapCommand;
 
-@property (nonatomic, strong) UIImage *launchBannerImage;
+@property (nonatomic, strong, readonly) AppConfigModel *appConfigModel;
+
+@property (nonatomic, strong, readonly) UIImage *launchBannerImage;
 
 - (instancetype)initWithServices:(id<HCMainStyleViewModelService>)services;
 

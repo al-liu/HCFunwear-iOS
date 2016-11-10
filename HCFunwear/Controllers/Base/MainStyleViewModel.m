@@ -16,6 +16,16 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
 
 @property (strong, nonatomic) id <HCMainStyleViewModelService> services;
 
+@property (nonatomic, strong, readwrite) RACCommand *appConfigRequestCommand;
+
+@property (nonatomic, strong, readwrite) RACCommand *pushCommand;
+
+@property (nonatomic, strong, readwrite) RACCommand *tapCommand;
+
+@property (nonatomic, strong, readwrite) AppConfigModel *appConfigModel;
+
+@property (nonatomic, strong, readwrite) UIImage *launchBannerImage;
+
 @end
 
 @implementation MainStyleViewModel
@@ -48,6 +58,10 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
     self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executePushSignal:input];
     }];
+    
+    self.tapCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeTapSignal:input];
+    }];
 
 }
 
@@ -72,6 +86,10 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
         [subscriber sendCompleted];
         return nil;
     }];
+}
+
+- (RACSignal *)executeTapSignal:(NSNumber *)tag {
+    return [self.services selectedStyle:[tag integerValue]];
 }
 
 @end

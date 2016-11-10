@@ -15,4 +15,6 @@
 
 - (id<HCMainStyleApiService>)getMainStyleApiService;
 
+- (RACSignal *)selectedStyle:(NSInteger)tag;
+
 @end
