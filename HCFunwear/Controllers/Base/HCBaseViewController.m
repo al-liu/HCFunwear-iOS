@@ -12,19 +12,11 @@
 
 @interface HCBaseViewController ()
 
-@property (nonatomic, strong, readwrite) HCBaseViewModel *viewModel;
-
 @end
 
 @implementation HCBaseViewController
 
-- (instancetype)initWithViewModel:(HCBaseViewModel *)viewModel {
-    self = [super init];
-    if (self) {
-        self.viewModel = viewModel;
-    }
-    return self;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

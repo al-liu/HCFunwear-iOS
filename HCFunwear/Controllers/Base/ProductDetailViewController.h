@@ -12,6 +12,4 @@
 
 @interface ProductDetailViewController : HCBaseViewController
 
-- (instancetype)initWithViewModel:(ProductDetailViewModel *)viewModel;
-
 @end

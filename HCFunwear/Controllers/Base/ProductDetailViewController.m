@@ -29,20 +29,15 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     HCContentMoudleType _contentMoudleType;
     HCTopGoodsDetailView *_goodsDetailView;
     HCBottomGoodsDetailView *_bottomGoodsView;
-    
-    ProductDetailViewModel *_viewModel;
 }
+
+@property (nonatomic, strong, readonly) ProductDetailViewModel *viewModel;
+
 @end
 
 @implementation ProductDetailViewController
 
-- (instancetype)initWithViewModel:(ProductDetailViewModel *)viewModel {
-    self = [super init];
-    if (self) {
-        _viewModel = viewModel;
-    }
-    return self;
-}
+@dynamic viewModel;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -64,7 +59,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     // Do any additional setup after loading the view.
     
     _goodsDetailView = [HCTopGoodsDetailView new];
-    [_goodsDetailView bindViewModel:_viewModel];
+    [_goodsDetailView bindViewModel:self.viewModel];
     [self.view addSubview:_goodsDetailView];
     
     [_goodsDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,7 +75,7 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
     }];
     
     _bottomGoodsView = [HCBottomGoodsDetailView new];
-    [_bottomGoodsView bindViewModel:_viewModel];
+    [_bottomGoodsView bindViewModel:self.viewModel];
     [self.view addSubview:_bottomGoodsView];
     
     [_bottomGoodsView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,13 +98,13 @@ typedef NS_ENUM(NSUInteger,HCContentMoudleType) {
         make.height.equalTo(@50);
     }];
     
-    [shoppingCartView bindAddGoodsCommand:_viewModel.addGoodsCommand];
+    [shoppingCartView bindAddGoodsCommand:self.viewModel.addGoodsCommand];
     
     HCHudManager *hudManager = [HCHudManager new];
     [hudManager addHUDToView:self.navigationController.view];
     [hudManager show];
     
-    [_viewModel.batchStream subscribeNext:^(id x) {
+    [self.viewModel.batchStream subscribeNext:^(id x) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [hudManager hidden];
         });
