@@ -12,26 +12,25 @@
 #import "HCCategoryApiServices.h"
 #import "HCCategoryViewModelServices.h"
 #import "HCCategoryLayout.h"
+#import "HCBaseViewModel.h"
 
-@interface CategoryPageViewModel : NSObject
+@interface CategoryPageViewModel : HCBaseViewModel
 
-@property (nonatomic, strong) RACCommand *layoutRequestCommand;
-@property (nonatomic, strong) RACCommand *categorysRequestCommand;
-@property (nonatomic, strong) RACCommand *brandsRequestCommand;
-@property (nonatomic, strong) RACCommand *pushCommand;
+@property (nonatomic, strong, readonly) RACCommand *layoutRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *categorysRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *brandsRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *pushCommand;
 
-@property (nonatomic, strong) HCCategoryLayout *hotLayout;
-@property (nonatomic, strong) NSArray *cateList;
-@property (nonatomic, strong) NSMutableArray *brandList;
+@property (nonatomic, strong, readonly) HCCategoryLayout *hotLayout;
+@property (nonatomic, strong, readonly) NSArray *cateList;
+@property (nonatomic, strong, readonly) NSMutableArray *brandList;
 
-@property (nonatomic, strong) NSArray *topTitlesList;
+@property (nonatomic, strong, readonly) NSArray *topTitlesList;
 @property (nonatomic, assign) NSInteger brandsPageIndex;
 
 //yes 是需要刷新
 @property (nonatomic, assign) BOOL refreshHotFlag;
 @property (nonatomic, assign) BOOL refreshCategoryFlag;
 @property (nonatomic, assign) BOOL refreshBrandFlag;
-
-- (instancetype)initWithServices:(id<HCCategoryViewModelServices>)services;
 
 @end

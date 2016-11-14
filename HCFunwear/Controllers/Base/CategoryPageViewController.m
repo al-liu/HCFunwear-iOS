@@ -25,19 +25,15 @@
     TopBrandPageView *_topBrandPageView;
 }
 
+@property (nonatomic, weak, readonly) CategoryPageViewModel *viewModel;
+
 @end
 
 @implementation CategoryPageViewController
 
-#pragma mark - life_cycle
+@dynamic viewModel;
 
-- (instancetype)initWithViewModel:(CategoryPageViewModel *)viewModel {
-    self = [super init];
-    if (self) {
-        _categoryViewModel = viewModel;
-    }
-    return self;
-}
+#pragma mark - life_cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,9 +43,9 @@
     
     [self topCategoryView:topView clickAtIndex:0];
     
-    RACSignal *signal01 = RACObserve(_categoryViewModel, refreshHotFlag);
-    RACSignal *signal02 = RACObserve(_categoryViewModel, refreshCategoryFlag);
-    RACSignal *signal03 = RACObserve(_categoryViewModel, refreshBrandFlag);
+    RACSignal *signal01 = RACObserve(self.viewModel, refreshHotFlag);
+    RACSignal *signal02 = RACObserve(self.viewModel, refreshCategoryFlag);
+    RACSignal *signal03 = RACObserve(self.viewModel, refreshBrandFlag);
     NSArray *signalArray = @[signal01,signal02,signal03];
     @weakify(self);
     [[RACSignal merge:signalArray] subscribeNext:^(id x) {
@@ -66,26 +62,11 @@
     [self configNavigationBar];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - initUI 
 - (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
     topView = [[TopCategoryView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-80, 44)];
-//    topView.backgroundColor = [UIColor redColor];
     topView.delegate = self;
     
     _scrollView = ({
@@ -105,7 +86,7 @@
     
     _topHotPageView = ({
         TopHotPageView *view = [TopHotPageView new];
-        [view bindViewModel:_categoryViewModel];
+        [view bindViewModel:self.viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,7 +100,7 @@
     
     _topCategoryPageView = ({
         TopCategoryPageView *view = [TopCategoryPageView new];
-        [view bindViewModel:_categoryViewModel];
+        [view bindViewModel:self.viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,7 +113,7 @@
     
     _topBrandPageView = ({
         TopBrandPageView *view = [TopBrandPageView new];
-        [view bindViewModel:_categoryViewModel];
+        [view bindViewModel:self.viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -146,29 +127,35 @@
     
 }
 
+- (void)setAllRefreshFlag:(BOOL)flag {
+    self.viewModel.refreshHotFlag = flag;
+    self.viewModel.refreshCategoryFlag = flag;
+    self.viewModel.refreshBrandFlag = flag;
+}
+
 - (void)beginRequestWithIndex:(NSInteger)index {
     switch (index) {
         case 0:
         {
-            if (!self.categoryViewModel.hotLayout | self.categoryViewModel.refreshHotFlag) {
+            if (!self.viewModel.hotLayout | self.viewModel.refreshHotFlag) {
                 [_topHotPageView beginRefresh];
-                self.categoryViewModel.refreshHotFlag = NO;
+                self.viewModel.refreshHotFlag = NO;
             }
         }
             break;
         case 1:
         {
-            if ((self.categoryViewModel.cateList.count == 0) | self.categoryViewModel.refreshCategoryFlag) {
+            if ((self.viewModel.cateList.count == 0) | self.viewModel.refreshCategoryFlag) {
                 [_topCategoryPageView beginRefresh];
-                self.categoryViewModel.refreshCategoryFlag = NO;
+                self.viewModel.refreshCategoryFlag = NO;
             }
         }
             break;
         case 2:
         {
-            if ((self.categoryViewModel.brandList.count == 0) | self.categoryViewModel.refreshBrandFlag) {
+            if ((self.viewModel.brandList.count == 0) | self.viewModel.refreshBrandFlag) {
                 [_topBrandPageView beginRefresh];
-                self.categoryViewModel.refreshBrandFlag = NO;
+                self.viewModel.refreshBrandFlag = NO;
             }
         }
             break;
@@ -199,7 +186,7 @@
 
 #pragma mark - TopCategoryViewDelegate
 - (NSString *)topCategoryView:(TopCategoryView *)topCategoryView labelForTitleAtIndex:(NSInteger)index {
-    return self.categoryViewModel.topTitlesList[index];
+    return self.viewModel.topTitlesList[index];
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {

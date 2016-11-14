@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "InspirationPageViewModel.h"
+#import "HCViewController.h"
 
-@interface InspirationPageViewController : UIViewController <UIScrollViewDelegate>
-
-@property (nonatomic, strong) InspirationPageViewModel *viewModel;
-
-- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel;
+@interface InspirationPageViewController : HCViewController <UIScrollViewDelegate>
 
 @end

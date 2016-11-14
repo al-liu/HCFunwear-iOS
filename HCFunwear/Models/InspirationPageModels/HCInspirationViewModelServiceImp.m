@@ -40,14 +40,7 @@
 
 - (void)pushViewModel:(__nullable id)viewModel animated:(BOOL)animated {
     //跳转逻辑
-    if ([viewModel isKindOfClass:HCWebViewModel.class]) {
-        HCWebViewController *webViewController = [[HCWebViewController alloc] initWithViewModel:viewModel];
-        [[GlobalContext ShareInstance].rootController pushViewController:webViewController animated:YES];
-    }
-    else if ([viewModel isKindOfClass:ProductDetailViewModel.class]) {
-        ProductDetailViewController *viewController = [[ProductDetailViewController alloc]initWithViewModel:viewModel];
-        [[GlobalContext ShareInstance].rootController pushViewController:viewController animated:YES];
-    }
+    [super pushViewModel:viewModel animated:animated];
 }
 
 

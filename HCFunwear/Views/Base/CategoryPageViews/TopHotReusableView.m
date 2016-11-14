@@ -38,6 +38,7 @@
     _circulateScrollView = ({
         HCCirculateScrollView *view = [HCCirculateScrollView new];
         view.image = [UIImage imageNamed:@"fan_default_01"];
+        view.delegate = self;
         [self addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {

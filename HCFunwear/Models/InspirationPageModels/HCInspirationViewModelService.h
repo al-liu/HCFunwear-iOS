@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "HCNavigationService.h"
 #import "HCInspirationApiService.h"
+#import "HCBaseService.h"
 
-@protocol HCInspirationViewModelService <HCNavigationService>
+@protocol HCInspirationViewModelService <HCBaseService>
 
 - (id<HCInspirationApiService>)getInspApiService;
 

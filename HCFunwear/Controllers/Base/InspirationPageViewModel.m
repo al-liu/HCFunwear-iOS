@@ -12,27 +12,27 @@
 
 @interface InspirationPageViewModel ()
 
-@property (strong, nonatomic) id <HCInspirationViewModelService> services;
+@property (strong, nonatomic, readonly) id <HCInspirationViewModelService> services;
+
+@property (nonatomic, strong, readwrite) RACCommand *infosRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *funerRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *pushCommand;
+
+@property (nonatomic, strong, readwrite) NSArray *topTitlesList;
 
 @end
 
 @implementation InspirationPageViewModel
-
-- (instancetype)initWithServices:(id<HCInspirationViewModelService>)services {
-    self = [super init];
-    if (self) {
-        _services = services;
-        _topTitlesList = @[@"资讯",@"范儿",@"关注"];
-        _infoPageIndex = 1;
-        _infoPageSize = 10;
-        _infoAid = @"";
-        _funerPageIndex = 0;
-        [self initialize];
-    }
-    return self;
-}
+@dynamic services;
 
 - (void)initialize {
+    
+    _topTitlesList = @[@"资讯",@"范儿",@"关注"];
+    _infoPageIndex = 1;
+    _infoPageSize = 10;
+    _infoAid = @"";
+    _funerPageIndex = 0;
+    
     self.infosRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         return [self executeInfosSignal];
     }];

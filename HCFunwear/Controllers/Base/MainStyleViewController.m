@@ -64,9 +64,7 @@
                 [homePageController setRefreshFlag:isRefresh];
                 
                 CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
-                categoryPageController.categoryViewModel.refreshHotFlag = isRefresh;
-                categoryPageController.categoryViewModel.refreshCategoryFlag = isRefresh;
-                categoryPageController.categoryViewModel.refreshBrandFlag = isRefresh;
+                [categoryPageController setAllRefreshFlag:isRefresh];
             }];
         }];
         

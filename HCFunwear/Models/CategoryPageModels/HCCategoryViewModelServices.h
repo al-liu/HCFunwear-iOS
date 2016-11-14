@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "HCNavigationService.h"
 #import "HCCategoryApiServices.h"
+#import "HCBaseService.h"
 
-@protocol HCCategoryViewModelServices <HCNavigationService>
+@protocol HCCategoryViewModelServices <HCBaseService>
 
 - (id<HCCategoryApiServices>)getCategoryApiService;
 

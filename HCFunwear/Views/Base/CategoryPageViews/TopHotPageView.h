@@ -10,6 +10,7 @@
 #import "HCCategoryLayout.h"
 #import "CategoryPageViewModel.h"
 #import "HCViewModelBindProtocol.h"
+#import "HCWebViewModel.h"
 
 @interface TopHotPageView : UIView <UICollectionViewDataSource,UICollectionViewDelegate,HCViewModelBindProtocol>
 

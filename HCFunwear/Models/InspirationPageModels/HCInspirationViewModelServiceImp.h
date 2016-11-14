@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HCInspirationViewModelService.h"
+#import "HCBaseViewModelServiceImp.h"
 
-@interface HCInspirationViewModelServiceImp : NSObject <HCInspirationViewModelService>
+@interface HCInspirationViewModelServiceImp : HCBaseViewModelServiceImp <HCInspirationViewModelService>
 
 @end

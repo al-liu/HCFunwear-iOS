@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TopCategoryView.h"
 #import "CategoryPageViewModel.h"
+#import "HCViewController.h"
 
-@interface CategoryPageViewController : UIViewController <TopCategoryViewDelegate,UIScrollViewDelegate>
+@interface CategoryPageViewController : HCViewController <TopCategoryViewDelegate,UIScrollViewDelegate>
 
-@property (nonatomic, weak)CategoryPageViewModel *categoryViewModel;
-
-- (instancetype)initWithViewModel:(CategoryPageViewModel *)viewModel;
+- (void)setAllRefreshFlag:(BOOL)flag;
 
 @end

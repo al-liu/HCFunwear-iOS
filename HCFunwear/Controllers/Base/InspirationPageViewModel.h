@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "HCInspirationViewModelService.h"
 #import "HCInspirationInfos.h"
+#import "HCBaseViewModel.h"
 
-@interface InspirationPageViewModel : NSObject
+@interface InspirationPageViewModel : HCBaseViewModel
 
-@property (nonatomic, strong) RACCommand *infosRequestCommand;
-@property (nonatomic, strong) RACCommand *funerRequestCommand;
-@property (nonatomic, strong) RACCommand *pushCommand;
-@property (nonatomic, strong) NSArray *topTitlesList;
+@property (nonatomic, strong, readonly) RACCommand *infosRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *funerRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *pushCommand;
+
+@property (nonatomic, strong, readonly) NSArray *topTitlesList;
 
 @property (nonatomic, assign) NSInteger infoPageIndex;
 @property (nonatomic, assign) NSInteger infoPageSize;
@@ -25,8 +27,5 @@
 
 @property (nonatomic, strong) HCInspirationInfos *inspInfos;
 @property (nonatomic, strong) NSArray *inspFunerList;
-
-
-- (instancetype)initWithServices:(id<HCInspirationViewModelService>)services;
 
 @end

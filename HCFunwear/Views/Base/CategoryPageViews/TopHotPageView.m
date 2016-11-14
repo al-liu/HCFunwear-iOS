@@ -94,6 +94,19 @@ static NSString *kTopHotReusableViewIdentifier = @"kTopHotReusableViewIdentifier
         }] array];
         [reusableview.circulateScrollView loadView:urls];
         [reusableview reloadHotBrandsWithDatas:_cateMoudule.hotBrandModul.list];
+        
+        [[reusableview rac_signalForSelector:@selector(circulateScrollViewDidSelectedAtIndex:)
+                               fromProtocol:@protocol(HCCirculateScrollViewProtocol)] subscribeNext:^(id x) {
+            RACTuple *tuple = x;
+            NSInteger index = [tuple.first integerValue];
+            HCHotModuleData *data = self->_cateMoudule.topPicModul.list[index];
+            
+            HCWebViewModel *viewModel = [HCWebViewModel new];
+            viewModel.webRequestURL = data.jump.url;
+            viewModel.webTitle = data.jump.name;
+            [self.cateViewModel.pushCommand execute:viewModel];
+        }];
+        
         return reusableview;
     }
     return nil;

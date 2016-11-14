@@ -16,30 +16,34 @@
 
 @interface CategoryPageViewModel ()
 
-@property (strong, nonatomic) id <HCCategoryViewModelServices> services;
+@property (strong, nonatomic, readonly) id <HCCategoryViewModelServices> services;
+
+@property (nonatomic, strong, readwrite) RACCommand *layoutRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *categorysRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *brandsRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *pushCommand;
+
+@property (nonatomic, strong, readwrite) HCCategoryLayout *hotLayout;
+@property (nonatomic, strong, readwrite) NSArray *cateList;
+@property (nonatomic, strong, readwrite) NSMutableArray *brandList;
+
+@property (nonatomic, strong, readwrite) NSArray *topTitlesList;
 
 @end
 
 @implementation CategoryPageViewModel
-
-- (instancetype)initWithServices:(id<HCCategoryViewModelServices>)services {
-    self = [super init];
-    if (self) {
-        _services = services;
-        _cateList = [NSArray array];
-        _brandList = [NSMutableArray array];
-        _topTitlesList = @[@"热门",@"品类",@"品牌"];
-        _brandsPageIndex = 0;
-        _refreshHotFlag = YES;
-        _refreshCategoryFlag = YES;
-        _refreshBrandFlag = YES;
-        
-        [self initialize];
-    }
-    return self;
-}
+@dynamic services;
 
 - (void)initialize {
+    
+    _cateList = [NSArray array];
+    _brandList = [NSMutableArray array];
+    _topTitlesList = @[@"热门",@"品类",@"品牌"];
+    _brandsPageIndex = 0;
+    _refreshHotFlag = YES;
+    _refreshCategoryFlag = YES;
+    _refreshBrandFlag = YES;
+    
     self.layoutRequestCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         return [self executeHotSignal];
     }];

@@ -17,6 +17,7 @@
 #import "InspirationPageViewModel.h"
 #import "HCInspInfoModel.h"
 #import "UIImageView+HCPackWebImage.h"
+#import "HCWebViewModel.h"
 
 @implementation InspirationInfoTableView {
     NSArray *_tabsList;
@@ -145,10 +146,6 @@
     
 }
 
-- (void)aaaa {
-    
-}
-
 - (void)header_beginRefreshing {
 //    HCInspInfoModel *model = self->_tableArray.firstObject;//全部
     //将之前获取的数据设置进去
@@ -217,7 +214,14 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger tableViewIndex = [_tableViewList indexOfObject:tableView];
+    HCInspInfoModel *model = self->_tableArray[tableViewIndex];
+    HCInspInfo *info = model.tableInfosList[indexPath.row];
     
+    HCWebViewModel *viewModel = [HCWebViewModel new];
+    viewModel.webRequestURL = info.url;
+    viewModel.webTitle = info.title;
+    [_viewModel.pushCommand execute:viewModel];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //64:47

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HCCirculateScrollView.h"
 
-@interface TopHotReusableView : UICollectionReusableView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface TopHotReusableView : UICollectionReusableView <UICollectionViewDataSource,UICollectionViewDelegate,HCCirculateScrollViewProtocol>
 
 @property (nonatomic, strong) HCCirculateScrollView *circulateScrollView;
 

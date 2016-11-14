@@ -25,25 +25,22 @@
     
     InspirationPageAttentionView *_attentionView;
 }
+
+@property (nonatomic, strong, readonly) InspirationPageViewModel *viewModel;
+
 @end
 
 @implementation InspirationPageViewController
+@dynamic viewModel;
 
 #pragma mark - life_cycle
-- (instancetype)initWithViewModel:(InspirationPageViewModel *)viewModel {
-    self = [super init];
-    if (self) {
-        _viewModel = viewModel;
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initUI];
     
-    [[_viewModel.infosRequestCommand execute:nil] subscribeNext:^(HCInspirationInfos *info) {
+    [[self.viewModel.infosRequestCommand execute:nil] subscribeNext:^(HCInspirationInfos *info) {
         [_pageInfoView reloadWithTabs:info.attr];
     }];
 }
@@ -52,16 +49,6 @@
     [super viewWillAppear:animated];
     [self configNavigationBar];
     
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - initUI
@@ -90,13 +77,12 @@
     NSNumber *pageWidth = [NSNumber numberWithFloat:CGRectGetWidth(self.view.frame)];
     
     _pageInfoView = ({
-        InspirationPageInfoView *view = [[InspirationPageInfoView alloc] initWithViewModel:_viewModel];
+        InspirationPageInfoView *view = [[InspirationPageInfoView alloc] initWithViewModel:self.viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_scrollView).offset(64);
             make.bottom.equalTo(_scrollView);
-//            make.top.bottom.equalTo(_scrollView);
             make.left.equalTo(_scrollView);
             make.width.equalTo(pageWidth);
             make.height.equalTo(self.view).offset(-64);
@@ -107,7 +93,7 @@
     
     _funnerView = ({
         InspirationPageFunerView *view = [InspirationPageFunerView new];
-        [view bindViewModel:_viewModel];
+        [view bindViewModel:self.viewModel];
         [_scrollView addSubview:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -154,7 +140,7 @@
 
 #pragma mark - TopCategoryViewDelegate
 - (NSString *)topCategoryView:(TopCategoryView *)topCategoryView labelForTitleAtIndex:(NSInteger)index {
-    return _viewModel.topTitlesList[index];
+    return self.viewModel.topTitlesList[index];
 }
 
 - (void)topCategoryView:(TopCategoryView *)topCategoryView clickAtIndex:(NSInteger)index {
