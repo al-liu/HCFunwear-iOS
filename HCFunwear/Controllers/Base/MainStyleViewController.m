@@ -106,10 +106,7 @@
 
 - (IBAction)jumpAnimation:(id)sender {
     [UIView animateWithDuration:0.5f animations:^{
-        _firstStyle.alpha = 1;
-        _secondStyle.alpha = 1;
-        _thirdStyle.alpha = 1;
-        _jumpButton.alpha = 0;
+        [self showStyleButton];
     }];
 }
 

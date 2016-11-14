@@ -9,6 +9,7 @@
 #import "HCMainStyleViewModelServiceImp.h"
 #import "HCMainStyleApiServiceImp.h"
 #import "GlobalContext.h"
+#import "GlobalConstant.h"
 #import "HCTabBarViewModel.h"
 
 #import "CategoryPageViewController.h"
@@ -57,7 +58,10 @@
             changedCid = @"4";
         }
         else {
-            NSError *error = [NSError errorWithDomain:@"lhc.funwear.domain" code:0 userInfo:@{}];
+            NSDictionary *userinfo = @{NSLocalizedDescriptionKey:@"#FunwearLogicErrorCode# selected the Cid is invaild"};
+            NSError *error = [NSError errorWithDomain:kFunwearDomain
+                                                 code:FunwearLogicErrorCode
+                                             userInfo:userinfo];
             [subscriber sendError:error];
         }
        

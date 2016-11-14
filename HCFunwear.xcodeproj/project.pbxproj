@@ -85,6 +85,7 @@
 		E368C7AB1D309F6800E8783F /* InspirationInfoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C7AA1D309F6800E8783F /* InspirationInfoTableView.m */; };
 		E368C7AF1D30DF6500E8783F /* InspirationAttentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C7AD1D30DF6500E8783F /* InspirationAttentionCell.m */; };
 		E368C7B01D30DF6500E8783F /* InspirationAttentionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E368C7AE1D30DF6500E8783F /* InspirationAttentionCell.xib */; };
+		E36920811DD475FD00903C50 /* HCBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E36920801DD475FD00903C50 /* HCBaseViewModel.m */; };
 		E36EC39C1CF6F4EF00A4F6D7 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */; };
 		E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC39E1CF6FDD800A4F6D7 /* GlobalContext.m */; };
 		E36EC3A21CF706C900A4F6D7 /* TopStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E36EC3A11CF706C900A4F6D7 /* TopStyleButton.m */; };
@@ -138,6 +139,8 @@
 		E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D31D6D4D33008B465A /* HCInspirationInfos.m */; };
 		E37F50D71D6D50E8008B465A /* HCInspirationByUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */; };
 		E37F50DA1D6D9EA3008B465A /* HCInspInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */; };
+		E38350A91DD9575D0069E7C7 /* HCNavigationControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350A81DD9575D0069E7C7 /* HCNavigationControllerStack.m */; };
+		E38350AF1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350AE1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m */; };
 		E383FE661D97C56300813688 /* HCGoodsDetailShopPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE641D97C56300813688 /* HCGoodsDetailShopPlanCell.m */; };
 		E383FE671D97C56300813688 /* HCGoodsDetailShopPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E383FE651D97C56300813688 /* HCGoodsDetailShopPlanCell.xib */; };
 		E383FE6A1D97CD5300813688 /* HCGoodsDetailShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE691D97CD5300813688 /* HCGoodsDetailShopView.m */; };
@@ -401,6 +404,9 @@
 		E368C7AC1D30DF6500E8783F /* InspirationAttentionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspirationAttentionCell.h; sourceTree = "<group>"; };
 		E368C7AD1D30DF6500E8783F /* InspirationAttentionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspirationAttentionCell.m; sourceTree = "<group>"; };
 		E368C7AE1D30DF6500E8783F /* InspirationAttentionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InspirationAttentionCell.xib; sourceTree = "<group>"; };
+		E369207E1DD4728100903C50 /* HCBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseService.h; sourceTree = "<group>"; };
+		E369207F1DD475FD00903C50 /* HCBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseViewModel.h; sourceTree = "<group>"; };
+		E36920801DD475FD00903C50 /* HCBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBaseViewModel.m; sourceTree = "<group>"; };
 		E36EC39A1CF6F4EF00A4F6D7 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		E36EC39B1CF6F4EF00A4F6D7 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		E36EC39D1CF6FDD800A4F6D7 /* GlobalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalContext.h; sourceTree = "<group>"; };
@@ -510,6 +516,10 @@
 		E37F50D61D6D50E8008B465A /* HCInspirationByUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspirationByUsers.m; sourceTree = "<group>"; };
 		E37F50D81D6D9EA3008B465A /* HCInspInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInspInfoModel.h; sourceTree = "<group>"; };
 		E37F50D91D6D9EA3008B465A /* HCInspInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCInspInfoModel.m; sourceTree = "<group>"; };
+		E38350A71DD9575D0069E7C7 /* HCNavigationControllerStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationControllerStack.h; sourceTree = "<group>"; };
+		E38350A81DD9575D0069E7C7 /* HCNavigationControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNavigationControllerStack.m; sourceTree = "<group>"; };
+		E38350AD1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseViewModelServiceImp.h; sourceTree = "<group>"; };
+		E38350AE1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBaseViewModelServiceImp.m; sourceTree = "<group>"; };
 		E383FE631D97C56300813688 /* HCGoodsDetailShopPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsDetailShopPlanCell.h; sourceTree = "<group>"; };
 		E383FE641D97C56300813688 /* HCGoodsDetailShopPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsDetailShopPlanCell.m; sourceTree = "<group>"; };
 		E383FE651D97C56300813688 /* HCGoodsDetailShopPlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsDetailShopPlanCell.xib; sourceTree = "<group>"; };
@@ -1038,7 +1048,14 @@
 		E35BA5D61DAC8D4700AB4BC1 /* BaseService */ = {
 			isa = PBXGroup;
 			children = (
+				E38350A71DD9575D0069E7C7 /* HCNavigationControllerStack.h */,
+				E38350A81DD9575D0069E7C7 /* HCNavigationControllerStack.m */,
 				E35BA5D71DAC8D8500AB4BC1 /* HCNavigationService.h */,
+				E369207E1DD4728100903C50 /* HCBaseService.h */,
+				E369207F1DD475FD00903C50 /* HCBaseViewModel.h */,
+				E36920801DD475FD00903C50 /* HCBaseViewModel.m */,
+				E38350AD1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.h */,
+				E38350AE1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m */,
 			);
 			path = BaseService;
 			sourceTree = "<group>";
@@ -1876,6 +1893,7 @@
 				E3B1D8661D2F6D1800A8BA3E /* HotCategoryPageViewCell.m in Sources */,
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,
 				E35BA5CC1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m in Sources */,
+				E36920811DD475FD00903C50 /* HCBaseViewModel.m in Sources */,
 				E35BA5E11DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,
@@ -1893,6 +1911,7 @@
 				E30E9FF31D2A429500B38B37 /* PopularBrandsViewCell.m in Sources */,
 				E36EC39F1CF6FDD800A4F6D7 /* GlobalContext.m in Sources */,
 				E383FE941D9CC0BC00813688 /* GetProductDetailsApi.m in Sources */,
+				E38350AF1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m in Sources */,
 				E30EA0201D2B5B1F00B38B37 /* HomePageHeadReusableView.m in Sources */,
 				E30C5A2D1CED8E9700BB943C /* GlobalColors.m in Sources */,
 				E32EB5CB1DB8F6DA00A3129C /* HCMainStylePresentAnimator.m in Sources */,
@@ -1931,6 +1950,7 @@
 				E37F50CE1D6D464B008B465A /* HCGetSpecialListForInspApi.m in Sources */,
 				E37F50911D683BD5008B465A /* HCHotModuleData.m in Sources */,
 				E3B048491CE9B85E00C182EA /* main.m in Sources */,
+				E38350A91DD9575D0069E7C7 /* HCNavigationControllerStack.m in Sources */,
 				E37F508E1D683B0A008B465A /* HCCategoryLayout.m in Sources */,
 				E35BA5C71DAB649700AB4BC1 /* AppConfigModel.m in Sources */,
 				E37F50D41D6D4D33008B465A /* HCInspirationInfos.m in Sources */,

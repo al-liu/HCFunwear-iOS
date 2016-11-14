@@ -32,6 +32,9 @@ NSString *const kAppraiseOnlyTextNoReplyCellIdentifier = @"kAppraiseOnlyTextNoRe
 //UserDefault key
 NSString *const kCID = @"kCID";
 
+//custom error domain
+NSString *const kFunwearDomain = @"csii.liuhaichuan.HCFunwear.Domain";
+
 
 @implementation GlobalConstant
 

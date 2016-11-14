@@ -10,7 +10,21 @@
 #import "GlobalContext.h"
 #import "GlobalConstant.h"
 
+@interface HCBaseViewController ()
+
+@property (nonatomic, strong, readwrite) HCBaseViewModel *viewModel;
+
+@end
+
 @implementation HCBaseViewController
+
+- (instancetype)initWithViewModel:(HCBaseViewModel *)viewModel {
+    self = [super init];
+    if (self) {
+        self.viewModel = viewModel;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,6 +34,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [GlobalContext ShareInstance].rootController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (void)bindViewModel {
+    
 }
 
 - (void)configNavigationBar {

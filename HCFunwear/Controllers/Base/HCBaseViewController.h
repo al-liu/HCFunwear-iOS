@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCBaseViewModel.h"
 
 @interface HCBaseViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong, readonly) HCBaseViewModel *viewModel;
+
+- (instancetype)initWithViewModel:(HCBaseViewModel *)viewModel;
+
+- (void)bindViewModel;
 
 @end
