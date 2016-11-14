@@ -54,10 +54,7 @@
 
 - (void)pushViewModel:(__nullable id)viewModel animated:(BOOL)animated {
     //跳转逻辑
-    if ([viewModel isKindOfClass:HCWebViewModel.class]) {
-        HCWebViewController *webViewController = [[HCWebViewController alloc] initWithViewModel:viewModel];
-        [[GlobalContext ShareInstance].rootController pushViewController:webViewController animated:YES];
-    }
+    [super pushViewModel:viewModel animated:animated];
 }
 
 - (void)presentViewModel:(id)viewModel animated:(BOOL)animated completion:(void (^)(void))completion {
@@ -66,6 +63,9 @@
         detailStyleViewController.transitioningDelegate = self;
         detailStyleViewController.modalPresentationStyle = UIModalPresentationCustom;
         [[GlobalContext ShareInstance].rootController presentViewController:detailStyleViewController animated:YES completion:nil];
+    }
+    else {
+        [super presentViewModel:viewModel animated:animated completion:completion];
     }
 }
 

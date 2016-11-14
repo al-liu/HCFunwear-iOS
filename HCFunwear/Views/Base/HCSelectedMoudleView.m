@@ -104,6 +104,13 @@ CGFloat const LINE_HEIGHT = 2.0;
     [self selectedWithIndex:selectedButton.tag];
 }
 
+- (void)setAppraiseTitle:(NSString *)title {
+    if (_btnArray.count == 3) {
+        UIButton *secondBtn = _btnArray[1];
+        [secondBtn setTitle:title forState:UIControlStateNormal];
+    }
+}
+
 - (void)selectedWithIndex:(NSUInteger)index {
     [_btnArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *btn = obj;

@@ -129,6 +129,7 @@
     [[RACObserve(_detailViewModel, commentList) skip:1] subscribeNext:^(NSArray *data) {
         @strongify(self)
         [self->_detailAppraiseView reloadData:data];
+        [self->_selectedMoudleView setAppraiseTitle:[NSString stringWithFormat:@"全部评价(%ld)",data.count]];
     }];
     
     [[RACObserve(_detailViewModel, qaList) skip:1] subscribeNext:^(NSArray *data) {

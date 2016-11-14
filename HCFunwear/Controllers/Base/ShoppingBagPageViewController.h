@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewController.h"
 
-@interface ShoppingBagPageViewController : UIViewController
+@interface ShoppingBagPageViewController : HCViewController
 
 @end

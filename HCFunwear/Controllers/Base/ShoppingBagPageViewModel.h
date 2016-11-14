@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCBaseViewModel.h"
 
-@interface ShoppingBagPageViewModel : NSObject
+@interface ShoppingBagPageViewModel : HCBaseViewModel
 
 @end

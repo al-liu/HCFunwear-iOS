@@ -16,17 +16,32 @@
 
 @interface ProductDetailViewModel ()
 
-@property (strong, nonatomic) id <HCProductDetailViewModelService> services;
+@property (strong, nonatomic, readonly) id <HCProductDetailViewModelService> services;
+
+@property (nonatomic, strong, readwrite) RACCommand *detailRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *commentRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *qaRequestCommand;
+
+@property (nonatomic, strong, readwrite) RACCommand *pushCommand;
+@property (nonatomic, strong, readwrite) RACCommand *addGoodsCommand;
+
+@property (nonatomic, strong, readwrite) RACSignal *batchStream;
+
+@property (nonatomic, copy, readwrite) NSString *productCode;
+@property (nonatomic, assign, readwrite) NSInteger commentListIndex;
+@property (nonatomic, strong, readwrite) NSMutableArray *commentList;
+@property (nonatomic, strong, readwrite) NSArray *qaList;
+@property (nonatomic, strong, readwrite) HCProductDetailModel *productDetailModel;
 
 @end
 
 @implementation ProductDetailViewModel
+@dynamic services;
 
-- (instancetype)initWithServices:(id<HCProductDetailViewModelService>)services
+- (instancetype)initWithServices:(id<HCBaseService>)service
                      productCode:(NSString *)code {
-    self = [super init];
+    self = [super initWithServices:service];
     if (self) {
-        _services = services;
         _productCode = code;
         _commentListIndex = 0;
         _commentList = [[NSMutableArray alloc]init];

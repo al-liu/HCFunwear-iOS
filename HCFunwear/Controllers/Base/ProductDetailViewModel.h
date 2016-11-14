@@ -13,25 +13,26 @@
 #import "HCCommentListModel.h"
 #import "HCProductQAModel.h"
 #import "HCProductDetailViewModelService.h"
+#import "HCBaseViewModel.h"
 
-@interface ProductDetailViewModel : NSObject
+@interface ProductDetailViewModel : HCBaseViewModel
 
-@property (nonatomic, strong) RACCommand *detailRequestCommand;
-@property (nonatomic, strong) RACCommand *commentRequestCommand;
-@property (nonatomic, strong) RACCommand *qaRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *detailRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *commentRequestCommand;
+@property (nonatomic, strong, readonly) RACCommand *qaRequestCommand;
 
-@property (nonatomic, strong) RACCommand *pushCommand;
-@property (nonatomic, strong) RACCommand *addGoodsCommand;
+@property (nonatomic, strong, readonly) RACCommand *pushCommand;
+@property (nonatomic, strong, readonly) RACCommand *addGoodsCommand;
 
-@property (nonatomic, strong) RACSignal *batchStream;
+@property (nonatomic, strong, readonly) RACSignal *batchStream;
 
-@property (nonatomic, copy) NSString *productCode;
-@property (nonatomic, assign) NSInteger commentListIndex;
-@property (nonatomic, strong) NSMutableArray *commentList;
-@property (nonatomic, strong) NSArray *qaList;
-@property (nonatomic, strong) HCProductDetailModel *productDetailModel;
+@property (nonatomic, copy, readonly) NSString *productCode;
+@property (nonatomic, assign, readonly) NSInteger commentListIndex;
+@property (nonatomic, strong, readonly) NSMutableArray *commentList;
+@property (nonatomic, strong, readonly) NSArray *qaList;
+@property (nonatomic, strong, readonly) HCProductDetailModel *productDetailModel;
 
-- (instancetype)initWithServices:(id<HCProductDetailViewModelService>)services
+- (instancetype)initWithServices:(id<HCProductDetailViewModelService>)service
                      productCode:(NSString *)code;
 
 @end

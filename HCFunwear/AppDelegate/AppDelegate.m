@@ -28,6 +28,7 @@
 #import "HomePageViewModel.h"
 #import "CategoryPageViewModel.h"
 #import "InspirationPageViewModel.h"
+#import "MinePageViewModel.h"
 
 #import "HCCategoryViewModelServicesImp.h"
 #import "HCInspirationViewModelServiceImp.h"
@@ -145,7 +146,8 @@
     InspirationPageViewController *inspirationController = [[InspirationPageViewController alloc]initWithViewModel:InspViewModel];
     
     ShoppingBagPageViewController *shoppingBagController = [[ShoppingBagPageViewController alloc]init];
-    MinePageViewController *mineViewController = [[MinePageViewController alloc]init];
+    MinePageViewModel *mineViewModel = [MinePageViewModel new];
+    MinePageViewController *mineViewController = [[MinePageViewController alloc]initWithViewModel:mineViewModel];
     
     HCTabBarController *tabBarController = [[HCTabBarController alloc]initWithViewControllers:@[homePageViewController,categoryPageViewController,inspirationController,shoppingBagController,mineViewController]];
     tabBarController.delegate = self;

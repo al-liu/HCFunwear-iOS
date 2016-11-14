@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HCProductDetailViewModelService.h"
+#import "HCBaseViewModelServiceImp.h"
 
-@interface HCProductDetailViewModelServiceImp : NSObject <HCProductDetailViewModelService,UIViewControllerTransitioningDelegate>
+@interface HCProductDetailViewModelServiceImp : HCBaseViewModelServiceImp <HCProductDetailViewModelService,UIViewControllerTransitioningDelegate>
 
 @end

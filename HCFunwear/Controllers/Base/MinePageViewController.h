@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewController.h"
 
-@interface MinePageViewController : UIViewController
+@interface MinePageViewController : HCViewController
 
 @end

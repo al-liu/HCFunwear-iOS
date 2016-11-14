@@ -25,4 +25,6 @@
 
 - (void)selectedWithIndex:(NSUInteger)index;
 
+- (void)setAppraiseTitle:(NSString *)title;
+
 @end

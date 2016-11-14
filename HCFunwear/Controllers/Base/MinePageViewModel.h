@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HCBaseViewModel.h"
 
-@interface MinePageViewModel : NSObject
+@interface MinePageViewModel : HCBaseViewModel
 
-@property (nonatomic, strong) NSArray *mineMenuModels;
-@property (nonatomic, strong) NSArray *mineOrderMenuModels;
+@property (nonatomic, strong, readonly) NSArray *mineMenuModels;
+@property (nonatomic, strong, readonly) NSArray *mineOrderMenuModels;
 
 @end

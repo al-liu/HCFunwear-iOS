@@ -9,6 +9,12 @@
 #import "MinePageViewModel.h"
 #import "MineMenuModel.h"
 
+@interface MinePageViewModel ()
+
+@property (nonatomic, strong, readwrite) NSArray *mineMenuModels;
+@property (nonatomic, strong, readwrite) NSArray *mineOrderMenuModels;
+
+@end
 @implementation MinePageViewModel
 
 - (instancetype)init

@@ -13,19 +13,19 @@
 #import "MinePageViewModel.h"
 
 @interface MinePageViewController ()
-{
-    MinePageViewModel *_minePageViewModel;
-}
+
+@property (nonatomic, strong, readonly) MinePageViewModel *viewModel;
+
 @end
 
 @implementation MinePageViewController
+@dynamic viewModel;
 
 #pragma mark - life_cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _minePageViewModel = [MinePageViewModel new];
     [self initUI];
     // Do any additional setup after loading the view.
     
@@ -77,8 +77,8 @@
         
         view;
     });
-    pageView.minePageMenus = _minePageViewModel.mineMenuModels;
-    pageView.minePageOrderMenus = _minePageViewModel.mineOrderMenuModels;
+    pageView.minePageMenus = self.viewModel.mineMenuModels;
+    pageView.minePageOrderMenus = self.viewModel.mineOrderMenuModels;
     
     [pageView reloadData];
 }
