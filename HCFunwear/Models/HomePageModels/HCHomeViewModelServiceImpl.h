@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "HCHomeViewModelServices.h"
+#import "GlobalConstant.h"
+#import "HCBaseViewModelServiceImp.h"
+#import "HCSliderLeftViewController.h"
 
-@interface HCHomeViewModelServiceImpl : NSObject <HCHomeViewModelServices>
+@interface HCHomeViewModelServiceImpl : HCBaseViewModelServiceImp <HCHomeViewModelServices>
 
 @end

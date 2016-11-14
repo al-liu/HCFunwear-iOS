@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HCViewController.h"
 
-@interface HCSliderLeftViewController : UIViewController
+@interface HCSliderLeftViewController : HCViewController
 
 @end

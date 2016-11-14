@@ -61,7 +61,7 @@
                 [GlobalContext ShareInstance].cid = cid;
                 //更新FLAG
                 HomePageViewController *homePageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[0];
-                homePageController.homePageViewModel.refreshFlag = isRefresh;
+                [homePageController setRefreshFlag:isRefresh];
                 
                 CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
                 categoryPageController.categoryViewModel.refreshHotFlag = isRefresh;

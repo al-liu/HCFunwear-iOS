@@ -30,7 +30,7 @@
 /// router setting
 - (HCBaseViewController *)viewControllerFromRouterWithViewModel:(HCBaseViewModel *)viewModel {
     NSString *viewControllerStr = self.viewModelViewMappings[NSStringFromClass(viewModel.class)];
-    NSParameterAssert([NSClassFromString(viewControllerStr) isSubclassOfClass:[HCBaseViewController class]]);
+    NSParameterAssert([NSClassFromString(viewControllerStr) isSubclassOfClass:[HCViewController class]]);
     NSParameterAssert([NSClassFromString(viewControllerStr) instancesRespondToSelector:@selector(initWithViewModel:)]);
     return [[NSClassFromString(viewControllerStr) alloc] initWithViewModel:viewModel];
 }
@@ -38,6 +38,7 @@
 - (NSDictionary *)viewModelViewMappings {
     if (!_viewModelViewMappings) {
         _viewModelViewMappings = @{
+                                   @"HCSliderLeftViewModel":@"HCSliderLeftViewController",
                                    @"HCTabBarViewModel":@"HCTabBarController",
                                    @"MainStyleViewModel":@"MainStyleViewController",
                                    @"HomePageViewModel":@"HomePageViewController",

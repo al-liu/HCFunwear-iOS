@@ -142,6 +142,7 @@
 		E38350A91DD9575D0069E7C7 /* HCNavigationControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350A81DD9575D0069E7C7 /* HCNavigationControllerStack.m */; };
 		E38350AF1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350AE1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m */; };
 		E38350B21DD987AF0069E7C7 /* HCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350B11DD987AF0069E7C7 /* HCViewController.m */; };
+		E38350B51DD994C70069E7C7 /* HCSliderLeftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E38350B41DD994C70069E7C7 /* HCSliderLeftViewModel.m */; };
 		E383FE661D97C56300813688 /* HCGoodsDetailShopPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE641D97C56300813688 /* HCGoodsDetailShopPlanCell.m */; };
 		E383FE671D97C56300813688 /* HCGoodsDetailShopPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E383FE651D97C56300813688 /* HCGoodsDetailShopPlanCell.xib */; };
 		E383FE6A1D97CD5300813688 /* HCGoodsDetailShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E383FE691D97CD5300813688 /* HCGoodsDetailShopView.m */; };
@@ -523,6 +524,8 @@
 		E38350AE1DD95F9A0069E7C7 /* HCBaseViewModelServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBaseViewModelServiceImp.m; sourceTree = "<group>"; };
 		E38350B01DD987AF0069E7C7 /* HCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCViewController.h; sourceTree = "<group>"; };
 		E38350B11DD987AF0069E7C7 /* HCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCViewController.m; sourceTree = "<group>"; };
+		E38350B31DD994C70069E7C7 /* HCSliderLeftViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSliderLeftViewModel.h; sourceTree = "<group>"; };
+		E38350B41DD994C70069E7C7 /* HCSliderLeftViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSliderLeftViewModel.m; sourceTree = "<group>"; };
 		E383FE631D97C56300813688 /* HCGoodsDetailShopPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGoodsDetailShopPlanCell.h; sourceTree = "<group>"; };
 		E383FE641D97C56300813688 /* HCGoodsDetailShopPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGoodsDetailShopPlanCell.m; sourceTree = "<group>"; };
 		E383FE651D97C56300813688 /* HCGoodsDetailShopPlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCGoodsDetailShopPlanCell.xib; sourceTree = "<group>"; };
@@ -907,6 +910,8 @@
 				E37F50BA1D6B486F008B465A /* ProductDetailViewModel.m */,
 				E32EB5B31DB8648A00A3129C /* HCSliderLeftViewController.h */,
 				E32EB5B41DB8648A00A3129C /* HCSliderLeftViewController.m */,
+				E38350B31DD994C70069E7C7 /* HCSliderLeftViewModel.h */,
+				E38350B41DD994C70069E7C7 /* HCSliderLeftViewModel.m */,
 				E3A89B1A1D7432FD00656780 /* HCBaseViewController.h */,
 				E3A89B1B1D7432FD00656780 /* HCBaseViewController.m */,
 			);
@@ -1900,6 +1905,7 @@
 				E3FBB1581D33775A00573343 /* ShoppingBagReusableView.m in Sources */,
 				E35BA5CC1DAB69BF00AB4BC1 /* HCMainStyleApiServiceImp.m in Sources */,
 				E36920811DD475FD00903C50 /* HCBaseViewModel.m in Sources */,
+				E38350B51DD994C70069E7C7 /* HCSliderLeftViewModel.m in Sources */,
 				E35BA5E11DAC96D600AB4BC1 /* HCInspirationViewModelServiceImp.m in Sources */,
 				E34B7BDA1D23D6ED0066FE80 /* LimitTimeBuyCell.m in Sources */,
 				E3A81E911CF5A08E008FCC51 /* MainStyleView.m in Sources */,

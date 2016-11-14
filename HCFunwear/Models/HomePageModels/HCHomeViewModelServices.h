@@ -12,12 +12,15 @@
 #import "HCProductDetailApiService.h"
 #import "HCMainStyleApiService.h"
 #import "HCNavigationService.h"
+#import "HCBaseService.h"
 
 /**
  首页的总线服务
  */
-@protocol HCHomeViewModelServices <HCNavigationService>
+@protocol HCHomeViewModelServices <HCBaseService>
 
 - (id<HCHomeLayoutService>)getHomeLayoutService;
+
+- (RACSignal *)selectedStyle:(NSInteger)tag;
 
 @end

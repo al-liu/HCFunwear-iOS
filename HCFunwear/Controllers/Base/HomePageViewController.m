@@ -11,21 +11,19 @@
 #import "GlobalImport.h"
 #import "HomePageView.h"
 #import "RACEXTScope.h"
-#import "HCHomeCollectionViewBindingHelper.h"
 #import "ReactiveCocoa.h"
 #import "ProductDetailViewController.h"
+#import "HCHomeCollectionViewBindingHelper.h"
+
 
 #import "MainStyleViewController.h"
 #import "CategoryPageViewController.h"
 #import "GlobalConfig.h"
 
-#import "HCSliderLeftPresentAnimator.h"
-#import "HCSliderLeftDismissAnimator.h"
-#import "HCSliderLeftViewController.h"
+#import "HCSliderLeftViewModel.h"
 @interface HomePageViewController ()
 <
-    TopStyleDelegate,
-    UIViewControllerTransitioningDelegate
+    TopStyleDelegate
 >
 {
     TopStyleButton *_topStyleButton;
@@ -33,27 +31,15 @@
 
 @property (strong, nonatomic) HomePageView *homePageView;
 
-@property (strong, nonatomic) HCSliderLeftPresentAnimator *animator;
+@property (strong, nonatomic, readonly) HomePageViewModel *viewModel;
 
 @end
 
 @implementation HomePageViewController
 
-#pragma mark - life_cycle
+@dynamic viewModel;
 
-- (instancetype)initWithViewModel:(HomePageViewModel *)viewModel {
-    self = [super init];
-    if (self ) {
-        self.homePageViewModel = viewModel;
-        _animator = [HCSliderLeftPresentAnimator new];
-        @weakify(self);
-        _animator.gobackSliderLeftBlock = ^(){
-            @strongify(self);
-            [self dismissViewControllerAnimated:YES completion:nil];
-        };
-    }
-    return self;
-}
+#pragma mark - life_cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,15 +48,6 @@
     [self initUI];
     [self bindViewModel];
  
-    @weakify(self);
-    [RACObserve(_homePageViewModel, refreshFlag) subscribeNext:^(id x) {
-        if ([x  isEqual: @YES]) {
-            @strongify(self);
-            [self->_homePageView beginRefresh];
-            self->_homePageViewModel.refreshFlag = NO;
-            [self updateHomePageTopStyle];
-        }
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,7 +59,7 @@
 - (void)initUI {
     self.view.backgroundColor = [UIColor whiteColor];
 
-    _homePageView = [[HomePageView alloc]initWithViewModel:_homePageViewModel];
+    _homePageView = [[HomePageView alloc]initWithViewModel:self.viewModel];
     [self.view addSubview:_homePageView];
     
     [_homePageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -90,16 +67,32 @@
         make.top.equalTo(self.view).offset(64);
         make.left.right.equalTo(self.view);
     }];
+
 }
 
 - (void)bindViewModel {
     //先请求布局数据
-    [self.homePageViewModel.layoutRequestCommand execute:nil];
+    [self.viewModel.layoutRequestCommand execute:nil];
     
     [HCHomeCollectionViewBindingHelper initWithCollectionView:_homePageView.homePageCollectionView
-                                                 sourceSignal:RACObserve(self.homePageViewModel, layoutDataArray)
-                                               productsSignal:RACObserve(self.homePageViewModel, productsDataArray)
-                                                  pushCommand:self.homePageViewModel.pushCommand];
+                                                 sourceSignal:RACObserve(self.viewModel, layoutDataArray)
+                                               productsSignal:RACObserve(self.viewModel, productsDataArray)
+                                                  pushCommand:self.viewModel.pushCommand];
+    
+    @weakify(self);
+    [RACObserve(self.viewModel, refreshFlag) subscribeNext:^(id x) {
+        if ([x  isEqual: @YES]) {
+            @strongify(self);
+            [self->_homePageView beginRefresh];
+            self.viewModel.refreshFlag = NO;
+            [self updateHomePageTopStyle];
+        }
+    }];
+    
+}
+
+- (void)setRefreshFlag:(BOOL)flag {
+    self.viewModel.refreshFlag = flag;
 }
 
 #pragma mark - configration
@@ -108,9 +101,15 @@
     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
     leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 58);
     [leftButton setImage:[UIImage imageNamed:@"top_cebian"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(toSliderLeft) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     [GlobalContext ShareInstance].mainTabBarController.navigationItem.leftBarButtonItem = leftItem;
+    
+    @weakify(self);
+    [[leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        HCSliderLeftViewModel *sliderViewModel = [HCSliderLeftViewModel new];
+        [self.viewModel.toLeftSideCommand execute:sliderViewModel];
+    }];
     
     UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
     rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 58, 0, 0);
@@ -142,57 +141,28 @@
 
 #pragma mark - TopStyleDelegate
 - (NSString *)topStyleButton:(TopStyleButton *)button cellForTitleAtIndexPath:(NSIndexPath *)indexPath {
-    return _homePageViewModel.topStyleTitleArray[indexPath.row];
+    return self.viewModel.topStyleTitleArray[indexPath.row];
 }
 
 - (void)topStyleButton:(TopStyleButton *)button didSelectStyle:(FunwearStyle )style {
+    @weakify(self);
     //处理全局 cid
-    NSString *changedCid ;
-    if (style == ManFunwearStyle) {
-        changedCid = @"1";
-    }
-    else if (style == WomenFunwearStyle) {
-        changedCid = @"2";
-    }
-    else if (style == LifeFunwearStyle) {
-        changedCid = @"4";
-    }
-    
-    if (![changedCid isEqualToString:[GlobalContext ShareInstance].cid]) {
+    [[self.viewModel.tapCommand execute:@(style)] subscribeNext:^(id x) {
+        @strongify(self);
+        RACTuple *tuple = x;
+        NSString *cid = tuple.first;
+        BOOL isRefresh = [tuple.second boolValue];
         //需要更新
-        [GlobalContext ShareInstance].cid = changedCid;
+        [GlobalContext ShareInstance].cid = cid;
         //更新FLAG
-        self.homePageViewModel.refreshFlag = YES;
+        self.viewModel.refreshFlag = YES;
         [_homePageView beginRefresh];
         
         CategoryPageViewController *categoryPageController = [GlobalContext ShareInstance].mainTabBarController.viewControllers[1];
-        categoryPageController.categoryViewModel.refreshHotFlag = YES;
-        categoryPageController.categoryViewModel.refreshCategoryFlag = YES;
-        categoryPageController.categoryViewModel.refreshBrandFlag = YES;
-    }
-}
-
-#pragma mark - 侧滑
-- (void)toSliderLeft {
-    HCSliderLeftViewController *viewController = [[HCSliderLeftViewController alloc]init];
-    viewController.transitioningDelegate = self;
-    viewController.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:viewController animated:YES completion:nil];
-}
-
-#pragma mark - 定制转场动画 (Present 与 Dismiss动画代理)
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source {
-    
-    return _animator;
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    
-    HCSliderLeftDismissAnimator *dismissAnimator   = [HCSliderLeftDismissAnimator new];
-    // 退出控制器动画
-    return dismissAnimator;
+        categoryPageController.categoryViewModel.refreshHotFlag = isRefresh;
+        categoryPageController.categoryViewModel.refreshCategoryFlag = isRefresh;
+        categoryPageController.categoryViewModel.refreshBrandFlag = isRefresh;
+    }];
 }
 
 @end

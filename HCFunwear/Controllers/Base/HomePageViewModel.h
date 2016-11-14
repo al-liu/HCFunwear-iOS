@@ -9,21 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "ReactiveCocoa.h"
 #import "HCHomeViewModelServices.h"
+#import "HCBaseViewModel.h"
 
-@interface HomePageViewModel : NSObject
+@interface HomePageViewModel : HCBaseViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services;
+@property (nonatomic, strong, readonly) RACCommand *layoutRequestCommand;
 
-@property (nonatomic, strong) RACCommand *layoutRequestCommand;
-@property (nonatomic, strong) RACCommand *productsRequestCommand;
-@property (nonatomic, strong) RACCommand *pushCommand;
+@property (nonatomic, strong, readonly) RACCommand *productsRequestCommand;
+
+@property (nonatomic, strong, readonly) RACCommand *tapCommand;
+
+@property (nonatomic, strong, readonly) RACCommand *pushCommand;
+
+@property (nonatomic, strong, readonly) RACCommand *toLeftSideCommand;
 
 @property (nonatomic, assign) NSInteger productsPage;
 
-@property (nonatomic, strong) NSArray *topStyleTitleArray;
+@property (nonatomic, strong, readonly) NSArray *topStyleTitleArray;
 
-@property (nonatomic, strong) NSArray *layoutDataArray;
-@property (nonatomic, strong) NSArray *productsDataArray;
+@property (nonatomic, strong, readonly) NSArray *layoutDataArray;
+
+@property (nonatomic, strong, readonly) NSArray *productsDataArray;
 
 //yes 是需要刷新
 @property (nonatomic, assign) BOOL refreshFlag;

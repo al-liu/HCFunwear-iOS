@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
 #import "HomePageViewModel.h"
+#import "HCViewController.h"
 
-@interface HomePageViewController : UIViewController
+@interface HomePageViewController : HCViewController
 
-@property (weak, nonatomic) HomePageViewModel *homePageViewModel;
-
-- (instancetype)initWithViewModel:(HomePageViewModel *)viewModel;
+- (void)setRefreshFlag:(BOOL)flag;
 
 @end

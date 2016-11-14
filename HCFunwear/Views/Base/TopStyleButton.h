@@ -10,7 +10,7 @@
 
 //TODO:要看这里是不是动态的，如果是则不适合定义枚举。
 typedef NS_ENUM(NSInteger,FunwearStyle) {
-    ManFunwearStyle,
+    ManFunwearStyle = 0,
     WomenFunwearStyle,
     LifeFunwearStyle
 };

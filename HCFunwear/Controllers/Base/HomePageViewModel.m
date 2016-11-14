@@ -17,20 +17,24 @@
 #import "RACEXTScope.h"
 @interface HomePageViewModel ()
 
-@property (strong, nonatomic) id <HCHomeViewModelServices> services;
+@property (strong, nonatomic, readonly) id <HCHomeViewModelServices> services;
+
+@property (nonatomic, strong, readwrite) RACCommand *layoutRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *productsRequestCommand;
+@property (nonatomic, strong, readwrite) RACCommand *pushCommand;
+@property (nonatomic, strong, readwrite) RACCommand *tapCommand;
+@property (nonatomic, strong, readwrite) RACCommand *toLeftSideCommand;
+
+@property (nonatomic, strong, readwrite) NSArray *topStyleTitleArray;
+
+@property (nonatomic, strong, readwrite) NSArray *layoutDataArray;
+@property (nonatomic, strong, readwrite) NSArray *productsDataArray;
 
 @end
 
 @implementation HomePageViewModel
 
-- (instancetype)initWithServices:(id<HCHomeViewModelServices>)services {
-    self = [super init];
-    if (self) {
-        _services = services;
-        [self initialize];
-    }
-    return self;
-}
+@dynamic services;
 
 - (void)initialize {
     _topStyleTitleArray = @[@"男生",@"女生",@"生活"];
@@ -50,6 +54,14 @@
     
     self.pushCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executePushSignal:input];
+    }];
+    
+    self.tapCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeTapSignal:input];
+    }];
+    
+    self.toLeftSideCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeToLeftSideSignal:input];
     }];
 }
 
@@ -81,6 +93,18 @@
         [subscriber sendCompleted];
         return nil;
     }];
+}
+
+- (RACSignal *)executeToLeftSideSignal:(id)viewModel {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self.services presentViewModel:viewModel animated:YES completion:nil];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
+
+- (RACSignal *)executeTapSignal:(NSNumber *)tag {
+    return [self.services selectedStyle:[tag integerValue]];
 }
 
 @end

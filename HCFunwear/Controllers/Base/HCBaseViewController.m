@@ -16,8 +16,6 @@
 
 @implementation HCBaseViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configNavigationBar];
@@ -26,10 +24,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [GlobalContext ShareInstance].rootController.interactivePopGestureRecognizer.delegate = self;
-}
-
-- (void)bindViewModel {
-    
 }
 
 - (void)configNavigationBar {
