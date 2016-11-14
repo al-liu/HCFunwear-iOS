@@ -10,8 +10,9 @@
 #import "HCProductDetailApiService.h"
 #import "HCMainStyleApiService.h"
 #import "HCNavigationService.h"
+#import "HCBaseService.h"
 
-@protocol HCMainStyleViewModelService <HCNavigationService>
+@protocol HCMainStyleViewModelService <HCBaseService>
 
 - (id<HCMainStyleApiService>)getMainStyleApiService;
 

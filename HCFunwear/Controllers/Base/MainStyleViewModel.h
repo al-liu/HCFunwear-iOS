@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "HCMainStyleViewModelService.h"
 #import "AppConfigModel.h"
+#import "HCBaseViewModel.h"
 
-@interface MainStyleViewModel : NSObject
+@interface MainStyleViewModel : HCBaseViewModel
 
 @property (nonatomic, strong, readonly) RACCommand *appConfigRequestCommand;
 
@@ -21,7 +22,5 @@
 @property (nonatomic, strong, readonly) AppConfigModel *appConfigModel;
 
 @property (nonatomic, strong, readonly) UIImage *launchBannerImage;
-
-- (instancetype)initWithServices:(id<HCMainStyleViewModelService>)services;
 
 @end

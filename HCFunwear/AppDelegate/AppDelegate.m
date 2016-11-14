@@ -23,6 +23,7 @@
 #import "GlobalContext.h"
 #import "GlobalConfig.h"
 #import "GlobalColors.h"
+#import "HCNavigationControllerStack.h"
 
 #import "HomePageViewModel.h"
 #import "CategoryPageViewModel.h"
@@ -65,6 +66,8 @@
     [GlobalContext ShareInstance].mainTabBarController = tabBarController;
     [GlobalContext ShareInstance].applicationWindow = self.window;
     [GlobalContext ShareInstance].rootController = navigationController;
+    //配置导航栈
+    [[HCNavigationControllerStack sharedInstance] pushNavigationController:navigationController];
     
     return YES;
 }

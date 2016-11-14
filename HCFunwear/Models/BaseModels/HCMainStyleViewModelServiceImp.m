@@ -39,9 +39,7 @@
 
 - (void)pushViewModel:(__nullable id)viewModel animated:(BOOL)animated {
     //跳转逻辑
-    if ([viewModel isKindOfClass:HCTabBarViewModel.class]) {
-        [[GlobalContext ShareInstance].rootController pushViewController:[GlobalContext ShareInstance].mainTabBarController animated:YES];
-    }
+    [super pushViewModel:viewModel animated:animated];
 }
 
 - (RACSignal *)selectedStyle:(NSInteger)tag {
@@ -70,9 +68,14 @@
             [subscriber sendNext:tuple];
         }
         
-        [GlobalContext ShareInstance].rootController.transitioningDelegate = self;
-        [GlobalContext ShareInstance].rootController.modalPresentationStyle = UIModalPresentationCustom;
-        [[GlobalContext ShareInstance].applicationWindow.rootViewController presentViewController:[GlobalContext ShareInstance].rootController animated:YES completion:nil];
+        UINavigationController *navigationController = [GlobalContext ShareInstance].rootController;
+        UIViewController *viewController = [GlobalContext ShareInstance].applicationWindow.rootViewController;
+        
+        navigationController.transitioningDelegate = self;
+        navigationController.modalPresentationStyle = UIModalPresentationCustom;
+        [viewController presentViewController:navigationController
+                                     animated:YES
+                                   completion:nil];
         
         [subscriber sendCompleted];
         

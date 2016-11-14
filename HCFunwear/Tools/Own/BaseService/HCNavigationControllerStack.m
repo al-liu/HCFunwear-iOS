@@ -38,6 +38,7 @@
 - (NSDictionary *)viewModelViewMappings {
     if (!_viewModelViewMappings) {
         _viewModelViewMappings = @{
+                                   @"HCTabBarViewModel":@"HCTabBarController",
                                    @"MainStyleViewModel":@"MainStyleViewController",
                                    @"HomePageViewModel":@"HomePageViewController",
                                    @"CategoryPageViewModel":@"CategoryPageViewController",

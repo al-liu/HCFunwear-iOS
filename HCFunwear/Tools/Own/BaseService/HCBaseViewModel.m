@@ -20,8 +20,11 @@
     self = [super init];
     if (self) {
         self.services = services;
+        [self initialize];
     }
     return self;
 }
+
+- (void)initialize {};
 
 @end

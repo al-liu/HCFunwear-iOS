@@ -12,6 +12,4 @@
 
 @interface HCWebViewController : HCBaseViewController
 
-- (instancetype)initWithViewModel:(HCWebViewModel *)viewModel;
-
 @end

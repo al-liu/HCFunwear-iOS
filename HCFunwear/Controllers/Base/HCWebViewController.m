@@ -20,19 +20,13 @@
     NJKWebViewProgressView *_progressView;
 }
 
-@property (nonatomic, strong) HCWebViewModel *viewModel;
+@property (nonatomic, strong, readonly) HCWebViewModel *viewModel;
 
 @end
 
 @implementation HCWebViewController
+@dynamic viewModel;
 
-- (instancetype)initWithViewModel:(HCWebViewModel *)viewModel {
-    self = [super init];
-    if (self) {
-        _viewModel = viewModel;
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -59,7 +53,7 @@
     _progressView.progressBarView.backgroundColor = [UIColor blackColor];
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
-    [self loadRequestWithURL:_viewModel.webRequestURL];
+    [self loadRequestWithURL:self.viewModel.webRequestURL];
     
 }
 
@@ -90,7 +84,7 @@
     [_progressView setProgress:progress animated:YES];
     NSLog(@"progress:%f",progress);
     if (progress == 1) {
-        self.titleLabel.text = _viewModel.webTitle;
+        self.titleLabel.text = self.viewModel.webTitle;
     }
     else if (progress == NJKInitialProgressValue) {
         self.titleLabel.text = @"页面跳转";

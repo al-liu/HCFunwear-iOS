@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HCMainStyleViewModelService.h"
+#import "HCBaseViewModelServiceImp.h"
 
-@interface HCMainStyleViewModelServiceImp : NSObject <HCMainStyleViewModelService>
+@interface HCMainStyleViewModelServiceImp : HCBaseViewModelServiceImp <HCMainStyleViewModelService>
 
 @end

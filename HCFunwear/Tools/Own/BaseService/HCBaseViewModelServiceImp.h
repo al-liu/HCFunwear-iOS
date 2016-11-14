@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HCBaseService.h"
-#import "HCBaseViewModel.h"
+#import "GlobalImport.h"
 
 @interface HCBaseViewModelServiceImp : NSObject <HCBaseService>
 

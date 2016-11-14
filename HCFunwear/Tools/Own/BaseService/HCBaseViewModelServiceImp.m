@@ -7,6 +7,7 @@
 //
 
 #import "HCBaseViewModelServiceImp.h"
+#import "HCTabBarViewModel.h"
 
 @implementation HCBaseViewModelServiceImp
 
@@ -15,7 +16,16 @@
     如果有统一的过场动画效果在这里定义，子类调用 super 。
  */
 
-- (void)pushViewModel:(HCBaseViewModel *)viewModel animated:(BOOL)animated {}
+- (void)pushViewModel:(HCBaseViewModel *)viewModel animated:(BOOL)animated {
+    HCBaseViewController *viewController = [[HCNavigationControllerStack sharedInstance] viewControllerFromRouterWithViewModel:viewModel];
+    
+    if ([viewModel isKindOfClass:HCTabBarViewModel.class]) {
+        [[HCNavigationControllerStack sharedInstance].topNavigationController pushViewController:[GlobalContext ShareInstance].mainTabBarController animated:YES];
+    }
+    else {
+        [[HCNavigationControllerStack sharedInstance].topNavigationController pushViewController:viewController animated:YES];
+    }
+}
 
 - (void)popViewModelAnimated:(BOOL)animated {}
 

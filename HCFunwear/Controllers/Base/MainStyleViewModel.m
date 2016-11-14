@@ -14,7 +14,7 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
 
 @interface MainStyleViewModel ()
 
-@property (strong, nonatomic) id <HCMainStyleViewModelService> services;
+@property (strong, nonatomic, readonly) id <HCMainStyleViewModelService> services;
 
 @property (nonatomic, strong, readwrite) RACCommand *appConfigRequestCommand;
 
@@ -30,14 +30,7 @@ static NSString *lanuch_banner_image_key = @"launchBanner_img";
 
 @implementation MainStyleViewModel
 
-- (instancetype)initWithServices:(id<HCMainStyleViewModelService>)services {
-    self = [super init];
-    if (self) {
-        _services = services;
-        [self initialize];
-    }
-    return self;
-}
+@dynamic services;
 
 - (void)initialize {
     
