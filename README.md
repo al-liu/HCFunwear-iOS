@@ -1,7 +1,7 @@
 # 仿写有范儿 app
 效果图如下：
 
-![](http://ogo5n91bk.bkt.clouddn.com/HCFunwear02.gif)
+![](https://upload-images.jianshu.io/upload_images/292794-55268dd83b552366.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/320)
 
 ## 为什么仿写 app
 在 iOS 开发中有着大量的技术实现，架构方式。而在我们实际的工作中，因为业务或者设计的需要，很难有机会触及到这些内容。这个时候，我们就可以通过仿写别人 app 的方式，去实践一些自己的想法和在工作中很难接触到的技术。
@@ -257,7 +257,7 @@ Model，包括网络接口的数据模型和 api 的模型。
 
 示意图：
 
-![mvvm & rac](http://ogo5n91bk.bkt.clouddn.com/MVVMRAC.png)
+![mvvm & rac](https://upload-images.jianshu.io/upload_images/292794-6639a17836b0b5e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
 
 ## 仿写流程 和 注意事项
 首先，获取这个程序的 api 接口，从启动开始，到要实现的每个界面，最好按照一定的业务流程。如：商品列表到商品详情，再到购买页。
